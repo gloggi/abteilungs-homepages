@@ -14,9 +14,13 @@ if( count($werwirsind_pages) ) {
 }
 class Walker_Footer_Groups extends Walker {
     var $db_fields = array( 'parent' => 'post_parent', 'id' => 'ID' );
+    var $werwirsind_seite;
+    function __construct($werwirsind_seite) {
+        $this->werwirsind_seite = $werwirsind_seite;
+    }
     function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
         $title = get_the_title( $item );
-        $output .= '<li><a href="' . $werwirsind_seite . '#' . sanitize_title( $title ) . '">' . $title . '</a>';
+        $output .= '<li><a href="' . $this->werwirsind_seite . '#' . sanitize_title( $title ) . '">' . $title . '</a>';
     }
     function end_el( &$output, $object, $depth = 0, $args = array() ) {
         $output .= '</li>';
@@ -29,7 +33,7 @@ class Walker_Footer_Groups extends Walker {
     }
 }
 
-wp_list_pages(array( 'post_type' => 'gruppe', 'title_li' => null, 'walker' => new Walker_Footer_Groups() ));
+wp_list_pages(array( 'post_type' => 'gruppe', 'title_li' => null, 'walker' => new Walker_Footer_Groups( $werwirsind_seite ) ));
 
 ?></ul>
         </div>
