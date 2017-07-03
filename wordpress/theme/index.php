@@ -9,6 +9,7 @@ $index_content3 = wpptd_get_post_meta_value( $post->ID, 'index-content3' );
 $formfields = wpptd_get_post_meta_value( $post->ID, 'index-contact-form-fields' );
 $emailSent = false;
 $hasError = false;
+$prefill = array();
 
 if(isset($_POST['submit'])) {
   $index = 0;
@@ -38,6 +39,7 @@ if(isset($_POST['submit'])) {
           if (!preg_match("/^[0-9]+([,.][0-9]+)?$/i", trim($value))) {
             $hasError = true;
             $formfields[$key]['class'] .= 'field-error ';
+            $fields[$key] = '';
           } else {
             $fields[$key] = trim($value);
           }
@@ -46,6 +48,7 @@ if(isset($_POST['submit'])) {
           if (!preg_match("/^[[:alnum:]][a-z0-9_.+-]*@[a-z0-9.-]+\.[a-z]{2,6}$/i", trim($value))) {
             $hasError = true;
             $formfields[$key]['class'] .= 'field-error ';
+            $fields[$key] = '';
           } else {
             $fields[$key] = trim($value);
           }
@@ -54,6 +57,7 @@ if(isset($_POST['submit'])) {
           if (!preg_match("/^[0-9+ ]{\$/i", trim($value))) {
             $hasError = true;
             $formfields[$key]['class'] .= 'field-error ';
+            $fields[$key] = '';
           } else {
             $fields[$key] = trim($value);
           }
@@ -62,11 +66,13 @@ if(isset($_POST['submit'])) {
           if ($value != 'm' && $value != 'w') {
             $hasError = true;
             $formfields[$key]['class'] .= 'field-error ';
+            $fields[$key] = '';
           } else {
             $fields[$key] = trim($value);
           }
           break;
       }
+      $prefill[$index] = $fields[$key];
     }
     $index++;
   }
@@ -80,6 +86,7 @@ if(isset($_POST['submit'])) {
 		$headers = 'From: Homepage '. wpod_get_option( 'gloggi_einstellungen', 'abteilung' ) .' <'.$emailTo.'>' . "\r\n";
 		wp_mail($emailTo, $subject, $body, $headers);
 		$emailSent = true;
+    $prefill = array();
 	}
 
 }
@@ -109,15 +116,15 @@ if(isset($_POST['submit'])) {
 <?php $index = 0; foreach( $formfields as $field ) : ?>
       <li><label for="field<?php echo $index; ?>"><?php echo $field['name'] . ( $field['required'] ? '*' : '' ); ?></label>
 <?php if( $field['type'] == 'textarea' ) :?>
-        <textarea rows="3" name="field<?php echo $index; ?>" id="field<?php echo $index; ?>" <?php if( $field['required'] ) : ?>required="required" <?php endif; ?><?php if( $field['class'] ) : ?>class="<?php echo $field['class']; ?>" <?php endif; ?>></textarea></li>
+        <textarea rows="3" name="field<?php echo $index; ?>" id="field<?php echo $index; ?>" <?php if( $field['required'] ) : ?>required="required" <?php endif; ?><?php if( $field['class'] ) : ?>class="<?php echo $field['class']; ?>" <?php endif; ?>><?php echo $prefill[$index]; ?></textarea></li>
 <?php elseif( $field['type'] == 'gender' ) : ?>
         <select name="field<?php echo $index; ?>" id="field<?php echo $index; ?>" <?php if( $field['required'] ) : ?>required="required" <?php endif; ?><?php if( $field['class'] ) : ?>class="<?php echo $field['class']; ?>" <?php endif; ?>>
           <option value="">Bitte w&auml;hlen</option>
-          <option value="m">m&auml;nnlich</option>
-          <option value="w">weiblich</option>
+          <option value="m"<?php if( $prefill[$index] == 'm' ) echo ' selected="selected"'; ?>>m&auml;nnlich</option>
+          <option value="w"<?php if( $prefill[$index] == 'w' ) echo ' selected="selected"'; ?>>weiblich</option>
         </select>
 <?php else : ?>
-        <input type="<?php echo $field['type']; ?>" name="field<?php echo $index; ?>" id="field<?php echo $index; ?>" value="" <?php if( $field['required'] ) : ?>required="required" <?php endif; ?><?php if( $field['class'] ) : ?>class="<?php echo $field['class']; ?>" <?php endif; ?>/>
+        <input type="<?php echo $field['type']; ?>" name="field<?php echo $index; ?>" id="field<?php echo $index; ?>" value="<?php echo $prefill[$index]; ?>" <?php if( $field['required'] ) : ?>required="required" <?php endif; ?><?php if( $field['class'] ) : ?>class="<?php echo $field['class']; ?>" <?php endif; ?>/>
 <?php endif; ?>
       </li>
 <?php $index++; endforeach; ?>
