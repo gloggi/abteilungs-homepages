@@ -591,6 +591,10 @@ ul {
   .heading--footer {
     margin-top: 0px; } }
 
+.field-error {
+  border: 2px solid red;
+}
+
 .form__join {
   margin-top: 80px; }
 @media screen and (max-width: 500px) {

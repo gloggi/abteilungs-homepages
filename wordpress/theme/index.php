@@ -8,16 +8,16 @@ $index_trennbanner2 = wpptd_get_post_meta_value( $post->ID, 'index-separator-ban
 $index_content3 = wpptd_get_post_meta_value( $post->ID, 'index-content3' );
 $formfields = wpptd_get_post_meta_value( $post->ID, 'index-contact-form-fields' );
 $emailSent = false;
+$hasError = false;
 
 if(isset($_POST['submit'])) {
   $index = 0;
-  $hasError = false;
   $fields = array();
   foreach( $formfields as $key => $field ) {
     $value = $_POST['field' . $index];
     if( trim($value) === '') {
       if( $field['required'] ) {
-        $formfields[$key]['class'] .= 'pleasefill ';
+        $formfields[$key]['class'] .= 'field-error ';
         $hasError = true;
       } else {
         $fields[$key] = '';
@@ -37,6 +37,7 @@ if(isset($_POST['submit'])) {
         case 'number':
           if (!preg_match("/^[0-9]+([,.][0-9]+)?$/i", trim($value))) {
             $hasError = true;
+            $formfields[$key]['class'] .= 'field-error ';
           } else {
             $fields[$key] = trim($value);
           }
@@ -44,6 +45,7 @@ if(isset($_POST['submit'])) {
         case 'email':
           if (!preg_match("/^[[:alnum:]][a-z0-9_.+-]*@[a-z0-9.-]+\.[a-z]{2,6}$/i", trim($value))) {
             $hasError = true;
+            $formfields[$key]['class'] .= 'field-error ';
           } else {
             $fields[$key] = trim($value);
           }
@@ -51,6 +53,7 @@ if(isset($_POST['submit'])) {
         case 'tel':
           if (!preg_match("/^[0-9+ ]{\$/i", trim($value))) {
             $hasError = true;
+            $formfields[$key]['class'] .= 'field-error ';
           } else {
             $fields[$key] = trim($value);
           }
@@ -58,6 +61,7 @@ if(isset($_POST['submit'])) {
         case 'gender':
           if ($value != 'm' && $value != 'w') {
             $hasError = true;
+            $formfields[$key]['class'] .= 'field-error ';
           } else {
             $fields[$key] = trim($value);
           }
@@ -66,7 +70,6 @@ if(isset($_POST['submit'])) {
     }
     $index++;
   }
-  var_dump($hasError);
 	if(!$hasError) {
 		$emailTo = wpod_get_option('gloggi_einstellungen', 'mitmachen-email');
 		$subject = 'Neue Nachricht auf ' . get_the_permalink();
@@ -75,10 +78,6 @@ if(isset($_POST['submit'])) {
       $body .= $formfields[$key]['name'] . ":\n" . $field . "\n\n";
     }
 		$headers = 'From: Homepage '. wpod_get_option( 'gloggi_einstellungen', 'abteilung' ) .' <'.$emailTo.'>' . "\r\n";
-    var_dump($emailTo);
-    var_dump($subject);
-    var_dump($body);
-    var_dump($headers);
 		wp_mail($emailTo, $subject, $body, $headers);
 		$emailSent = true;
 	}
@@ -100,7 +99,9 @@ if(isset($_POST['submit'])) {
 <?php if( $formfields && count( $formfields ) > 0 ) : ?>
 <div class="content__block" id="mitmachen">
   <h2 style="margin-top: 0px;">Mitmachen</h2>
-<?php if( $emailSent ) : ?>
+<?php if( $hasError ) : ?>
+  <h3>Bitte Fehler in den untenstehenden Feldern korrigieren.</h3>
+<?php elseif( $emailSent ) : ?>
   <h3>Vielen Dank, die Nachricht wurde verschickt.</h3>
 <?php endif; ?>
   <form action="<?php echo get_the_permalink(); ?>#mitmachen" method="POST">
