@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="200px" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.2 (33826) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon / Male</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard">
+            <g id="Icon-/-Male">
+                <rect id="Rectangle" x="0" y="0" width="200" height="200"></rect>
+                <g id="masculine" fill="#FFFFFF">
+                    <path d="M77.6135831,199.844028 C34.8168618,199.844028 0,165.027166 0,122.230445 C0,79.4360656 34.8168618,44.6192037 77.6135831,44.6192037 C120.407963,44.6192037 155.224824,79.4360656 155.224824,122.230445 C155.224824,165.027166 120.407963,199.844028 77.6135831,199.844028 L77.6135831,199.844028 Z M77.6135831,73.64637 C50.8224824,73.64637 29.0257611,95.4412178 29.0257611,122.232319 C29.0257611,149.023419 50.8206089,170.820141 77.6135831,170.820141 C104.40281,170.820141 126.201405,149.025293 126.201405,122.232319 C126.199532,95.4412178 104.402342,73.64637 77.6135831,73.64637 L77.6135831,73.64637 Z" id="Shape"></path>
+                    <polygon id="Shape" points="199.844028 77.6135831 170.818735 77.6135831 170.818735 29.0252927 122.230445 29.0252927 122.230445 0 199.844028 0"></polygon>
+                    <rect id="Rectangle-path" transform="translate(153.775503, 46.067641) rotate(225.000000) translate(-153.775503, -46.067641) " x="139.26323" y="1.45027051" width="29.024546" height="89.2347414"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
