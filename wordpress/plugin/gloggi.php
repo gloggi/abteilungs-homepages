@@ -249,6 +249,24 @@ function gloggi_custom_post_type_gruppe( $wpptd ) {
                     ),
                   ),
                 ),
+                'highlight-bilder' => array(
+                  'title' => __( 'Bilder', 'gloggi' ),
+                  'type' => 'repeatable',
+                  'repeatable' => array(
+                    'limit' => 4,
+                    'fields' => array(
+                      'bild' => array(
+                        'title' => __( 'Bild' ),
+                        'type' => 'media',
+                        'required' => true,
+                      ),
+                      'beschreibung' => array(
+                        'title' => __( 'Beschreibung' ),
+                        'type' => 'text',
+                      ),
+                    ),
+                  ),
+                ),
                 'jahresplan' => array(
                   'title' => __( 'Jahresplan', 'gloggi' ),
                   'type' => 'media',

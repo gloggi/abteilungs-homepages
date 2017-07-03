@@ -68,11 +68,12 @@ while( $gruppen_query->have_posts() ) : $gruppen_query->the_post();
     'alter-bis' => $stufen[$gruppeninfos['stufe']]['alter-bis'],
     'beschreibung' => $gruppeninfos['beschreibung'],
     'einzugsgebiet' => $gruppeninfos['einzugsgebiet'],
-    // Bug im Plugin Post Types Definitely: Ein Select-Feld für einen CPT in einem Repeatable-Feld gibt mit wpptd_get_post_meta_values die richtige Anzahl Elemente,
+    // Bug im Plugin Post Types Definitely: Felder in einem Repeatable-Feld geben mit wpptd_get_post_meta_values die richtige Anzahl Elemente,
     // aber alle nur mit dem Standardinhalt zurück. Benütze stattdessen für dieses Feld wpptd_get_post_meta_value().
     'nachfolgergruppen' => array_map( function($nfg){ return $nfg['nachfolgergruppe']; }, wpptd_get_post_meta_value( $post->ID, 'nachfolgergruppen' ) ),
     'vorgaengergruppen' => array(),
     'elterngruppe' => wp_get_post_parent_id( $post->ID ),
+    'highlight-bilder' => wpptd_get_post_meta_value( $post->ID, 'highlight-bilder' ),
   );
   $gruppen[$post->ID] = $gruppe;
 endwhile; wp_reset_postdata();
@@ -153,10 +154,13 @@ foreach( $stufen as $stufe ) : ?>
 <?php endif; ?>
                     <p><b>Kontakt:</b> <a>TODO</a></p>
                   </div>
+<?php if( $gruppe['highlight-bilder'] ) : ?>
                   <div class="group__pictures">
-                    <img class="group__picture" src="./Gloggi_files/field.jpg">
-                    
+<?php foreach( $gruppe['highlight-bilder'] as $bild ) : ?>
+                    <img class="group__picture" alt="<?php echo $bild['beschreibung']; ?>" src="<?php echo wp_get_attachment_url( $bild['bild'] ); ?>">
+<?php endforeach; ?>
                   </div>
+<?php endif; ?>
                 </div>
               </div>
             </div>
