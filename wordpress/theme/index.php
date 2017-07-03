@@ -80,10 +80,14 @@ if(isset($_POST['submit'])) {
 		$emailTo = wpod_get_option('gloggi_einstellungen', 'mitmachen-email');
 		$subject = 'Neue Nachricht auf ' . get_the_permalink();
 		$body = '';
+    $email = '';
     foreach( $fields as $key => $field ) {
       $body .= $formfields[$key]['name'] . ":\n" . $field . "\n\n";
+      if( $formfields[$key]['type'] == 'email' && $field != '' ) {
+        $email = $field;
+      }
     }
-		$headers = 'From: Homepage '. wpod_get_option( 'gloggi_einstellungen', 'abteilung' ) .' <'.$emailTo.'>' . "\r\n";
+		$headers = array( 'From: Homepage '. wpod_get_option( 'gloggi_einstellungen', 'abteilung' ) .' <'.$emailTo.'>', 'Reply-To: ' . $email );
 		wp_mail($emailTo, $subject, $body, $headers);
 		$emailSent = true;
     $prefill = array();
