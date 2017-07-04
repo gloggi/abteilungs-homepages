@@ -195,21 +195,31 @@ foreach( $stufen as $stufe ) : ?>
 </div>
 <?php endif; ?>
 
+<?php
+
+// Lese alle Kontaktinfos
+$kontakt_query = new WP_Query( array( 'post_type' => 'kontakt', 'orderby' => array( 'menu_order' => 'ASC', 'name' => 'ASC') ) );
+$kontakte = array();
+while( $kontakt_query->have_posts() ) : $kontakt_query->the_post();
+  $kontaktinfos = wpptd_get_post_meta_values( $post->ID );
+  $kontakt = array(
+    'ID' => $post->ID,
+    'name' => get_the_title(),
+    'email' => $kontaktinfos['email'],
+  );
+  $kontakte[] = $kontakt;
+endwhile; wp_reset_postdata();
+
+if( $kontakt_query->have_posts() ) : ?>
 <div class="content__block">
     <h2 class="heading-2">Kontakt</h2>
     <div class="contact">
         <div class="contact__left">
-            <h3>Pfadi Lägern</h3>
-            <p>info@pfadi-laegern.ch</p><p>
-
-            </p><h3>Wölfli</h3>
-            <p>wöflfi@pfadi-laegern.ch</p>
-
-            <h3>Hochwacht</h3>
-            <p>hochwacht@pfadi-laegern.ch</p>
-
-            <h3>Atar</h3>
-            <p>atar@pfadi-laegern.ch</p>
+<?php while( $kontakt_query->have_posts() ) : $kontakt_query->the_post();
+    $email = wpptd_get_post_meta_value( $post->ID, 'email' ); ?>
+            <h3><?php echo get_the_title(); ?></h3>
+            <p><a href="<?php echo encode_all_to_htmlentities( 'mailto:' . $email ); ?>"><?php echo encode_all_to_htmlentities( $email ); ?></a></p>
+<?php endwhile; ?>
         </div>
         <div class="contact__right">
             <img src="./Gloggi_files/mountain.jpg">
@@ -217,5 +227,6 @@ foreach( $stufen as $stufe ) : ?>
         </div>
     </div>
 </div>
+<?php endif; ?>
 
 <?php get_template_part( 'footer' ); ?>
