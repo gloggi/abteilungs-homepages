@@ -12,8 +12,19 @@ $mitmachen_seite = '/';
 $index_pages = get_pages( array( 'meta_key' => '_wp_page_template', 'meta_value' => 'index.php', ) );
 if( count($index_pages) ) {
   $mitmachen_seite = get_the_permalink( $index_pages[0]->ID );
-} ?>
+}
+
+
+// Funktion um Mailadressen zu verschleiern
+function encode_all_to_htmlentities($str) {
+  $str = mb_convert_encoding($str , 'UTF-32', 'UTF-8');
+  $t = unpack("N*", $str);
+  $t = array_map(function($n) { return "&#$n;"; }, $t);
+  return implode("", $t);
+}
+?>
 <?php get_template_part('header'); ?>
+
 
 <?php if( $werwirsind_content ) : ?>
 <div class="content__block">
@@ -68,6 +79,8 @@ while( $gruppen_query->have_posts() ) : $gruppen_query->the_post();
     'alter-bis' => $stufen[$gruppeninfos['stufe']]['alter-bis'],
     'beschreibung' => $gruppeninfos['beschreibung'],
     'einzugsgebiet' => $gruppeninfos['einzugsgebiet'],
+    'kontakt-mail' => $gruppeninfos['kontakt-mail'],
+    'kontakt-name' => $gruppeninfos['kontakt-name'],
     // Bug im Plugin Post Types Definitely: Felder in einem Repeatable-Feld geben mit wpptd_get_post_meta_values die richtige Anzahl Elemente,
     // aber alle nur mit dem Standardinhalt zurück. Benütze stattdessen für dieses Feld wpptd_get_post_meta_value().
     'nachfolgergruppen' => array_map( function($nfg){ return $nfg['nachfolgergruppe']; }, wpptd_get_post_meta_value( $post->ID, 'nachfolgergruppen' ) ),
@@ -152,7 +165,7 @@ foreach( $stufen as $stufe ) : ?>
 <?php endforeach; ?>
                     </ul>
 <?php endif; ?>
-                    <p><b>Kontakt:</b> <a>TODO</a></p>
+                    <p><b>Kontakt:</b> <a href="<?php echo encode_all_to_htmlentities('mailto:' . $gruppe['kontakt-mail']); ?>"><?php echo $gruppe['kontakt-name']; ?></a></p>
                   </div>
 <?php if( $gruppe['highlight-bilder'] ) : ?>
                   <div class="group__pictures">

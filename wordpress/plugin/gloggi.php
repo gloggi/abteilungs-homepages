@@ -236,6 +236,16 @@ function gloggi_custom_post_type_gruppe( $wpptd ) {
                   'title' => __( 'Beschreibung', 'gloggi' ),
                   'type' => 'wysiwyg',
                 ),
+                'kontakt-mail' => array(
+                  'title' => __( 'Kontakt-Mailadresse', 'gloggi' ),
+                  'type' => 'email',
+                  'required' => true,
+                ),
+                'kontakt-name' => array(
+                  'title' => __( 'Angezeigter Kontakt-Name', 'gloggi' ),
+                  'type' => 'text',
+                  'required' => true,
+                ),
                 'nachfolgergruppen' => array(
                   'title' => __( 'Alte Kinder wechseln zu...', 'gloggi' ),
                   'type' => 'repeatable',
