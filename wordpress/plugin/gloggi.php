@@ -455,7 +455,7 @@ function gloggi_custom_post_type_kontakt( $wpptd ) {
       'post_types' => array(
         'kontakt' => array(
           'labels' => $labels,
-          'supports' => array( ),
+          'supports' => array( 'title' ),
           'taxonomies' => array( 'funktion' ),
           /* Permalinks entfernen */
           'public' => false,
@@ -470,37 +470,18 @@ function gloggi_custom_post_type_kontakt( $wpptd ) {
             'author' => false,
             'comments' => false,
             'date' => false,
-            'meta-name' => array( 'sortable' => true ),
             'meta-email' => array( 'sortable' => true ),
           ),
           'metaboxes' => array(
             'kontaktinfos' => array(
               'title' => __( 'Kontakt-Informationen', 'gloggi' ),
               'fields' => array(
-                'name' => array(
-                  'title' => __( 'Name', 'gloggi' ),
-                  'type' => 'text',
-                  'required' => true,
-                ),
                 'email' => array(
                   'title' => __( 'E-Mail', 'gloggi' ),
                   'type' => 'email',
                   'required' => true,
                 ),
               ),
-            ),
-          ),
-          'taxonomies' => array(
-            'funktion' => array(
-              'labels' => $funktion_labels,
-              'hierarchical' => false,
-              'public' => false,
-              'show_ui' => true,
-              'show_admin_column' => true,
-              'show_in_nav_menus' => false,
-              'show_tagcloud' => false,
-              'rewrite' => false,
-              'show_in_rest' => false,
             ),
           ),
         ),
