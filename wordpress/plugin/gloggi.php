@@ -416,68 +416,46 @@ function gloggi_custom_post_type_anlass( $wpptd ) {
 }
 
 
-/* Leiter (Abteilungsstab) */
-function gloggi_custom_post_type_leiter( $wpptd ) {
+/* Kontakt (Abteilungsstab) */
+function gloggi_custom_post_type_kontakt( $wpptd ) {
   $labels = array(
-    'name' => 'Leiter',
-    'singular_name' => 'Leiter',
-    'menu_name' => 'Leiter',
-    'name_admin_bar' => 'Leiter',
-    'archives' => 'Leiter-Archiv',
-    'attributes' => 'Leiter-Eigenschaften',
+    'name' => 'Kontakte',
+    'singular_name' => 'Kontakt',
+    'menu_name' => 'Kontakte',
+    'name_admin_bar' => 'Kontakte',
+    'archives' => 'Kontakt-Archiv',
+    'attributes' => 'Kontakt-Eigenschaften',
     'parent_item_colon' => '&Uuml;bergeordnetes Objekt:',
-    'all_items' => 'Alle Leiter',
-    'add_new_item' => 'Neuen Leiter hinzuf&uuml;gen',
+    'all_items' => 'Alle Kontakte',
+    'add_new_item' => 'Neuen Kontakt hinzuf&uuml;gen',
     'add_new' => '+ Neu',
-    'new_item' => 'Neuer Leiter',
-    'edit_item' => 'Leiter bearbeiten',
-    'update_item' => 'Leiter aktualisieren',
-    'view_item' => 'Leiter ansehen',
-    'view_items' => 'Leiter ansehen',
-    'search_items' => 'Leiter suchen',
+    'new_item' => 'Neuer Kontakt',
+    'edit_item' => 'Kontakt bearbeiten',
+    'update_item' => 'Kontakt aktualisieren',
+    'view_item' => 'Kontakt ansehen',
+    'view_items' => 'Kontakte ansehen',
+    'search_items' => 'Kontakte suchen',
     'not_found' => 'Nicht gefunden',
     'not_found_in_trash' => 'Nicht im Papierkorb gefunden',
     'featured_image' => 'Profilbild',
     'set_featured_image' => 'Profilbild setzen',
     'remove_featured_image' => 'Profilbild entfernen',
     'use_featured_image' => 'Als Profilbild verwenden',
-    'insert_into_item' => 'Zu Leiter hinzuf&uuml;gen',
-    'uploaded_to_this_item' => 'Zu Leiter hochgeladen',
-    'items_list' => 'Leiter-Liste',
-    'items_list_navigation' => 'Leiter-Liste Navigation',
-    'filter_items_list' => 'Leiter-Liste filtern',
-  );
-  $funktion_labels = array(
-    'name' => 'Leiterfunktionen',
-    'singular_name' => 'Funktion',
-    'menu_name' => 'Leiterfunktionen',
-    'all_items' => 'Alle Funktionen',
-    'parent_item' => '&Uuml;bergeordnetes Objekt',
-    'parent_item_colon' => '&Uuml;bergeordnetes Objekt:',
-    'new_item_name' => 'Neuer Funktionsname',
-    'add_new_item' => 'Neue Funktion hinzuf&uuml;gen',
-    'edit_item' => 'Funktion bearbeiten',
-    'update_item' => 'Funktion aktualisieren',
-    'view_item' => 'Funktion ansehen',
-    'separate_items_with_commas' => 'Funktionen mit Kommas abtrennen',
-    'add_or_remove_items' => 'Funktionen hinzuf&uuml;gen oder entfernen',
-    'choose_from_most_used' => 'Meist benutzte',
-    'popular_items' => 'Beliebte Funktionen',
-    'search_items' => 'Funktionen durchsuchen',
-    'not_found' => 'Nicht gefunden',
-    'no_terms' => 'Keine Funktionen',
-    'items_list' => 'Funktionen-Liste',
-    'items_list_navigation' => 'Funktionen-Liste Navigation',
+    'insert_into_item' => 'Zu Kontakt hinzuf&uuml;gen',
+    'uploaded_to_this_item' => 'Zu Kontakt hochgeladen',
+    'items_list' => 'Kontakt-Liste',
+    'items_list_navigation' => 'Kontakt-Liste Navigation',
+    'filter_items_list' => 'Kontakt-Liste filtern',
   );
   $wpptd->add_components( array(
-    'gloggi_leiter' => array(
-      'label' => __( 'Leiter', 'gloggi' ),
+    'gloggi_kontakt' => array(
+      'label' => __( 'Kontakte', 'gloggi' ),
       'icon' => 'dashicons-admin-users',
       'position' => 5,
       'post_types' => array(
-        'leiter' => array(
+        'kontakt' => array(
           'labels' => $labels,
-          'supports' => array( 'thumbnail', ),
+          'supports' => array( ),
           'taxonomies' => array( 'funktion' ),
           /* Permalinks entfernen */
           'public' => false,
@@ -492,29 +470,17 @@ function gloggi_custom_post_type_leiter( $wpptd ) {
             'author' => false,
             'comments' => false,
             'date' => false,
-            'meta-pfadiname' => array( 'sortable' => true ),
-            'meta-vorname' => array( 'sortable' => true ),
             'meta-name' => array( 'sortable' => true ),
             'meta-email' => array( 'sortable' => true ),
-            
           ),
           'metaboxes' => array(
-            'leiterinfos' => array(
-              'title' => __( 'Leiter-Informationen', 'gloggi' ),
+            'kontaktinfos' => array(
+              'title' => __( 'Kontakt-Informationen', 'gloggi' ),
               'fields' => array(
-                'vorname' => array(
-                  'title' => __( 'Vorname', 'gloggi' ),
-                  'type' => 'text',
-                  'required' => true,
-                ),
                 'name' => array(
                   'title' => __( 'Name', 'gloggi' ),
                   'type' => 'text',
                   'required' => true,
-                ),
-                'pfadiname' => array(
-                  'title' => __( 'Pfadiname', 'gloggi' ),
-                  'type' => 'text',
                 ),
                 'email' => array(
                   'title' => __( 'E-Mail', 'gloggi' ),
@@ -703,7 +669,7 @@ function gloggi_custom_page_type( $wpptd ) {
 add_action( 'wpptd', 'gloggi_custom_post_type_stufe' );
 add_action( 'wpptd', 'gloggi_custom_post_type_gruppe' );
 add_action( 'wpptd', 'gloggi_custom_post_type_anlass' );
-add_action( 'wpptd', 'gloggi_custom_post_type_leiter' );
+add_action( 'wpptd', 'gloggi_custom_post_type_kontakt' );
 add_action( 'wpptd', 'gloggi_custom_page_type' );
 
 
