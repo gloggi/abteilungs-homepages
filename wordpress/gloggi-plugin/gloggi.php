@@ -682,27 +682,6 @@ add_action( 'wpptd', 'gloggi_custom_post_type_kontakt' );
 add_action( 'wpptd', 'gloggi_custom_page_type' );
 
 
-/* Automatische Titel für Leiter-Posts */
-add_filter( 'save_post_leiter', 'gloggi_set_leiter_title', 10, 3 );
-function gloggi_set_leiter_title ( $post_id, $post, $update ){
-  // Temporär den Filter entfernen damit keine Endlosschlaufe entsteht
-  remove_filter( 'save_post_leiter', __FUNCTION__ );
-
-  // Titel aus Pfadiname oder Vorname zusammensetzen
-  $vorname = get_field( 'vorname', $post_id );
-  $pfadiname = get_field( 'pfadiname', $post_id );
-  $title = $pfadiname;
-  if ( $pfadiname == '' ) {
-      $title = $vorname;
-    }
-
-  // Titel aktualisieren
-  wp_update_post( array( 'ID' =>$post_id, 'post_title' =>$title ) );
-
-  // Den Filter wieder installieren
-  add_filter( 'save_post_leiter', __FUNCTION__, 10, 3 );
-}
-
 function endswith($string, $test) {
   $strlen = strlen($string);
   $testlen = strlen($test);
