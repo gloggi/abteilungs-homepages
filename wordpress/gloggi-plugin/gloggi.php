@@ -464,7 +464,7 @@ function gloggi_custom_post_type_kontakt( $wpptd ) {
       'post_types' => array(
         'kontakt' => array(
           'labels' => $labels,
-          'supports' => array( 'title' ),
+          'supports' => array( 'title', 'page-attributes' ),
           'taxonomies' => array( 'funktion' ),
           /* Permalinks entfernen */
           'public' => false,
@@ -758,11 +758,7 @@ add_filter( 'screen_options_show_screen', '__return_false' );
 
 // Order pages by menu_order column
 function custom_post_order($query){
-  if( 'stufe' == $query->get('post_type') ){
-    $query->set('orderby', 'menu_order');
-    $query->set('order', 'ASC');
-  }
-  if( 'page' == $query->get('post_type') ){
+  if( ('stufe' == $query->get('post_type')) or ('kontakt' == $query->get('post_type')) or ('page' == $query->get('post_type'))){
     $query->set('orderby', 'menu_order');
     $query->set('order', 'ASC');
   }
