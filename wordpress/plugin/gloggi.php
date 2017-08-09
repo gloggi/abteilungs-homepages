@@ -15,6 +15,7 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 	__FILE__,
 	'gloggi-abteilungshomepages-plugin'
 );
+add_filter( 'auto_update_plugin', '__return_true' );
 
 // Post Types Definitely und Options Definitely muessen aktiv sein
 add_action( 'admin_init', 'gloggi_dependencies_satisfied' );

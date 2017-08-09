@@ -7,6 +7,7 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 	__FILE__,
 	'gloggi-abteilungshomepages-theme'
 );
+add_filter( 'auto_update_theme', '__return_true' );
 
 // Check for our Gloggi Plugin
 function gloggi_dependencies() {
