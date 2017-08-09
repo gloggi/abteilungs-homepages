@@ -1,5 +1,13 @@
 <?php
 
+// Automatic updates for our theme
+require 'plugin-update-checker/plugin-update-checker.php';
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	'http://wp-updates.gloggi.ch/gloggi-theme.json',
+	__FILE__,
+	'gloggi-abteilungshomepages-theme'
+);
+
 // Check for our Gloggi Plugin
 function gloggi_dependencies() {
   if( ! function_exists('gloggi_dependencies_satisfied') )

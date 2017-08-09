@@ -8,6 +8,14 @@
    License: GPL2
    */
 
+// Automatische Updates fuer das Plugin
+require 'plugin-update-checker/plugin-update-checker.php';
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	'http://wp-updates.gloggi.ch/gloggi-plugin.json',
+	__FILE__,
+	'gloggi-abteilungshomepages-plugin'
+);
+
 // Post Types Definitely und Options Definitely muessen aktiv sein
 add_action( 'admin_init', 'gloggi_dependencies_satisfied' );
 function gloggi_dependencies_satisfied() {
