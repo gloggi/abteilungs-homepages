@@ -125,6 +125,9 @@ if( $anlaesse->have_posts() ) : ?>
   // Anlassverantwortlicher ist der AL, oder wenn im Backend eingetragen eine andere Mailadresse.
   $anlassverantwortlicher = $standard_anlassverantwortlicher;
   if( $anlassinfos['anlassverantwortlicher'] ) $anlassverantwortlicher = $anlassinfos['anlassverantwortlicher'];
+  // Ein Anlass kann zu einem Special Event zugeordnet sein
+  $specialevent_titel = "";
+  if( $anlassinfos['is-specialevent'] ) $specialevent_titel = get_the_title( $anlassinfos['specialevent'] );
   // Bereite diverse Zeit- und Ortfelder für die Anzeige vor
   $startzeitpunkt = date_create_from_format( 'YmdHis', $anlassinfos['startzeit'] );
   $endzeitpunkt = date_create_from_format( 'YmdHis', $anlassinfos['endzeit'] );
@@ -174,7 +177,7 @@ if( $anlaesse->have_posts() ) : ?>
               <p><?php echo $anlassinfos['beschreibung']; ?></p>
             </div>
             <div class="lightbox__section">
-              <p>Hast du noch Fragen? Dann melde dich bei <a href="<?php echo encode_all_to_htmlentities( 'mailto:' . $anlassverantwortlicher );?>"><?php echo encode_all_to_htmlentities( $anlassverantwortlicher );?></a>.</p>
+              <p>Hast du noch Fragen? Dann melde dich bei <a href="<?php echo encode_all_to_htmlentities( 'mailto:' . $anlassverantwortlicher );?>"><?php echo encode_all_to_htmlentities( $anlassverantwortlicher );?></a><?php if( $anlassinfos['is-specialevent'] ) : ?> oder lies allgemeine Informationen: <a href="#special-event-<?php echo sanitize_title( $specialevent_titel ); ?>"><?php echo $specialevent_titel; ?></a><?php endif; ?>.</p>
             </div>
             <div class="lightbox__section">
               <div class="content__two-columns content__columns--1-1">
@@ -246,7 +249,7 @@ if( $specialevents->have_posts() ) : ?>
   <ul class="agenda__special-events">
 <?php while( $specialevents->have_posts() ) : $specialevents->the_post(); ?>
     <li>
-      <a href="#">
+      <a href="#special-event-<?php echo sanitize_title( get_the_title() ); ?>">
         <div class="circle-medium color-primary">
           <p><?php echo get_the_title(); ?></p>
         </div>
