@@ -13,6 +13,12 @@ $index_pages = get_pages( array( 'meta_key' => '_wp_page_template', 'meta_value'
 if( count($index_pages) ) {
   $mitmachen_seite = get_the_permalink( $index_pages[0]->ID );
 }
+// Suche irgendeine Seite die das "agenda.php"-Template verwendet, und somit Anlässe anzeigt.
+$agenda_seite = '/';
+$agenda_pages = get_pages( array( 'meta_key' => '_wp_page_template', 'meta_value' => 'agenda.php', ) );
+if( count($agenda_pages) ) {
+  $agenda_seite = get_the_permalink( $agenda_pages[0]->ID );
+}
 
 
 // Funktion um Mailadressen zu verschleiern
@@ -165,6 +171,7 @@ foreach( $stufen as $stufe ) : ?>
 <?php endforeach; ?>
                     </ul>
 <?php endif; ?>
+                    <p><a class="group__next_event" href="<?php echo $agenda_seite; ?>?gruppe=<?php echo sanitize_title( $gruppe['name'] ); ?>">Nächster Anlass</a></p>
                     <p><b>Kontakt:</b> <a href="<?php echo encode_all_to_htmlentities('mailto:' . $gruppe['kontakt-mail']); ?>"><?php echo $gruppe['kontakt-name']; ?></a></p>
                   </div>
 <?php if( $gruppe['highlight-bilder'] ) : ?>
