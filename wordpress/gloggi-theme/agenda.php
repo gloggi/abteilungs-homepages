@@ -84,7 +84,7 @@ if( $anlaesse->have_posts() ) : ?>
 <?php endforeach; ?>
     </div>
   </div>
-  <div class="agenda__entries-first">
+  <div class="agenda__entries-first" id="naechster-anlass">
   </div>
   <div class="agenda__entries">
 <?php while ( $anlaesse->have_posts() ) : $anlaesse->the_post();

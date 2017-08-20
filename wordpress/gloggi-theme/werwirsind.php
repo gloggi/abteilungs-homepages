@@ -171,7 +171,7 @@ foreach( $stufen as $stufe ) : ?>
 <?php endforeach; ?>
                     </ul>
 <?php endif; ?>
-                    <p><a class="group__next_event" href="<?php echo $agenda_seite; ?>?gruppe=<?php echo sanitize_title( $gruppe['name'] ); ?>">Nächster Anlass</a></p>
+                    <p><a class="group__next_event" href="<?php echo $agenda_seite; ?>?gruppe=<?php echo sanitize_title( $gruppe['name'] ); ?>#naechster-anlass">Nächster Anlass</a></p>
                     <p><b>Kontakt:</b> <a href="<?php echo encode_all_to_htmlentities('mailto:' . $gruppe['kontakt-mail']); ?>"><?php echo $gruppe['kontakt-name']; ?></a></p>
                   </div>
 <?php if( $gruppe['highlight-bilder'] ) : ?>
