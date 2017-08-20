@@ -238,15 +238,15 @@ endforeach; ?>
 </div>
 <?php endif; ?>
 
-<?php $special_event_ids = array_map( function($se) { return $se['event']; },  wpod_get_option( 'gloggi_einstellungen', 'special-events' ) );
-$specialevents = new WP_Query( array( 'post_type' => 'anlass', 'post__in' => $special_event_ids, 'meta_query' => array( array( 'key' => 'endzeit', 'value' => date( 'YmdHis' ), 'compare' => '>=', ), ), ) );
-if( $special_event_ids && count( $special_event_ids ) && $specialevents->have_posts() ) : ?>
+<?php
+$specialevents = new WP_Query( array( 'post_type' => 'specialevent') );
+if( $specialevents->have_posts() ) : ?>
 <div class="content__block">
   <h2 class="heading-2"><?php echo $agenda_specialevents_title; ?></h2>
   <ul class="agenda__special-events">
 <?php while( $specialevents->have_posts() ) : $specialevents->the_post(); ?>
     <li>
-      <a href="#agenda-entry-<?php echo $post->ID; ?>">
+      <a href="#">
         <div class="circle-medium color-primary">
           <p><?php echo get_the_title(); ?></p>
         </div>
