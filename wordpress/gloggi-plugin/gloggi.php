@@ -372,6 +372,11 @@ function gloggi_custom_post_type_anlass( $wpptd ) {
                   'options' => array( 'posts' => 'gruppe' ),
                   'required' => true,
                 ),
+                'anlassverantwortlicher' => array(
+                  'title' => __( 'Anlassverantwortlich', 'gloggi' ),
+                  'type' => 'email',
+                  'description' => __( 'Wenn leer wird beim Anlass der AL angezeigt.', 'gloggi' ),
+                ),
                 'startzeit' => array(
                   'title' => __( 'Startzeit', 'gloggi' ),
                   'type' => 'datetime',
@@ -818,6 +823,10 @@ function gloggi_register_options( $wpod ) {
                     ),
                     'mitmachen-email' => array(
                       'title' => __( 'Mitmachen-Formular e-Mails gehen an...', 'gloggi' ),
+                      'type' => 'email',
+                    ),
+                    'anlassverantwortungs-email' => array(
+                      'title' => __( 'Kontakt f&uuml;r Anl&auml;sse ohne Kontaktangabe', 'gloggi' ),
                       'type' => 'email',
                     ),
                     'instagram' => array(

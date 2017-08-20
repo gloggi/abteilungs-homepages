@@ -11,6 +11,17 @@ $agenda_jahresplan_content = wpptd_get_post_meta_value( $post->ID, 'agenda-annua
 $agenda_trennbanner2 = wpptd_get_post_meta_value( $post->ID, 'agenda-separator-banner2');
 $agenda_specialevents_title = wpptd_get_post_meta_value( $post->ID, 'agenda-special-events-title');
 
+$standard_anlassverantwortlicher = wpod_get_option( 'gloggi_einstellungen', 'anlassverantwortungs-email' );
+
+
+// Funktion um Mailadressen zu verschleiern
+function encode_all_to_htmlentities($str) {
+  $str = mb_convert_encoding($str , 'UTF-32', 'UTF-8');
+  $t = unpack("N*", $str);
+  $t = array_map(function($n) { return "&#$n;"; }, $t);
+  return implode("", $t);
+}
+
 // Sammle einige Infos zu Gruppen, Stufen und Abteilung in einem Array
 $einheiten = array();
 $gruppen = new WP_Query( array( 'post_type' => 'gruppe' ) );
@@ -111,6 +122,9 @@ if( $anlaesse->have_posts() ) : ?>
   if( count( $anlassinfos['teilnehmende-gruppen'] ) == 1 ) {
     $anlasslogo = $einheiten_by_id[$anlassinfos['teilnehmende-gruppen'][0]]['logo'];
   }
+  // Anlassverantwortlicher ist der AL, oder wenn im Backend eingetragen eine andere Mailadresse.
+  $anlassverantwortlicher = $standard_anlassverantwortlicher;
+  if( $anlassinfos['anlassverantwortlicher'] ) $anlassverantwortlicher = $anlassinfos['anlassverantwortlicher'];
   // Bereite diverse Zeit- und Ortfelder für die Anzeige vor
   $startzeitpunkt = date_create_from_format( 'YmdHis', $anlassinfos['startzeit'] );
   $endzeitpunkt = date_create_from_format( 'YmdHis', $anlassinfos['endzeit'] );
@@ -160,7 +174,7 @@ if( $anlaesse->have_posts() ) : ?>
               <p><?php echo $anlassinfos['beschreibung']; ?></p>
             </div>
             <div class="lightbox__section">
-              <p>Hast du noch Fragen? Dann melde dich hier: <?php /* TODO */ echo 'test@1234.ch' ?></p>
+              <p>Hast du noch Fragen? Dann melde dich bei <a href="<?php echo encode_all_to_htmlentities( 'mailto:' . $anlassverantwortlicher );?>"><?php echo encode_all_to_htmlentities( $anlassverantwortlicher );?></a>.</p>
             </div>
             <div class="lightbox__section">
               <div class="content__two-columns content__columns--1-1">
