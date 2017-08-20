@@ -470,7 +470,6 @@ function gloggi_custom_post_type_kontakt( $wpptd ) {
         'kontakt' => array(
           'labels' => $labels,
           'supports' => array( 'title', 'page-attributes' ),
-          'taxonomies' => array( 'funktion' ),
           /* Permalinks entfernen */
           'public' => false,
           'publicly_queriable' => true,
@@ -493,6 +492,84 @@ function gloggi_custom_post_type_kontakt( $wpptd ) {
                 'email' => array(
                   'title' => __( 'E-Mail', 'gloggi' ),
                   'type' => 'email',
+                  'required' => true,
+                ),
+                'kontaktbild' => array(
+                  'title' => __( 'Bild', 'gloggi' ),
+                  'type' => 'media',
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    ),
+  ), 'gloggi' );
+}
+
+
+/* Special Event */
+function gloggi_custom_post_type_specialevent( $wpptd ) {
+  $labels = array(
+    'name' => 'Special Events',
+    'singular_name' => 'Special Event',
+    'menu_name' => 'Special Events',
+    'name_admin_bar' => 'Special Events',
+    'archives' => 'Special-Event-Archiv',
+    'attributes' => 'Special-Event-Eigenschaften',
+    'parent_item_colon' => '&Uuml;bergeordnetes Objekt:',
+    'all_items' => 'Alle Special Events',
+    'add_new_item' => 'Neuen Special Event hinzuf&uuml;gen',
+    'add_new' => '+ Neu',
+    'new_item' => 'Neuer Special Event',
+    'edit_item' => 'Special Event bearbeiten',
+    'update_item' => 'Special Event aktualisieren',
+    'view_item' => 'Special Event ansehen',
+    'view_items' => 'Special Events ansehen',
+    'search_items' => 'Special Events suchen',
+    'not_found' => 'Nicht gefunden',
+    'not_found_in_trash' => 'Nicht im Papierkorb gefunden',
+    'featured_image' => 'Event-Bild',
+    'set_featured_image' => 'Event-Bild setzen',
+    'remove_featured_image' => 'Event-Bild entfernen',
+    'use_featured_image' => 'Als Event-Bild verwenden',
+    'insert_into_item' => 'Zu Special Event hinzuf&uuml;gen',
+    'uploaded_to_this_item' => 'Zu Special Event hochgeladen',
+    'items_list' => 'Special-Event-Liste',
+    'items_list_navigation' => 'Special-Event-Liste Navigation',
+    'filter_items_list' => 'Special-Event-Liste filtern',
+  );
+  $wpptd->add_components( array(
+    'gloggi_specialevent' => array(
+      'label' => __( 'Special Events', 'gloggi' ),
+      'icon' => get_bloginfo('template_directory') . '/files/tent.png',
+      'position' => 5,
+      'post_types' => array(
+        'specialevent' => array(
+          'labels' => $labels,
+          'supports' => array( 'title', 'page-attributes' ),
+          /* Permalinks entfernen */
+          'public' => false,
+          'publicly_queriable' => true,
+          'show_ui' => true,
+          'exclude_from_search' => true,
+          'show_in_nav_menus' => false,
+          'has_archive' => false,
+          'rewrite' => false,
+          /* ... Permalinks entfernt. */
+          'table_columns' => array(
+            'author' => false,
+            'comments' => false,
+            'date' => false,
+            'meta-email' => array( 'sortable' => true ),
+          ),
+          'metaboxes' => array(
+            'specialevent' => array(
+              'title' => __( 'Special-Event-Informationen', 'gloggi' ),
+              'fields' => array(
+                'description' => array(
+                  'title' => __( 'Beschreibung', 'gloggi' ),
+                  'type' => 'wysiwyg',
                   'required' => true,
                 ),
                 'kontaktbild' => array(
@@ -669,6 +746,7 @@ add_action( 'wpptd', 'gloggi_custom_post_type_stufe' );
 add_action( 'wpptd', 'gloggi_custom_post_type_gruppe' );
 add_action( 'wpptd', 'gloggi_custom_post_type_anlass' );
 add_action( 'wpptd', 'gloggi_custom_post_type_kontakt' );
+add_action( 'wpptd', 'gloggi_custom_post_type_specialevent' );
 add_action( 'wpptd', 'gloggi_custom_page_type' );
 
 
