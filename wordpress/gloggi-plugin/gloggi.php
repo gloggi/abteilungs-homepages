@@ -420,6 +420,11 @@ function gloggi_custom_post_type_anlass( $wpptd ) {
                     ),
                   ),
                 ),
+                'specialevent' => array(
+                  'title' => __( 'Event-Art', 'gloggi' ),
+                  'type' => 'radio',
+                  'options' => array( 'posts' => 'specialevent' ),
+                ),
               ),
             ),
           ),
