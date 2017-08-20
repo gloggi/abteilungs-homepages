@@ -490,6 +490,10 @@ function gloggi_custom_post_type_kontakt( $wpptd ) {
                   'type' => 'email',
                   'required' => true,
                 ),
+                'kontaktbild' => array(
+                  'title' => __( 'Bild', 'gloggi' ),
+                  'type' => 'media',
+                ),
               ),
             ),
           ),

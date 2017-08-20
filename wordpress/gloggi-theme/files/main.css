@@ -992,8 +992,10 @@ ul {
   justify-content: space-around;
   align-items: center; }
 
-.contact {
-  display: flex; }
+.contact .contact__image {
+  float: right;
+  max-width: 200px;
+  max-height: 200px; }
 @media screen and (max-width: 500px) {
   .contact {
     flex-direction: column; } }

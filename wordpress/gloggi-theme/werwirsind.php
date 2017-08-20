@@ -221,17 +221,17 @@ if( $kontakt_query->have_posts() ) : ?>
 <div class="content__block">
     <h2 class="heading-2">Kontakt</h2>
     <div class="contact">
-        <div class="contact__left">
 <?php while( $kontakt_query->have_posts() ) : $kontakt_query->the_post();
     $email = wpptd_get_post_meta_value( $post->ID, 'email' ); ?>
+        <div class="contact__left">
+<?php   $bild_id = wpptd_get_post_meta_value( $post->ID, 'kontaktbild' );
+        if( $bild_id ) : ?>
+            <img class="contact__image" src="<?php echo wp_get_attachment_url( $bild_id ); ?>" alt="<?php echo get_the_title(); ?>">
+<?php   endif; ?>
             <h3><?php echo get_the_title(); ?></h3>
             <p><a href="<?php echo encode_all_to_htmlentities( 'mailto:' . $email ); ?>"><?php echo encode_all_to_htmlentities( $email ); ?></a></p>
+        </div>
 <?php endwhile; ?>
-        </div>
-        <div class="contact__right">
-            <img src="./Gloggi_files/mountain.jpg">
-            <img src="./Gloggi_files/mountain.jpg">
-        </div>
     </div>
 </div>
 <?php endif; ?>
