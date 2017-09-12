@@ -1,4 +1,4 @@
-function filter_events(target) {
+function search_events(target) {
   $ = jQuery;
   var buttons = $('.agenda__sections .button');
   buttons.removeClass('button').addClass('button--inactive');
@@ -8,24 +8,29 @@ function filter_events(target) {
   
   $('.agenda__entries-first > .agenda__entry').detach().prependTo('.agenda__entries');
   $('.agenda__entries .agenda__entry').sort(function(a, b) { return $(a).data('starttime') > $(b).data('starttime'); }).appendTo($('.agenda__entries'));
+  $('#noentries').addClass('hide');
+  $('#selectgroup').addClass('hide');
   if(target) {
     $('.agenda__entries .agenda__entry').addClass('hide');
     $('.' + $(target).data('showclass')).removeClass('hide');
+    $first = $('.agenda__entries .agenda__entry').not('.hide');
+    if($first.length) {
+      $($first[0]).detach().appendTo('.agenda__entries-first');
+    } else {
+      $('#noentries').removeClass('hide');
+    }
   } else {
-    $('.agenda__entries .agenda__entry').removeClass('hide');
-  }
-  $first = $('.agenda__entries .agenda__entry').not('.hide');
-  if($first.length) {
-    $($first[0]).detach().appendTo('.agenda__entries-first');
+    $('.agenda__entries .agenda__entry').addClass('hide');
+    $('#selectgroup').removeClass('hide');
   }
 }
 
 function on_click_button(clickEvent) {
   $ = jQuery;
   if($(clickEvent.target).hasClass('button')) {
-    filter_events(null);
+    search_events(null);
   } else {
-    filter_events(clickEvent.target);
+    search_events(clickEvent.target);
   }
 }
 
@@ -130,7 +135,7 @@ jQuery(document).ready(function($){
   if(target != undefined) {
     target = document.getElementById(target);
   }
-  filter_events(target);
+  search_events(target);
   
   var buttons = $('.agenda__sections .button, .agenda__sections .button--inactive');
   buttons.click(on_click_button);

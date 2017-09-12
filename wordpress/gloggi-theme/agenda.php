@@ -97,6 +97,8 @@ if( $anlaesse->have_posts() ) : ?>
   </div>
   <div class="agenda__entries-first" id="naechster-anlass">
   </div>
+  <div id="selectgroup"><p>W&auml;hle eine Gruppe aus, um ihre Eintr&auml;ge anzuzeigen.</p></div>
+  <div id="noentries" class="hide"><p>F&uuml;r diese Gruppe sind momentan keine Eintr&auml;ge erfasst.</p></div>
   <div class="agenda__entries">
 <?php while ( $anlaesse->have_posts() ) : $anlaesse->the_post();
   // Lese alle Angaben zum aktuellen Anlass auf einmal
