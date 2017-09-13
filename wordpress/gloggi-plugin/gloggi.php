@@ -106,7 +106,7 @@ function gloggi_custom_post_type_stufe( $wpptd ) {
               'title' => __( 'Stufeninformationen', 'gloggi' ),
               'fields' => array(
                 'alter-von' => array(
-                  'title' => __( 'Alter von *', 'gloggi' ),
+                  'title' => __( 'Alter von*', 'gloggi' ),
                   'type' => 'number',
                   'step' => 1,
                   'min' => 4,
@@ -115,7 +115,7 @@ function gloggi_custom_post_type_stufe( $wpptd ) {
                   'required' => true,
                 ),
                 'alter-bis' => array(
-                  'title' => __( 'Alter bis *', 'gloggi' ),
+                  'title' => __( 'Alter bis*', 'gloggi' ),
                   'type' => 'number',
                   'step' => 1,
                   'min' => 4,
@@ -124,7 +124,7 @@ function gloggi_custom_post_type_stufe( $wpptd ) {
                   'required' => true,
                 ),
                 'stufenfarbe' => array(
-                  'title' => __( 'Stufenfarbe *', 'gloggi' ),
+                  'title' => __( 'Stufenfarbe*', 'gloggi' ),
                   'type' => 'color',
                   'required' => true,
                 ),
@@ -133,7 +133,7 @@ function gloggi_custom_post_type_stufe( $wpptd ) {
                   'type' => 'wysiwyg',
                 ),
                 'stufenlogo' => array(
-                  'title' => __( 'Stufenlogo *', 'gloggi' ),
+                  'title' => __( 'Stufenlogo*', 'gloggi' ),
                   'type' => 'media',
                   'required' => false,
                 ),
@@ -214,13 +214,13 @@ function gloggi_custom_post_type_gruppe( $wpptd ) {
               'title' => __( 'Gruppeninformationen', 'gloggi' ),
               'fields' => array(
                 'stufe' => array(
-                  'title' => __( 'Stufe *', 'gloggi' ),
+                  'title' => __( 'Stufe*', 'gloggi' ),
                   'type' => 'select',
                   'options' => array( 'posts' => 'stufe' ), 
                   'required' => true,
                 ),
                 'geschlecht' => array(
-                  'title' => __( 'Geschlecht *', 'gloggi' ),
+                  'title' => __( 'Geschlecht*', 'gloggi' ),
                   'type' => 'select',
                   'options' => array(
                     'b' => __( 'Gemischt', 'gloggi' ),
@@ -246,12 +246,12 @@ function gloggi_custom_post_type_gruppe( $wpptd ) {
                   'type' => 'wysiwyg',
                 ),
                 'kontakt-mail' => array(
-                  'title' => __( 'Kontakt-Mailadresse', 'gloggi' ),
+                  'title' => __( 'Kontakt-Mailadresse*', 'gloggi' ),
                   'type' => 'email',
                   'required' => true,
                 ),
                 'kontakt-name' => array(
-                  'title' => __( 'Angezeigter Kontakt-Name', 'gloggi' ),
+                  'title' => __( 'Angezeigter Kontakt-Name*', 'gloggi' ),
                   'type' => 'text',
                   'required' => true,
                 ),
@@ -275,7 +275,7 @@ function gloggi_custom_post_type_gruppe( $wpptd ) {
                     'limit' => 4,
                     'fields' => array(
                       'bild' => array(
-                        'title' => __( 'Bild' ),
+                        'title' => __( 'Bild*' ),
                         'type' => 'media',
                         'required' => true,
                       ),
@@ -367,7 +367,7 @@ function gloggi_custom_post_type_anlass( $wpptd ) {
                   'type' => 'textarea',
                 ),
                 'teilnehmende-gruppen' => array(
-                  'title' => __( 'Teilnehmende Gruppen', 'gloggi' ),
+                  'title' => __( 'Teilnehmende Gruppen*', 'gloggi' ),
                   'type' => 'multiselect',
                   'options' => array( 'posts' => 'gruppe' ),
                   'required' => true,
@@ -378,7 +378,7 @@ function gloggi_custom_post_type_anlass( $wpptd ) {
                   'description' => __( 'Wenn leer wird beim Anlass der AL angezeigt.', 'gloggi' ),
                 ),
                 'startzeit' => array(
-                  'title' => __( 'Startzeit', 'gloggi' ),
+                  'title' => __( 'Startzeit*', 'gloggi' ),
                   'type' => 'datetime',
                   'required' => true,
                 ),
@@ -500,7 +500,7 @@ function gloggi_custom_post_type_kontakt( $wpptd ) {
               'title' => __( 'Kontakt-Informationen', 'gloggi' ),
               'fields' => array(
                 'email' => array(
-                  'title' => __( 'E-Mail', 'gloggi' ),
+                  'title' => __( 'E-Mail*', 'gloggi' ),
                   'type' => 'email',
                   'required' => true,
                 ),
@@ -578,7 +578,7 @@ function gloggi_custom_post_type_specialevent( $wpptd ) {
               'title' => __( 'Special-Event-Informationen', 'gloggi' ),
               'fields' => array(
                 'description' => array(
-                  'title' => __( 'Beschreibung', 'gloggi' ),
+                  'title' => __( 'Beschreibung*', 'gloggi' ),
                   'type' => 'wysiwyg',
                   'required' => true,
                 ),
@@ -887,12 +887,14 @@ function gloggi_register_options( $wpod ) {
                   'title' => '',
                   'fields' => array(
                     'blogname' => array(
-                      'title' => __( 'Webseitentitel', 'gloggi' ),
+                      'title' => __( 'Webseitentitel*', 'gloggi' ),
                       'type' => 'text',
+                      'required' => true,
                     ),
                     'abteilung' => array(
-                      'title' => __( 'Abteilungsname', 'gloggi' ),
+                      'title' => __( 'Abteilungsname*', 'gloggi' ),
                       'type' => 'text',
+                      'required' => true,
                     ),
                     'abteilungslogo' => array(
                       'title' => __( 'Abteilungslogo', 'gloggi' ),
@@ -900,22 +902,26 @@ function gloggi_register_options( $wpod ) {
                       'store' => 'url',
                     ),
                     'primaerfarbe' => array(
-                      'title' => __( 'Prim&auml;rfarbe', 'gloggi' ),
+                      'title' => __( 'Prim&auml;rfarbe*', 'gloggi' ),
                       'type' => 'color',
                       'default' => '#db0822',
+                      'required' => true,
                     ),
                     'sekundaerfarbe' => array(
-                      'title' => __( 'Sekund&auml;farbe', 'gloggi' ),
+                      'title' => __( 'Sekund&auml;farbe*', 'gloggi' ),
                       'type' => 'color',
                       'default' => '#4a4a4a',
+                      'required' => true
                     ),
                     'mitmachen-email' => array(
-                      'title' => __( 'Mitmachen-Formular e-Mails gehen an...', 'gloggi' ),
+                      'title' => __( 'Mitmachen-Formular e-Mails gehen an...*', 'gloggi' ),
                       'type' => 'email',
+                      'required' => true,
                     ),
                     'anlassverantwortungs-email' => array(
-                      'title' => __( 'Kontakt f&uuml;r Anl&auml;sse ohne Kontaktangabe', 'gloggi' ),
+                      'title' => __( 'Kontakt f&uuml;r Anl&auml;sse ohne Kontaktangabe*', 'gloggi' ),
                       'type' => 'email',
+                      'required' => true,
                     ),
                     'instagram' => array(
                       'title' => __( 'Instagram-Link', 'gloggi' ),
@@ -935,12 +941,14 @@ function gloggi_register_options( $wpod ) {
                       'repeatable' => array(
                         'fields' => array(
                           'name' => array(
-                            'title' => __( 'Linkname', 'gloggi' ),
+                            'title' => __( 'Linkname*', 'gloggi' ),
                             'type' => 'text',
+                            'required' => true,
                           ),
                           'url' => array(
-                            'title' => __( 'URL', 'gloggi' ),
+                            'title' => __( 'URL*', 'gloggi' ),
                             'type' => 'url',
+                            'required' => true,
                           ),
                         ),
                       ),
