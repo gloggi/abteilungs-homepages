@@ -966,19 +966,6 @@ function gloggi_register_options( $wpod ) {
                       'title' => __( 'Abteilungs-Jahresplan', 'gloggi' ),
                       'type' => 'media',
                     ),
-                    'special-events' => array(
-                      'title' => __( 'Special Events', 'gloggi' ),
-                      'type' => 'repeatable',
-                      'repeatable' => array(
-                        'fields' => array(
-                          'event' => array(
-                            'title' => __( 'Anlass', 'gloggi' ),
-                            'type' => 'select',
-                            'options' => array( 'posts' => 'anlass' ),
-                          ),
-                        ),
-                      ),
-                    ),
                   ),
                 ),
               ),
