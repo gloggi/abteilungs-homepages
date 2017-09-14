@@ -92,6 +92,7 @@ while( $gruppen_query->have_posts() ) : $gruppen_query->the_post();
     'nachfolgergruppen' => array_map( function($nfg){ return $nfg['nachfolgergruppe']; }, wpptd_get_post_meta_value( $post->ID, 'nachfolgergruppen' ) ),
     'vorgaengergruppen' => array(),
     'elterngruppe' => wp_get_post_parent_id( $post->ID ),
+    'untergruppen' => array(),
     'highlight-bilder' => wpptd_get_post_meta_value( $post->ID, 'highlight-bilder' ),
   );
   $gruppen[$post->ID] = $gruppe;
@@ -104,6 +105,11 @@ foreach( $gruppen as $gruppe ) :
   endforeach;
 endforeach;
 
+// Generiere Untergruppen-Listen
+foreach( $gruppen as $gruppe ) :
+  if( $gruppe['elterngruppe'] ) :
+    $gruppen[$gruppe['elterngruppe']]['untergruppen'][] = $gruppe['ID'];
+endforeach;
 
 // Generiere HTML
 foreach( $stufen as $stufe ) : ?>
@@ -158,7 +164,14 @@ foreach( $stufen as $stufe ) : ?>
                     <p><b>Region:</b> <?php echo $gruppe['einzugsgebiet']; ?></p>
 <?php endif; ?>
 <?php if( $gruppe['elterngruppe'] ) : ?>
-					<p><b>&Uuml;bergeordnete Gruppe:</b> <?php echo $gruppe['elterngruppe']; ?></p>
+					<p><b>&Uuml;bergeordnete Gruppe:</b> <a href="#<?php echo $gruppen[$gruppe['elterngruppe']]['linkname']; ?>"><?php echo $gruppen[$gruppe['elterngruppe']]['name']; ?></a></p>
+<?php endif; ?>
+<?php if( $gruppe['untergruppen'] ) : ?>
+                    <p><b>Untergruppen:</b></p><ul>
+<?php foreach( $gruppe['untergruppen'] as $untergruppe ) : ?>
+                      <li><a href="#<?php echo $gruppen[$untergruppe]['linkname']; ?>"><?php echo $gruppen[$untergruppe]['name']; ?></a></li>
+<?php endforeach; ?>
+                    </ul>
 <?php endif; ?>
 <?php if( $gruppe['vorgaengergruppen'] ) : ?>
                     <p><b>Vorgängergruppe:</b></p><ul>
