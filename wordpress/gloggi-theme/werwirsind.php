@@ -157,6 +157,9 @@ foreach( $stufen as $stufe ) : ?>
 <?php if( $gruppe['einzugsgebiet'] ) : ?>
                     <p><b>Region:</b> <?php echo $gruppe['einzugsgebiet']; ?></p>
 <?php endif; ?>
+<?php if( $gruppe['elterngruppe'] ) : ?>
+					<p><b>&Uuml;bergeordnete Gruppe:</b> <?php echo $gruppe['elterngruppe']; ?></p>
+<?php endif; ?>
 <?php if( $gruppe['vorgaengergruppen'] ) : ?>
                     <p><b>Vorgängergruppe:</b></p><ul>
 <?php foreach( $gruppe['vorgaengergruppen'] as $vorgaenger ) : ?>
