@@ -1,0 +1,29 @@
+version: "2"
+
+services:
+  wordpress:
+    image: "chriszarate/wordpress:4.8.2"
+    environment:
+      VIRTUAL_HOST: "${DOCKER_DEV_DOMAIN}"
+      WORDPRESS_ACTIVATE_PLUGINS: "options-definitely post-types-definitely gloggi-plugin" # plugin folder relative to /wp-content/plugins/
+      WORDPRESS_ACTIVATE_THEME: "gloggi-theme"   # theme folder relative to /wp-content/themes/
+      WORDPRESS_DB_PASSWORD: "xBkLnzRvNWB6Zd56"
+      WORDPRESS_SITE_TITLE: "WORDPRESS_SITE_TITLE"
+      WORDPRESS_SITE_URL: "http://${DOCKER_DEV_DOMAIN}"
+      WORDPRESS_SITE_USER: "al"
+      WORDPRESS_SITE_PASSWORD: "gloggi"
+      XDEBUG_CONFIG: "remote_host=${DOCKER_LOCAL_IP} idekey=xdebug"
+    depends_on:
+      - "mysql"
+    volumes:
+      - "./gloggi-plugin:/var/www/html/wp-content/plugins/gloggi-plugin"
+      - "./gloggi-theme:/var/www/html/wp-content/themes/gloggi-theme"
+    ports:
+      - 80:80
+  mysql:
+    image: "mariadb:10.2"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+      MYSQL_DATABASE: "wordpress"
+      MYSQL_ROOT_PASSWORD: "xBkLnzRvNWB6Zd56"
+
