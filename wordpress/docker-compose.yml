@@ -4,15 +4,14 @@ services:
   wordpress:
     image: "chriszarate/wordpress:4.8.2"
     environment:
-      VIRTUAL_HOST: "${DOCKER_DEV_DOMAIN}"
+      VIRTUAL_HOST: "localhost"
       WORDPRESS_ACTIVATE_PLUGINS: "options-definitely post-types-definitely gloggi-plugin" # plugin folder relative to /wp-content/plugins/
       WORDPRESS_ACTIVATE_THEME: "gloggi-theme"   # theme folder relative to /wp-content/themes/
       WORDPRESS_DB_PASSWORD: "xBkLnzRvNWB6Zd56"
       WORDPRESS_SITE_TITLE: "WORDPRESS_SITE_TITLE"
-      WORDPRESS_SITE_URL: "http://${DOCKER_DEV_DOMAIN}"
+      WORDPRESS_SITE_URL: "http://localhost"
       WORDPRESS_SITE_USER: "al"
       WORDPRESS_SITE_PASSWORD: "gloggi"
-      XDEBUG_CONFIG: "remote_host=${DOCKER_LOCAL_IP} idekey=xdebug"
     depends_on:
       - "mysql"
     volumes:
