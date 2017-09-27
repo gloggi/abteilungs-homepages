@@ -17,12 +17,13 @@ services:
     volumes:
       - "./gloggi-plugin:/var/www/html/wp-content/plugins/gloggi-plugin"
       - "./gloggi-theme:/var/www/html/wp-content/themes/gloggi-theme"
+      - "./post-install.sh:/usr/bin/post-install.sh"
     ports:
       - 80:80
+    command: post-install.sh
   mysql:
     image: "mariadb:10.2"
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "no"
       MYSQL_DATABASE: "wordpress"
       MYSQL_ROOT_PASSWORD: "xBkLnzRvNWB6Zd56"
-
