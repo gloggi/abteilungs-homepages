@@ -9,18 +9,19 @@ $banner = get_the_post_thumbnail_url( $post );
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?php bloginfo('name'); if (!is_front_page()) : echo ' | '; wp_title(''); endif; ?></title>
+  <?php wp_head();?>
   <style>
     .color-primary, .navbar, #navbar, .button, .button--inactive, .lightbox__banner, .dropdown-menu, .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus, .navbar-right, .group__detail-banner {
-      background-color: <?php echo $primaerfarbe ?>;
+      background-color: <?php echo $primaerfarbe ?> !important;
     }
-    a, .agenda__year-agenda li a p {
-      color: <?php echo $primaerfarbe; ?>;
+    .agenda__year-agenda li a p {
+      color: <?php echo $primaerfarbe; ?> !important;
     }
     .button--inactive, .agenda__entry-content > a {
       color: <?php echo $primaerfarbe; ?> !important;
     }
     .form-control, .group__info-box, .button:focus, .button--inactive:focus {
-      border-color: <?php echo $primaerfarbe; ?>;
+      border-color: <?php echo $primaerfarbe; ?> !important;
     }
     .navbar-toggle:active, .navbar-toggle:hover, .navbar-toggle:focus {
       background-color: <?php echo $primaerfarbe; ?> !important;
@@ -33,27 +34,26 @@ $banner = get_the_post_thumbnail_url( $post );
     }
     
     .color-secondary, ::selection, a:hover, a ::selection, .text--question, .agenda__body b, .navbar-default .navbar-nav > li > a:hover {
-      color: <?php echo $sekundaerfarbe; ?>;
+      color: <?php echo $sekundaerfarbe; ?> !important;
     }
     .button:active, .button--inactive:active, .icon-bar, .circle-notification {
-      background-color: <?php echo $sekundaerfarbe; ?>;
+      background-color: <?php echo $sekundaerfarbe; ?> !important;
     }
     .form-control:focus {
-      border-color: <?php echo $sekundaerfarbe; ?>;
+      border-color: <?php echo $sekundaerfarbe; ?> !important;
     }
     .navbar-toggle {
       border-color: <?php echo $sekundaerfarbe; ?> !important;
     }
     <?php if( $banner ) : ?>
     .header__image, .header__image-large {
-      background: url('<?php echo $banner; ?>');
+      background-image: url('<?php echo $banner; ?>');
     }
     <?php else : ?>
     .header__image, .header__image-large {
-      background-color: <?php echo $sekundaerfarbe; ?>;
+      background-color: <?php echo $sekundaerfarbe; ?> !important;
     }
     <?php endif; ?>
   </style>
-  <?php wp_head();?>
 </head>
 <body>

@@ -699,7 +699,8 @@ label {
     font-size: 50px; }
 
 .header__logo-large {
-  width: 500px; }
+  max-width: 40vw;
+  max-height: 60vh; }
   @media screen and (max-width: 500px) {
     .header__logo-large {
       width: 350px; } }

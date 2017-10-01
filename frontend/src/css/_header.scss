@@ -76,7 +76,8 @@
 }
 
 .header__logo-large{
-    width: 500px;
+    max-width: 40vw;
+    max-height: 60vh;
     @include screen(small) {
         width: 350px;
     }
