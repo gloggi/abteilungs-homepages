@@ -91,8 +91,15 @@
     }
 }
 
-.contact__image{
+.contact .contact__image {
+  float: right;
+  max-width: 200px;
+  max-height: 200px; 
 }
+
+@media screen and (max-width: 500px) {
+  .contact {
+    flex-direction: column; } }
 
 .contact__left{
     width: 100%;
@@ -134,7 +141,7 @@
 }
 
 .group__detail-banner{
-    background-color: $primary-color;
+    //background-color: $primary-color;
     height: 150px;
     display: flex;
     justify-content: space-between;
@@ -167,7 +174,7 @@
 }
 
 .group__info-box {
-    border-color: $primary-color;
+    //border-color: $primary-color;
     border-width: 1px;
     border-style: solid;
     padding: 10px;

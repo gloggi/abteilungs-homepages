@@ -1,5 +1,5 @@
-.agenda{
-
+.agenda {
+    display: none;
 }
 
 .agenda__sections{
@@ -25,6 +25,8 @@
             width: 120px;
         }
     }
+    padding: 10px;
+    width: 120px;
 }
 
 .agenda__section{
@@ -62,6 +64,7 @@
         text-decoration: none;
         color: $font-color;
     }
+    overflow-y: hidden;
 }
 
 .agenda__entry{
@@ -81,6 +84,7 @@
     width: 70%;
     margin-left: 20px;
     color: $font-color;
+    margin-bottom: 20px;
 
     p {
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -114,7 +118,7 @@
         line-height: 24px;
         text-align: justify;
         letter-spacing: 0.8px;
-        color: $primary-color;
+        //color: $primary-color;
     }
 
     .agenda__date{
@@ -233,7 +237,7 @@
 
                 color: green;
                 text-align: center;
-                color: $primary-color;
+                //color: $primary-color;
                 font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
                 font-size: 30px;
                 font-style: normal;

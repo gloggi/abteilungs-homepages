@@ -26,6 +26,7 @@
 .content__block {
     padding: 100px;
     padding-top: 50px;
+    padding-bottom: 50px;
     width: 100%;
     @include screen(med) {
         padding: 50px;
@@ -44,6 +45,9 @@
 
 .content__text {
     margin-bottom: 40px;
+    p > {
+        white-space: pre-wrap;
+    }
 }
 
 .content__columns{
