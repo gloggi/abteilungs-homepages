@@ -19,6 +19,7 @@ then
 
 	# Create a new page and set it as the static front page
 	mitmachen=$(runuser www-data -s /bin/sh -c 'wp post create --post_type=page --post_title="Mitmachen" --post_status=publish --menu_order=0 --porcelain')
+	runuser www-data -s /bin/sh -c "wp post meta update $mitmachen _wp_page_template index.php"
 	runuser www-data -s /bin/sh -c 'wp option update show_on_front page'
 	runuser www-data -s /bin/sh -c "wp option update page_on_front \"$mitmachen\""
 
