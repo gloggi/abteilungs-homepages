@@ -1,0 +1,90 @@
+.lightbox {
+    /** Default lightbox to hidden */
+    display: none;
+
+    /** Position and style */
+    position: fixed;
+    z-index: 998;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.lightbox__background{
+    z-index: 0;
+    background: rgba(0,0,0,0.8);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.lightbox img {
+    /** Pad the lightbox image */
+    max-width: 90%;
+    max-height: 80%;
+    margin-top: 2%;
+}
+
+.lightbox:target {
+    /** Remove default browser outline */
+    outline: none;
+
+    /** Unhide lightbox **/
+    display: block;
+}
+
+
+
+.lightbox__content-wrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox__content{
+    z-index: 1;
+    position: fixed;
+    background: white;
+    width: 700px;
+    @include screen(med) {
+        width: 100%;
+    }
+    height: 90%;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+
+    p, a, li, b {
+        font-size: 18px;
+    }
+    pading: 10px;
+}
+
+.lightbox__banner{
+    background: $primary-color;
+    min-height: 100px;
+    max-height: 100px;
+}
+
+.lightbox__body{
+    height: 90%;
+    overflow-y: scroll;
+}
+
+.lightbox__section{
+    margin: 30px;
+}
+
+.lightbox__footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    height: 50px;
+    a {
+        font-size: 24px;
+    }
+}

@@ -1,0 +1,299 @@
+.agenda{
+
+}
+
+.agenda__sections{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @include screen(small) {
+        overflow-x: scroll;
+        flex-wrap: nowrap;
+        .button, .button--inactive {
+            padding: 5px;
+            width: 120px;
+        }
+    }
+
+    @include screen(med) {
+        overflow-x: scroll;
+        flex-wrap: nowrap;
+        .button, .button--inactive {
+            padding: 10px;
+            width: 120px;
+        }
+    }
+}
+
+.agenda__section{
+    margin:10px;
+    width: 200px;
+    text-align: center;
+}
+
+.agenda__entry-first{
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+    width: 100%;
+    color: $font-color;
+
+    a {
+        text-decoration: none;
+        color: $font-color;
+    }
+    @include screen(small) {
+        flex-wrap: wrap;
+    }
+}
+
+.agenda__entries{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: scroll;
+    margin-top: 75px;
+    @include screen(small) {
+        margin-top: 0px;
+    }
+
+    a {
+        text-decoration: none;
+        color: $font-color;
+    }
+}
+
+.agenda__entry{
+    flex-shrink:0;
+
+    display: flex;
+    align-items: center;
+    padding-right: 30px;
+    width: 450px;
+    @include screen(small) {
+        width: 300px;
+    }
+}
+
+
+.agenda__entry-content{
+    width: 70%;
+    margin-left: 20px;
+    color: $font-color;
+
+    p {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-style: normal;
+        font-variant: normal;
+        font-size: 18px;
+        font-weight: 200;
+        line-height: 24px;
+        text-align: justify;
+        letter-spacing: 0.8px;
+        color: $font-color;
+    }
+
+    h3 {
+        font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+        font-size: 42px;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 500;
+        line-height: 38.4px;
+        margin-bottom: 20px;
+        color: $font-color;
+    }
+
+    >a {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-style: normal;
+        font-variant: normal;
+        font-size: 18px;
+        font-weight: 200;
+        line-height: 24px;
+        text-align: justify;
+        letter-spacing: 0.8px;
+        color: $primary-color;
+    }
+
+    .agenda__date{
+        color: gray;
+        font-size: 16px;
+        text-align: left;
+        line-height: 20px;
+        font-size: 15px;
+    }
+}
+
+.agenda__detail {
+
+    p{
+        line-height: 24px;
+        font-size: 18px;
+    }
+}
+
+.agenda__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    text-align: left;
+
+    >div {
+        h3 {
+            font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+            font-size: 42px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: 500;
+            line-height: 45.0px;
+            margin: 0px;
+            color: white;
+        }
+
+        p{
+            color: $white;
+            @include screen(small){
+                line-height: 30px;
+                font-size: 16px;
+            };
+        }
+    }
+    >img {
+        align-self: center;
+        height: 100%;
+    }
+}
+
+.agenda__body {
+    //display: flex;
+    justify-content: space-between;
+
+    p{
+        text-align: justify;
+        font-size: 18px;
+        letter-spacing: 0.8px;
+        line-height: 24px;
+    }
+
+    b {
+        color: $secondary-color;
+    }
+}
+
+.agenda__column {
+    width: 48%;
+    overflow: hidden;
+}
+
+.agenda__map {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.agenda__description{
+    width: 48%;
+    alignment: left;
+}
+
+.agenda__date-and-place{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+.agenda__year-agenda{
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+    margin-top: 125px;
+    padding: 0px;
+    @include screen(small) {
+        margin-top: 0px;
+        flex-wrap: wrap;
+    }
+    @include screen(med) {
+        margin-top: 0px;
+        flex-wrap: wrap;
+    }
+
+    li{
+        @include screen(small) {
+            padding-top: 50px;
+        }
+        @include screen(med) {
+            padding-top: 50px;
+        }
+        a{
+            display: flex;
+            flex-direction: column;
+            p{
+
+                color: green;
+                text-align: center;
+                color: $primary-color;
+                font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+                font-size: 30px;
+                font-style: normal;
+
+                padding-top: 25px;
+            }
+
+            img{
+                allign: center;
+                height: 155px;
+                @include screen(small) {
+                    height: 75px;
+                }
+                @include screen(med) {
+                    height: 100px;
+                }
+            }
+        }
+
+    }
+}
+
+.agenda__special-events{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+
+    list-style-type: none;
+    margin-top: 100px;
+    @include screen(small) {
+        margin-top: 20px;
+    }
+
+    padding: 0px;
+
+    li{
+        margin: 25px;
+        a{
+            color: white;
+            text-align: center;
+    }}
+}
+
+.circle--agenda-first{
+    @include screen(small){
+        border-radius: 10px !important;
+        width: 350% !important;
+        height: 15px !important;
+        max-height: 15px !important;
+        min-height: 75px !important;
+    };
+}
+
+.agenda__anualplan--wrapper{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.agenda__anualplan{
+    max-width: 100px;
+}

@@ -1,0 +1,68 @@
+.button, .button--inactive {
+    font-size: 24px;
+    color: $font-color-inverted;
+    background-color: $primary-color;
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 07px;
+
+    @include screen(med) {
+        font-size: 18px;
+        padding: 15px;
+    }
+
+    border-style: solid;
+    align-self: flex-end;
+
+    &:hover{
+        background-color: $primary-color-dark;
+        text-decoration: none;
+        color: white;
+    }
+
+    &:target{
+        background-color: $secondary-color;
+        box-shadow: none;
+        border:none;
+        color: white;
+        text-decoration: none;
+    }
+
+    &:active{
+        background-color: $secondary-color;
+        box-shadow: none;
+        border:none;
+        color: white;
+        text-decoration: none;
+    }
+    &:selection{
+        text-decoration: none;
+    }
+    &:focus{
+        background-color: $secondary-color;
+        box-shadow: none;
+        border:none;
+        color: white;
+        text-decoration: none;
+    }
+
+    @include screen(small){
+        margin-top: 0px;
+    };
+}
+
+.button{
+    border-style: none;
+}
+
+.button--inactive {
+    border-width: 1px;
+    background-color: white;
+    color: $primary-color;
+}
+
+.button--small{
+    font-size: 20px;
+    padding: 16px;
+    border-radius: 05px;
+}

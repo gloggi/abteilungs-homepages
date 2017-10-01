@@ -1,0 +1,158 @@
+.content {
+
+    background-color: $text-background;
+    overflow-x: hidden;
+
+    z-index: -10.0;
+
+    @include screen(large) {
+        width: 1000px;
+    }
+    @include screen(large-med) {
+        width: 900px;
+    }
+    @include screen(med) {
+        width: 100%;
+    }
+    @include screen(med-small) {
+        width: 100%;
+
+    }
+    @include screen(small) {
+        width: 100%;
+    }
+}
+
+.content__block {
+    padding: 100px;
+    padding-top: 50px;
+    width: 100%;
+    @include screen(med) {
+        padding: 50px;
+        padding-top: 25px;
+    }
+
+    @include screen(small) {
+        padding: 15px;
+    }
+}
+
+.content__section {
+    margin-bottom: 40px;
+    display:flex;
+}
+
+.content__text {
+    margin-bottom: 40px;
+}
+
+.content__columns{
+    width: 100%;
+    display: flex;
+    text-align: flex-start;
+}
+
+.content__column{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: column;
+}
+
+.content__columns--2-1{
+    width: 100%;
+    display: flex;
+    text-align: flex-start;
+    justify-content: space-between;
+
+    >div:nth-child(1){
+        width: 60%;
+    }
+    >div:nth-child(2){
+        width: 33%;
+    }
+
+    @include screen(small) {
+        flex-wrap: wrap;
+        >div:nth-child(1), >div:nth-child(2){
+            width: 100%;
+        }
+        >div:nth-child(2) {
+            padding-top: 25px;
+        }
+    }
+}
+
+.content__columns--1-1{
+    width: 100%;
+    display: flex;
+    text-align: flex-start;
+    justify-content: space-between;
+
+    @include screen(small) {
+        flex-direction: column;
+    }
+    >div:nth-child(1){
+        width: 50%;
+        margin-right: 10px;
+
+        @include screen(small) {
+            margin-bottom: 10px;
+            width: 100%;
+        }
+    }
+
+    >div:nth-child(2){
+        width: 50%;
+        margin-left: 10px;
+        @include screen(small) {
+            width: 100%;
+        }
+    }
+}
+
+.content__columns--1-2{
+    width: 100%;
+    display: flex;
+    text-align: flex-start;
+
+    >div:nth-child(1){
+        width: 33%;
+    }
+
+    >div:nth-child(2){
+        width: 67%;
+    }
+
+    @include screen(small) {
+        flex-wrap: wrap;
+        >div:nth-child(1), >div:nth-child(2){
+            width: 100%;
+        }
+    }
+}
+
+.content__column-right{
+    padding-right: 100px;
+}
+
+.content__column-left{
+    padding-right: 100px;
+}
+
+.content__big_image {
+    width: 100%;
+}
+
+.content__big_image_container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 300px;
+    overflow: hidden;
+
+    @include screen(small) {
+        max-height: 200px;
+    }
+}

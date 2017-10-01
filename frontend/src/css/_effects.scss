@@ -1,0 +1,17 @@
+body.parallax {
+    //perspective: 5.0px;
+    //overflow-x: hidden;
+    //overflow-y: auto;
+    //height: 100vh !important;
+    //height: 100px !important;
+}
+
+.parallax__layer {
+    //transform: translateZ(-0.5px) translateX(0px) translateY(-050px);
+}
+
+.not-small{
+    @include screen(small){
+        display: none; 
+    };
+}

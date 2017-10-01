@@ -1,0 +1,29 @@
+.form__join{
+    margin-top: 80px;
+    @include screen(small){
+        margin-top: 20px;
+    };
+}
+
+.form-group{
+    margin-top:30px;
+    margin-bottom:30px;
+}
+
+.form-control{
+    border-color: $primary-color;
+    border-radius: 1px;
+    font-weight: 401;
+    font-size: 20px;
+    height: 50px;
+    &:focus{
+        border-color: $secondary-color;
+        box-shadow: none;
+    }
+
+    @include screen(small){
+        font-size: 18px;
+        height: 40px;
+    };
+}
+

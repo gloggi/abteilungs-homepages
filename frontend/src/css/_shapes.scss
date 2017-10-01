@@ -1,0 +1,139 @@
+.circle-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+    div {
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    @include screen(small) {
+        margin-top: -10px;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.circle {
+    //background-color: $primary-color;
+    width: 200px;
+    min-height: 200px;
+    border-radius: 200px;
+
+
+    @include screen(med) {
+        width: 175px;
+        min-height: 175px;
+        border-radius: 200px;
+    }
+
+    @include screen(small) {
+        width: 150px;
+        min-height: 150px;
+        border-radius: 200px;
+    }
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    >img {
+        width: 70%;
+        height: 70%;
+    }
+}
+
+.circle-content {
+}
+
+.circle-medium {
+    width: 150px;
+    min-height: 150px;
+    border-radius: 75px;
+
+
+    @include screen(med) {
+        width: 125px;
+        min-height: 125px;
+        border-radius: 75px;
+    }
+    @include screen(small) {
+        width: 100px;
+        min-height: 100px;
+        border-radius: 75px;
+    }
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p {
+        color: white;
+        margin: 0;
+    }
+
+    >img {
+        width: 70%;
+        height: 70%;
+    }
+}
+
+.circle-small {
+    width: 100px;
+    height: 100px;
+    min-height: 100px;
+    border-radius: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p {
+        color: white;
+        font-size: 20px;
+        margin: 0;
+    }
+
+    >img {
+        width: 55px;
+        height: 55px;
+    }
+
+    @include screen(small) {
+        width: 80px;
+        min-width: 80px;
+        height: 80px;
+        min-height: 78px;
+        border-radius: 50px;
+        >img {
+            width: 45px;
+            height: 45px;
+        }
+    }
+}
+
+.circle-notification {
+    width: 40px;
+    height: 40px;
+    min-height: 25px;
+    border-radius: 50px;
+    background-color: $secondary-color;
+    margin-left: -45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    >img {
+        width: 65%;
+        height: 65%;
+    }
+}
+
+.circle-small-content {
+    width: 70px;
+    height: 70px;
+}

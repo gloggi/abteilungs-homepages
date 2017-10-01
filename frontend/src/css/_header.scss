@@ -1,0 +1,95 @@
+.header-large {
+    width: 100%;
+    height: 92vh;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    >img{
+        position: fixed;
+        height: 130%;
+    }
+}
+
+.header {
+    width: 100%;
+    height: 40vh;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    >h1{
+        height: auto;
+        position: relative;
+        text-align: left;
+        margin-left: 20px;
+    }
+
+    >img {
+        width: 100%;
+        @include portrait() {
+            width: auto;
+            height: 60%;
+        }
+        position: fixed;
+    }
+}
+
+.header__banner-large{
+    position: relative;
+
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.header__banner{
+    position: relative;
+    display: flex;
+    margin: 25px;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100px;
+
+    >img{
+        width: 150px;
+    }
+
+    object{
+        width: 150px;
+    }
+
+    h1{
+        font-size: 50px;
+    }
+}
+
+.header__logo-large{
+    width: 500px;
+    @include screen(small) {
+        width: 350px;
+    }
+}
+
+.header__title{
+    @include screen(small) {
+       margin: 0px !important;
+    }
+}
+
+.header__heading{
+    @include screen(small) {
+       font-size: 42px;
+   }
+}

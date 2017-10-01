@@ -1,0 +1,172 @@
+$font-family-header: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+
+@font-face {font-family: "Rokkitt";
+    src: url("//db.onlinewebfonts.com/t/5f2a58d2dc4bdb958bb6140bf96c3d8e.eot");
+    src: url("//db.onlinewebfonts.com/t/5f2a58d2dc4bdb958bb6140bf96c3d8e.eot?#iefix") format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/5f2a58d2dc4bdb958bb6140bf96c3d8e.woff2") format("woff2"),
+    url("//db.onlinewebfonts.com/t/5f2a58d2dc4bdb958bb6140bf96c3d8e.woff") format("woff"),
+    url("//db.onlinewebfonts.com/t/5f2a58d2dc4bdb958bb6140bf96c3d8e.ttf") format("truetype"),
+    url("//db.onlinewebfonts.com/t/5f2a58d2dc4bdb958bb6140bf96c3d8e.svg#Rokkitt") format("svg");
+}
+
+
+h1, h2, h3, h4 {
+    font-family: Rokkitt, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1.2;
+}
+
+h1{
+    font-size: 90px;
+    font-weight: 500;
+
+    color: white;
+    text-shadow: 0px 0px 10px black;
+    text-align: center;
+    margin-left: 25px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+
+    @include screen(small) {
+        font-size: 60px;
+    }
+}
+
+h2 {
+
+    font-size: 48px;
+    @include screen(small) {
+        font-size: 36px;
+    }
+    font-weight: 200;
+    margin-top: 75px;
+    margin-bottom: 20px;
+
+
+    color: $primary-color;
+}
+
+h3 {
+    color: $primary-color;
+    font-size: 36px;
+    @include screen(med) {
+        font-size: 30px;
+        margin-top: 25px;
+    }
+    font-weight: 500;
+    letter-spacing: 0.8px;
+
+    margin-top: 75px;
+    margin-bottom: 10px;
+}
+
+h4 {
+    color: $primary-color;
+
+    font-size: 26px;
+    font-weight: 500;
+
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+p, input, button, li, b {
+    padding: 0px;
+    margin: 0px;
+
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-variant: normal;
+
+    font-size: 24px;
+    @include screen(med) {
+        font-size: 18px;
+    }
+    font-weight: 200;
+    line-height: 1.5;
+    //text-align: justify;
+    letter-spacing: 0.8px;
+}
+
+::selection{
+    background: $secondary-color;
+    color: $font-color-inverted;
+}
+
+p {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-bottom: 10px;
+    color: $font-color;
+}
+
+a {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    font-size: 24px;
+    font-weight: 200;
+    line-height: 32px;
+    text-align: justify;
+    letter-spacing: 0.8px;
+    color: $primary-color;
+    text-decoration: none;
+
+    @include screen(med) {
+        font-size: 18px;
+    }
+
+    &:hover {
+        color: $secondary-color;
+        text-decoration: none;
+    }
+
+    ::selection {
+        color: $secondary-color;
+        text-decoration: none;
+    }
+}
+
+b {
+    font-weight: 400;
+}
+
+ul {
+    text-align: left;
+    margin-left: 10px;
+    padding-left: 10px;
+    list-style-type: none;
+}
+
+.warning{
+    background-color: $red;
+    padding: 10px;
+    margin-top: 20px;
+    color: $white;
+}
+
+.warning-title{
+    font-weight: 500;
+}
+
+.text--question{
+    color: $secondary-color;
+}
+
+.text--answer{
+}
+
+.heading-2{
+
+        margin-top: 10px;
+    @include screen(small){
+        margin-top: 10px;
+        margin-bottom: 00px;
+    };
+}
+
+.faq__entry{
+    margin-top: 50px;
+}
+

@@ -1,0 +1,69 @@
+$font-color: #4A4A4A;
+$font-color-inverted: white;
+
+// Theme Colors
+$primary-color: #FFBA00;
+$primary-color: green;
+$primary-color-light: #FECA3F;
+$primary-color-dark: #ffae00;
+$secondary-color: #244392;
+
+// Palate Colors
+//$color-light-blue: #4A90E2;
+$color-light-blue: '<php>';
+$blue: #4862a3;
+$white: white;
+$red: #D0021B;
+$color-red: #D0021B;
+$color-brown: #8B572A;
+$color-green: #539704;
+
+
+// Element Colors
+$text-background: white;
+$footer-background: #4A4A4A;
+
+.color-primary{
+    background-color: $primary-color;
+}
+
+.color-green{
+    background-color: $color-green;
+}
+
+
+.color-light-blue{
+    background-color: $color-light-blue;
+    color: blue;
+}
+
+.color-white{
+    background-color: $white;
+}
+
+.color-blue{
+    background-color: blue;
+}
+
+.color-red{
+    background-color: $color-red;
+}
+
+.color-brown{
+    background-color: $color-brown;
+}
+
+
+// Icons
+.facebook-icon{
+    background-color: $blue;
+}
+
+.twitter-icon{
+    background-color: $color-light-blue;
+    color: $color-light-blue;
+}
+
+.instagram-icon{
+    background-color: $color-brown;
+}
