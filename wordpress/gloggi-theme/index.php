@@ -103,7 +103,7 @@ if(isset($_POST['submit'])) {
   </div>
   <div class="content__column">
     <div class="circle color-primary not-small">
-      <img src="<?php echo get_bloginfo('template_directory'); ?>/files/scout-logos.svg">
+      <img src="<?php echo get_bloginfo('template_directory'); ?>/files/img/scout-logos.svg">
     </div>
   </div>
 </div>
@@ -156,21 +156,21 @@ if ($anysocialmedia) :
     <?php if ($instagram) : ?>
     <a href="<?php echo $instagram; ?>">
       <div class="circle-small instagram-icon">
-        <img src="<?php echo get_bloginfo('template_directory'); ?>/files/instagram-icon.svg">
+        <img src="<?php echo get_bloginfo('template_directory'); ?>/files/img/instagram-icon.svg">
       </div>
     </a>
     <?php endif; ?>
     <?php if ($facebook) : ?>
     <a href="<?php echo $facebook; ?>">
       <div class="circle-small facebook-icon">
-        <img src="<?php echo get_bloginfo('template_directory'); ?>/files/facebook-icon.svg">
+        <img src="<?php echo get_bloginfo('template_directory'); ?>/files/img/facebook-icon.svg">
       </div>
     </a>
     <?php endif; ?>
     <?php if ($twitter) : ?>
     <a href="<?php echo $twitter; ?>">
       <div class="circle-small twitter-icon">
-        <img src="<?php echo get_bloginfo('template_directory'); ?>/files/twitter-icon.svg">
+        <img src="<?php echo get_bloginfo('template_directory'); ?>/files/img/twitter-icon.svg">
       </div>
     </a>
     <?php endif; ?>
