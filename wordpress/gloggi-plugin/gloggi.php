@@ -186,7 +186,7 @@ function gloggi_custom_post_type_gruppe( $wpptd ) {
     'gloggi_gruppen' => array(
       'label' => __( 'Gruppen', 'gloggi' ),
       'icon' => 'dashicons-groups',
-      'position' => 5,
+      'position' => 6,
       'post_types' => array(
         'gruppe' => array(
           'labels' => $labels,
@@ -334,7 +334,7 @@ function gloggi_custom_post_type_anlass( $wpptd ) {
     'gloggi_anlaesse' => array(
       'label' => __( 'Anl&auml;sse', 'gloggi' ),
       'icon' => 'dashicons-calendar-alt',
-      'position' => 5,
+      'position' => 8,
       'post_types' => array(
         'anlass' => array(
           'labels' => $labels,
@@ -475,7 +475,7 @@ function gloggi_custom_post_type_kontakt( $wpptd ) {
     'gloggi_kontakt' => array(
       'label' => __( 'Kontakte', 'gloggi' ),
       'icon' => 'dashicons-admin-users',
-      'position' => 5,
+      'position' => 7,
       'post_types' => array(
         'kontakt' => array(
           'labels' => $labels,
@@ -553,7 +553,7 @@ function gloggi_custom_post_type_specialevent( $wpptd ) {
     'gloggi_specialevent' => array(
       'label' => __( 'Special Events', 'gloggi' ),
       'icon' => plugins_url('tent.png', __FILE__),
-      'position' => 5,
+      'position' => 9,
       'post_types' => array(
         'specialevent' => array(
           'labels' => $labels,
@@ -606,6 +606,7 @@ function gloggi_custom_page_type( $wpptd ) {
   );
   $wpptd->add_components( array(
     'gloggi_pages' => array(
+      'position' => 10,
       'post_types' => array(
         'page' => array(
           'labels' => $labels,
