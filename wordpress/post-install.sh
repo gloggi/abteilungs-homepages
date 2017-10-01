@@ -17,9 +17,17 @@ then
 	# Remove unneccessary example content
 	runuser www-data -s /bin/sh -c 'wp site empty --yes'
 
-	# Create a new page and set it as the static front page
+	# Create new pages
 	mitmachen=$(runuser www-data -s /bin/sh -c 'wp post create --post_type=page --post_title="Mitmachen" --post_status=publish --menu_order=0 --porcelain')
 	runuser www-data -s /bin/sh -c "wp post meta update $mitmachen _wp_page_template index.php"
+	waswirtun=$(runuser www-data -s /bin/sh -c 'wp post create --post_type=page --post_title="Was wir tun" --post_status=publish --menu_order=1 --porcelain')
+	runuser www-data -s /bin/sh -c "wp post meta update $waswirtun _wp_page_template waswirtun.php"
+	werwirsind=$(runuser www-data -s /bin/sh -c 'wp post create --post_type=page --post_title="Wer wir sind" --post_status=publish --menu_order=2 --porcelain')
+	runuser www-data -s /bin/sh -c "wp post meta update $werwirsind _wp_page_template werwirsind.php"
+	agenda=$(runuser www-data -s /bin/sh -c 'wp post create --post_type=page --post_title="Agenda" --post_status=publish --menu_order=3 --porcelain')
+	runuser www-data -s /bin/sh -c "wp post meta update $agenda _wp_page_template agenda.php"
+
+	# Set the static front page
 	runuser www-data -s /bin/sh -c 'wp option update show_on_front page'
 	runuser www-data -s /bin/sh -c "wp option update page_on_front \"$mitmachen\""
 
