@@ -812,6 +812,17 @@ function gloggi_remove_admin_menu_pages() {
 }
 add_action( 'admin_menu', 'gloggi_remove_admin_menu_pages' );
 
+/* Verstecke einige Einträge in der Admin-Bar */
+function gloggi_remove_admin_menu_new( $wp_admin_bar ) {
+    $wp_admin_bar->remove_node( 'new-post' );
+    $wp_admin_bar->remove_node( 'new-page' );
+    $wp_admin_bar->remove_node( 'new-stufe' );
+    $wp_admin_bar->remove_node( 'new-gruppe' );
+    $wp_admin_bar->remove_node( 'new-kontakt' );
+    $wp_admin_bar->remove_node( 'new-specialevent' );
+    $wp_admin_bar->remove_node( 'new-user' );
+}
+add_action( 'admin_bar_menu', 'gloggi_remove_admin_menu_new', 999 );
 
 /* Verstecke einige Dashboard-Widgets */
 function gloggi_remove_dashboard_widgets(){
