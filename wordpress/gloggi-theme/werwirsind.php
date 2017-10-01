@@ -109,6 +109,7 @@ endforeach;
 foreach( $gruppen as $gruppe ) :
   if( $gruppe['elterngruppe'] ) :
     $gruppen[$gruppe['elterngruppe']]['untergruppen'][] = $gruppe['ID'];
+  endif;
 endforeach;
 
 // Generiere HTML

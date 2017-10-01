@@ -66,7 +66,7 @@ $einheiten_by_parent = array_reduce( $einheiten, function($r, $e) { if( $e['pare
 // Nur diejenigen Einheiten die auch tatsächlich untergeordnete Einheiten haben sind in den keys enthalten.
 function gloggi_aggregate_subchildren($subchildren, $root, $visited=array()) {
   $visited[] = $root;
-  if( array_key_exists( $root, $subchildren ) ) {
+  if( is_array( $subchildren ) && array_key_exists( $root, $subchildren ) ) {
     $children = $subchildren[$root];
     foreach( $children as $child ) {
       if( in_array( $child, $visited ) ) continue;

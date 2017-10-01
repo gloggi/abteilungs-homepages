@@ -552,7 +552,7 @@ function gloggi_custom_post_type_specialevent( $wpptd ) {
   $wpptd->add_components( array(
     'gloggi_specialevent' => array(
       'label' => __( 'Special Events', 'gloggi' ),
-      'icon' => get_bloginfo('template_directory') . '/files/tent.png',
+      'icon' => plugins_url('tent.png', __FILE__),
       'position' => 5,
       'post_types' => array(
         'specialevent' => array(
