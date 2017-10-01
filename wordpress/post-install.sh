@@ -20,11 +20,10 @@ then
 	# Create a new page and set it as the static front page
 	mitmachen=$(runuser www-data -s /bin/sh -c 'wp post create --post_type=page --post_title="Mitmachen" --post_status=publish --menu_order=0 --porcelain')
 	runuser www-data -s /bin/sh -c 'wp option update show_on_front page'
-	runuser www-data -s /bin/sh -c 'wp option update page_on_front $mitmachen'
+	runuser www-data -s /bin/sh -c "wp option update page_on_front \"$mitmachen\""
 
 	# Set some options in options-general.php
 	runuser www-data -s /bin/sh -c 'wp option update users_can_register 0'
-	runuser www-data -s /bin/sh -c 'wp option update WPLANG de_CH_informal'
 	runuser www-data -s /bin/sh -c 'wp option update timezone_string Europe/Zurich'
 	runuser www-data -s /bin/sh -c 'wp option update date_format d.m.Y'
 	runuser www-data -s /bin/sh -c 'wp option update time_format H:i'
