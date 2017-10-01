@@ -14,9 +14,13 @@ then
 	runuser www-data -s /bin/sh -c 'wp plugin list --status=inactive --field=name | egrep -v "gloggi" | xargs -0 -d"\n" wp plugin uninstall'
 	runuser www-data -s /bin/sh -c 'wp theme list --status=inactive --enabled=no --field=name | egrep -v "gloggi" | xargs -0 -d"\n" wp theme delete'
 
-	# Set a static front page - any page we can find
+	# Remove unneccessary example content
+	runuser www-data -s /bin/sh -c 'wp site empty --yes'
+
+	# Create a new page and set it as the static front page
+	mitmachen=$(runuser www-data -s /bin/sh -c 'wp post create --post_type=page --post_title="Mitmachen" --post_status=publish --menu_order=0 --porcelain')
 	runuser www-data -s /bin/sh -c 'wp option update show_on_front page'
-	runuser www-data -s /bin/sh -c 'wp option update page_on_front $(wp post list --post_type=page --field=ID | head -n 1)'
+	runuser www-data -s /bin/sh -c 'wp option update page_on_front $mitmachen'
 
 	# Set some options in options-general.php
 	runuser www-data -s /bin/sh -c 'wp option update users_can_register 0'
