@@ -33,6 +33,20 @@ then
 	agenda=$($wp post create --post_type=page --post_title="Agenda" --post_status=publish --menu_order=3 --porcelain)
 	$wp post meta update $agenda _wp_page_template agenda.php
 
+	# Create initial content
+	biberstufe=$($wp post create --post_type=stufe --post_title="Biberstufe" --post_status=publish --menu_order=0 --porcelain)
+	$wp post meta update $biberstufe alter-von 4
+	$wp post meta update $biberstufe alter-bis 7
+	wolfsstufe=$($wp post create --post_type=stufe --post_title="Wolfsstufe" --post_status=publish --menu_order=1 --porcelain)
+	$wp post meta update $wolfsstufe alter-von 7
+	$wp post meta update $wolfsstufe alter-bis 11
+	pfadistufe=$($wp post create --post_type=stufe --post_title="Pfadistufe" --post_status=publish --menu_order=2 --porcelain)
+	$wp post meta update $pfadistufe alter-von 11
+	$wp post meta update $pfadistufe alter-bis 14
+	piostufe=$($wp post create --post_type=stufe --post_title="Piostufe" --post_status=publish --menu_order=3 --porcelain)
+	$wp post meta update $piostufe alter-von 14
+	$wp post meta update $piostufe alter-bis 16
+
 	# Set the static front page
 	$wp option update show_on_front page
 	$wp option update page_on_front $mitmachen
