@@ -60,11 +60,7 @@
     margin: 25px;
     align-items: center;
     justify-content: flex-end;
-    height: 100px;
-
-    >img{
-        width: 150px;
-    }
+    height: 250px;
 
     object{
         width: 150px;
@@ -73,6 +69,12 @@
     h1{
         font-size: 50px;
     }
+}
+
+.header__logo{
+    max-width: 20vw;
+    max-height: 75px;
+    margin-top: 20px
 }
 
 .header__logo-large{

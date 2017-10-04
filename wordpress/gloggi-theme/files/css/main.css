@@ -690,13 +690,16 @@ label {
   margin: 25px;
   align-items: center;
   justify-content: flex-end;
-  height: 100px; }
-  .header__banner > img {
-    width: 150px; }
+  height: 250px; }
   .header__banner object {
     width: 150px; }
   .header__banner h1 {
     font-size: 50px; }
+
+.header__logo {
+  max-width: 20vw;
+  max-height: 75px;
+  margin-top: 20px; }
 
 .header__logo-large {
   max-width: 40vw;
