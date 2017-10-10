@@ -833,27 +833,47 @@ function gloggi_set_capabilities( $role, $capabilities ) {
 		}
 	}
 }
+function gloggi_add_capabilities( $role, $capabilities ) {
+  $role_obj = get_role( $role );
+	foreach( $capabilities as $cap ) {
+    $role_obj->add_cap( $cap );
+	}
+}
 function gloggi_add_plugin_capabilities() {
 	remove_role( 'subscriber' );
 	remove_role( 'contributor' );
 	remove_role( 'author' );
 	remove_role( 'editor' );
 
-    $al_caps = array( 'create_users', 'list_users', 'edit_users', 'promote_users', 'delete_users',
-		'create_stufen', 'publish_stufen', 'read_stufen', 'read_private_stufen', 'edit_stufen', 'edit_private_stufen', 'edit_published_stufen', 'edit_others_stufen', 'delete_stufen', 'delete_private_stufen', 'delete_published_stufen', 'delete_others_stufen',
+  $al_caps = array( 'create_users', 'list_users', 'edit_users', 'promote_users', 'delete_users',
+	  'create_stufen', 'publish_stufen', 'read_stufen', 'read_private_stufen', 'edit_stufen', 'edit_private_stufen', 'edit_published_stufen', 'edit_others_stufen', 'delete_stufen', 'delete_private_stufen', 'delete_published_stufen', 'delete_others_stufen',
 		'publish_gruppen', 'read_private_gruppen', 'edit_private_gruppen', 'edit_others_gruppen', 'delete_gruppen', 'delete_private_gruppen', 'delete_published_gruppen', 'delete_others_gruppen',
 		'update_plugins', 'update_themes', 'update_core',
 	);
-    $leiter_caps = array( 'read', 'upload_files',
+  $leiter_caps = array( 'read', 'upload_files', 'level_1',
 		'create_gruppen', 'read_gruppen', 'edit_gruppen', 'edit_published_gruppen',
-    );
+  );
 
-    $roles = gloggi_create_roles( array( 'administrator' => __( 'Administrator' ), 'al' => __( 'Abteilungsleiter' ), 'leiter' => __( 'Leiter' ) ) );
+  $roles = gloggi_create_roles( array( 'administrator' => __( 'Administrator' ), 'al' => __( 'Abteilungsleiter' ), 'leiter' => __( 'Leiter' ) ) );
 
-    gloggi_set_capabilities( 'al', array_merge( $al_caps, $leiter_caps ) );
-    gloggi_set_capabilities( 'leiter', array_merge( $leiter_caps ) );
+  gloggi_add_capabilities( 'administrator', array_merge( $al_caps, $leiter_caps ) );
+  gloggi_set_capabilities( 'al', array_merge( $al_caps, $leiter_caps ) );
+  gloggi_set_capabilities( 'leiter', array_merge( $leiter_caps ) );
 }
 add_action( 'admin_init', 'gloggi_add_plugin_capabilities' );
+
+
+/* Erlaube alle users als "Autor" (Besitzer) für eine Gruppe, nicht nur "authors" mit dem veralteten access level 1 oder höher. */
+function gloggi_allow_all_authors( $query_args ) {
+  if ( function_exists( get_current_screen ) ) {
+    $screen = get_current_screen();
+      if( $screen->post_type == 'gruppe' && $screen->parent_base == 'edit' ) {
+        $query_args['who'] = '';
+      }
+  }
+  return $query_args;
+}
+add_filter( 'wp_dropdown_users_args', 'gloggi_allow_all_authors' );
 
 
 function endswith($string, $test) {
