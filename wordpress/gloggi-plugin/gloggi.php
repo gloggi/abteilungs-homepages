@@ -534,6 +534,25 @@ function gloggi_custom_post_type_kontakt( $wpptd ) {
     'items_list_navigation' => 'Kontakt-Liste Navigation',
     'filter_items_list' => 'Kontakt-Liste filtern',
   );
+  $capabilities = array(
+  // Meta-capabilities (which are granted automatically to roles based on context and the primitive capabilities of the role)
+  'edit_post' => 'edit_kontakt',
+  'read_post' => 'read_kontakt',
+  'delete_post' => 'delete_kontakt',
+  // Primitive capabilities (which can be granted directly to a role)
+  'create_posts' => 'create_kontakte',
+  'publish_posts' => 'publish_kontakte',
+  'read' => 'read_kontakte',
+  'read_private_posts' => 'read_private_kontakte',
+  'edit_posts' => 'edit_kontakte',
+  'edit_private_posts' => 'edit_private_kontakte',
+  'edit_published_posts' => 'edit_published_kontakte',
+  'edit_others_posts' => 'edit_others_kontakte',
+  'delete_posts' => 'delete_kontakte',
+  'delete_private_posts' => 'delete_private_kontakte',
+  'delete_published_posts' => 'delete_published_kontakte',
+  'delete_others_posts' => 'delete_others_kontakte',
+  );
   $wpptd->add_components( array(
     'gloggi_kontakt' => array(
       'label' => __( 'Kontakte', 'gloggi' ),
@@ -558,6 +577,8 @@ function gloggi_custom_post_type_kontakt( $wpptd ) {
             'date' => false,
             'meta-email' => array( 'sortable' => true ),
           ),
+          'capabilities' => $capabilities,
+          'map_meta_cap' => true,
           'metaboxes' => array(
             'kontaktinfos' => array(
               'title' => __( 'Kontakt-Informationen', 'gloggi' ),
@@ -870,12 +891,14 @@ function gloggi_add_plugin_capabilities() {
     'create_stufen', 'publish_stufen', 'read_stufen', 'read_private_stufen', 'edit_stufen', 'edit_private_stufen', 'edit_published_stufen', 'edit_others_stufen', 'delete_stufen', 'delete_private_stufen', 'delete_published_stufen', 'delete_others_stufen',
     'publish_gruppen', 'read_private_gruppen', 'edit_private_gruppen', 'edit_others_gruppen', 'delete_gruppen', 'delete_private_gruppen', 'delete_published_gruppen', 'delete_others_gruppen',
     'read_private_anlaesse', 'edit_private_anlaesse', 'edit_others_anlaesse', 'delete_private_anlaesse', 'delete_others_anlaesse',
+    'create_kontakte', 'publish_kontakte', 'read_kontakte', 'read_private_kontakte', 'edit_kontakte', 'edit_private_kontakte', 'edit_published_kontakte', 'edit_others_kontakte', 'delete_kontakte', 'delete_private_kontakte', 'delete_published_kontakte', 'delete_others_kontakte',
     'update_plugins', 'update_themes', 'update_core',
   );
   $leiter_caps = array( 'read', 'upload_files', 'level_1',
     // Keine Rechte auf Stufen
     'create_gruppen', 'read_gruppen', 'edit_gruppen', 'edit_published_gruppen',
     'create_anlaesse', 'publish_anlaesse', 'read_anlaesse', 'edit_anlaesse', 'edit_published_anlaesse', 'delete_anlaesse', 'delete_published_anlaesse',
+    // Keine Rechte auf Kontakten
   );
 
   $roles = gloggi_create_roles( array( 'administrator' => __( 'Administrator' ), 'al' => __( 'Abteilungsleiter' ), 'leiter' => __( 'Leiter' ) ) );
