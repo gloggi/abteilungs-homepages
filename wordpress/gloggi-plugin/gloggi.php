@@ -11,9 +11,9 @@
 // Automatische Updates fuer das Plugin
 require 'plugin-update-checker/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-	'http://wp-updates.gloggi.ch/gloggi-plugin.json',
-	__FILE__,
-	'gloggi-abteilungshomepages-plugin'
+  'http://wp-updates.gloggi.ch/gloggi-plugin.json',
+  __FILE__,
+  'gloggi-abteilungshomepages-plugin'
 );
 add_filter( 'auto_update_plugin', '__return_true' );
 
@@ -66,23 +66,23 @@ function gloggi_custom_post_type_stufe( $wpptd ) {
     'filter_items_list' => 'Stufen-Liste filtern',
   );
   $capabilities = array(
-	// Meta-capabilities (which are granted automatically to roles based on context and the primitive capabilities of the role)
-	'edit_post' => 'edit_stufe',
-	'read_post' => 'read_stufe',
-	'delete_post' => 'delete_stufe',
-	// Primitive capabilities (which can be granted directly to a role)
-	'create_posts' => 'create_stufen',
-	'publish_posts' => 'publish_stufen',
-	'read' => 'read_stufen',
-	'read_private_posts' => 'read_private_stufen',
-	'edit_posts' => 'edit_stufen',
-	'edit_private_posts' => 'edit_private_stufen',
-	'edit_published_posts' => 'edit_published_stufen',
-	'edit_others_posts' => 'edit_others_stufen',
-	'delete_posts' => 'delete_stufen',
-	'delete_private_posts' => 'delete_private_stufen',
-	'delete_published_posts' => 'delete_published_stufen',
-	'delete_others_posts' => 'delete_others_stufen',
+  // Meta-capabilities (which are granted automatically to roles based on context and the primitive capabilities of the role)
+  'edit_post' => 'edit_stufe',
+  'read_post' => 'read_stufe',
+  'delete_post' => 'delete_stufe',
+  // Primitive capabilities (which can be granted directly to a role)
+  'create_posts' => 'create_stufen',
+  'publish_posts' => 'publish_stufen',
+  'read' => 'read_stufen',
+  'read_private_posts' => 'read_private_stufen',
+  'edit_posts' => 'edit_stufen',
+  'edit_private_posts' => 'edit_private_stufen',
+  'edit_published_posts' => 'edit_published_stufen',
+  'edit_others_posts' => 'edit_others_stufen',
+  'delete_posts' => 'delete_stufen',
+  'delete_private_posts' => 'delete_private_stufen',
+  'delete_published_posts' => 'delete_published_stufen',
+  'delete_others_posts' => 'delete_others_stufen',
   );
   $wpptd->add_components( array(
     'gloggi_stufen' => array(
@@ -204,23 +204,23 @@ function gloggi_custom_post_type_gruppe( $wpptd ) {
     'filter_items_list' => 'Gruppen-Liste filtern',
   );
   $capabilities = array(
-	// Meta-capabilities (which are granted automatically to roles based on context and the primitive capabilities of the role)
-	'edit_post' => 'edit_gruppe',
-	'read_post' => 'read_gruppe',
-	'delete_post' => 'delete_gruppe',
-	// Primitive capabilities (which can be granted directly to a role)
-	'create_posts' => 'create_gruppen',
-	'publish_posts' => 'publish_gruppen',
-	'read' => 'read_gruppen',
-	'read_private_posts' => 'read_private_gruppen',
-	'edit_posts' => 'edit_gruppen',
-	'edit_private_posts' => 'edit_private_gruppen',
-	'edit_published_posts' => 'edit_published_gruppen',
-	'edit_others_posts' => 'edit_others_gruppen',
-	'delete_posts' => 'delete_gruppen',
-	'delete_private_posts' => 'delete_private_gruppen',
-	'delete_published_posts' => 'delete_published_gruppen',
-	'delete_others_posts' => 'delete_others_gruppen',
+  // Meta-capabilities (which are granted automatically to roles based on context and the primitive capabilities of the role)
+  'edit_post' => 'edit_gruppe',
+  'read_post' => 'read_gruppe',
+  'delete_post' => 'delete_gruppe',
+  // Primitive capabilities (which can be granted directly to a role)
+  'create_posts' => 'create_gruppen',
+  'publish_posts' => 'publish_gruppen',
+  'read' => 'read_gruppen',
+  'read_private_posts' => 'read_private_gruppen',
+  'edit_posts' => 'edit_gruppen',
+  'edit_private_posts' => 'edit_private_gruppen',
+  'edit_published_posts' => 'edit_published_gruppen',
+  'edit_others_posts' => 'edit_others_gruppen',
+  'delete_posts' => 'delete_gruppen',
+  'delete_private_posts' => 'delete_private_gruppen',
+  'delete_published_posts' => 'delete_published_gruppen',
+  'delete_others_posts' => 'delete_others_gruppen',
   );
   $wpptd->add_components( array(
     'gloggi_gruppen' => array(
@@ -805,53 +805,53 @@ add_action( 'wpptd', 'gloggi_custom_page_type' );
 
 /* Unsere custom roles */
 function gloggi_create_roles( $role_slugs ) {
-	$result = array();
-	foreach( $role_slugs as $role_slug => $name ) {
-		$result[$role_slug] = get_role( $role_slug );
-		if( !$result[$role_slug] ) {
-			add_role( $role_slug, $name, array() );
-			$result[$role_slug] = get_role( $role_slug );
-		}
-	}
-	return result;
+  $result = array();
+  foreach( $role_slugs as $role_slug => $name ) {
+    $result[$role_slug] = get_role( $role_slug );
+    if( !$result[$role_slug] ) {
+      add_role( $role_slug, $name, array() );
+      $result[$role_slug] = get_role( $role_slug );
+    }
+  }
+  return result;
 }
 function gloggi_set_capabilities( $role, $capabilities ) {
-	$all_caps = array( 'create_sites', 'delete_sites', 'manage_network', 'manage_sites', 'manage_network_users', 'manage_network_plugins', 'manage_network_themes', 'manage_network_options', 'upgrade_network', 'setup_network', 'activate_plugins', 'delete_others_pages', 'delete_others_posts', 'delete_pages', 'delete_posts', 'delete_private_pages', 'delete_private_posts', 'delete_published_pages', 'delete_published_posts', 'edit_dashboard', 'edit_others_pages', 'edit_others_posts', 'edit_pages', 'edit_posts', 'edit_private_pages', 'edit_private_posts', 'edit_published_pages', 'edit_published_posts', 'edit_theme_options', 'export', 'import', 'list_users', 'manage_categories', 'manage_links', 'manage_options', 'moderate_comments', 'promote_users', 'publish_pages', 'publish_posts', 'read_private_pages', 'read_private_posts', 'read', 'remove_users', 'switch_themes', 'upload_files', 'customize', 'delete_site', 'update_core', 'update_plugins', 'update_themes', 'install_plugins', 'install_themes', 'upload_plugins', 'upload_themes', 'delete_themes', 'delete_plugins', 'edit_plugins', 'edit_themes', 'edit_files', 'edit_users', 'create_users', 'delete_users', 'unfiltered_html' );
-	$role_obj = get_role( $role );
-	$cap_array = array();
-	foreach( $all_caps as $cap ) {
-		$cap_array[$cap] = false;
-	}
-	foreach( $capabilities as $cap ) {
-		$cap_array[$cap] = true;
-	}
-	foreach( $cap_array as $cap=>$allow ) {
-		if( $allow ) {
-			$role_obj->add_cap( $cap );
-		} else {
-			$role_obj->remove_cap( $cap );
-		}
-	}
+  $all_caps = array( 'create_sites', 'delete_sites', 'manage_network', 'manage_sites', 'manage_network_users', 'manage_network_plugins', 'manage_network_themes', 'manage_network_options', 'upgrade_network', 'setup_network', 'activate_plugins', 'delete_others_pages', 'delete_others_posts', 'delete_pages', 'delete_posts', 'delete_private_pages', 'delete_private_posts', 'delete_published_pages', 'delete_published_posts', 'edit_dashboard', 'edit_others_pages', 'edit_others_posts', 'edit_pages', 'edit_posts', 'edit_private_pages', 'edit_private_posts', 'edit_published_pages', 'edit_published_posts', 'edit_theme_options', 'export', 'import', 'list_users', 'manage_categories', 'manage_links', 'manage_options', 'moderate_comments', 'promote_users', 'publish_pages', 'publish_posts', 'read_private_pages', 'read_private_posts', 'read', 'remove_users', 'switch_themes', 'upload_files', 'customize', 'delete_site', 'update_core', 'update_plugins', 'update_themes', 'install_plugins', 'install_themes', 'upload_plugins', 'upload_themes', 'delete_themes', 'delete_plugins', 'edit_plugins', 'edit_themes', 'edit_files', 'edit_users', 'create_users', 'delete_users', 'unfiltered_html' );
+  $role_obj = get_role( $role );
+  $cap_array = array();
+  foreach( $all_caps as $cap ) {
+    $cap_array[$cap] = false;
+  }
+  foreach( $capabilities as $cap ) {
+    $cap_array[$cap] = true;
+  }
+  foreach( $cap_array as $cap=>$allow ) {
+    if( $allow ) {
+      $role_obj->add_cap( $cap );
+    } else {
+      $role_obj->remove_cap( $cap );
+    }
+  }
 }
 function gloggi_add_capabilities( $role, $capabilities ) {
   $role_obj = get_role( $role );
-	foreach( $capabilities as $cap ) {
+  foreach( $capabilities as $cap ) {
     $role_obj->add_cap( $cap );
-	}
+  }
 }
 function gloggi_add_plugin_capabilities() {
-	remove_role( 'subscriber' );
-	remove_role( 'contributor' );
-	remove_role( 'author' );
-	remove_role( 'editor' );
+  remove_role( 'subscriber' );
+  remove_role( 'contributor' );
+  remove_role( 'author' );
+  remove_role( 'editor' );
 
   $al_caps = array( 'create_users', 'list_users', 'edit_users', 'promote_users', 'delete_users',
-	  'create_stufen', 'publish_stufen', 'read_stufen', 'read_private_stufen', 'edit_stufen', 'edit_private_stufen', 'edit_published_stufen', 'edit_others_stufen', 'delete_stufen', 'delete_private_stufen', 'delete_published_stufen', 'delete_others_stufen',
-		'publish_gruppen', 'read_private_gruppen', 'edit_private_gruppen', 'edit_others_gruppen', 'delete_gruppen', 'delete_private_gruppen', 'delete_published_gruppen', 'delete_others_gruppen',
-		'update_plugins', 'update_themes', 'update_core',
-	);
+    'create_stufen', 'publish_stufen', 'read_stufen', 'read_private_stufen', 'edit_stufen', 'edit_private_stufen', 'edit_published_stufen', 'edit_others_stufen', 'delete_stufen', 'delete_private_stufen', 'delete_published_stufen', 'delete_others_stufen',
+    'publish_gruppen', 'read_private_gruppen', 'edit_private_gruppen', 'edit_others_gruppen', 'delete_gruppen', 'delete_private_gruppen', 'delete_published_gruppen', 'delete_others_gruppen',
+    'update_plugins', 'update_themes', 'update_core',
+  );
   $leiter_caps = array( 'read', 'upload_files', 'level_1',
-		'create_gruppen', 'read_gruppen', 'edit_gruppen', 'edit_published_gruppen',
+    'create_gruppen', 'read_gruppen', 'edit_gruppen', 'edit_published_gruppen',
   );
 
   $roles = gloggi_create_roles( array( 'administrator' => __( 'Administrator' ), 'al' => __( 'Abteilungsleiter' ), 'leiter' => __( 'Leiter' ) ) );
