@@ -65,6 +65,25 @@ function gloggi_custom_post_type_stufe( $wpptd ) {
     'items_list_navigation' => 'Stufen-Liste Navigation',
     'filter_items_list' => 'Stufen-Liste filtern',
   );
+  $capabilities = array(
+	// Meta-capabilities (which are granted automatically to roles based on context and the primitive capabilities of the role)
+	'edit_post' => 'edit_stufe',
+	'read_post' => 'read_stufe',
+	'delete_post' => 'delete_stufe',
+	// Primitive capabilities (which can be granted directly to a role)
+	'create_posts' => 'create_stufen',
+	'publish_posts' => 'publish_stufen',
+	'read' => 'read_stufen',
+	'read_private_posts' => 'read_private_stufen',
+	'edit_posts' => 'edit_stufen',
+	'edit_private_posts' => 'edit_private_stufen',
+	'edit_published_posts' => 'edit_published_stufen',
+	'edit_others_posts' => 'edit_others_stufen',
+	'delete_posts' => 'delete_stufen',
+	'delete_private_posts' => 'delete_private_stufen',
+	'delete_published_posts' => 'delete_published_stufen',
+	'delete_others_posts' => 'delete_others_stufen',
+  );
   $wpptd->add_components( array(
     'gloggi_stufen' => array(
       'label' => __( 'Stufen', 'gloggi' ),
@@ -91,6 +110,8 @@ function gloggi_custom_post_type_stufe( $wpptd ) {
             'meta-alter-bis' => array( 'sortable' => true, ),
             'meta-stufentext' => array( ),
           ),
+          'capabilities' => $capabilities,
+          'map_meta_cap' => true,
           'metaboxes' => array(
             'reihenfolge' => array(
               'title' => __( 'Sortierung' ),
@@ -761,6 +782,56 @@ add_action( 'wpptd', 'gloggi_custom_post_type_specialevent' );
 add_action( 'wpptd', 'gloggi_custom_page_type' );
 
 
+/* Unsere custom roles */
+function gloggi_create_roles( $role_slugs ) {
+	$result = array();
+	foreach( $role_slugs as $role_slug => $name ) {
+		$result[$role_slug] = get_role( $role_slug );
+		if( !$result[$role_slug] ) {
+			add_role( $role_slug, $name, array() );
+			$result[$role_slug] = get_role( $role_slug );
+		}
+	}
+	return result;
+}
+function gloggi_set_capabilities( $role, $capabilities ) {
+	$all_caps = array( 'create_sites', 'delete_sites', 'manage_network', 'manage_sites', 'manage_network_users', 'manage_network_plugins', 'manage_network_themes', 'manage_network_options', 'upgrade_network', 'setup_network', 'activate_plugins', 'delete_others_pages', 'delete_others_posts', 'delete_pages', 'delete_posts', 'delete_private_pages', 'delete_private_posts', 'delete_published_pages', 'delete_published_posts', 'edit_dashboard', 'edit_others_pages', 'edit_others_posts', 'edit_pages', 'edit_posts', 'edit_private_pages', 'edit_private_posts', 'edit_published_pages', 'edit_published_posts', 'edit_theme_options', 'export', 'import', 'list_users', 'manage_categories', 'manage_links', 'manage_options', 'moderate_comments', 'promote_users', 'publish_pages', 'publish_posts', 'read_private_pages', 'read_private_posts', 'read', 'remove_users', 'switch_themes', 'upload_files', 'customize', 'delete_site', 'update_core', 'update_plugins', 'update_themes', 'install_plugins', 'install_themes', 'upload_plugins', 'upload_themes', 'delete_themes', 'delete_plugins', 'edit_plugins', 'edit_themes', 'edit_files', 'edit_users', 'create_users', 'delete_users', 'unfiltered_html' );
+	$role_obj = get_role( $role );
+	$cap_array = array();
+	foreach( $all_caps as $cap ) {
+		$cap_array[$cap] = false;
+	}
+	foreach( $capabilities as $cap ) {
+		$cap_array[$cap] = true;
+	}
+	foreach( $cap_array as $cap=>$allow ) {
+		if( $allow ) {
+			$role_obj->add_cap( $cap );
+		} else {
+			$role_obj->remove_cap( $cap );
+		}
+	}
+}
+function gloggi_add_plugin_capabilities() {
+	remove_role( 'subscriber' );
+	remove_role( 'contributor' );
+	remove_role( 'author' );
+	remove_role( 'editor' );
+
+    $al_caps = array( 'create_users', 'list_users', 'edit_users', 'promote_users', 'delete_users',
+		'create_stufen', 'publish_stufen', 'read_stufen', 'read_private_stufen', 'edit_stufen', 'edit_private_stufen', 'edit_published_stufen', 'edit_others_stufen', 'delete_stufen', 'delete_private_stufen', 'delete_published_stufen', 'delete_others_stufen',
+		'update_plugins', 'update_themes', 'update_core',
+	);
+    $leiter_caps = array( 'read', 'upload_files' );
+
+    $roles = gloggi_create_roles( array( 'administrator' => __( 'Administrator' ), 'al' => __( 'Abteilungsleiter' ), 'leiter' => __( 'Leiter' ) ) );
+
+    gloggi_set_capabilities( 'al', array_merge( $al_caps, $leiter_caps ) );
+    gloggi_set_capabilities( 'leiter', array_merge( $leiter_caps ) );
+}
+add_action( 'admin_init', 'gloggi_add_plugin_capabilities' );
+
+
 function endswith($string, $test) {
   $strlen = strlen($string);
   $testlen = strlen($test);
@@ -789,7 +860,6 @@ add_action( 'admin_head', 'gloggi_hide_irrelevant_metaboxes' );
 /* Standard-Editor für Seiteninhalt und Beitragsbild entfernen */
 function gloggi_remove_unused_page_fields() {
   remove_post_type_support('page', 'editor');
-  //remove_post_type_support('page', 'thumbnail');
 }
 add_action( 'init', 'gloggi_remove_unused_page_fields' );
 
@@ -797,32 +867,10 @@ add_action( 'init', 'gloggi_remove_unused_page_fields' );
 /* Verstecke einige Einträge im Admin-Menü */
 function gloggi_remove_admin_menu_pages() {
   remove_menu_page( 'index.php' );          //Dashboard
-  remove_menu_page( 'jetpack' );          //Jetpack* 
-  remove_menu_page( 'edit.php' );           //Posts
   remove_menu_page( 'upload.php' );         //Media
-  remove_menu_page( 'edit-comments.php' );      //Comments
-  if( wp_get_theme()->__get('name') == 'Gloggi Abteilungshomepages' ) {
-    remove_menu_page( 'themes.php' );         //Appearance / Themes
-  }
-  remove_menu_page( 'plugins.php' );        //Plugins
-  remove_menu_page( 'users.php' );          //Users
-  remove_menu_page( 'tools.php' );          //Tools
-  remove_menu_page( 'options-general.php' );    //Settings
   remove_menu_page( 'profile.php' );          //Profil
 }
 add_action( 'admin_menu', 'gloggi_remove_admin_menu_pages' );
-
-/* Verstecke einige Einträge in der Admin-Bar */
-function gloggi_remove_admin_menu_new( $wp_admin_bar ) {
-    $wp_admin_bar->remove_node( 'new-post' );
-    $wp_admin_bar->remove_node( 'new-page' );
-    $wp_admin_bar->remove_node( 'new-stufe' );
-    $wp_admin_bar->remove_node( 'new-gruppe' );
-    $wp_admin_bar->remove_node( 'new-kontakt' );
-    $wp_admin_bar->remove_node( 'new-specialevent' );
-    $wp_admin_bar->remove_node( 'new-user' );
-}
-add_action( 'admin_bar_menu', 'gloggi_remove_admin_menu_new', 999 );
 
 /* Verstecke einige Dashboard-Widgets */
 function gloggi_remove_dashboard_widgets(){
@@ -840,7 +888,7 @@ add_action('wp_dashboard_setup', 'gloggi_remove_dashboard_widgets');
 
 
 
-// Remove toolbar options
+/* Verstecke einige Einträge in der oberen Toolbar */
 function gloggi_remove_toolbar_buttons() {
   global $wp_admin_bar;
   $wp_admin_bar->remove_menu('wp-logo');
@@ -865,7 +913,7 @@ add_filter( 'screen_options_show_screen', '__return_false' );
 
 
 
-// Order pages by menu_order column
+/* Sortiere pages nach der menu_order-Spalte */
 function custom_post_order($query){
   if( ('stufe' == $query->get('post_type')) or ('kontakt' == $query->get('post_type')) or ('page' == $query->get('post_type'))){
     $query->set('orderby', 'menu_order');
