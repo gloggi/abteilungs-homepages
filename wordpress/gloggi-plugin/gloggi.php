@@ -914,6 +914,7 @@ function gloggi_add_plugin_capabilities() {
     'read_private_anlaesse', 'edit_private_anlaesse', 'edit_others_anlaesse', 'delete_private_anlaesse', 'delete_others_anlaesse',
     'create_kontakte', 'publish_kontakte', 'read_kontakte', 'read_private_kontakte', 'edit_kontakte', 'edit_private_kontakte', 'edit_published_kontakte', 'edit_others_kontakte', 'delete_kontakte', 'delete_private_kontakte', 'delete_published_kontakte', 'delete_others_kontakte',
     'create_specialevents', 'publish_specialevents', 'read_specialevents', 'read_private_specialevents', 'edit_specialevents', 'edit_private_specialevents', 'edit_published_specialevents', 'edit_others_specialevents', 'delete_specialevents', 'delete_private_specialevents', 'delete_published_specialevents', 'delete_others_specialevents',
+    'create_pages', 'publish_pages', 'read_pages', 'read_private_pages', 'edit_pages', 'edit_private_pages', 'edit_published_pages', 'edit_others_pages', 'delete_pages', 'delete_private_pages', 'delete_published_pages', 'delete_others_pages',
     'update_plugins', 'update_themes', 'update_core',
   );
   $leiter_caps = array( 'read', 'upload_files', 'level_1',
@@ -922,6 +923,7 @@ function gloggi_add_plugin_capabilities() {
     'create_anlaesse', 'publish_anlaesse', 'read_anlaesse', 'edit_anlaesse', 'edit_published_anlaesse', 'delete_anlaesse', 'delete_published_anlaesse',
     // Keine Rechte auf Kontakten
     // Keine Rechte auf Special Events
+    // Keine Rechte auf Pages
   );
 
   $roles = gloggi_create_roles( array( 'administrator' => __( 'Administrator' ), 'al' => __( 'Abteilungsleiter' ), 'leiter' => __( 'Leiter' ) ) );
