@@ -633,6 +633,25 @@ function gloggi_custom_post_type_specialevent( $wpptd ) {
     'items_list_navigation' => 'Special-Event-Liste Navigation',
     'filter_items_list' => 'Special-Event-Liste filtern',
   );
+  $capabilities = array(
+  // Meta-capabilities (which are granted automatically to roles based on context and the primitive capabilities of the role)
+  'edit_post' => 'edit_specialevent',
+  'read_post' => 'read_specialevent',
+  'delete_post' => 'delete_specialevent',
+  // Primitive capabilities (which can be granted directly to a role)
+  'create_posts' => 'create_specialevents',
+  'publish_posts' => 'publish_specialevents',
+  'read' => 'read_specialevents',
+  'read_private_posts' => 'read_private_specialevents',
+  'edit_posts' => 'edit_specialevents',
+  'edit_private_posts' => 'edit_private_specialevents',
+  'edit_published_posts' => 'edit_published_specialevents',
+  'edit_others_posts' => 'edit_others_specialevents',
+  'delete_posts' => 'delete_specialevents',
+  'delete_private_posts' => 'delete_private_specialevents',
+  'delete_published_posts' => 'delete_published_specialevents',
+  'delete_others_posts' => 'delete_others_specialevents',
+  );
   $wpptd->add_components( array(
     'gloggi_specialevent' => array(
       'label' => __( 'Special Events', 'gloggi' ),
@@ -657,6 +676,8 @@ function gloggi_custom_post_type_specialevent( $wpptd ) {
             'date' => false,
             'meta-email' => array( 'sortable' => true ),
           ),
+          'capabilities' => $capabilities,
+          'map_meta_cap' => true,
           'metaboxes' => array(
             'specialevent' => array(
               'title' => __( 'Special-Event-Informationen', 'gloggi' ),
@@ -892,6 +913,7 @@ function gloggi_add_plugin_capabilities() {
     'publish_gruppen', 'read_private_gruppen', 'edit_private_gruppen', 'edit_others_gruppen', 'delete_gruppen', 'delete_private_gruppen', 'delete_published_gruppen', 'delete_others_gruppen',
     'read_private_anlaesse', 'edit_private_anlaesse', 'edit_others_anlaesse', 'delete_private_anlaesse', 'delete_others_anlaesse',
     'create_kontakte', 'publish_kontakte', 'read_kontakte', 'read_private_kontakte', 'edit_kontakte', 'edit_private_kontakte', 'edit_published_kontakte', 'edit_others_kontakte', 'delete_kontakte', 'delete_private_kontakte', 'delete_published_kontakte', 'delete_others_kontakte',
+    'create_specialevents', 'publish_specialevents', 'read_specialevents', 'read_private_specialevents', 'edit_specialevents', 'edit_private_specialevents', 'edit_published_specialevents', 'edit_others_specialevents', 'delete_specialevents', 'delete_private_specialevents', 'delete_published_specialevents', 'delete_others_specialevents',
     'update_plugins', 'update_themes', 'update_core',
   );
   $leiter_caps = array( 'read', 'upload_files', 'level_1',
@@ -899,6 +921,7 @@ function gloggi_add_plugin_capabilities() {
     'create_gruppen', 'read_gruppen', 'edit_gruppen', 'edit_published_gruppen',
     'create_anlaesse', 'publish_anlaesse', 'read_anlaesse', 'edit_anlaesse', 'edit_published_anlaesse', 'delete_anlaesse', 'delete_published_anlaesse',
     // Keine Rechte auf Kontakten
+    // Keine Rechte auf Special Events
   );
 
   $roles = gloggi_create_roles( array( 'administrator' => __( 'Administrator' ), 'al' => __( 'Abteilungsleiter' ), 'leiter' => __( 'Leiter' ) ) );
