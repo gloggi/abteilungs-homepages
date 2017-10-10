@@ -203,6 +203,25 @@ function gloggi_custom_post_type_gruppe( $wpptd ) {
     'items_list_navigation' => 'Gruppen-Liste Navigation',
     'filter_items_list' => 'Gruppen-Liste filtern',
   );
+  $capabilities = array(
+	// Meta-capabilities (which are granted automatically to roles based on context and the primitive capabilities of the role)
+	'edit_post' => 'edit_gruppe',
+	'read_post' => 'read_gruppe',
+	'delete_post' => 'delete_gruppe',
+	// Primitive capabilities (which can be granted directly to a role)
+	'create_posts' => 'create_gruppen',
+	'publish_posts' => 'publish_gruppen',
+	'read' => 'read_gruppen',
+	'read_private_posts' => 'read_private_gruppen',
+	'edit_posts' => 'edit_gruppen',
+	'edit_private_posts' => 'edit_private_gruppen',
+	'edit_published_posts' => 'edit_published_gruppen',
+	'edit_others_posts' => 'edit_others_gruppen',
+	'delete_posts' => 'delete_gruppen',
+	'delete_private_posts' => 'delete_private_gruppen',
+	'delete_published_posts' => 'delete_published_gruppen',
+	'delete_others_posts' => 'delete_others_gruppen',
+  );
   $wpptd->add_components( array(
     'gloggi_gruppen' => array(
       'label' => __( 'Gruppen', 'gloggi' ),
@@ -211,7 +230,7 @@ function gloggi_custom_post_type_gruppe( $wpptd ) {
       'post_types' => array(
         'gruppe' => array(
           'labels' => $labels,
-          'supports' => array( 'title', 'thumbnail', 'page-attributes', ),
+          'supports' => array( 'title', 'thumbnail', 'page-attributes', 'author' ),
           'hierarchical' => true,
           /* Permalinks entfernen */
           'public' => false,
@@ -230,6 +249,8 @@ function gloggi_custom_post_type_gruppe( $wpptd ) {
             'meta-stufe' => array( 'sortable' => true ),
             'meta-geschlecht' => array( 'sortable' => true ),
           ),
+          'capabilities' => $capabilities,
+          'map_meta_cap' => true,
           'metaboxes' => array(
             'gruppeninfos' => array(
               'title' => __( 'Gruppeninformationen', 'gloggi' ),
@@ -820,9 +841,12 @@ function gloggi_add_plugin_capabilities() {
 
     $al_caps = array( 'create_users', 'list_users', 'edit_users', 'promote_users', 'delete_users',
 		'create_stufen', 'publish_stufen', 'read_stufen', 'read_private_stufen', 'edit_stufen', 'edit_private_stufen', 'edit_published_stufen', 'edit_others_stufen', 'delete_stufen', 'delete_private_stufen', 'delete_published_stufen', 'delete_others_stufen',
+		'publish_gruppen', 'read_private_gruppen', 'edit_private_gruppen', 'edit_others_gruppen', 'delete_gruppen', 'delete_private_gruppen', 'delete_published_gruppen', 'delete_others_gruppen',
 		'update_plugins', 'update_themes', 'update_core',
 	);
-    $leiter_caps = array( 'read', 'upload_files' );
+    $leiter_caps = array( 'read', 'upload_files',
+		'create_gruppen', 'read_gruppen', 'edit_gruppen', 'edit_published_gruppen',
+    );
 
     $roles = gloggi_create_roles( array( 'administrator' => __( 'Administrator' ), 'al' => __( 'Abteilungsleiter' ), 'leiter' => __( 'Leiter' ) ) );
 
