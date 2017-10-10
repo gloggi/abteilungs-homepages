@@ -372,6 +372,25 @@ function gloggi_custom_post_type_anlass( $wpptd ) {
     'items_list_navigation' => 'Anlass-Liste Navigation',
     'filter_items_list' => 'Anlass-Liste filtern',
   );
+  $capabilities = array(
+  // Meta-capabilities (which are granted automatically to roles based on context and the primitive capabilities of the role)
+  'edit_post' => 'edit_anlass',
+  'read_post' => 'read_anlass',
+  'delete_post' => 'delete_anlass',
+  // Primitive capabilities (which can be granted directly to a role)
+  'create_posts' => 'create_anlaesse',
+  'publish_posts' => 'publish_anlaesse',
+  'read' => 'read_anlaesse',
+  'read_private_posts' => 'read_private_anlaesse',
+  'edit_posts' => 'edit_anlaesse',
+  'edit_private_posts' => 'edit_private_anlaesse',
+  'edit_published_posts' => 'edit_published_anlaesse',
+  'edit_others_posts' => 'edit_others_anlaesse',
+  'delete_posts' => 'delete_anlaesse',
+  'delete_private_posts' => 'delete_private_anlaesse',
+  'delete_published_posts' => 'delete_published_anlaesse',
+  'delete_others_posts' => 'delete_others_anlaesse',
+  );
   $wpptd->add_components( array(
     'gloggi_anlaesse' => array(
       'label' => __( 'Anl&auml;sse', 'gloggi' ),
@@ -400,6 +419,8 @@ function gloggi_custom_post_type_anlass( $wpptd ) {
             'meta-endzeit' => array( 'sortable' => true ),
             'meta-endort' => array( 'sortable' => true ),
           ),
+          'capabilities' => $capabilities,
+          'map_meta_cap' => true,
           'metaboxes' => array(
             'anlassinfos' => array(
               'title' => __( 'Anlass-Informationen', 'gloggi' ),
@@ -848,10 +869,13 @@ function gloggi_add_plugin_capabilities() {
   $al_caps = array( 'create_users', 'list_users', 'edit_users', 'promote_users', 'delete_users',
     'create_stufen', 'publish_stufen', 'read_stufen', 'read_private_stufen', 'edit_stufen', 'edit_private_stufen', 'edit_published_stufen', 'edit_others_stufen', 'delete_stufen', 'delete_private_stufen', 'delete_published_stufen', 'delete_others_stufen',
     'publish_gruppen', 'read_private_gruppen', 'edit_private_gruppen', 'edit_others_gruppen', 'delete_gruppen', 'delete_private_gruppen', 'delete_published_gruppen', 'delete_others_gruppen',
+    'read_private_anlaesse', 'edit_private_anlaesse', 'edit_others_anlaesse', 'delete_private_anlaesse', 'delete_others_anlaesse',
     'update_plugins', 'update_themes', 'update_core',
   );
   $leiter_caps = array( 'read', 'upload_files', 'level_1',
+    // Keine Rechte auf Stufen
     'create_gruppen', 'read_gruppen', 'edit_gruppen', 'edit_published_gruppen',
+    'create_anlaesse', 'publish_anlaesse', 'read_anlaesse', 'edit_anlaesse', 'edit_published_anlaesse', 'delete_anlaesse', 'delete_published_anlaesse',
   );
 
   $roles = gloggi_create_roles( array( 'administrator' => __( 'Administrator' ), 'al' => __( 'Abteilungsleiter' ), 'leiter' => __( 'Leiter' ) ) );
