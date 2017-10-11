@@ -159,8 +159,7 @@ ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 10px;
-  width: 120px; }
+  padding: 10px; }
   @media screen and (max-width: 500px) {
     .agenda__sections {
       overflow-x: scroll;
@@ -274,7 +273,7 @@ ul {
     font-weight: 500;
     line-height: 45.0px;
     margin: 0px;
-    color: white; }
+    color: white !important; }
   .agenda__header > div p {
     color: white; }
     @media screen and (max-width: 500px) {
@@ -1076,7 +1075,7 @@ label {
   justify-content: space-between; }
   .group__detail-banner > h2 {
     font-size: 60px;
-    color: white;
+    color: white !important;
     align-self: flex-end;
     margin: 10px;
     margin-bottom: 20px; }
