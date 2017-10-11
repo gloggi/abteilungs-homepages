@@ -1,4 +1,4 @@
-#Running locally
+# Running locally
 
 1. Clone the git repository
 
@@ -15,7 +15,7 @@
 4. Once the containers have started, access the site at ```localhost``` (can be changed in .env.local). You can log in at localhost/wp-admin with user 'AL' and password 'gloggi'. If you change something in the plugin or theme directories, refresh the page in your browser to see the changes take action immediately.
 
 
-#Installing on a hoster
+# Installing on a hoster
 
 1. Set up a WordPress instance at your hoster
 
