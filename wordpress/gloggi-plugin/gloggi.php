@@ -39,31 +39,31 @@ function dependency_missing_notice(){
 /* Stufe */
 function gloggi_custom_post_type_stufe( $wpptd ) {
   $labels = array(
-    'name' => 'Stufen',
-    'singular_name' => 'Stufe',
-    'menu_name' => 'Stufen',
-    'name_admin_bar' => 'Stufe',
-    'archives' => 'Stufen-Archiv',
-    'parent_item_colon' => '&Uuml;bergeordnetes Objekt:',
-    'all_items' => 'Alle Stufen',
-    'add_new_item' => 'Neue Stufe hinzuf&uuml;gen',
-    'add_new' => '+ Neu',
-    'new_item' => 'Neue Stufe',
-    'edit_item' => 'Stufe bearbeiten',
-    'update_item' => 'Stufe aktualisieren',
-    'view_item' => 'Stufe ansehen',
-    'search_items' => 'Stufe suchen',
-    'not_found' => 'Nicht gefunden',
-    'not_found_in_trash' => 'Nicht im Papierkorb gefunden',
-    'featured_image' => 'Titelbild',
-    'set_featured_image' => 'Titelbild setzen',
-    'remove_featured_image' => 'Titelbild entfernen',
-    'use_featured_image' => 'Als Titelbild verwenden',
-    'insert_into_item' => 'In Stufe einf&uuml;gen',
-    'uploaded_to_this_item' => 'Zu Stufe hochgeladen',
-    'items_list' => 'Stufen-Liste',
-    'items_list_navigation' => 'Stufen-Liste Navigation',
-    'filter_items_list' => 'Stufen-Liste filtern',
+    'name' => __( 'Stufen', 'gloggi' ),
+    'singular_name' => __( 'Stufe', 'gloggi' ),
+    'menu_name' => __( 'Stufen', 'gloggi' ),
+    'name_admin_bar' => __( 'Stufe', 'gloggi' ),
+    'archives' => __( 'Stufen-Archiv', 'gloggi' ),
+    'parent_item_colon' => __( '&Uuml;bergeordnetes Objekt:', 'gloggi' ),
+    'all_items' => __( 'Alle Stufen', 'gloggi' ),
+    'add_new_item' => __( 'Neue Stufe hinzuf&uuml;gen', 'gloggi' ),
+    'add_new' => __( '+ Neu', 'gloggi' ),
+    'new_item' => __( 'Neue Stufe', 'gloggi' ),
+    'edit_item' => __( 'Stufe bearbeiten', 'gloggi' ),
+    'update_item' => __( 'Stufe aktualisieren', 'gloggi' ),
+    'view_item' => __( 'Stufe ansehen', 'gloggi' ),
+    'search_items' => __( 'Stufe suchen', 'gloggi' ),
+    'not_found' => __( 'Nicht gefunden', 'gloggi' ),
+    'not_found_in_trash' => __( 'Nicht im Papierkorb gefunden', 'gloggi' ),
+    'featured_image' => __( 'Titelbild', 'gloggi' ),
+    'set_featured_image' => __( 'Titelbild setzen', 'gloggi' ),
+    'remove_featured_image' => __( 'Titelbild entfernen', 'gloggi' ),
+    'use_featured_image' => __( 'Als Titelbild verwenden', 'gloggi' ),
+    'insert_into_item' => __( 'In Stufe einf&uuml;gen', 'gloggi' ),
+    'uploaded_to_this_item' => __( 'Zu Stufe hochgeladen', 'gloggi' ),
+    'items_list' => __( 'Stufen-Liste', 'gloggi' ),
+    'items_list_navigation' => __( 'Stufen-Liste Navigation', 'gloggi' ),
+    'filter_items_list' => __( 'Stufen-Liste filtern', 'gloggi' ),
   );
   $capabilities = array(
   // Meta-capabilities (which are granted automatically to roles based on context and the primitive capabilities of the role)
@@ -175,33 +175,33 @@ function gloggi_custom_post_type_stufe( $wpptd ) {
 /* Gruppe */
 function gloggi_custom_post_type_gruppe( $wpptd ) {
   $labels = array(
-    'name' => 'Gruppen',
-    'singular_name' => 'Gruppe',
-    'menu_name' => 'Gruppen',
-    'name_admin_bar' => 'Gruppe',
-    'archives' => 'Gruppen-Archiv',
-    'attributes' => 'Gruppen-Eigenschaften',
-    'parent_item_colon' => '&Uuml;bergeordnete Gruppe:',
-    'all_items' => 'Alle Gruppen',
-    'add_new_item' => 'Neue Gruppe hinzuf&uuml;gen',
-    'add_new' => '+ Neu',
-    'new_item' => 'Neue Gruppe',
-    'edit_item' => 'Gruppe bearbeiten',
-    'update_item' => 'Gruppe aktualisieren',
-    'view_item' => 'Gruppe ansehen',
-    'view_items' => 'Gruppen ansehen',
-    'search_items' => 'Gruppe suchen',
-    'not_found' => 'Nicht gefunden',
-    'not_found_in_trash' => 'Nicht im Papierkorb gefunden',
-    'featured_image' => 'Titelbild',
-    'set_featured_image' => 'Titelbild setzen',
-    'remove_featured_image' => 'Titelbild entfernen',
-    'use_featured_image' => 'Als Titelbild verwenden',
-    'insert_into_item' => 'In Gruppe einf&uuml;gen',
-    'uploaded_to_this_item' => 'Zu Gruppe hochgeladen',
-    'items_list' => 'Gruppen-Liste',
-    'items_list_navigation' => 'Gruppen-Liste Navigation',
-    'filter_items_list' => 'Gruppen-Liste filtern',
+    'name' => __( 'Gruppen', 'gloggi' ),
+    'singular_name' => __( 'Gruppe', 'gloggi' ),
+    'menu_name' => __( 'Gruppen', 'gloggi' ),
+    'name_admin_bar' => __( 'Gruppe', 'gloggi' ),
+    'archives' => __( 'Gruppen-Archiv', 'gloggi' ),
+    'attributes' => __( 'Gruppen-Eigenschaften', 'gloggi' ),
+    'parent_item_colon' => __( '&Uuml;bergeordnete Gruppe:', 'gloggi' ),
+    'all_items' => __( 'Alle Gruppen', 'gloggi' ),
+    'add_new_item' => __( 'Neue Gruppe hinzuf&uuml;gen', 'gloggi' ),
+    'add_new' => __( '+ Neu', 'gloggi' ),
+    'new_item' => __( 'Neue Gruppe', 'gloggi' ),
+    'edit_item' => __( 'Gruppe bearbeiten', 'gloggi' ),
+    'update_item' => __( 'Gruppe aktualisieren', 'gloggi' ),
+    'view_item' => __( 'Gruppe ansehen', 'gloggi' ),
+    'view_items' => __( 'Gruppen ansehen', 'gloggi' ),
+    'search_items' => __( 'Gruppe suchen', 'gloggi' ),
+    'not_found' => __( 'Nicht gefunden', 'gloggi' ),
+    'not_found_in_trash' => __( 'Nicht im Papierkorb gefunden', 'gloggi' ),
+    'featured_image' => __( 'Titelbild', 'gloggi' ),
+    'set_featured_image' => __( 'Titelbild setzen', 'gloggi' ),
+    'remove_featured_image' => __( 'Titelbild entfernen', 'gloggi' ),
+    'use_featured_image' => __( 'Als Titelbild verwenden', 'gloggi' ),
+    'insert_into_item' => __( 'In Gruppe einf&uuml;gen', 'gloggi' ),
+    'uploaded_to_this_item' => __( 'Zu Gruppe hochgeladen', 'gloggi' ),
+    'items_list' => __( 'Gruppen-Liste', 'gloggi' ),
+    'items_list_navigation' => __( 'Gruppen-Liste Navigation', 'gloggi' ),
+    'filter_items_list' => __( 'Gruppen-Liste filtern', 'gloggi' ),
   );
   $capabilities = array(
   // Meta-capabilities (which are granted automatically to roles based on context and the primitive capabilities of the role)
@@ -244,7 +244,7 @@ function gloggi_custom_post_type_gruppe( $wpptd ) {
           'table_columns' => array(
             'author' => false,
             'comments' => false,
-            // Aus irgend einem Grund werden die Einträge nicht hierarchisch angezeigt wenn das Datum versteckt wird
+            // Aus irgend einem Grund werden die Eintraege nicht hierarchisch angezeigt wenn das Datum versteckt wird
             //'date' => false,
             'meta-stufe' => array( 'sortable' => true ),
             'meta-geschlecht' => array( 'sortable' => true ),
@@ -344,33 +344,33 @@ function gloggi_custom_post_type_gruppe( $wpptd ) {
 /* Anlass */
 function gloggi_custom_post_type_anlass( $wpptd ) {
   $labels = array(
-    'name' => 'Anl&auml;sse',
-    'singular_name' => 'Anlass',
-    'menu_name' => 'Anl&auml;sse',
-    'name_admin_bar' => 'Anlass',
-    'archives' => 'Anlass-Archiv',
-    'attributes' => 'Anlass-Eigenschaften',
-    'parent_item_colon' => '&Uuml;bergeordnetes Objekt:',
-    'all_items' => 'Alle Anl&auml;sse',
-    'add_new_item' => 'Neuen Anlass hinzuf&uuml;gen',
-    'add_new' => '+ Neu',
-    'new_item' => 'Neuer Anlass',
-    'edit_item' => 'Anlass bearbeiten',
-    'update_item' => 'Anlass aktualisieren',
-    'view_item' => 'Anlass ansehen',
-    'view_items' => 'Anl&auml;sse ansehen',
-    'search_items' => 'Anlass suchen',
-    'not_found' => 'Nicht gefunden',
-    'not_found_in_trash' => 'Nicht im Papierkorb gefunden',
-    'featured_image' => 'Titelbild',
-    'set_featured_image' => 'Titelbild setzen',
-    'remove_featured_image' => 'Titelbild entfernen',
-    'use_featured_image' => 'Als Titelbild verwenden',
-    'insert_into_item' => 'In Anlass einf&uuml;gen',
-    'uploaded_to_this_item' => 'Zu Anlass hochgeladen',
-    'items_list' => 'Anlass-Liste',
-    'items_list_navigation' => 'Anlass-Liste Navigation',
-    'filter_items_list' => 'Anlass-Liste filtern',
+    'name' => __( 'Anl&auml;sse', 'gloggi' ),
+    'singular_name' => __( 'Anlass', 'gloggi' ),
+    'menu_name' => __( 'Anl&auml;sse', 'gloggi' ),
+    'name_admin_bar' => __( 'Anlass', 'gloggi' ),
+    'archives' => __( 'Anlass-Archiv', 'gloggi' ),
+    'attributes' => __( 'Anlass-Eigenschaften', 'gloggi' ),
+    'parent_item_colon' => __( '&Uuml;bergeordnetes Objekt:', 'gloggi' ),
+    'all_items' => __( 'Alle Anl&auml;sse', 'gloggi' ),
+    'add_new_item' => __( 'Neuen Anlass hinzuf&uuml;gen', 'gloggi' ),
+    'add_new' => __( '+ Neu', 'gloggi' ),
+    'new_item' => __( 'Neuer Anlass', 'gloggi' ),
+    'edit_item' => __( 'Anlass bearbeiten', 'gloggi' ),
+    'update_item' => __( 'Anlass aktualisieren', 'gloggi' ),
+    'view_item' => __( 'Anlass ansehen', 'gloggi' ),
+    'view_items' => __( 'Anl&auml;sse ansehen', 'gloggi' ),
+    'search_items' => __( 'Anlass suchen', 'gloggi' ),
+    'not_found' => __( 'Nicht gefunden', 'gloggi' ),
+    'not_found_in_trash' => __( 'Nicht im Papierkorb gefunden', 'gloggi' ),
+    'featured_image' => __( 'Titelbild', 'gloggi' ),
+    'set_featured_image' => __( 'Titelbild setzen', 'gloggi' ),
+    'remove_featured_image' => __( 'Titelbild entfernen', 'gloggi' ),
+    'use_featured_image' => __( 'Als Titelbild verwenden', 'gloggi' ),
+    'insert_into_item' => __( 'In Anlass einf&uuml;gen', 'gloggi' ),
+    'uploaded_to_this_item' => __( 'Zu Anlass hochgeladen', 'gloggi' ),
+    'items_list' => __( 'Anlass-Liste', 'gloggi' ),
+    'items_list_navigation' => __( 'Anlass-Liste Navigation', 'gloggi' ),
+    'filter_items_list' => __( 'Anlass-Liste filtern', 'gloggi' ),
   );
   $capabilities = array(
   // Meta-capabilities (which are granted automatically to roles based on context and the primitive capabilities of the role)
@@ -506,33 +506,33 @@ function gloggi_custom_post_type_anlass( $wpptd ) {
 /* Kontakt (Abteilungsstab) */
 function gloggi_custom_post_type_kontakt( $wpptd ) {
   $labels = array(
-    'name' => 'Kontakte',
-    'singular_name' => 'Kontakt',
-    'menu_name' => 'Kontakte',
-    'name_admin_bar' => 'Kontakte',
-    'archives' => 'Kontakt-Archiv',
-    'attributes' => 'Kontakt-Eigenschaften',
-    'parent_item_colon' => '&Uuml;bergeordnetes Objekt:',
-    'all_items' => 'Alle Kontakte',
-    'add_new_item' => 'Neuen Kontakt hinzuf&uuml;gen',
-    'add_new' => '+ Neu',
-    'new_item' => 'Neuer Kontakt',
-    'edit_item' => 'Kontakt bearbeiten',
-    'update_item' => 'Kontakt aktualisieren',
-    'view_item' => 'Kontakt ansehen',
-    'view_items' => 'Kontakte ansehen',
-    'search_items' => 'Kontakte suchen',
-    'not_found' => 'Nicht gefunden',
-    'not_found_in_trash' => 'Nicht im Papierkorb gefunden',
-    'featured_image' => 'Profilbild',
-    'set_featured_image' => 'Profilbild setzen',
-    'remove_featured_image' => 'Profilbild entfernen',
-    'use_featured_image' => 'Als Profilbild verwenden',
-    'insert_into_item' => 'Zu Kontakt hinzuf&uuml;gen',
-    'uploaded_to_this_item' => 'Zu Kontakt hochgeladen',
-    'items_list' => 'Kontakt-Liste',
-    'items_list_navigation' => 'Kontakt-Liste Navigation',
-    'filter_items_list' => 'Kontakt-Liste filtern',
+    'name' => __( 'Kontakte', 'gloggi' ),
+    'singular_name' => __( 'Kontakt', 'gloggi' ),
+    'menu_name' => __( 'Kontakte', 'gloggi' ),
+    'name_admin_bar' => __( 'Kontakte', 'gloggi' ),
+    'archives' => __( 'Kontakt-Archiv', 'gloggi' ),
+    'attributes' => __( 'Kontakt-Eigenschaften', 'gloggi' ),
+    'parent_item_colon' => __( '&Uuml;bergeordnetes Objekt:', 'gloggi' ),
+    'all_items' => __( 'Alle Kontakte', 'gloggi' ),
+    'add_new_item' => __( 'Neuen Kontakt hinzuf&uuml;gen', 'gloggi' ),
+    'add_new' => __( '+ Neu', 'gloggi' ),
+    'new_item' => __( 'Neuer Kontakt', 'gloggi' ),
+    'edit_item' => __( 'Kontakt bearbeiten', 'gloggi' ),
+    'update_item' => __( 'Kontakt aktualisieren', 'gloggi' ),
+    'view_item' => __( 'Kontakt ansehen', 'gloggi' ),
+    'view_items' => __( 'Kontakte ansehen', 'gloggi' ),
+    'search_items' => __( 'Kontakte suchen', 'gloggi' ),
+    'not_found' => __( 'Nicht gefunden', 'gloggi' ),
+    'not_found_in_trash' => __( 'Nicht im Papierkorb gefunden', 'gloggi' ),
+    'featured_image' => __( 'Profilbild', 'gloggi' ),
+    'set_featured_image' => __( 'Profilbild setzen', 'gloggi' ),
+    'remove_featured_image' => __( 'Profilbild entfernen', 'gloggi' ),
+    'use_featured_image' => __( 'Als Profilbild verwenden', 'gloggi' ),
+    'insert_into_item' => __( 'Zu Kontakt hinzuf&uuml;gen', 'gloggi' ),
+    'uploaded_to_this_item' => __( 'Zu Kontakt hochgeladen', 'gloggi' ),
+    'items_list' => __( 'Kontakt-Liste', 'gloggi' ),
+    'items_list_navigation' => __( 'Kontakt-Liste Navigation', 'gloggi' ),
+    'filter_items_list' => __( 'Kontakt-Liste filtern', 'gloggi' ),
   );
   $capabilities = array(
   // Meta-capabilities (which are granted automatically to roles based on context and the primitive capabilities of the role)
@@ -605,33 +605,33 @@ function gloggi_custom_post_type_kontakt( $wpptd ) {
 /* Special Event */
 function gloggi_custom_post_type_specialevent( $wpptd ) {
   $labels = array(
-    'name' => 'Special Events',
-    'singular_name' => 'Special Event',
-    'menu_name' => 'Special Events',
-    'name_admin_bar' => 'Special Events',
-    'archives' => 'Special-Event-Archiv',
-    'attributes' => 'Special-Event-Eigenschaften',
-    'parent_item_colon' => '&Uuml;bergeordnetes Objekt:',
-    'all_items' => 'Alle Special Events',
-    'add_new_item' => 'Neuen Special Event hinzuf&uuml;gen',
-    'add_new' => '+ Neu',
-    'new_item' => 'Neuer Special Event',
-    'edit_item' => 'Special Event bearbeiten',
-    'update_item' => 'Special Event aktualisieren',
-    'view_item' => 'Special Event ansehen',
-    'view_items' => 'Special Events ansehen',
-    'search_items' => 'Special Events suchen',
-    'not_found' => 'Nicht gefunden',
-    'not_found_in_trash' => 'Nicht im Papierkorb gefunden',
-    'featured_image' => 'Event-Bild',
-    'set_featured_image' => 'Event-Bild setzen',
-    'remove_featured_image' => 'Event-Bild entfernen',
-    'use_featured_image' => 'Als Event-Bild verwenden',
-    'insert_into_item' => 'Zu Special Event hinzuf&uuml;gen',
-    'uploaded_to_this_item' => 'Zu Special Event hochgeladen',
-    'items_list' => 'Special-Event-Liste',
-    'items_list_navigation' => 'Special-Event-Liste Navigation',
-    'filter_items_list' => 'Special-Event-Liste filtern',
+    'name' => __( 'Special Events', 'gloggi' ),
+    'singular_name' => __( 'Special Event', 'gloggi' ),
+    'menu_name' => __( 'Special Events', 'gloggi' ),
+    'name_admin_bar' => __( 'Special Events', 'gloggi' ),
+    'archives' => __( 'Special-Event-Archiv', 'gloggi' ),
+    'attributes' => __( 'Special-Event-Eigenschaften', 'gloggi' ),
+    'parent_item_colon' => __( '&Uuml;bergeordnetes Objekt:', 'gloggi' ),
+    'all_items' => __( 'Alle Special Events', 'gloggi' ),
+    'add_new_item' => __( 'Neuen Special Event hinzuf&uuml;gen', 'gloggi' ),
+    'add_new' => __( '+ Neu', 'gloggi' ),
+    'new_item' => __( 'Neuer Special Event', 'gloggi' ),
+    'edit_item' => __( 'Special Event bearbeiten', 'gloggi' ),
+    'update_item' => __( 'Special Event aktualisieren', 'gloggi' ),
+    'view_item' => __( 'Special Event ansehen', 'gloggi' ),
+    'view_items' => __( 'Special Events ansehen', 'gloggi' ),
+    'search_items' => __( 'Special Events suchen', 'gloggi' ),
+    'not_found' => __( 'Nicht gefunden', 'gloggi' ),
+    'not_found_in_trash' => __( 'Nicht im Papierkorb gefunden', 'gloggi' ),
+    'featured_image' => __( 'Event-Bild', 'gloggi' ),
+    'set_featured_image' => __( 'Event-Bild setzen', 'gloggi' ),
+    'remove_featured_image' => __( 'Event-Bild entfernen', 'gloggi' ),
+    'use_featured_image' => __( 'Als Event-Bild verwenden', 'gloggi' ),
+    'insert_into_item' => __( 'Zu Special Event hinzuf&uuml;gen', 'gloggi' ),
+    'uploaded_to_this_item' => __( 'Zu Special Event hochgeladen', 'gloggi' ),
+    'items_list' => __( 'Special-Event-Liste', 'gloggi' ),
+    'items_list_navigation' => __( 'Special-Event-Liste Navigation', 'gloggi' ),
+    'filter_items_list' => __( 'Special-Event-Liste filtern', 'gloggi' ),
   );
   $capabilities = array(
   // Meta-capabilities (which are granted automatically to roles based on context and the primitive capabilities of the role)
@@ -704,10 +704,10 @@ function gloggi_custom_post_type_specialevent( $wpptd ) {
 /* Page */
 function gloggi_custom_page_type( $wpptd ) {
   $labels = array(
-    'featured_image' => 'Banner',
-    'set_featured_image' => 'Banner setzen',
-    'remove_featured_image' => 'Banner entfernen',
-    'use_featured_image' => 'Als Banner verwenden',
+    'featured_image' => __( 'Banner', 'gloggi' ),
+    'set_featured_image' => __( 'Banner setzen', 'gloggi' ),
+    'remove_featured_image' => __( 'Banner entfernen', 'gloggi' ),
+    'use_featured_image' => __( 'Als Banner verwenden', 'gloggi' ),
   );
   $wpptd->add_components( array(
     'gloggi_pages' => array(
@@ -926,7 +926,7 @@ function gloggi_add_plugin_capabilities() {
     // Keine Rechte auf Pages
   );
 
-  $roles = gloggi_create_roles( array( 'administrator' => __( 'Administrator' ), 'al' => __( 'Abteilungsleiter' ), 'leiter' => __( 'Leiter' ) ) );
+  $roles = gloggi_create_roles( array( 'administrator' => __( 'Administrator', 'gloggi' ), 'al' => __( 'Abteilungsleiter', 'gloggi' ), 'leiter' => __( 'Leiter', 'gloggi' ) ) );
 
   gloggi_add_capabilities( 'administrator', array_merge( $al_caps, $leiter_caps ) );
   gloggi_set_capabilities( 'al', array_merge( $al_caps, $leiter_caps ) );
@@ -935,7 +935,7 @@ function gloggi_add_plugin_capabilities() {
 add_action( 'admin_init', 'gloggi_add_plugin_capabilities' );
 
 
-/* Erlaube alle users als "Autor" (Besitzer) für eine Gruppe, nicht nur "authors" mit dem veralteten access level 1 oder höher. */
+/* Erlaube alle users als "Autor" (Besitzer) fuer eine Gruppe, nicht nur "authors" mit dem veralteten access level 1 oder hoeher. */
 function gloggi_allow_all_authors( $query_args ) {
   if ( function_exists( get_current_screen ) ) {
     $screen = get_current_screen();
@@ -973,14 +973,14 @@ function gloggi_hide_irrelevant_metaboxes() {
 add_action( 'admin_head', 'gloggi_hide_irrelevant_metaboxes' );
 
 
-/* Standard-Editor für Seiteninhalt und Beitragsbild entfernen */
+/* Standard-Editor fuer Seiteninhalt und Beitragsbild entfernen */
 function gloggi_remove_unused_page_fields() {
   remove_post_type_support('page', 'editor');
 }
 add_action( 'init', 'gloggi_remove_unused_page_fields' );
 
 
-/* Verstecke einige Einträge im Admin-Menü */
+/* Verstecke einige Eintraege im Admin-Menue */
 function gloggi_remove_admin_menu_pages() {
   remove_menu_page( 'index.php' );          //Dashboard
   remove_menu_page( 'upload.php' );         //Media
@@ -1004,7 +1004,7 @@ add_action('wp_dashboard_setup', 'gloggi_remove_dashboard_widgets');
 
 
 
-/* Verstecke einige Einträge in der oberen Toolbar */
+/* Verstecke einige Eintraege in der oberen Toolbar */
 function gloggi_remove_toolbar_buttons() {
   global $wp_admin_bar;
   $wp_admin_bar->remove_menu('wp-logo');
@@ -1047,7 +1047,7 @@ if( is_admin() ) {
 
 
 
-/* Globales Einstellungs-Menü */
+/* Globales Einstellungs-Menue */
 function gloggi_register_options( $wpod ) {
   $wpod->add_components( array(
     'gloggi_menu' => array(
