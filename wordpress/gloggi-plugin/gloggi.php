@@ -1027,7 +1027,12 @@ function gloggi_remove_help_tabs($old_help, $screen_id, $screen){
 add_filter( 'contextual_help', 'gloggi_remove_help_tabs', 999, 3 );
 add_filter( 'screen_options_show_screen', '__return_false' );
 
-
+/* Verstecke die Anzahl-Posts-Spalte in der Users Ansicht */
+function gloggi_remove_users_column($column_headers) {
+    unset($column_headers['posts']);
+    return $column_headers;
+}
+add_action('manage_users_columns','gloggi_remove_users_column');
 
 /* Sortiere pages nach der menu_order-Spalte */
 function custom_post_order($query){
