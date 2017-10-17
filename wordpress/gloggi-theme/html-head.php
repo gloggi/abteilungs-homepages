@@ -7,7 +7,7 @@ $banner = get_the_post_thumbnail_url( $post );
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
   <title><?php bloginfo('name'); if (!is_front_page()) : echo ' | '; wp_title(''); endif; ?></title>
   <?php wp_head();?>
   <style>
@@ -28,6 +28,9 @@ $banner = get_the_post_thumbnail_url( $post );
     }
     h2, h3, h4 {
       color: <?php echo $primaerfarbe; ?> !important;
+    }
+    .heading-2--inverted {
+      color: white !important;
     }
     .svg path {
       fill: <?php echo $primaerfarbe; ?> !important;

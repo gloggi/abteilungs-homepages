@@ -144,7 +144,7 @@ foreach( $stufen as $stufe ) : ?>
       <div class="lightbox__content-wrapper">
         <div class="lightbox__content">
           <div class="lightbox__banner group__detail-banner">
-            <h2 <?php if( strlen($gruppe['name']) > 16 ) : ?>style="font-size: calc(600px/<?php echo strlen($gruppe['name']); ?>*1.6);"<?php endif; ?>><?php echo $gruppe['name']; ?></h2>
+            <h2 class="heading-2--inverted" <?php if( strlen($gruppe['name']) > 16 ) : ?>style="font-size: calc(600px/<?php echo strlen($gruppe['name']); ?>*1.6);"<?php endif; ?>><?php echo $gruppe['name']; ?></h2>
 <?php if( $gruppe['logo'] ) : ?>
             <div class="circle-small color-white">
               <object id="test" data="<?php echo wp_get_attachment_url( $gruppe['logo'] ); ?>" type="image/svg+xml"></object>
