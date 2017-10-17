@@ -159,8 +159,7 @@ ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 10px;
-  width: 120px; }
+  padding: 10px; }
   @media screen and (max-width: 500px) {
     .agenda__sections {
       overflow-x: scroll;
@@ -274,7 +273,7 @@ ul {
     font-weight: 500;
     line-height: 45.0px;
     margin: 0px;
-    color: white; }
+    color: white !important; }
   .agenda__header > div p {
     color: white; }
     @media screen and (max-width: 500px) {
@@ -642,7 +641,7 @@ label {
 
 .header-large {
   width: 100%;
-  height: 92vh;
+  height: 100vh;
   padding: 0px;
   margin: 0px;
   overflow: hidden;
@@ -707,10 +706,6 @@ label {
   @media screen and (max-width: 500px) {
     .header__logo-large {
       width: 350px; } }
-
-@media screen and (max-width: 500px) {
-  .header__title {
-    margin: 0px !important; } }
 
 @media screen and (max-width: 500px) {
   .header__heading {
@@ -934,8 +929,11 @@ label {
     font-size: 20px;
     margin: 0; }
   .circle-small > img {
-    width: 55px;
-    height: 55px; }
+    width: 75px;
+    height: 75px; }
+  .circle-small object {
+    width: 75px;
+    height: 75px; }
   @media screen and (max-width: 500px) {
     .circle-small {
       width: 80px;
@@ -1083,7 +1081,7 @@ label {
   justify-content: space-between; }
   .group__detail-banner > h2 {
     font-size: 60px;
-    color: white;
+    color: white !important;
     align-self: flex-end;
     margin: 10px;
     margin-bottom: 20px; }
@@ -1132,6 +1130,3 @@ label {
   height: 100%;
   background-color: grey;
   z-index: 100.0; }
-
-.hide {
-  display: none; }

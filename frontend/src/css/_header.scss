@@ -1,6 +1,6 @@
 .header-large {
     width: 100%;
-    height: 92vh;
+    height: 100vh;
     padding: 0px;
     margin: 0px;
     overflow: hidden;
@@ -86,9 +86,6 @@
 }
 
 .header__title{
-    @include screen(small) {
-       margin: 0px !important;
-    }
 }
 
 .header__heading{

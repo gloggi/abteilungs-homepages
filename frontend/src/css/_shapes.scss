@@ -98,8 +98,13 @@
     }
 
     >img {
-        width: 55px;
-        height: 55px;
+        width: 75px;
+        height: 75px;
+    }
+
+    object {
+        width: 75px;
+        height: 75px;
     }
 
     @include screen(small) {
