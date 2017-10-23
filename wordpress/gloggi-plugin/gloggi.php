@@ -1021,16 +1021,16 @@ function gloggi_remove_toolbar_buttons() {
 }
 add_action( 'wp_before_admin_bar_render', 'gloggi_remove_toolbar_buttons' );
 function gloggi_remove_help_tabs($old_help, $screen_id, $screen){
-    $screen->remove_help_tabs();
-    return $old_help;
+  $screen->remove_help_tabs();
+  return $old_help;
 }
 add_filter( 'contextual_help', 'gloggi_remove_help_tabs', 999, 3 );
 add_filter( 'screen_options_show_screen', '__return_false' );
 
 /* Verstecke die Anzahl-Posts-Spalte in der Users Ansicht */
 function gloggi_remove_users_column($column_headers) {
-    unset($column_headers['posts']);
-    return $column_headers;
+  unset($column_headers['posts']);
+  return $column_headers;
 }
 add_action('manage_users_columns','gloggi_remove_users_column');
 
