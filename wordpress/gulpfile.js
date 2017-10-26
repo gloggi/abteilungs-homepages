@@ -2,7 +2,7 @@ var gulp   = require('gulp'),
 	sass   = require('gulp-sass'),
 	zip    = require('gulp-zip'),
 	bump   = require('gulp-bump'),
-	ftp    = require('gulp-ftp'),
+	ftp    = require('vinyl-ftp'),
 	merge  = require('merge-stream'),
 	version= require('gulp-inject-version'),
 	util   = require('gulp-util'),
@@ -54,8 +54,7 @@ gulp.task('deploy-plugin', ['zip-plugin'], function() {
 		.pipe(version()),
 		gulp.src('gloggi-plugin.zip')
 	)
-	.pipe(ftp({ 'host': config.ftphost, 'user': config.ftpuser, 'pass': config.ftppass, 'remotePath': config.ftppath }))
-	.pipe(util.noop());
+	.pipe(ftp.create({'host': config.ftphost, 'user': config.ftpuser, 'password': config.ftppass}).dest(config.ftppath));
 });
 
 gulp.task('deploy-theme', ['zip-theme'], function() {
@@ -64,8 +63,7 @@ gulp.task('deploy-theme', ['zip-theme'], function() {
 		.pipe(version()),
 		gulp.src('gloggi-theme.zip')
 	)
-	.pipe(ftp({ 'host': config.ftphost, 'user': config.ftpuser, 'pass': config.ftppass, 'remotePath': config.ftppath }))
-	.pipe(util.noop());
+	.pipe(ftp.create({'host': config.ftphost, 'user': config.ftpuser, 'password': config.ftppass}).dest(config.ftppath));
 });
 
 gulp.task('deploy', ['deploy-plugin', 'deploy-theme'], function() {
