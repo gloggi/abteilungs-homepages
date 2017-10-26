@@ -48,26 +48,13 @@ gulp.task('bump-version-major', function() {
 	.pipe(gulp.dest('.'));
 });
 
-gulp.task('deploy-plugin', ['zip-plugin'], function() {
+gulp.task('deploy', ['zip-plugin', 'zip-theme'], function() {
 	return merge(
-		gulp.src('./gloggi-plugin.json')
+		gulp.src(['./gloggi-plugin.json', '.gloggi-theme.json'])
 		.pipe(version()),
-		gulp.src('gloggi-plugin.zip')
+		gulp.src(['gloggi-plugin.zip', 'gloggi-theme.zip'])
 	)
 	.pipe(ftp.create({'host': config.ftphost, 'user': config.ftpuser, 'password': config.ftppass}).dest(config.ftppath));
-});
-
-gulp.task('deploy-theme', ['zip-theme'], function() {
-	return merge(
-		gulp.src('./gloggi-theme.json')
-		.pipe(version()),
-		gulp.src('gloggi-theme.zip')
-	)
-	.pipe(ftp.create({'host': config.ftphost, 'user': config.ftpuser, 'password': config.ftppass}).dest(config.ftppath));
-});
-
-gulp.task('deploy', ['deploy-plugin', 'deploy-theme'], function() {
-	return util.noop();
 });
 
 gulp.task('release', ['bump-version'], function() {
