@@ -13,13 +13,13 @@
   "homepage": "https://github.com/gloggi/abteilungs-homepages",
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-ftp": "^1.1.0",
     "gulp-inject-version": "^1.0.1",
     "gulp-sass": "^3.1.0",
     "gulp-scss": "^1.4.0",
     "gulp-util": "^3.0.8",
     "gulp-zip": "^4.0.0",
     "merge-stream": "^1.0.1",
-    "run-sequence": "^2.2.0"
+    "run-sequence": "^2.2.0",
+    "vinyl-ftp": "^0.6.0"
   }
 }
