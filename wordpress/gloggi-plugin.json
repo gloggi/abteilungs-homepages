@@ -3,7 +3,7 @@
 	"version": "%%GULP_INJECT_VERSION%%",
 	"download_url": "http://wp-updates.gloggi.ch/gloggi-plugin.zip",
 	"homepage": "http://gloggi.ch",
-	"last_updated": "2017-08-09 20:30:00",
+	"last_updated": "%%GULP_INJECT_DATETIME%%",
 	"author": "Cosinus",
 	"sections": {
 		"description": "Ein Plugin das das Backend der Gloggi-Abteilungshomepages einrichtet. Ben&ouml;tigt die beiden Plugins &quot;Post Types Definitely&quot; und &quot;Options Definitely&quot;.",

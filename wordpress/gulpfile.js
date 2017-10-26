@@ -1,12 +1,14 @@
-var gulp   = require('gulp'),
-	sass   = require('gulp-sass'),
-	zip    = require('gulp-zip'),
-	bump   = require('gulp-bump'),
-	ftp    = require('vinyl-ftp'),
-	merge  = require('merge-stream'),
-	version= require('gulp-inject-version'),
-	util   = require('gulp-util'),
-	config = require('./gulpconfig.json');
+var gulp       = require('gulp'),
+	sass       = require('gulp-sass'),
+	zip        = require('gulp-zip'),
+	bump       = require('gulp-bump'),
+	ftp        = require('vinyl-ftp'),
+	merge      = require('merge-stream'),
+	version    = require('gulp-inject-version'),
+	util       = require('gulp-util'),
+	dateformat = require('dateformat'),
+	inject     = require('gulp-inject-string'),
+	config     = require('./gulpconfig.json');
 
 gulp.task('css', function() {
 	return gulp.src('../frontend/src/css/*.scss')
@@ -51,7 +53,8 @@ gulp.task('bump-version-major', function() {
 gulp.task('deploy', ['zip-plugin', 'zip-theme'], function() {
 	return merge(
 		gulp.src(['./gloggi-plugin.json', '.gloggi-theme.json'])
-		.pipe(version()),
+		.pipe(version())
+		.pipe(inject.replace('%%GULP_INJECT_DATETIME%%', dateformat(new Date(), "yyyy-mm-dd hh:MM:ss"))),
 		gulp.src(['gloggi-plugin.zip', 'gloggi-theme.zip'])
 	)
 	.pipe(ftp.create({'host': config.ftphost, 'user': config.ftpuser, 'password': config.ftppass}).dest(config.ftppath));
