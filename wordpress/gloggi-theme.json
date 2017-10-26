@@ -1,5 +1,5 @@
 {
-	"version": "1.0",
+	"version": "%%GULP_INJECT_VERSION%%",
 	"details_url": "http://gloggi.ch",
 	"download_url": "http://wp-updates.gloggi.ch/gloggi-theme.zip"
 }
