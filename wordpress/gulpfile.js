@@ -17,13 +17,15 @@ gulp.task('css', function() {
 });
 
 gulp.task('zip-plugin', function() {
-	return gulp.src('gloggi-plugin/**')
+	return gulp.src('gloggi-plugin/**', {'base':'.'})
+	.pipe(version({'prepend':''}))
 	.pipe(zip('gloggi-plugin.zip'))
 	.pipe(gulp.dest('.'));
 });
 
 gulp.task('zip-theme', ['css'], function() {
-	return gulp.src('gloggi-theme/**')
+	return gulp.src('gloggi-theme/**', {'base':'.'})
+	.pipe(version({'prepend':''}))
 	.pipe(zip('gloggi-theme.zip'))
 	.pipe(gulp.dest('.'));
 });

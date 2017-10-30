@@ -5,7 +5,7 @@ require 'plugin-update-checker/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 	'http://wp-updates.gloggi.ch/gloggi-theme.json',
 	__FILE__,
-	'gloggi-abteilungshomepages-theme'
+	'gloggi-theme'
 );
 add_filter( 'auto_update_theme', '__return_true' );
 

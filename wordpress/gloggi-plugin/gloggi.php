@@ -3,7 +3,7 @@
    Plugin Name: Gloggi Abteilungshomepages
    Plugin URI: http://gloggi.ch
    Description: Ein Plugin das das Backend der Gloggi-Abteilungshomepages einrichtet. Ben&ouml;tigt die beiden Plugins "Post Types Definitely" und "Options Definitely".
-   Version: 1.0
+   Version: %%GULP_INJECT_VERSION%%
    Author: Cosinus
    License: GPL2
    */
@@ -13,7 +13,7 @@ require 'plugin-update-checker/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
   'http://wp-updates.gloggi.ch/gloggi-plugin.json',
   __FILE__,
-  'gloggi-abteilungshomepages-plugin'
+  'gloggi-plugin'
 );
 add_filter( 'auto_update_plugin', '__return_true' );
 
