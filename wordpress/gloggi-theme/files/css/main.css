@@ -715,7 +715,7 @@ label {
 
 .header__image-large, .header__image {
   width: 100%;
-  height: 100%;
+  height: inherit;
   position: fixed;
   background-size: cover;
   background-position: center;
