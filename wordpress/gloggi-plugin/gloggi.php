@@ -1089,7 +1089,7 @@ function gloggi_register_options( $wpod ) {
                       'required' => true,
                     ),
                     'sekundaerfarbe' => array(
-                      'title' => __( 'Sekund&auml;farbe*', 'gloggi' ),
+                      'title' => __( 'Sekund&auml;rfarbe*', 'gloggi' ),
                       'type' => 'color',
                       'default' => '#4a4a4a',
                       'required' => true
