@@ -52,8 +52,8 @@ gulp.task('bump-version-major', function() {
 
 gulp.task('deploy', ['zip-plugin', 'zip-theme'], function() {
 	return merge(
-		gulp.src(['./gloggi-plugin.json', '.gloggi-theme.json'])
-		.pipe(version())
+		gulp.src(['./gloggi-plugin.json', './gloggi-theme.json'])
+		.pipe(version({'prepend':''}))
 		.pipe(inject.replace('%%GULP_INJECT_DATETIME%%', dateformat(new Date(), "yyyy-mm-dd hh:MM:ss"))),
 		gulp.src(['gloggi-plugin.zip', 'gloggi-theme.zip'])
 	)
