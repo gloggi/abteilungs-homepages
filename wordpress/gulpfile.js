@@ -8,6 +8,7 @@ var gulp       = require('gulp'),
 	util       = require('gulp-util'),
 	dateformat = require('dateformat'),
 	inject     = require('gulp-inject-string'),
+	filter     = require('gulp-filter'),
 	config     = require('./gulpconfig.json');
 
 gulp.task('css', function() {
@@ -17,15 +18,21 @@ gulp.task('css', function() {
 });
 
 gulp.task('zip-plugin', function() {
+	var f = filter(['**/*.php', '**/*.css'], {restore: true});
 	return gulp.src('gloggi-plugin/**', {'base':'.'})
+	.pipe(f)
 	.pipe(version({'prepend':''}))
+	.pipe(f.restore)
 	.pipe(zip('gloggi-plugin.zip'))
 	.pipe(gulp.dest('.'));
 });
 
 gulp.task('zip-theme', ['css'], function() {
+	var f = filter(['**/*.php', '**/*.css'], {restore: true});
 	return gulp.src('gloggi-theme/**', {'base':'.'})
+	.pipe(f)
 	.pipe(version({'prepend':''}))
+	.pipe(f.restore)
 	.pipe(zip('gloggi-theme.zip'))
 	.pipe(gulp.dest('.'));
 });
