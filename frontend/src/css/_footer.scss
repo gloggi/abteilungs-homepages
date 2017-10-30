@@ -15,10 +15,12 @@
 
     p {
         padding: 10px;
+        white-space: pre-wrap;
     }
 
-    a {
-        color: white;
+    a, p, li {
+        color: inherit;
+        font-size: inherit;
     }
 
     @include screen(small) {

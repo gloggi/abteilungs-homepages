@@ -571,9 +571,11 @@ ul {
     list-style-type: none;
     padding: 10px; }
   .footer p {
-    padding: 10px; }
-  .footer a {
-    color: white; }
+    padding: 10px;
+    white-space: pre-wrap; }
+  .footer a, .footer p, .footer li {
+    color: inherit;
+    font-size: inherit; }
   @media screen and (max-width: 500px) {
     .footer {
       min-height: 0px; }
