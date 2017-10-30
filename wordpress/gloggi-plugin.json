@@ -7,6 +7,6 @@
 	"author": "Cosinus",
 	"sections": {
 		"description": "Ein Plugin das das Backend der Gloggi-Abteilungshomepages einrichtet. Ben&ouml;tigt die beiden Plugins &quot;Post Types Definitely&quot; und &quot;Options Definitely&quot;.",
-		"changelog": "<p>Automatische Updates eingeführt.</p>"
+		"changelog": "<ul><li>Schriftfarbe und Grösse im Footer korrigiert.</li></ul>"
 	}
 }
