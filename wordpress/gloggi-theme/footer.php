@@ -48,8 +48,6 @@ wp_list_pages(array( 'post_type' => 'gruppe', 'title_li' => null, 'walker' => ne
         <div class="footer__column">
             <h3 class="heading--footer"> Kontakt </h3>
             <p><?php echo wpod_get_option( 'gloggi_einstellungen', 'footer-contact' ); ?></p>
-            <br>
-            <p><a>Mehr &gt;&gt;</a></p>
         </div>
     </div>
 </div>
