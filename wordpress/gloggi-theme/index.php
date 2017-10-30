@@ -6,11 +6,11 @@ global $post;
 $index_trennbanner = wpptd_get_post_meta_value( $post->ID, 'index-separator-banner' );
 if( $index_trennbanner ) {
 	$index_trennbanner = '<div class="content__big_image_container">' . wp_get_attachment_image( $index_trennbanner, array(), false, array( 'class' => 'content__big_image parallax__layer' ) ) . '</div>';
-}
+} else $index_trennbanner = '';
 $index_trennbanner2 = wpptd_get_post_meta_value( $post->ID, 'index-separator-banner2' );
 if( $index_trennbanner2 ) {
 	$index_trennbanner2 = '<div class="content__big_image_container">' . wp_get_attachment_image( $index_trennbanner2, array(), false, array( 'class' => 'content__big_image parallax__layer' ) ) . '</div>';
-}
+} else $index_trennbanner2 = '';
 $index_content3 = wpptd_get_post_meta_value( $post->ID, 'index-content3' );
 
 $formfields = wpptd_get_post_meta_value( $post->ID, 'index-contact-form-fields' );

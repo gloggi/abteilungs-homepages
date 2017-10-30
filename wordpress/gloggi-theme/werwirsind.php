@@ -7,12 +7,12 @@ $werwirsind_content = wpptd_get_post_meta_value( $post->ID, 'werwirsind-content'
 $werwirsind_trennbanner1 = wpptd_get_post_meta_value( $post->ID, 'werwirsind-separator-banner1');
 if( $werwirsind_trennbanner1 ) {
 	$werwirsind_trennbanner1 = '<div class="content__big_image_container">' . wp_get_attachment_image( $werwirsind_trennbanner1, array(), false, array( 'class' => 'content__big_image parallax__layer' ) ) . '</div>';
-}
+} else $werwirsind_trennbanner1 = '';
 $werwirsind_group_title = wpptd_get_post_meta_value( $post->ID, 'werwirsind-group-title');
 $werwirsind_trennbanner2 = wpptd_get_post_meta_value( $post->ID, 'werwirsind-separator-banner2');
 if( $werwirsind_trennbanner2 ) {
 	$werwirsind_trennbanner2 = '<div class="content__big_image_container">' . wp_get_attachment_image( $werwirsind_trennbanner2, array(), false, array( 'class' => 'content__big_image parallax__layer' ) ) . '</div>';
-}
+} else $werwirsind_trennbanner2 = '';
 // Suche irgendeine Seite die das "index.php"-Template verwendet, und somit ein "Mitmachen"-Formular enthält.
 $mitmachen_seite = '/';
 $index_pages = get_pages( array( 'meta_key' => '_wp_page_template', 'meta_value' => 'index.php', ) );

@@ -8,13 +8,13 @@ $agenda_noevents = wpptd_get_post_meta_value( $post->ID, 'agenda-noevents' );
 $agenda_trennbanner = wpptd_get_post_meta_value( $post->ID, 'agenda-separator-banner1');
 if( $agenda_trennbanner ) {
 	$agenda_trennbanner = '<div class="content__big_image_container">' . wp_get_attachment_image( $agenda_trennbanner, array(), false, array( 'class' => 'content__big_image parallax__layer' ) ) . '</div>';
-}
+} else $agenda_trennbanner = '';
 $agenda_jahresplan_title = wpptd_get_post_meta_value( $post->ID, 'agenda-annual-plan-title');
 $agenda_jahresplan_content = wpptd_get_post_meta_value( $post->ID, 'agenda-annual-plan-content');
 $agenda_trennbanner2 = wpptd_get_post_meta_value( $post->ID, 'agenda-separator-banner2');
 if( $agenda_trennbanner2 ) {
 	$agenda_trennbanner2 = '<div class="content__big_image_container">' . wp_get_attachment_image( $agenda_trennbanner2, array(), false, array( 'class' => 'content__big_image parallax__layer' ) ) . '</div>';
-}
+} else $agenda_trennbanner2 = '';
 $agenda_specialevents_title = wpptd_get_post_meta_value( $post->ID, 'agenda-special-events-title');
 
 $standard_anlassverantwortlicher = wpod_get_option( 'gloggi_einstellungen', 'anlassverantwortungs-email' );
