@@ -2,7 +2,6 @@
 global $post;
 $primaerfarbe = wpod_get_option( 'gloggi_einstellungen', 'primaerfarbe' );
 $sekundaerfarbe = wpod_get_option( 'gloggi_einstellungen', 'sekundaerfarbe' );
-$banner = get_the_post_thumbnail_url( $post );
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
 <head>
@@ -48,15 +47,9 @@ $banner = get_the_post_thumbnail_url( $post );
     .navbar-toggle {
       border-color: <?php echo $sekundaerfarbe; ?> !important;
     }
-    <?php if( $banner ) : ?>
-    .header__image, .header__image-large {
-      background-image: url('<?php echo $banner; ?>');
+    .header-large {
+      background-color: <?php echo $sekundaerfarbe; ?>;
     }
-    <?php else : ?>
-    .header__image, .header__image-large {
-      background-color: <?php echo $sekundaerfarbe; ?> !important;
-    }
-    <?php endif; ?>
   </style>
 </head>
 <body>

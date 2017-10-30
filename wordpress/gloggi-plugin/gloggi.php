@@ -1080,7 +1080,7 @@ function gloggi_register_options( $wpod ) {
                     'abteilungslogo' => array(
                       'title' => __( 'Abteilungslogo', 'gloggi' ),
                       'type' => 'media',
-                      'store' => 'url',
+                      'store' => 'id',
                     ),
                     'primaerfarbe' => array(
                       'title' => __( 'Prim&auml;rfarbe*', 'gloggi' ),
