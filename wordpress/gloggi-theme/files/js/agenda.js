@@ -8,20 +8,20 @@ function search_events(target) {
   
   $('.agenda__entries-first > .agenda__entry').detach().prependTo('.agenda__entries');
   $('.agenda__entries .agenda__entry').sort(function(a, b) { return $(a).data('starttime') > $(b).data('starttime'); }).appendTo($('.agenda__entries'));
-  $('#noentries').addClass('hidden-xs-up');
-  $('#selectgroup').addClass('hidden-xs-up');
+  $('#noentries').addClass('hide');
+  $('#selectgroup').addClass('hide');
   if(target) {
-    $('.agenda__entries .agenda__entry').addClass('hidden-xs-up');
-    $('.' + $(target).data('showclass')).removeClass('hidden-xs-up');
-    $first = $('.agenda__entries .agenda__entry').not('.hidden-xs-up');
+    $('.agenda__entries .agenda__entry').addClass('hide');
+    $('.' + $(target).data('showclass')).removeClass('hide');
+    $first = $('.agenda__entries .agenda__entry').not('.hide');
     if($first.length) {
       $($first[0]).detach().appendTo('.agenda__entries-first');
     } else {
-      $('#noentries').removeClass('hidden-xs-up');
+      $('#noentries').removeClass('hide');
     }
   } else {
-    $('.agenda__entries .agenda__entry').addClass('hidden-xs-up');
-    $('#selectgroup').removeClass('hidden-xs-up');
+    $('.agenda__entries .agenda__entry').addClass('hide');
+    $('#selectgroup').removeClass('hide');
   }
 }
 
