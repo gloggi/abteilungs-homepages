@@ -91,7 +91,7 @@
 
 .header__image-large, .header__image {
     display: block;
-    height: 100vh;
+    height: inherit;
     width: 100vw;
     position: fixed;
     object-fit: cover;
