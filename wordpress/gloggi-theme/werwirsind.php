@@ -5,8 +5,14 @@ Template Name: Wer wir sind
 global $post;
 $werwirsind_content = wpptd_get_post_meta_value( $post->ID, 'werwirsind-content' );
 $werwirsind_trennbanner1 = wpptd_get_post_meta_value( $post->ID, 'werwirsind-separator-banner1');
+if( $werwirsind_trennbanner1 ) {
+	$werwirsind_trennbanner1 = '<div class="content__big_image_container">' . wp_get_attachment_image( $werwirsind_trennbanner1, array(), false, array( 'class' => 'content__big_image parallax__layer' ) ) . '</div>';
+}
 $werwirsind_group_title = wpptd_get_post_meta_value( $post->ID, 'werwirsind-group-title');
 $werwirsind_trennbanner2 = wpptd_get_post_meta_value( $post->ID, 'werwirsind-separator-banner2');
+if( $werwirsind_trennbanner2 ) {
+	$werwirsind_trennbanner2 = '<div class="content__big_image_container">' . wp_get_attachment_image( $werwirsind_trennbanner2, array(), false, array( 'class' => 'content__big_image parallax__layer' ) ) . '</div>';
+}
 // Suche irgendeine Seite die das "index.php"-Template verwendet, und somit ein "Mitmachen"-Formular enthält.
 $mitmachen_seite = '/';
 $index_pages = get_pages( array( 'meta_key' => '_wp_page_template', 'meta_value' => 'index.php', ) );
@@ -38,11 +44,7 @@ function encode_all_to_htmlentities($str) {
 </div>
 <?php endif; ?>
 
-<?php if( $werwirsind_trennbanner1 ) : ?>
-<div class="content__big_image_container">
-    <img class="content__big_image" src="<?php echo wp_get_attachment_url( $werwirsind_trennbanner1 ); ?>">
-</div>
-<?php endif; ?>
+<?php echo $werwirsind_trennbanner1; ?>
 
 <div class="content__block">
 <?php if( $werwirsind_group_title ) : ?>
@@ -214,11 +216,7 @@ foreach( $stufen as $stufe ) : ?>
 </div>
 </div>
 
-<?php if( $werwirsind_trennbanner2 ) : ?>
-<div class="content__big_image_container">
-  <img class="content__big_image" src="<?php echo wp_get_attachment_url( $werwirsind_trennbanner2 ); ?>">
-</div>
-<?php endif; ?>
+<?php echo $werwirsind_trennbanner2; ?>
 
 <?php
 

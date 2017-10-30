@@ -4,8 +4,15 @@ Template Name: Startseite
 */
 global $post;
 $index_trennbanner = wpptd_get_post_meta_value( $post->ID, 'index-separator-banner' );
+if( $index_trennbanner ) {
+	$index_trennbanner = '<div class="content__big_image_container">' . wp_get_attachment_image( $index_trennbanner, array(), false, array( 'class' => 'content__big_image parallax__layer' ) ) . '</div>';
+}
 $index_trennbanner2 = wpptd_get_post_meta_value( $post->ID, 'index-separator-banner2' );
+if( $index_trennbanner2 ) {
+	$index_trennbanner2 = '<div class="content__big_image_container">' . wp_get_attachment_image( $index_trennbanner2, array(), false, array( 'class' => 'content__big_image parallax__layer' ) ) . '</div>';
+}
 $index_content3 = wpptd_get_post_meta_value( $post->ID, 'index-content3' );
+
 $formfields = wpptd_get_post_meta_value( $post->ID, 'index-contact-form-fields' );
 $emailSent = false;
 $hasError = false;
@@ -138,11 +145,7 @@ if(isset($_POST['submit'])) {
 </div>
 <?php endif; ?>
 
-<?php if( $index_trennbanner ) : ?>
-<div class="content__big_image_container">
-    <img class="content__big_image parallax__layer" src="<?php echo wp_get_attachment_url( $index_trennbanner ); ?>" alt="">
-</div>
-<?php endif; ?>
+<?php echo $index_trennbanner; ?>
 
 <?php
 $instagram = wpod_get_option( 'gloggi_einstellungen', 'instagram' );
@@ -185,11 +188,7 @@ if ($anysocialmedia) :
 <?php endif; ?>
 </div>
 
-<?php if( $index_trennbanner2 ) : ?>
-<div class="content__big_image_container">
-  <img class="content__big_image" src="<?php echo wp_get_attachment_url( $index_trennbanner2 ); ?>">
-</div>
-<?php endif; ?>
+<?php echo $index_trennbanner2; ?>
 
 <?php if( $index_content3 ) : ?>
 <div class="content__block">
