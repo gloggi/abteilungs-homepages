@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="/">
-                <img class="navbar__logo" src="<?php echo wp_get_attachment_url(wpod_get_option( 'gloggi_einstellungen', 'abteilungslogo' )); ?>" height="50" alt="">
+                <img class="navbar__logo" src="<?php echo wp_get_attachment_url( wpod_get_option( 'gloggi_einstellungen', 'abteilungslogo' ) ); ?>" height="50" alt="">
             </a>
         </div>
 

@@ -132,7 +132,7 @@ foreach( $stufen as $stufe ) : ?>
     <a href="#<?php echo $gruppe['linkname']; ?>">
       <div class="groups__entry">
         <div class="circle-medium" style="background-color: <?php echo $gruppe['farbe']; ?>;">
-<?php if( $gruppe['logo'] ) : ?><img src="<?php echo wp_get_attachment_url( $gruppe['logo'] ) ?>" alt=""><?php endif; ?>
+        <img src="<?php echo wp_get_attachment_url( $gruppe['logo'] ? $gruppe['logo'] : wpod_get_option( 'gloggi_einstellungen', 'abteilungslogo' ) );?>" alt="">
         </div>
         <div class="circle-notification">
           <img src="<?php echo get_bloginfo('template_directory') . '/files/img/' . ($gruppe['geschlecht'] == 'm' ? 'm.svg' : ( $gruppe['geschlecht'] == 'w' ? 'f.svg' : 'b.svg' ) ); ?>" alt="">
