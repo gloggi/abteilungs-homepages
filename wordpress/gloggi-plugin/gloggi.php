@@ -452,8 +452,9 @@ function gloggi_custom_post_type_anlass( $wpptd ) {
                   'default' => 'Museumstrasse 2, 8001 Z&uuml;rich, Schweiz',
                 ),
                 'endzeit' => array(
-                  'title' => __( 'Endzeit', 'gloggi' ),
+                  'title' => __( 'Endzeit*', 'gloggi' ),
                   'type' => 'datetime',
+                  'required' => true,
                 ),
                 'endort' => array(
                   'title' => __( 'Endort', 'gloggi' ),
