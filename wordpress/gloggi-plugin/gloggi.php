@@ -917,6 +917,7 @@ function gloggi_add_plugin_capabilities() {
     'create_specialevents', 'publish_specialevents', 'read_specialevents', 'read_private_specialevents', 'edit_specialevents', 'edit_private_specialevents', 'edit_published_specialevents', 'edit_others_specialevents', 'delete_specialevents', 'delete_private_specialevents', 'delete_published_specialevents', 'delete_others_specialevents',
     'create_pages', 'publish_pages', 'read_pages', 'read_private_pages', 'edit_pages', 'edit_private_pages', 'edit_published_pages', 'edit_others_pages', 'delete_pages', 'delete_private_pages', 'delete_published_pages', 'delete_others_pages',
     'update_plugins', 'update_themes', 'update_core', 'activate_plugins', 'install_plugins',
+    'manage_gloggi_options',
   );
   $leiter_caps = array( 'read', 'upload_files', 'level_1',
     // Keine Rechte auf Stufen
@@ -934,6 +935,11 @@ function gloggi_add_plugin_capabilities() {
   gloggi_set_capabilities( 'leiter', array_merge( $leiter_caps ) );
 }
 add_action( 'admin_init', 'gloggi_add_plugin_capabilities' );
+/* Aendere die noetige Capability um die Gloggi-Einstellungen zu speichern */
+function gloggi_change_gloggi_einstellungen_capability( $capability ) {
+	return 'manage_gloggi_options';
+}
+add_filter( 'option_page_capability_gloggi_einstellungen', 'gloggi_change_gloggi_einstellungen_capability' );
 
 
 /* Erlaube alle users als "Autor" (Besitzer) fuer eine Gruppe, nicht nur "authors" mit dem veralteten access level 1 oder hoeher. */
@@ -1060,10 +1066,12 @@ function gloggi_register_options( $wpod ) {
           'title' => __( 'Seiteneinstellungen', 'gloggi' ),
           'label' => __( 'Seiteneinstellungen', 'gloggi' ),
           'description' => __( 'Globale Einstellungen f&uuml;r die ganze Seite.', 'gloggi' ),
+          'capability' => 'manage_gloggi_options',
           'tabs' => array(
             // Der Tab-Name ist gleichzeitig der Optionsname der mit get_option abgerufen werden kann
             'gloggi_einstellungen' => array(
               'title' => __( 'Allgemein', 'gloggi' ),
+              'capability' => 'manage_gloggi_options',
               'sections' => array(
                 'gloggi_einstellungen' => array(
                   'title' => '',
