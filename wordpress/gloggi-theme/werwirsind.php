@@ -135,7 +135,7 @@ foreach( $stufen as $stufe ) : ?>
 <?php if( $gruppe['logo'] ) : ?><img src="<?php echo wp_get_attachment_url( $gruppe['logo'] ) ?>" alt=""><?php endif; ?>
         </div>
         <div class="circle-notification">
-          <img src="<?php echo get_bloginfo('template_directory') . '/files/' . ($gruppe['geschlecht'] == 'm' ? 'm.svg' : ( $gruppe['geschlecht'] == 'w' ? 'f.svg' : 'b.svg' ) ); ?>" alt="">
+          <img src="<?php echo get_bloginfo('template_directory') . '/files/img/' . ($gruppe['geschlecht'] == 'm' ? 'm.svg' : ( $gruppe['geschlecht'] == 'w' ? 'f.svg' : 'b.svg' ) ); ?>" alt="">
         </div>
       </div>
     </a>
