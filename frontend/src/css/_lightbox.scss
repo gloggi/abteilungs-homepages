@@ -19,13 +19,6 @@
     height: 100vh;
 }
 
-.lightbox img {
-    /** Pad the lightbox image */
-    max-width: 90%;
-    max-height: 80%;
-    margin-top: 2%;
-}
-
 .lightbox:target {
     /** Remove default browser outline */
     outline: none;
@@ -69,9 +62,9 @@
 }
 
 .lightbox__banner{
-    //background: $primary-color;
-    min-height: 100px;
-    max-height: 100px;
+    >img {
+        margin-top: 2%;
+    }
 }
 
 .lightbox__body{

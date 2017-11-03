@@ -176,7 +176,7 @@ if( $anlaesse->have_posts() ) : ?>
               <p>Ende: <?php echo $endzeitundort; ?></p>
 <?php endif; ?>
             </div>
-            <img src="./Gloggi_files/logo-white.svg" height="50" alt="">
+            <img src="<?php echo wp_get_attachment_url(wpod_get_option( 'gloggi_einstellungen', 'abteilungslogo' )); ?>" height="50" alt="">
           </div>
           <div class="lightbox__body agenda__body">
             <div class="agenda__map" data-address1="<?php echo $anlassinfos['startort']; ?>" data-address2="<?php echo $anlassinfos['endort']; ?>">

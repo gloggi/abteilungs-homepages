@@ -280,9 +280,6 @@ ul {
       .agenda__header > div p {
         line-height: 30px;
         font-size: 16px; } }
-  .agenda__header > img {
-    align-self: center;
-    height: 100%; }
 
 .agenda__body {
   justify-content: space-between; }
@@ -741,12 +738,6 @@ label {
   width: 100vw;
   height: 100vh; }
 
-.lightbox img {
-  /** Pad the lightbox image */
-  max-width: 90%;
-  max-height: 80%;
-  margin-top: 2%; }
-
 .lightbox:target {
   /** Remove default browser outline */
   outline: none;
@@ -779,9 +770,8 @@ label {
   .lightbox__content p, .lightbox__content a, .lightbox__content li, .lightbox__content b {
     font-size: 18px; }
 
-.lightbox__banner {
-  min-height: 100px;
-  max-height: 100px; }
+.lightbox__banner > img {
+  margin-top: 2%; }
 
 .lightbox__body {
   height: 90%;
