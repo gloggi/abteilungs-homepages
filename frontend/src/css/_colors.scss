@@ -9,8 +9,7 @@ $primary-color-dark: #ffae00;
 $secondary-color: #244392;
 
 // Palate Colors
-//$color-light-blue: #4A90E2;
-$color-light-blue: '<php>';
+$color-light-blue: #4A90E2;
 $blue: #4862a3;
 $white: white;
 $red: #D0021B;
@@ -57,7 +56,6 @@ $footer-background: #4A4A4A;
 
 .twitter-icon{
     background-color: $color-light-blue;
-    color: $color-light-blue;
 }
 
 .instagram-icon{
