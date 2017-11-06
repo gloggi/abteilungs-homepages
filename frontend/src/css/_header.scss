@@ -28,15 +28,6 @@
         text-align: left;
         margin-left: 20px;
     }
-
-    >img {
-        width: 100%;
-        @include portrait() {
-            width: auto;
-            height: 60%;
-        }
-        position: fixed;
-    }
 }
 
 .header__banner-large{
@@ -91,8 +82,13 @@
 
 .header__image-large, .header__image {
     display: block;
-    height: inherit;
     width: 100vw;
-    position: fixed;
+	height: inherit;
     object-fit: cover;
+    position: fixed;
+
+	@include portrait() {
+		width: auto;
+		height: inherit;
+	}
 }

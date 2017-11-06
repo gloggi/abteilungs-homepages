@@ -663,13 +663,6 @@ label {
     position: relative;
     text-align: left;
     margin-left: 20px; }
-  .header > img {
-    width: 100%;
-    position: fixed; }
-    @media screen and (orientation: portrait) {
-      .header > img {
-        width: auto;
-        height: 60%; } }
 
 .header__banner-large {
   position: relative;
@@ -708,10 +701,14 @@ label {
 
 .header__image-large, .header__image {
   display: block;
-  height: inherit;
   width: 100vw;
-  position: fixed;
-  object-fit: cover; }
+  height: inherit;
+  object-fit: cover;
+  position: fixed; }
+  @media screen and (orientation: portrait) {
+    .header__image-large, .header__image {
+      width: auto;
+      height: inherit; } }
 
 .lay__left-align {
   width: 100%;
