@@ -37,14 +37,17 @@ wp_list_pages(array( 'post_type' => 'gruppe', 'title_li' => null, 'walker' => ne
 
 ?></ul>
         </div>
+<?php $footer_links = wpod_get_option( 'gloggi_einstellungen', 'footer-links' );
+if( $footer_links ) : ?>
         <div class="footer__column">
             <h3 class="heading--footer"> Links </h3>
             <ul>
-<?php foreach( wpod_get_option( 'gloggi_einstellungen', 'footer-links' ) as $link ) :?>
+<?php foreach( $footer_links as $link ) :?>
                 <li> <a href="<?php echo $link['url'];?>"><?php echo $link['name'];?></a></li>
 <?php endforeach; ?>
             </ul>
         </div>
+<?php endif; ?>
         <div class="footer__column">
             <h3 class="heading--footer"> Kontakt </h3>
             <p><?php echo wpod_get_option( 'gloggi_einstellungen', 'footer-contact' ); ?></p>
