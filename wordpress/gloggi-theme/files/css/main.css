@@ -468,7 +468,7 @@ ul {
 
 .content__text {
   margin-bottom: 40px; }
-  .content__text p > {
+  .content__text > p {
     white-space: pre-wrap; }
 
 .content__columns {

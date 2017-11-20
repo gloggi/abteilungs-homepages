@@ -215,7 +215,7 @@ if( $anlaesse->have_posts() ) : ?>
   endwhile; wp_reset_postdata(); ?>
   </div>
 <?php else: ?>
-    <p>Derzeit sind keine Anl&auml;sse eingetragen.</p>
+    <p><?php echo $agenda_noevents; ?></p>
   </div>
 <?php endif; ?>
 </div>
