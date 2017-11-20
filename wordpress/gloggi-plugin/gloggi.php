@@ -436,9 +436,9 @@ function gloggi_custom_post_type_anlass( $wpptd ) {
                   'required' => true,
                 ),
                 'anlassverantwortlicher' => array(
-                  'title' => __( 'Anlassverantwortlich', 'gloggi' ),
+                  'title' => __( 'e-Mail Verantwortliche(r)', 'gloggi' ),
                   'type' => 'email',
-                  'description' => __( 'Wenn leer wird beim Anlass der AL angezeigt.', 'gloggi' ),
+                  'description' => __( 'Ansprechsadresse für offene Fragen. Wenn leer wird beim Anlass eine Mailadresse vom AL angezeigt.', 'gloggi' ),
                 ),
                 'startzeit' => array(
                   'title' => __( 'Startzeit*', 'gloggi' ),
