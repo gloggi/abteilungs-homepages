@@ -3,7 +3,8 @@
 Template Name: Was wir tun
 */
 global $post;
-$waswirtun_content = wpptd_get_post_meta_value( $post->ID, 'waswirtun-content' ); ?>
+$waswirtun_content = wpptd_get_post_meta_value( $post->ID, 'waswirtun-content' );
+$abteilungslogo = wpod_get_option( 'gloggi_einstellungen', 'abteilungslogo' ); ?>
 <?php get_template_part('header'); ?>
 
 <?php if( $waswirtun_content ) : ?>
@@ -16,6 +17,9 @@ $waswirtun_content = wpptd_get_post_meta_value( $post->ID, 'waswirtun-content' )
 $stufen = new WP_Query( array( 'post_type' => 'stufe', 'orderby' => 'menu_order', 'order' => 'ASC' ) );
 while ( $stufen->have_posts() ) : $stufen->the_post();
   $stufenlogo = wpptd_get_post_meta_value( $post->ID, 'stufenlogo' );
+  if( !$stufenlogo ) {
+	  $stufenlogo = $abteilungslogo;
+  }
   $stufenfarbe = wpptd_get_post_meta_value( $post->ID, 'stufenfarbe' );
   if( has_post_thumbnail() ) : ?>
 <div class="content__big_image_container">

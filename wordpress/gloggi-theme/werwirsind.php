@@ -25,6 +25,7 @@ $agenda_pages = get_pages( array( 'meta_key' => '_wp_page_template', 'meta_value
 if( count($agenda_pages) ) {
   $agenda_seite = get_the_permalink( $agenda_pages[0]->ID );
 }
+$abteilungslogo = wpod_get_option( 'gloggi_einstellungen', 'abteilungslogo' );
 
 
 // Funktion um Mailadressen zu verschleiern
@@ -59,6 +60,9 @@ $stufen_query = new WP_Query( array( 'post_type' => 'stufe', 'orderby' => array(
 $stufen = array();
 while( $stufen_query->have_posts() ) : $stufen_query->the_post();
   $stufeninfos = wpptd_get_post_meta_values( $post->ID );
+  if( !$stufeninfos['stufenlogo'] ) {
+	  $stufeninfos['stufenlogo'] = $abteilungslogo;
+  }
   $stufe = array(
     'ID' => $post->ID,
     'name' => get_the_title(),
@@ -75,6 +79,9 @@ $gruppen_query = new WP_Query( array( 'post_type' => 'gruppe' ) );
 $gruppen = array();
 while( $gruppen_query->have_posts() ) : $gruppen_query->the_post();
   $gruppeninfos = wpptd_get_post_meta_values( $post->ID );
+  if( !$gruppeninfos['logo'] ) {
+	  $gruppeninfos['logo'] = $abteilungslogo;
+  }
   $gruppe = array(
     'ID' => $post->ID,
     'name' => get_the_title(),
@@ -132,7 +139,7 @@ foreach( $stufen as $stufe ) : ?>
     <a href="#<?php echo $gruppe['linkname']; ?>">
       <div class="groups__entry">
         <div class="circle-medium" style="background-color: <?php echo $gruppe['farbe']; ?>;">
-        <img src="<?php echo wp_get_attachment_url( $gruppe['logo'] ? $gruppe['logo'] : wpod_get_option( 'gloggi_einstellungen', 'abteilungslogo' ) );?>" alt="">
+        <img src="<?php echo wp_get_attachment_url( $gruppe['logo'] ); ?>" alt="">
         </div>
         <div class="circle-notification">
           <img src="<?php echo get_bloginfo('template_directory') . '/files/img/' . ($gruppe['geschlecht'] == 'm' ? 'm.svg' : ( $gruppe['geschlecht'] == 'w' ? 'f.svg' : 'b.svg' ) ); ?>" alt="">
@@ -148,11 +155,9 @@ foreach( $stufen as $stufe ) : ?>
         <div class="lightbox__content">
           <div class="lightbox__banner group__detail-banner">
             <h2 class="heading-2--inverted" <?php if( strlen($gruppe['name']) > 16 ) : ?>style="font-size: calc(600px/<?php echo strlen($gruppe['name']); ?>*1.6);"<?php endif; ?>><?php echo $gruppe['name']; ?></h2>
-<?php if( $gruppe['logo'] ) : ?>
             <div class="circle-small color-white">
               <img src="<?php echo wp_get_attachment_url( $gruppe['logo'] ); ?>"></img>
             </div>
-<?php endif; ?>
           </div>
           <div class="lightbox__body">
             <div class="lightbox__section">
