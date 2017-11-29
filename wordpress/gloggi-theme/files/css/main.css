@@ -555,6 +555,22 @@ ul {
     .content__big_image_container {
       max-height: 200px; } }
 
+img.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+img.alignright {
+  float: right;
+  margin: 5px 0 20px 20px; }
+
+img.alignleft {
+  float: left;
+  margin: 5px 20px 20px 0; }
+
+.wysiwyg {
+  white-space: pre-line; }
+
 .footer {
   min-height: 250px;
   font-size: 18px;

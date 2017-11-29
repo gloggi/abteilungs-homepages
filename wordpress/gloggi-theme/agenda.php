@@ -255,6 +255,30 @@ if( $specialevents->have_posts() ) : ?>
         </div>
       </a>
     </li>
+    <div class="lightbox" id="special-event-<?php echo sanitize_title( get_the_title() ); ?>">
+      <a href="#_">
+        <div class="lightbox__background">
+        </div>
+      </a>
+      <div class="lightbox__content-wrapper">
+        <div class="lightbox__content agenda__detail">
+          <div class="lightbox__banner agenda__header">
+            <div class="agenda__header-text">
+              <h3><?php echo get_the_title(); ?></h3>
+            </div>
+            <img src="<?php echo wp_get_attachment_url(wpod_get_option( 'gloggi_einstellungen', 'abteilungslogo' )); ?>" height="50" alt="">
+          </div>
+          <div class="lightbox__body agenda__body">
+            <div class="lightbox__section wysiwyg">
+              <p><?php echo wpptd_get_post_meta_value( $post->ID, 'description' ); ?></p>
+            </div>
+            <div class="lightbox__section">
+              <p>Hast du noch Fragen? Dann melde dich bei <a href="<?php echo encode_all_to_htmlentities( 'mailto:' . $standard_anlassverantwortlicher );?>"><?php echo encode_all_to_htmlentities( $standard_anlassverantwortlicher );?></a>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 <?php endwhile; wp_reset_postdata(); ?>
   </ul>
 </div>

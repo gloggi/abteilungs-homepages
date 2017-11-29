@@ -688,10 +688,6 @@ function gloggi_custom_post_type_specialevent( $wpptd ) {
                   'type' => 'wysiwyg',
                   'required' => true,
                 ),
-                'kontaktbild' => array(
-                  'title' => __( 'Bild', 'gloggi' ),
-                  'type' => 'media',
-                ),
               ),
             ),
           ),
