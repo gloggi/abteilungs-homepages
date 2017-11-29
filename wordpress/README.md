@@ -21,10 +21,8 @@
 
 2. Using SSH, log into the server and install WP-CLI (see https://gist.github.com/neverything/851778304fd730b468fe).
 
-3. Using FTP, copy the current version of the plugin and theme to the respective directories in wp-content at your hoster
+3. Using FTP, copy post-install.sh to your wp-content folder and make it executable using ```chmod +x post-install.sh```
 
-4. Using FTP, copy post-install.sh to your wp-content folder and make it executable using ```chmod +x post-install.sh```
-
-5. Execute the install script:
+4. Execute the install script:
 
     ```./post-install.sh ~/bin/wp```

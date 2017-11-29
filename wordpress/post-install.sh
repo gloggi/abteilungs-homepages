@@ -28,13 +28,13 @@ then
     $wp plugin install "post-types-definitely" --activate
     
     # Download gloggi plugin in production, or use the provided one in Docker
-    if ! [ -d "wp-content/plugins/gloggi-plugin" ]; then
+    if [ ! -d "wp-content/plugins/gloggi-plugin" ] && [ ! -d "plugins/gloggi-plugin" ]; then
       $wp plugin install "http://wp-updates.gloggi.ch/gloggi-plugin.zip"
     fi
     $wp plugin activate gloggi-plugin
 
     # Download gloggi theme in production, or use the provided one in Docker
-    if ! [ -d "wp-content/themes/gloggi-theme" ]; then
+    if [ ! -d "wp-content/themes/gloggi-theme" ] && [ ! -d "themes/gloggi-theme" ]; then
       $wp theme install "http://wp-updates.gloggi.ch/gloggi-theme.zip"
     fi
     $wp theme activate gloggi-theme
