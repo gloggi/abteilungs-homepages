@@ -6,12 +6,12 @@ global $post;
 $werwirsind_content = wpptd_get_post_meta_value( $post->ID, 'werwirsind-content' );
 $werwirsind_trennbanner1 = wpptd_get_post_meta_value( $post->ID, 'werwirsind-separator-banner1');
 if( $werwirsind_trennbanner1 ) {
-	$werwirsind_trennbanner1 = '<div class="content__big_image_container">' . wp_get_attachment_image( $werwirsind_trennbanner1, array(), false, array( 'class' => 'content__big_image parallax__layer' ) ) . '</div>';
+    $werwirsind_trennbanner1 = '<div class="content__big_image_container">' . wp_get_attachment_image( $werwirsind_trennbanner1, array(), false, array( 'class' => 'content__big_image parallax__layer' ) ) . '</div>';
 } else $werwirsind_trennbanner1 = '';
 $werwirsind_group_title = wpptd_get_post_meta_value( $post->ID, 'werwirsind-group-title');
 $werwirsind_trennbanner2 = wpptd_get_post_meta_value( $post->ID, 'werwirsind-separator-banner2');
 if( $werwirsind_trennbanner2 ) {
-	$werwirsind_trennbanner2 = '<div class="content__big_image_container">' . wp_get_attachment_image( $werwirsind_trennbanner2, array(), false, array( 'class' => 'content__big_image parallax__layer' ) ) . '</div>';
+    $werwirsind_trennbanner2 = '<div class="content__big_image_container">' . wp_get_attachment_image( $werwirsind_trennbanner2, array(), false, array( 'class' => 'content__big_image parallax__layer' ) ) . '</div>';
 } else $werwirsind_trennbanner2 = '';
 // Suche irgendeine Seite die das "index.php"-Template verwendet, und somit ein "Mitmachen"-Formular enthält.
 $mitmachen_seite = '/';
@@ -61,7 +61,7 @@ $stufen = array();
 while( $stufen_query->have_posts() ) : $stufen_query->the_post();
   $stufeninfos = wpptd_get_post_meta_values( $post->ID );
   if( !$stufeninfos['stufenlogo'] ) {
-	  $stufeninfos['stufenlogo'] = $abteilungslogo;
+      $stufeninfos['stufenlogo'] = $abteilungslogo;
   }
   $stufe = array(
     'ID' => $post->ID,
@@ -80,7 +80,7 @@ $gruppen = array();
 while( $gruppen_query->have_posts() ) : $gruppen_query->the_post();
   $gruppeninfos = wpptd_get_post_meta_values( $post->ID );
   if( !$gruppeninfos['logo'] ) {
-	  $gruppeninfos['logo'] = $abteilungslogo;
+      $gruppeninfos['logo'] = $abteilungslogo;
   }
   $gruppe = array(
     'ID' => $post->ID,
@@ -173,7 +173,7 @@ foreach( $stufen as $stufe ) : ?>
                     <p><b>Region:</b> <?php echo $gruppe['einzugsgebiet']; ?></p>
 <?php endif; ?>
 <?php if( $gruppe['elterngruppe'] ) : ?>
-					<p><b>&Uuml;bergeordnete Gruppe:</b> <a href="#<?php echo $gruppen[$gruppe['elterngruppe']]['linkname']; ?>"><?php echo $gruppen[$gruppe['elterngruppe']]['name']; ?></a></p>
+                    <p><b>&Uuml;bergeordnete Gruppe:</b> <a href="#<?php echo $gruppen[$gruppe['elterngruppe']]['linkname']; ?>"><?php echo $gruppen[$gruppe['elterngruppe']]['name']; ?></a></p>
 <?php endif; ?>
 <?php if( $gruppe['untergruppen'] ) : ?>
                     <p><b>Untergruppen:</b></p><ul>
@@ -241,16 +241,18 @@ endwhile; wp_reset_postdata();
 if( $kontakt_query->have_posts() ) : ?>
 <div class="content__block">
     <h2 class="heading-2">Kontakt</h2>
-    <div class="contact">
+    <div class="contact__container">
 <?php while( $kontakt_query->have_posts() ) : $kontakt_query->the_post();
     $email = wpptd_get_post_meta_value( $post->ID, 'email' ); ?>
-        <div class="contact__left">
+        <div class="contact">
+            <div class="contact__text">
+                <h3><?php echo get_the_title(); ?></h3>
+                <p><a href="<?php echo encode_all_to_htmlentities( 'mailto:' . $email ); ?>"><?php echo encode_all_to_htmlentities( $email ); ?></a></p>
+            </div>
 <?php   $bild_id = wpptd_get_post_meta_value( $post->ID, 'kontaktbild' );
         if( $bild_id ) : ?>
             <img class="contact__image" src="<?php echo wp_get_attachment_url( $bild_id ); ?>" alt="<?php echo get_the_title(); ?>">
 <?php   endif; ?>
-            <h3><?php echo get_the_title(); ?></h3>
-            <p><a href="<?php echo encode_all_to_htmlentities( 'mailto:' . $email ); ?>"><?php echo encode_all_to_htmlentities( $email ); ?></a></p>
         </div>
 <?php endwhile; ?>
     </div>

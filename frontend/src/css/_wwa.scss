@@ -85,9 +85,20 @@
 }
 
 .contact{
+    width: auto;
     display: flex;
+    align-items: center;
+    margin: 1em;
     @include screen(small) {
         flex-direction: column;
+    }
+}
+
+.contact__text {
+    width: 100%;
+
+    h3 {
+        margin-top: 0;
     }
 }
 
@@ -98,45 +109,8 @@
 }
 
 @media screen and (max-width: 500px) {
-  .contact {
-    flex-direction: column; } }
-
-.contact__left{
-    width: 100%;
-}
-
-.contact__right{
-    width: 100%;
-    display: flex;
-    flex-flow: column;
-    justify-content: space-around;
-    align-items: center;
-    img{
-        width: 250px;
-        height: 250px;
-        border-radius: 1000px;
-        margin: 25px;
-    }
-
-
-    @include screen(med) {
-        img{
-            width: 200px;
-            height: 200px;
-            border-radius: 100px;
-            margin: 5px;
-        }
-    }
-
-    @include screen(small) {
-        flex-direction: row;
-        margin-top: 10px;
-        img{
-            width: 175px;
-            height: 175px;
-            border-radius: 100px;
-            margin: 5px;
-        }
+    .contact {
+        flex-direction: column;
     }
 }
 

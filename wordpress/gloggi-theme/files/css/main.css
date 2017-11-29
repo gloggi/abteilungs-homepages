@@ -1012,10 +1012,18 @@ label {
   align-items: center; }
 
 .contact {
-  display: flex; }
+  width: auto;
+  display: flex;
+  align-items: center;
+  margin: 1em; }
   @media screen and (max-width: 500px) {
     .contact {
       flex-direction: column; } }
+
+.contact__text {
+  width: 100%; }
+  .contact__text h3 {
+    margin-top: 0; }
 
 .contact .contact__image {
   float: right;
@@ -1025,36 +1033,6 @@ label {
 @media screen and (max-width: 500px) {
   .contact {
     flex-direction: column; } }
-
-.contact__left {
-  width: 100%; }
-
-.contact__right {
-  width: 100%;
-  display: flex;
-  flex-flow: column;
-  justify-content: space-around;
-  align-items: center; }
-  .contact__right img {
-    width: 250px;
-    height: 250px;
-    border-radius: 1000px;
-    margin: 25px; }
-  @media screen and (max-width: 700px) {
-    .contact__right img {
-      width: 200px;
-      height: 200px;
-      border-radius: 100px;
-      margin: 5px; } }
-  @media screen and (max-width: 500px) {
-    .contact__right {
-      flex-direction: row;
-      margin-top: 10px; }
-      .contact__right img {
-        width: 175px;
-        height: 175px;
-        border-radius: 100px;
-        margin: 5px; } }
 
 .group__detail-banner {
   height: 150px;
