@@ -4,8 +4,6 @@ services:
   wordpress:
     image: "chriszarate/wordpress:4.8.2"
     environment:
-      WORDPRESS_ACTIVATE_PLUGINS: "options-definitely post-types-definitely gloggi-plugin" # plugin folder relative to /wp-content/plugins/
-      WORDPRESS_ACTIVATE_THEME: "gloggi-theme"   # theme folder relative to /wp-content/themes/
       WORDPRESS_DB_PASSWORD: "xBkLnzRvNWB6Zd56"
       WORDPRESS_SITE_TITLE: "WORDPRESS_SITE_TITLE"
       WORDPRESS_SITE_USER: "admin"
