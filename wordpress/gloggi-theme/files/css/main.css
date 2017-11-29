@@ -743,16 +743,12 @@ label {
 .lightbox__content-wrapper {
   width: 100vw;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-  @media screen and (max-width: 500px) {
-    .lightbox__content-wrapper {
-      margin-top: 50px; } }
+  margin-top: 50px; }
 
 .lightbox__content {
   z-index: 1;
   position: fixed;
+  left: calc(50% - 350px);
   background: white;
   width: 700px;
   height: 90%;
@@ -762,7 +758,8 @@ label {
   pading: 10px; }
   @media screen and (max-width: 700px) {
     .lightbox__content {
-      width: 100%; } }
+      width: 100%;
+      left: 0px; } }
   .lightbox__content p, .lightbox__content a, .lightbox__content li, .lightbox__content b {
     font-size: 18px; }
 

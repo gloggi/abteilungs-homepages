@@ -32,22 +32,18 @@
 .lightbox__content-wrapper{
     width: 100vw;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    @include screen(small) {
-        margin-top: 50px;
-    }
+    margin-top: 50px;
 }
 
 .lightbox__content{
     z-index: 1;
     position: fixed;
+    left: calc(50% - 350px);
     background: white;
     width: 700px;
     @include screen(med) {
         width: 100%;
+        left: 0px;
     }
     height: 90%;
 
