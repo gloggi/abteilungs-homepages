@@ -222,8 +222,20 @@ if( $anlaesse->have_posts() ) : ?>
 
 <?php echo $agenda_trennbanner; ?>
 
+<?php
+$show_jahresplan_section = false;
+if( $agenda_jahresplan_content ) {
+	$show_jahresplan_section = true;
+}
+foreach( $einheiten as $einheit ) {
+	if( $einheit['jahresplan'] ) {
+		$show_jahresplan_section = true;
+		break;
+	}
+}
+if( $show_jahresplan_section ) : ?>
 <div class="content__block">
-  <h2 class="heading-2"><?php echo ( $agenda_jahresplan_title ? $agenda_jahresplan_title : 'Jahrespl&auml;ne' ); ?></h2>
+  <h2 class="heading-2"><?php echo ( $agenda_jahresplan_title ? $agenda_jahresplan_title : __( 'Jahrespl&auml;ne' ) ); ?></h2>
   <p><?php echo $agenda_jahresplan_content; ?></p>
   <ul class="agenda__year-agenda">
 <?php foreach($einheiten as $einheit) :
@@ -238,6 +250,7 @@ if( $anlaesse->have_posts() ) : ?>
 endforeach; ?>
   </ul>
 </div>
+<?php endif; ?>
 
 <?php echo $agenda_trennbanner2; ?>
 
