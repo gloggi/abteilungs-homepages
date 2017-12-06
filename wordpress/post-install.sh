@@ -53,15 +53,23 @@ then
     biberstufe=$($wp post create --post_type=stufe --post_title="Biberstufe" --post_status=publish --menu_order=0 --porcelain)
     $wp post meta update $biberstufe alter-von 4
     $wp post meta update $biberstufe alter-bis 7
+    biberstufenlogo=$($wp media import http://wp-updates.gloggi.ch/media/biberstufe.svg --porcelain)
+    $wp post meta update $biberstufe stufenlogo $biberstufenlogo
     wolfsstufe=$($wp post create --post_type=stufe --post_title="Wolfsstufe" --post_status=publish --menu_order=1 --porcelain)
     $wp post meta update $wolfsstufe alter-von 7
     $wp post meta update $wolfsstufe alter-bis 11
+    wolfsstufenlogo=$($wp media import http://wp-updates.gloggi.ch/media/wolfsstufe.svg --porcelain)
+    $wp post meta update $wolfsstufe stufenlogo $wolfsstufenlogo
     pfadistufe=$($wp post create --post_type=stufe --post_title="Pfadistufe" --post_status=publish --menu_order=2 --porcelain)
     $wp post meta update $pfadistufe alter-von 11
     $wp post meta update $pfadistufe alter-bis 14
+    pfadistufenlogo=$($wp media import http://wp-updates.gloggi.ch/media/pfadistufe.svg --porcelain)
+    $wp post meta update $pfadistufe stufenlogo $pfadistufenlogo
     piostufe=$($wp post create --post_type=stufe --post_title="Piostufe" --post_status=publish --menu_order=3 --porcelain)
     $wp post meta update $piostufe alter-von 14
     $wp post meta update $piostufe alter-bis 16
+    piostufenlogo=$($wp media import http://wp-updates.gloggi.ch/media/piostufe.svg --porcelain)
+    $wp post meta update $piostufe stufenlogo $piostufenlogo
 
     # Set the static front page
     $wp option update show_on_front page
