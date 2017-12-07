@@ -23,9 +23,7 @@ add_theme_support( 'post-thumbnails' );
 function gloggi_scripts() {
   wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/files/css/bootstrap.min.css' );
   wp_enqueue_style( 'main', get_template_directory_uri() . '/files/css/main.css' );
-  wp_enqueue_style( 'print', get_template_directory_uri() . '/files/css/print.css' );
   wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/files/js/bootstrap.min.js', array( 'jquery' ) );
-  wp_enqueue_script( 'main', get_template_directory_uri() . '/files/js/main.js', array( 'jquery' ) );
   if( is_page_template( 'agenda.php' ) ) {
     wp_enqueue_script( 'agenda', get_template_directory_uri() . '/files/js/agenda.js', array( 'jquery' ) );
     // Gib die Gruppenliste und den Google Maps API key an das Agenda-Skript
