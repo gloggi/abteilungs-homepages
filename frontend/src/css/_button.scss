@@ -1,7 +1,6 @@
 .button, .button--inactive {
     font-size: 24px;
     color: $font-color-inverted;
-    //background-color: $primary-color;
     margin-top: 25px;
     padding: 20px;
     border-radius: 07px;
@@ -15,16 +14,13 @@
     align-self: flex-end;
 
     &:hover{
-        //background-color: $primary-color-dark;
         text-decoration: none;
-        color: white;
     }
 
     &:target{
         background-color: $secondary-color;
         box-shadow: none;
         border:none;
-        color: white;
         text-decoration: none;
     }
 
@@ -32,7 +28,6 @@
         background-color: $secondary-color;
         box-shadow: none;
         border:none;
-        color: white;
         text-decoration: none;
     }
     &:selection{
@@ -42,7 +37,6 @@
         background-color: $secondary-color;
         box-shadow: none;
         border:none;
-        color: white;
         text-decoration: none;
     }
 
@@ -57,8 +51,7 @@
 
 .button--inactive {
     border-width: 1px;
-    background-color: white;
-    //color: $primary-color;
+    background-color: $font-color-inverted;
 }
 
 .button--small{

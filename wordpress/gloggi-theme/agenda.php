@@ -90,7 +90,7 @@ $subchildren = gloggi_aggregate_subchildren($einheiten_by_parent, 0);
 
 <div class="content__block">
   <div class="content__text">
-    <p><?php echo $agenda_content; ?></p>
+    <p class="wysiwyg"><?php echo $agenda_content; ?></p>
 <?php $anlaesse = new WP_Query( array( 'post_type' => 'anlass', 'meta_query' => array( array( 'key' => 'endzeit', 'value' => date( 'YmdHis' ), 'compare' => '>=', ), ), ) );
 if( $anlaesse->have_posts() ) : ?>
   </div>
@@ -181,19 +181,12 @@ if( $anlaesse->have_posts() ) : ?>
           <div class="lightbox__body agenda__body">
             <div class="agenda__map" data-address1="<?php echo $anlassinfos['startort']; ?>" data-address2="<?php echo $anlassinfos['endort']; ?>">
             </div>
-            <div class="lightbox__section">
-              <p><?php echo $anlassinfos['beschreibung']; ?></p>
-            </div>
-            <div class="lightbox__section">
-              <p>Hast du noch Fragen? Dann melde dich bei <a href="<?php echo encode_all_to_htmlentities( 'mailto:' . $anlassverantwortlicher );?>"><?php echo encode_all_to_htmlentities( $anlassverantwortlicher );?></a><?php if( $anlassinfos['is-specialevent'] ) : ?> oder lies allgemeine Informationen: <a href="#special-event-<?php echo sanitize_title( $specialevent_titel ); ?>"><?php echo $specialevent_titel; ?></a><?php endif; ?>.</p>
-            </div>
+            <div class="lightbox__section"><p class="wysiwyg"><?php echo $anlassinfos['beschreibung']; ?></p></div>
+            <div class="lightbox__section"><p class="wysiwyg">Hast du noch Fragen? Dann melde dich bei <a href="<?php echo encode_all_to_htmlentities( 'mailto:' . $anlassverantwortlicher );?>"><?php echo encode_all_to_htmlentities( $anlassverantwortlicher );?></a><?php if( $anlassinfos['is-specialevent'] ) : ?> oder lies allgemeine Informationen: <a href="#special-event-<?php echo sanitize_title( $specialevent_titel ); ?>"><?php echo $specialevent_titel; ?></a><?php endif; ?>.</p></div>
             <div class="lightbox__section">
               <div class="content__two-columns content__columns--1-1">
 <?php if( $anlassinfos['mitnehmen'] ) : ?>
-                <div class="wysiwyg">
-                  <h4>Mitnehmen</h4>
-                  <?php echo $anlassinfos['mitnehmen']; ?>
-                </div>
+                <div><h4>Mitnehmen</h4><p class="wysiwyg"><?php echo $anlassinfos['mitnehmen']; ?></p></div>
 <?php endif; ?>
 <?php if( $downloads && count( $downloads ) ) : ?>
                 <div>
@@ -236,13 +229,13 @@ foreach( $einheiten as $einheit ) {
 if( $show_jahresplan_section ) : ?>
 <div class="content__block">
   <h2 class="heading-2"><?php echo ( $agenda_jahresplan_title ? $agenda_jahresplan_title : __( 'Jahrespl&auml;ne' ) ); ?></h2>
-  <p><?php echo $agenda_jahresplan_content; ?></p>
+  <div class="content__text"><p class="wysiwyg"><?php echo $agenda_jahresplan_content; ?></p></div>
   <ul class="agenda__year-agenda">
 <?php foreach($einheiten as $einheit) :
   if( $einheit['jahresplan'] ) : ?>
     <li>
       <a href="<?php echo $einheit['jahresplan']; ?>">
-        <img class="agenda__anualplan svg" src="<?php echo get_bloginfo('template_directory'); ?>/files/doc.svg" alt="">
+        <img class="agenda__anualplan svg" src="<?php echo get_bloginfo('template_directory'); ?>/files/img/doc.svg" alt="">
         <p><?php echo $einheit['name']; ?></p>
       </a>
     </li>
@@ -282,12 +275,8 @@ if( $specialevents->have_posts() ) : ?>
             <img src="<?php echo wp_get_attachment_url(wpod_get_option( 'gloggi_einstellungen', 'abteilungslogo' )); ?>" height="50" alt="">
           </div>
           <div class="lightbox__body agenda__body">
-            <div class="lightbox__section wysiwyg">
-              <p><?php echo wpptd_get_post_meta_value( $post->ID, 'description' ); ?></p>
-            </div>
-            <div class="lightbox__section">
-              <p>Hast du noch Fragen? Dann melde dich bei <a href="<?php echo encode_all_to_htmlentities( 'mailto:' . $standard_anlassverantwortlicher );?>"><?php echo encode_all_to_htmlentities( $standard_anlassverantwortlicher );?></a>.</p>
-            </div>
+            <div class="lightbox__section"><p class="wysiwyg"><?php echo wpptd_get_post_meta_value( $post->ID, 'description' ); ?></p></div>
+            <div class="lightbox__section"><p class="wysiwyg">Hast du noch Fragen? Dann melde dich bei <a href="<?php echo encode_all_to_htmlentities( 'mailto:' . $standard_anlassverantwortlicher );?>"><?php echo encode_all_to_htmlentities( $standard_anlassverantwortlicher );?></a>.</p></div>
           </div>
         </div>
       </div>

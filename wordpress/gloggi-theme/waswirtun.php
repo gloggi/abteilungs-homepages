@@ -9,7 +9,7 @@ $abteilungslogo = wpod_get_option( 'gloggi_einstellungen', 'abteilungslogo' ); ?
 
 <?php if( $waswirtun_content ) : ?>
 <div class="content__block">
-  <p><?php echo $waswirtun_content; ?></p>
+  <p class="wysiwyg"><?php echo $waswirtun_content; ?></p>
 </div>
 <?php endif; ?>
 
@@ -29,13 +29,11 @@ while ( $stufen->have_posts() ) : $stufen->the_post();
 <div class="content__block">
   <h2 class="heading-2"><?php echo get_the_title(); ?></h2>
   <?php if( $stufenlogo && $stufenfarbe ) : ?>
-  <div class="circle wwd__level-icon" style="background-color: <?php echo $stufenfarbe; ?>">
+  <div class="circle circle-icon" style="background-color: <?php echo $stufenfarbe; ?>">
     <img class="circle-content" src="<?php echo wp_get_attachment_url( $stufenlogo ); ?>" alt="">
   </div>
   <?php endif; ?>
-  <div class="content__text">
-    <p><?php echo wpptd_get_post_meta_value( $post->ID, 'stufentext' ); ?></p>
-  </div>
+  <div class="content__text"><p class="wysiwyg"><?php echo wpptd_get_post_meta_value( $post->ID, 'stufentext' ); ?></p></div>
   <div style="clear: both;"></div>
 </div>
 <?php endwhile; wp_reset_postdata(); ?>

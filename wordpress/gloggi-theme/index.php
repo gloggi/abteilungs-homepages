@@ -11,6 +11,8 @@ $index_trennbanner2 = wpptd_get_post_meta_value( $post->ID, 'index-separator-ban
 if( $index_trennbanner2 ) {
 	$index_trennbanner2 = '<div class="content__big_image_container">' . wp_get_attachment_image( $index_trennbanner2, array(), false, array( 'class' => 'content__big_image parallax__layer' ) ) . '</div>';
 } else $index_trennbanner2 = '';
+$index_content1 = wpptd_get_post_meta_value( $post->ID, 'index-content1' );
+$index_content2 = wpptd_get_post_meta_value( $post->ID, 'index-content2' );
 $index_content3 = wpptd_get_post_meta_value( $post->ID, 'index-content3' );
 
 $formfields = wpptd_get_post_meta_value( $post->ID, 'index-contact-form-fields' );
@@ -104,14 +106,12 @@ if(isset($_POST['submit'])) {
 ?>
 <?php get_template_part('header-large'); ?>
 
-<div class="content__block  content__columns--2-1">
-  <div class="content__column">
-    <p><?php echo wpptd_get_post_meta_value( $post->ID, 'index-content1' ); ?></p>
+<div class="content__block">
+  <div class="circle color-primary not-small circle-icon">
+    <img src="<?php echo get_bloginfo('template_directory'); ?>/files/img/scout-logos.svg">
   </div>
-  <div class="content__column">
-    <div class="circle color-primary not-small">
-      <img src="<?php echo get_bloginfo('template_directory'); ?>/files/img/scout-logos.svg">
-    </div>
+  <div>
+    <p class="wysiwyg"><?php echo $index_content1; ?></p>
   </div>
 </div>
 <?php if( $formfields && count( $formfields ) > 0 ) : ?>
@@ -182,7 +182,7 @@ if ($anysocialmedia) :
 <?php else: ?>
   <div class="content__block">
 <?php endif; ?>
-    <p><?php echo wpptd_get_post_meta_value( $post->ID, 'index-content2' ); ?></p>
+    <p class="wysiwyg"><?php echo $index_content2; ?></p>
 <?php if ($anysocialmedia) : ?>
   </div>
 <?php endif; ?>
@@ -192,7 +192,7 @@ if ($anysocialmedia) :
 
 <?php if( $index_content3 ) : ?>
 <div class="content__block">
-  <p><?php echo $index_content3; ?></p>
+  <p class="wysiwyg"><?php echo $index_content3; ?></p>
 </div>
 <?php endif; ?>
 

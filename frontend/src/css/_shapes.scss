@@ -18,7 +18,6 @@
 }
 
 .circle {
-    //background-color: $primary-color;
     width: 200px;
     min-height: 200px;
     border-radius: 200px;
@@ -71,7 +70,7 @@
     justify-content: center;
 
     p {
-        color: white;
+        color: $font-color-inverted;
         margin: 0;
     }
 
@@ -92,7 +91,7 @@
     justify-content: center;
 
     p {
-        color: white;
+        color: $font-color-inverted;
         font-size: 20px;
         margin: 0;
     }
@@ -141,4 +140,9 @@
 .circle-small-content {
     width: 70px;
     height: 70px;
+}
+
+.circle-icon{
+    float: right;
+    margin-left: 25px;
 }

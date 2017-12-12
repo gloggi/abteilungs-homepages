@@ -10,12 +10,10 @@
 
     ul {
         list-style-type: none;
-        padding: 10px;
     }
 
     p {
         padding: 10px;
-        white-space: pre-wrap;
     }
 
     a, p, li {
@@ -53,7 +51,6 @@
 }
 
 .footer__column{
-    width: 200px;
     @include screen(small) {
         width: 100%;
     }

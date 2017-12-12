@@ -25,7 +25,6 @@ h1{
     text-shadow: 0px 0px 10px black;
     text-align: center;
     margin-left: 25px;
-    margin-top: 50px;
     margin-bottom: 10px;
 
     @include screen(small) {
@@ -42,9 +41,6 @@ h2 {
     font-weight: 200;
     margin-top: 75px;
     margin-bottom: 20px;
-
-
-    //color: $primary-color;
 }
 
 h3 {
@@ -62,8 +58,6 @@ h3 {
 }
 
 h4 {
-    //color: $primary-color;
-
     font-size: 26px;
     font-weight: 500;
 
@@ -72,7 +66,7 @@ h4 {
     text-align: left;
 }
 
-p, input, button, li, b {
+p, input, button, li, b, .content__text {
     padding: 0px;
     margin: 0px;
 
@@ -86,7 +80,6 @@ p, input, button, li, b {
     }
     font-weight: 200;
     line-height: 1.5;
-    //text-align: justify;
     letter-spacing: 0.8px;
 }
 
@@ -143,7 +136,7 @@ ul {
     background-color: $red;
     padding: 10px;
     margin-top: 20px;
-    color: $white;
+    color: white;
 }
 
 .warning-title{

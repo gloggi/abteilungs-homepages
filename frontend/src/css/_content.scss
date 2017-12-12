@@ -24,17 +24,18 @@
 }
 
 .content__block {
-    padding: 100px;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding: 0 100px;
+    margin: 50px 0;
     width: 100%;
+
     @include screen(med) {
-        padding: 50px;
-        padding-top: 25px;
+        padding: 0 50px;
+        margin: 25px 0;
     }
 
     @include screen(small) {
-        padding: 15px;
+        padding: 0 15px;
+        margin: 15px 0;
     }
 }
 
@@ -45,9 +46,6 @@
 
 .content__text {
     margin-bottom: 40px;
-    > p {
-        white-space: pre-wrap;
-    }
 }
 
 .content__columns{
@@ -146,6 +144,7 @@
 
 .content__big_image {
     width: 100%;
+    height: auto;
 }
 
 .content__big_image_container {

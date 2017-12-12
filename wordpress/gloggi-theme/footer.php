@@ -48,10 +48,7 @@ if( $footer_links ) : ?>
             </ul>
         </div>
 <?php endif; ?>
-        <div class="footer__column">
-            <h3 class="heading--footer"> Kontakt </h3>
-            <p><?php echo wpod_get_option( 'gloggi_einstellungen', 'footer-contact' ); ?></p>
-        </div>
+        <div class="footer__column"><h3 class="heading--footer"> Kontakt </h3><p class="wysiwyg"><?php echo wpod_get_option( 'gloggi_einstellungen', 'footer-contact' ); ?></p></div>
     </div>
 </div>
 

@@ -152,11 +152,11 @@
             font-weight: 500;
             line-height: 45.0px;
             margin: 0px;
-            color: white !important;
+            color: $font-color-inverted !important;
         }
 
         p{
-            color: $white;
+            color: $font-color-inverted;
             @include screen(small){
                 line-height: 30px;
                 font-size: 16px;
@@ -166,7 +166,6 @@
 }
 
 .agenda__body {
-    //display: flex;
     justify-content: space-between;
 
     p{
@@ -206,42 +205,30 @@
 .agenda__year-agenda{
     display: flex;
     list-style-type: none;
-    justify-content: space-between;
-    margin-top: 125px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 25px;
     padding: 0px;
-    @include screen(small) {
-        margin-top: 0px;
-        flex-wrap: wrap;
-    }
     @include screen(med) {
         margin-top: 0px;
-        flex-wrap: wrap;
+        flex-direction: column;
     }
 
     li{
-        @include screen(small) {
-            padding-top: 50px;
-        }
-        @include screen(med) {
-            padding-top: 50px;
-        }
+        margin: 15px 25px 0;
         a{
             display: flex;
             flex-direction: column;
+            align-items: center;
             p{
-
-                color: green;
-                text-align: center;
-                //color: $primary-color;
                 font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
                 font-size: 30px;
                 font-style: normal;
 
-                padding-top: 25px;
+                padding-top: 10px;
             }
 
             img{
-                allign: center;
                 height: 155px;
                 @include screen(small) {
                     height: 75px;
@@ -272,7 +259,7 @@
     li{
         margin: 25px;
         a{
-            color: white;
+            color: $font-color-inverted;
             text-align: center;
     }}
 }

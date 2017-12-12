@@ -5,9 +5,6 @@
   background-color: #4A90E2;
   color: blue; }
 
-.color-white {
-  background-color: white; }
-
 .color-blue {
   background-color: blue; }
 
@@ -44,7 +41,6 @@ h1 {
   text-shadow: 0px 0px 10px black;
   text-align: center;
   margin-left: 25px;
-  margin-top: 50px;
   margin-bottom: 10px; }
   @media screen and (max-width: 500px) {
     h1 {
@@ -77,7 +73,7 @@ h4 {
   margin-bottom: 10px;
   text-align: left; }
 
-p, input, button, li, b {
+p, input, button, li, b, .content__text {
   padding: 0px;
   margin: 0px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -88,7 +84,7 @@ p, input, button, li, b {
   line-height: 1.5;
   letter-spacing: 0.8px; }
   @media screen and (max-width: 700px) {
-    p, input, button, li, b {
+    p, input, button, li, b, .content__text {
       font-size: 18px; } }
 
 ::selection {
@@ -310,42 +306,33 @@ ul {
 .agenda__year-agenda {
   display: flex;
   list-style-type: none;
-  justify-content: space-between;
-  margin-top: 125px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 25px;
   padding: 0px; }
-  @media screen and (max-width: 500px) {
-    .agenda__year-agenda {
-      margin-top: 0px;
-      flex-wrap: wrap; } }
   @media screen and (max-width: 700px) {
     .agenda__year-agenda {
       margin-top: 0px;
-      flex-wrap: wrap; } }
-  @media screen and (max-width: 500px) {
-    .agenda__year-agenda li {
-      padding-top: 50px; } }
-  @media screen and (max-width: 700px) {
-    .agenda__year-agenda li {
-      padding-top: 50px; } }
-  .agenda__year-agenda li a {
-    display: flex;
-    flex-direction: column; }
-    .agenda__year-agenda li a p {
-      color: green;
-      text-align: center;
-      font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
-      font-size: 30px;
-      font-style: normal;
-      padding-top: 25px; }
-    .agenda__year-agenda li a img {
-      allign: center;
-      height: 155px; }
-      @media screen and (max-width: 500px) {
-        .agenda__year-agenda li a img {
-          height: 75px; } }
-      @media screen and (max-width: 700px) {
-        .agenda__year-agenda li a img {
-          height: 100px; } }
+      flex-direction: column; } }
+  .agenda__year-agenda li {
+    margin: 15px 25px 0; }
+    .agenda__year-agenda li a {
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+      .agenda__year-agenda li a p {
+        font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+        font-size: 30px;
+        font-style: normal;
+        padding-top: 10px; }
+      .agenda__year-agenda li a img {
+        height: 155px; }
+        @media screen and (max-width: 500px) {
+          .agenda__year-agenda li a img {
+            height: 75px; } }
+        @media screen and (max-width: 700px) {
+          .agenda__year-agenda li a img {
+            height: 100px; } }
 
 .agenda__special-events {
   display: flex;
@@ -393,19 +380,16 @@ ul {
       font-size: 18px;
       padding: 15px; } }
   .button:hover, .button--inactive:hover {
-    text-decoration: none;
-    color: white; }
+    text-decoration: none; }
   .button:target, .button--inactive:target {
     background-color: #244392;
     box-shadow: none;
     border: none;
-    color: white;
     text-decoration: none; }
   .button:active, .button--inactive:active {
     background-color: #244392;
     box-shadow: none;
     border: none;
-    color: white;
     text-decoration: none; }
   .button:selection, .button--inactive:selection {
     text-decoration: none; }
@@ -413,7 +397,6 @@ ul {
     background-color: #244392;
     box-shadow: none;
     border: none;
-    color: white;
     text-decoration: none; }
   @media screen and (max-width: 500px) {
     .button, .button--inactive {
@@ -450,17 +433,17 @@ ul {
       width: 100%; } }
 
 .content__block {
-  padding: 100px;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding: 0 100px;
+  margin: 50px 0;
   width: 100%; }
   @media screen and (max-width: 700px) {
     .content__block {
-      padding: 50px;
-      padding-top: 25px; } }
+      padding: 0 50px;
+      margin: 25px 0; } }
   @media screen and (max-width: 500px) {
     .content__block {
-      padding: 15px; } }
+      padding: 0 15px;
+      margin: 15px 0; } }
 
 .content__section {
   margin-bottom: 40px;
@@ -468,8 +451,6 @@ ul {
 
 .content__text {
   margin-bottom: 40px; }
-  .content__text > p {
-    white-space: pre-wrap; }
 
 .content__columns {
   width: 100%;
@@ -542,7 +523,8 @@ ul {
   padding-right: 100px; }
 
 .content__big_image {
-  width: 100%; }
+  width: 100%;
+  height: auto; }
 
 .content__big_image_container {
   width: 100%;
@@ -580,11 +562,9 @@ img.alignleft {
   position: relative;
   color: white; }
   .footer ul {
-    list-style-type: none;
-    padding: 10px; }
+    list-style-type: none; }
   .footer p {
-    padding: 10px;
-    white-space: pre-wrap; }
+    padding: 10px; }
   .footer a, .footer p, .footer li {
     color: inherit;
     font-size: inherit; }
@@ -609,11 +589,9 @@ img.alignleft {
       padding: 10px;
       flex-wrap: wrap; } }
 
-.footer__column {
-  width: 200px; }
-  @media screen and (max-width: 500px) {
-    .footer__column {
-      width: 100%; } }
+@media screen and (max-width: 500px) {
+  .footer__column {
+    width: 100%; } }
 
 .heading--footer {
   margin-top: 20px; }
@@ -666,7 +644,7 @@ label {
 
 .header {
   width: 100%;
-  height: 40vh;
+  height: 400px;
   padding: 0px;
   margin: 0px;
   overflow: hidden;
@@ -679,6 +657,9 @@ label {
     position: relative;
     text-align: left;
     margin-left: 20px; }
+  @media screen and (max-width: 500px) {
+    .header {
+      height: 300px; } }
 
 .header__banner-large {
   position: relative;
@@ -690,10 +671,9 @@ label {
 .header__banner {
   position: relative;
   display: flex;
-  margin: 25px;
+  margin: 0 25px;
   align-items: center;
-  justify-content: flex-end;
-  height: 250px; }
+  justify-content: flex-end; }
   .header__banner object {
     width: 150px; }
   .header__banner h1 {
@@ -701,12 +681,11 @@ label {
 
 .header__logo {
   max-width: 20vw;
-  max-height: 75px;
-  margin-top: 20px; }
+  max-height: 75px; }
 
 .header__logo-large {
   max-width: 40vw;
-  max-height: 60vh; }
+  max-height: 50vh; }
   @media screen and (max-width: 500px) {
     .header__logo-large {
       width: 350px; } }
@@ -960,7 +939,7 @@ label {
   width: 70px;
   height: 70px; }
 
-.wwd__level-icon {
+.circle-icon {
   float: right;
   margin-left: 25px; }
 

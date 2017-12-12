@@ -41,7 +41,7 @@ function encode_all_to_htmlentities($str) {
 
 <?php if( $werwirsind_content ) : ?>
 <div class="content__block">
-    <p><?php echo $werwirsind_content; ?></p>
+    <p class="wysiwyg"><?php echo $werwirsind_content; ?></p>
 </div>
 <?php endif; ?>
 
@@ -163,7 +163,7 @@ foreach( $stufen as $stufe ) : ?>
             <div class="lightbox__section">
               <div class="content__columns content__columns--1-1">
                 <div class="content__column">
-                  <p><?php echo $gruppe['beschreibung']; ?></p>
+                  <p class="wysiwyg"><?php echo $gruppe['beschreibung']; ?></p>
                   <a href="<?php echo $mitmachen_seite; ?>#mitmachen" class="button button--small">Mitmachen</a>
                 </div>
                 <div>
