@@ -28,13 +28,16 @@
 
 .header__image-large, .header__image {
     width: 100vw;
-    height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
     object-fit: cover;
     object-position: center center;
     z-index: -10;
+}
+
+.header__image-large {
+    height: 100vh;
 }
 
 .header__image {
