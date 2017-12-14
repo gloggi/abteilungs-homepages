@@ -29,8 +29,8 @@ while ( $stufen->have_posts() ) : $stufen->the_post();
 <div class="content__block">
   <h2 class="heading-2"><?php echo get_the_title(); ?></h2>
   <?php if( $stufenlogo && $stufenfarbe ) : ?>
-  <div class="circle circle-icon" style="background-color: <?php echo $stufenfarbe; ?>">
-    <img class="circle-content" src="<?php echo wp_get_attachment_url( $stufenlogo ); ?>" alt="">
+  <div class="circle-large" style="background-color: <?php echo $stufenfarbe; ?>">
+    <img src="<?php echo wp_get_attachment_url( $stufenlogo ); ?>" alt="">
   </div>
   <?php endif; ?>
   <div class="content__text"><p class="wysiwyg"><?php echo wpptd_get_post_meta_value( $post->ID, 'stufentext' ); ?></p></div>

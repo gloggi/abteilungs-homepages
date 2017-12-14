@@ -107,7 +107,7 @@ if(isset($_POST['submit'])) {
 <?php get_template_part('header-large'); ?>
 
 <div class="content__block">
-  <div class="circle color-primary not-small circle-icon">
+  <div class="circle-large color-primary not-small">
     <img src="<?php echo get_bloginfo('template_directory'); ?>/files/img/scout-logos.svg">
   </div>
   <div>

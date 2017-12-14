@@ -864,7 +864,9 @@ label {
       flex-direction: row;
       justify-content: space-between; } }
 
-.circle {
+.circle-large {
+  float: right;
+  margin-left: 25px;
   width: 200px;
   min-height: 200px;
   border-radius: 200px;
@@ -872,16 +874,16 @@ label {
   align-items: center;
   justify-content: center; }
   @media screen and (max-width: 700px) {
-    .circle {
+    .circle-large {
       width: 175px;
       min-height: 175px;
       border-radius: 200px; } }
   @media screen and (max-width: 500px) {
-    .circle {
+    .circle-large {
       width: 150px;
       min-height: 150px;
       border-radius: 200px; } }
-  .circle > img {
+  .circle-large > img {
     width: 60%;
     height: 60%; }
 
@@ -889,6 +891,7 @@ label {
   width: 150px;
   min-height: 150px;
   border-radius: 75px;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center; }
@@ -906,14 +909,15 @@ label {
     color: white;
     margin: 0; }
   .circle-medium > img {
-    width: 70%;
-    height: 70%; }
+    width: 75%;
+    height: 75%; }
 
 .circle-small {
   width: 100px;
   height: 100px;
   min-height: 100px;
   border-radius: 50px;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center; }
@@ -922,21 +926,15 @@ label {
     font-size: 20px;
     margin: 0; }
   .circle-small > img {
-    width: 75px;
-    height: 75px; }
-  .circle-small object {
-    width: 75px;
-    height: 75px; }
+    width: 75%;
+    height: 75%; }
   @media screen and (max-width: 500px) {
     .circle-small {
       width: 80px;
       min-width: 80px;
       height: 80px;
       min-height: 78px;
-      border-radius: 50px; }
-      .circle-small > img {
-        width: 60px;
-        height: 60px; } }
+      border-radius: 50px; } }
 
 .circle-notification {
   width: 40px;
@@ -951,14 +949,6 @@ label {
   .circle-notification > img {
     width: 65%;
     height: 65%; }
-
-.circle-small-content {
-  width: 70px;
-  height: 70px; }
-
-.circle-icon {
-  float: right;
-  margin-left: 25px; }
 
 .groups__container {
   margin-top: 75px; }

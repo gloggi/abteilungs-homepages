@@ -17,7 +17,9 @@
     }
 }
 
-.circle {
+.circle-large {
+    float: right;
+    margin-left: 25px;
     width: 200px;
     min-height: 200px;
     border-radius: 200px;
@@ -45,13 +47,11 @@
     }
 }
 
-.circle-content {
-}
-
 .circle-medium {
     width: 150px;
     min-height: 150px;
     border-radius: 75px;
+    overflow: hidden;
 
 
     @include screen(med) {
@@ -75,8 +75,8 @@
     }
 
     >img {
-        width: 70%;
-        height: 70%;
+        width: 75%;
+        height: 75%;
     }
 }
 
@@ -85,6 +85,7 @@
     height: 100px;
     min-height: 100px;
     border-radius: 50px;
+    overflow: hidden;
 
     display: flex;
     align-items: center;
@@ -97,13 +98,8 @@
     }
 
     >img {
-        width: 75px;
-        height: 75px;
-    }
-
-    object {
-        width: 75px;
-        height: 75px;
+        width: 75%;
+        height: 75%;
     }
 
     @include screen(small) {
@@ -112,10 +108,6 @@
         height: 80px;
         min-height: 78px;
         border-radius: 50px;
-        >img {
-            width: 60px;
-            height: 60px;
-        }
     }
 }
 
@@ -135,14 +127,4 @@
         width: 65%;
         height: 65%;
     }
-}
-
-.circle-small-content {
-    width: 70px;
-    height: 70px;
-}
-
-.circle-icon {
-    float: right;
-    margin-left: 25px;
 }
