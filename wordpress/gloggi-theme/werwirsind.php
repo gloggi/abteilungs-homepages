@@ -136,7 +136,7 @@ foreach( $stufen as $stufe ) : ?>
 <?php foreach( $gruppen as $gruppe ) :
     if( $gruppe['stufe'] != $stufe['ID'] ) continue;
     if( !$gruppe['elterngruppe'] ) : ?>
-    <a href="#<?php echo $gruppe['linkname']; ?>">
+    <a href="#<?php echo $gruppe['linkname']; ?>" title="<?php echo $gruppe['name']; ?>">
       <div class="groups__entry">
         <div class="circle-medium" style="background-color: <?php echo $gruppe['farbe']; ?>;">
         <img src="<?php echo wp_get_attachment_url( $gruppe['logo'] ); ?>" alt="">
