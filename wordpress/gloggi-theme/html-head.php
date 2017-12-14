@@ -47,9 +47,6 @@ $sekundaerfarbe = wpod_get_option( 'gloggi_einstellungen', 'sekundaerfarbe' );
     .navbar-toggle {
       border-color: <?php echo $sekundaerfarbe; ?> !important;
     }
-    .header-large {
-      background-color: <?php echo $sekundaerfarbe; ?>;
-    }
   </style>
 </head>
 <body>

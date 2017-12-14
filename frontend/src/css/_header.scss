@@ -1,96 +1,99 @@
 .header-large {
     width: 100%;
     height: 100vh;
-    padding: 0px;
-    margin: 0px;
-    overflow: hidden;
-    position: relative;
+    padding: 0 0 75px;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    font-size: 90px;
+    @include screen(med) {
+        font-size: 60px;
+    }
 }
 
 .header {
     width: 100%;
     height: 400px;
-    padding: 0px;
-    margin: 0px;
-    overflow: hidden;
-    position: relative;
-
+    padding: 0;
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
-
-    >h1{
-        height: auto;
-        position: relative;
-        text-align: left;
-        margin-left: 20px;
-    }
-
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 60px;
     @include screen(small) {
-        height: 300px;
+        height: 200px;
+        font-size: 40px;
+    }
+}
+
+.header__image-large, .header__image {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    object-position: center center;
+    z-index: -10;
+}
+
+.header__image {
+    height: 400px;
+    @include screen(small) {
+        height: 200px;
     }
 }
 
 .header__banner-large{
-    position: relative;
-
+    width: 90%;
+    height: 90%;
     display: flex;
-    flex-flow: column;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-
+    justify-content: space-evenly;
 }
 
 .header__banner{
-    position: relative;
+    width: 90%;
+    height: 50%;
     display: flex;
-    margin: 0 25px;
+    flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-
-    object{
-        width: 150px;
-    }
-
-    h1{
-        font-size: 50px;
-    }
-}
-
-.header__logo{
-    max-width: 20vw;
-    max-height: 75px;
-}
-
-.header__logo-large{
-    max-width: 40vw;
-    max-height: 50vh;
     @include screen(small) {
-        width: 350px;
+        justify-content: flex-start;
+    }
+}
+
+.header__logo-large {
+    max-width: 100%;
+    max-height: 80%;
+    @include screen(med) {
+        max-height: 50vh;
+    }
+}
+
+.header__logo {
+    height: 200px;
+    margin-right: 20px;
+
+    @include screen(med) {
+        height: 100px;
+    }
+    @include screen(small) {
+        display: none;
     }
 }
 
 .header__title{
+    margin: 0;
+    font-size: inherit;
 }
 
 .header__heading{
-    @include screen(small) {
-       font-size: 42px;
-   }
-}
-
-.header__image-large, .header__image {
-    display: block;
-    width: 100vw;
-    height: inherit;
-    object-fit: cover;
-    position: fixed;
-
-    @include portrait() {
-        width: auto;
-        height: inherit;
-    }
+    width: 100%;
+    margin: 0;
+    padding: 0 20px;
+    text-align: left;
+    font-size: inherit;
 }
