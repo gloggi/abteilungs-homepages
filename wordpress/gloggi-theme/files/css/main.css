@@ -1011,7 +1011,8 @@ label {
   width: 100%;
   display: flex;
   justify-content: space-around;
-  align-items: center; }
+  align-items: center;
+  flex-wrap: wrap; }
 
 .contact {
   width: auto;
@@ -1039,7 +1040,8 @@ label {
 .group__detail-banner {
   height: 150px;
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  padding: 0 10px; }
   .group__detail-banner > h2 {
     font-size: 60px;
     color: white !important;
