@@ -1,3 +1,7 @@
+form ul {
+    list-style-type: none;
+}
+
 input, select, textarea {
   width: 100%;
 }
@@ -19,13 +23,11 @@ label {
 }
 
 .form-control{
-    //border-color: $primary-color;
     border-radius: 1px;
     font-weight: 401;
     font-size: 20px;
     height: 50px;
     &:focus{
-        border-color: $secondary-color;
         box-shadow: none;
     }
 

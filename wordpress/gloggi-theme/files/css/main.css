@@ -121,8 +121,7 @@ b {
 ul {
   text-align: left;
   margin-left: 10px;
-  padding-left: 10px;
-  list-style-type: none; }
+  padding-left: 10px; }
 
 .warning {
   background-color: #D0021B;
@@ -599,6 +598,9 @@ img.alignleft {
     .heading--footer {
       margin-top: 0px; } }
 
+form ul {
+  list-style-type: none; }
+
 input, select, textarea {
   width: 100%; }
 
@@ -621,7 +623,6 @@ label {
   font-size: 20px;
   height: 50px; }
   .form-control:focus {
-    border-color: #244392;
     box-shadow: none; }
   @media screen and (max-width: 500px) {
     .form-control {
@@ -806,6 +807,8 @@ label {
   border-radius: 0;
   z-index: 100;
   width: 100%; }
+  .navbar > ul {
+    list-style-type: none; }
 
 .dropdown-menu {
   box-shadow: 0 6px 6px rgba(0, 0, 0, 0.175);
@@ -822,9 +825,6 @@ label {
 .navbar-default .navbar-nav > li > a {
   color: white;
   padding-top: 25px; }
-
-.navbar-default .navbar-nav > li > a:hover {
-  color: #244392; }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
   color: white; }
