@@ -45,20 +45,15 @@ var geocoder;
 
 function gloggi_mark_address(map, bounds, geocoder, coords, title="", single=false) {
   coords = coords.split("|");
-  geocoder.geocode( { 'latLng': new google.maps.LatLng(parseFloat(coords[0]), parseFloat(coords[1])) }, function(results, status) {
-    if(status == google.maps.GeocoderStatus.OK) {
-      console.log(results);
-      var position = results[0].geometry.location;
-      bounds.extend(position);
-      if(single) {
-        map.setCenter(position);
-        map.setZoom(15);
-      } else {
-        map.fitBounds(bounds);
-      }
-      return new google.maps.Marker({ map: map, position: position, label: title });
-    }
-  });
+  latLng = new google.maps.LatLng(parseFloat(coords[0]), parseFloat(coords[1]));
+  bounds.extend(latLng);
+  if(single) {
+	map.setCenter(latLng);
+	map.setZoom(15);
+  } else {
+	map.fitBounds(bounds);
+  }
+  return new google.maps.Marker({ map: map, position: latLng, label: title });
 }
 
 function gloggi_initialize_map(map) {
