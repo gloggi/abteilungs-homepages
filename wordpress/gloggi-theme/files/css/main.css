@@ -629,7 +629,7 @@ label {
       font-size: 18px;
       height: 40px; } }
 
-.field-error {
+.form-control.field-error {
   border: 2px solid red; }
 
 .header-large {

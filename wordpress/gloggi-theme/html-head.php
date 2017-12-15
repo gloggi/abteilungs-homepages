@@ -19,7 +19,10 @@ $sekundaerfarbe = wpod_get_option( 'gloggi_einstellungen', 'sekundaerfarbe' );
     .button--inactive, .agenda__entry-content > a {
       color: <?php echo $primaerfarbe; ?> !important;
     }
-    .form-control, .group__info-box, .button:focus, .button--inactive:focus {
+    .form-control {
+      border-color: <?php echo $primaerfarbe; ?>;
+    }
+    .group__info-box, .button:focus, .button--inactive:focus {
       border-color: <?php echo $primaerfarbe; ?> !important;
     }
     .navbar-toggle:active, .navbar-toggle:hover, .navbar-toggle:focus {
@@ -41,10 +44,7 @@ $sekundaerfarbe = wpod_get_option( 'gloggi_einstellungen', 'sekundaerfarbe' );
     .button:active, .button--inactive:active, .icon-bar, .circle-notification {
       background-color: <?php echo $sekundaerfarbe; ?> !important;
     }
-    .form-control:focus {
-      border-color: <?php echo $sekundaerfarbe; ?> !important;
-    }
-    .navbar-toggle {
+    .form-control:focus, .navbar-toggle {
       border-color: <?php echo $sekundaerfarbe; ?> !important;
     }
   </style>

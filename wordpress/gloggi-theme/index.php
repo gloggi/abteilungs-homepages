@@ -5,11 +5,11 @@ Template Name: Startseite
 global $post;
 $index_trennbanner = wpptd_get_post_meta_value( $post->ID, 'index-separator-banner' );
 if( $index_trennbanner ) {
-	$index_trennbanner = '<div class="content__big_image_container">' . wp_get_attachment_image( $index_trennbanner, array(), false, array( 'class' => 'content__big_image parallax__layer' ) ) . '</div>';
+    $index_trennbanner = '<div class="content__big_image_container">' . wp_get_attachment_image( $index_trennbanner, array(), false, array( 'class' => 'content__big_image parallax__layer' ) ) . '</div>';
 } else $index_trennbanner = '';
 $index_trennbanner2 = wpptd_get_post_meta_value( $post->ID, 'index-separator-banner2' );
 if( $index_trennbanner2 ) {
-	$index_trennbanner2 = '<div class="content__big_image_container">' . wp_get_attachment_image( $index_trennbanner2, array(), false, array( 'class' => 'content__big_image parallax__layer' ) ) . '</div>';
+    $index_trennbanner2 = '<div class="content__big_image_container">' . wp_get_attachment_image( $index_trennbanner2, array(), false, array( 'class' => 'content__big_image parallax__layer' ) ) . '</div>';
 } else $index_trennbanner2 = '';
 $index_content1 = wpptd_get_post_meta_value( $post->ID, 'index-content1' );
 $index_content2 = wpptd_get_post_meta_value( $post->ID, 'index-content2' );
@@ -20,6 +20,8 @@ $emailSent = false;
 $hasError = false;
 $prefill = array();
 
+array_walk( $formfields, function(&$item) { $item['class'] = 'form-control'; } );
+
 if(isset($_POST['submit'])) {
   $index = 0;
   $fields = array();
@@ -27,7 +29,7 @@ if(isset($_POST['submit'])) {
     $value = $_POST['field' . $index];
     if( trim($value) === '') {
       if( $field['required'] ) {
-        $formfields[$key]['class'] .= 'field-error ';
+        $formfields[$key]['class'] .= ' field-error ';
         $hasError = true;
       } else {
         $fields[$key] = '';
@@ -47,7 +49,7 @@ if(isset($_POST['submit'])) {
         case 'number':
           if (!preg_match("/^[0-9]+([,.][0-9]+)?$/i", trim($value))) {
             $hasError = true;
-            $formfields[$key]['class'] .= 'field-error ';
+            $formfields[$key]['class'] .= ' field-error ';
             $fields[$key] = '';
           } else {
             $fields[$key] = trim($value);
@@ -56,7 +58,7 @@ if(isset($_POST['submit'])) {
         case 'email':
           if (!preg_match("/^[[:alnum:]][a-z0-9_.+-]*@[a-z0-9.-]+\.[a-z]{2,6}$/i", trim($value))) {
             $hasError = true;
-            $formfields[$key]['class'] .= 'field-error ';
+            $formfields[$key]['class'] .= ' field-error ';
             $fields[$key] = '';
           } else {
             $fields[$key] = trim($value);
@@ -65,7 +67,7 @@ if(isset($_POST['submit'])) {
         case 'tel':
           if (!preg_match("/^[0-9+ ]{\$/i", trim($value))) {
             $hasError = true;
-            $formfields[$key]['class'] .= 'field-error ';
+            $formfields[$key]['class'] .= ' field-error ';
             $fields[$key] = '';
           } else {
             $fields[$key] = trim($value);
@@ -74,7 +76,7 @@ if(isset($_POST['submit'])) {
         case 'gender':
           if ($value != 'm' && $value != 'w') {
             $hasError = true;
-            $formfields[$key]['class'] .= 'field-error ';
+            $formfields[$key]['class'] .= ' field-error ';
             $fields[$key] = '';
           } else {
             $fields[$key] = trim($value);
@@ -85,10 +87,10 @@ if(isset($_POST['submit'])) {
     }
     $index++;
   }
-	if(!$hasError) {
-		$emailTo = wpod_get_option('gloggi_einstellungen', 'mitmachen-email');
-		$subject = 'Neue Nachricht auf ' . get_the_permalink();
-		$body = '';
+  if(!$hasError) {
+    $emailTo = wpod_get_option('gloggi_einstellungen', 'mitmachen-email');
+    $subject = 'Neue Nachricht auf ' . get_the_permalink();
+    $body = '';
     $email = '';
     foreach( $fields as $key => $field ) {
       $body .= $formfields[$key]['name'] . ":\n" . $field . "\n\n";
@@ -96,12 +98,11 @@ if(isset($_POST['submit'])) {
         $email = $field;
       }
     }
-		$headers = array( 'From: Homepage '. wpod_get_option( 'gloggi_einstellungen', 'abteilung' ) .' <'.$emailTo.'>', 'Reply-To: ' . $email );
-		wp_mail($emailTo, $subject, $body, $headers);
-		$emailSent = true;
+    $headers = array( 'From: Homepage '. wpod_get_option( 'gloggi_einstellungen', 'abteilung' ) .' <'.$emailTo.'>', 'Reply-To: ' . $email );
+    wp_mail($emailTo, $subject, $body, $headers);
+    $emailSent = true;
     $prefill = array();
-	}
-
+  }
 }
 ?>
 <?php get_template_part('header-large'); ?>
@@ -118,7 +119,7 @@ if(isset($_POST['submit'])) {
 <div class="content__block" id="mitmachen">
   <h2 style="margin-top: 0px;">Mitmachen</h2>
 <?php if( $hasError ) : ?>
-  <h3>Bitte Fehler in den untenstehenden Feldern korrigieren.</h3>
+  <h3>Bitte Fehler in den markierten Feldern korrigieren.</h3>
 <?php elseif( $emailSent ) : ?>
   <h3>Vielen Dank, die Nachricht wurde verschickt.</h3>
 <?php endif; ?>
@@ -127,15 +128,15 @@ if(isset($_POST['submit'])) {
 <?php $index = 0; foreach( $formfields as $field ) : ?>
       <li><label for="field<?php echo $index; ?>"><?php echo $field['name'] . ( $field['required'] ? '*' : '' ); ?></label>
 <?php if( $field['type'] == 'textarea' ) :?>
-        <textarea rows="3" name="field<?php echo $index; ?>" id="field<?php echo $index; ?>" <?php if( $field['required'] ) : ?>required="required" <?php endif; ?><?php if( $field['class'] ) : ?>class="<?php echo $field['class']; ?>" <?php endif; ?>><?php echo $prefill[$index]; ?></textarea></li>
+        <textarea rows="3" name="field<?php echo $index; ?>" id="field<?php echo $index; ?>" <?php if( $field['required'] ) : ?>required="required" <?php endif; ?>class="form-control<?php echo $field['class']; ?>"><?php echo $prefill[$index]; ?></textarea></li>
 <?php elseif( $field['type'] == 'gender' ) : ?>
-        <select name="field<?php echo $index; ?>" id="field<?php echo $index; ?>" <?php if( $field['required'] ) : ?>required="required" <?php endif; ?><?php if( $field['class'] ) : ?>class="<?php echo $field['class']; ?>" <?php endif; ?>>
+        <select name="field<?php echo $index; ?>" id="field<?php echo $index; ?>" <?php if( $field['required'] ) : ?>required="required" <?php endif; ?>class="<?php echo $field['class']; ?>">
           <option value="">Bitte w&auml;hlen</option>
           <option value="m"<?php if( $prefill[$index] == 'm' ) echo ' selected="selected"'; ?>>m&auml;nnlich</option>
           <option value="w"<?php if( $prefill[$index] == 'w' ) echo ' selected="selected"'; ?>>weiblich</option>
         </select>
 <?php else : ?>
-        <input type="<?php echo $field['type']; ?>" name="field<?php echo $index; ?>" id="field<?php echo $index; ?>" value="<?php echo $prefill[$index]; ?>" <?php if( $field['required'] ) : ?>required="required" <?php endif; ?><?php if( $field['class'] ) : ?>class="<?php echo $field['class']; ?>" <?php endif; ?>/>
+        <input type="<?php echo $field['type']; ?>" name="field<?php echo $index; ?>" id="field<?php echo $index; ?>" value="<?php echo $prefill[$index]; ?>" <?php if( $field['required'] ) : ?>required="required" <?php endif; ?>class="<?php echo $field['class']; ?>"/>
 <?php endif; ?>
       </li>
 <?php $index++; endforeach; ?>
