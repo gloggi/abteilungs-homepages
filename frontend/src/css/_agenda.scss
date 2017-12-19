@@ -9,20 +9,18 @@
     justify-content: space-evenly;
 
     @include screen(small) {
-        overflow-x: scroll;
-        flex-wrap: nowrap;
         .button, .button--inactive {
             padding: 5px;
-            width: 120px;
         }
     }
 
     @include screen(med) {
         overflow-x: scroll;
         flex-wrap: nowrap;
+        justify-content: flex-start;
+        padding: 10px 0;
         .button, .button--inactive {
-            padding: 10px;
-            width: 120px;
+            width: auto;
         }
     }
     padding: 10px;
