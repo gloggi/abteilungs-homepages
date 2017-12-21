@@ -906,6 +906,7 @@ function gloggi_add_plugin_capabilities() {
   remove_role( 'editor' );
 
   $al_caps = array( 'create_users', 'list_users', 'edit_users', 'promote_users', 'delete_users',
+    'delete_others_posts', // Kann alle Medien löschen
     'create_stufen', 'publish_stufen', 'read_stufen', 'read_private_stufen', 'edit_stufen', 'edit_private_stufen', 'edit_published_stufen', 'edit_others_stufen', 'delete_stufen', 'delete_private_stufen', 'delete_published_stufen', 'delete_others_stufen',
     'publish_gruppen', 'read_private_gruppen', 'edit_private_gruppen', 'edit_others_gruppen', 'delete_gruppen', 'delete_private_gruppen', 'delete_published_gruppen', 'delete_others_gruppen',
     'read_private_anlaesse', 'edit_private_anlaesse', 'edit_others_anlaesse', 'delete_private_anlaesse', 'delete_others_anlaesse',
@@ -915,7 +916,8 @@ function gloggi_add_plugin_capabilities() {
     'update_plugins', 'update_themes', 'update_core', 'activate_plugins', 'install_plugins',
     'manage_gloggi_options',
   );
-  $leiter_caps = array( 'read', 'upload_files', 'level_1',
+  $leiter_caps = array( 'read', 'level_1',
+    'upload_files', 'delete_posts', // Kann Medien hochladen und eigene Medien löschen
     // Keine Rechte auf Stufen
     'create_gruppen', 'read_gruppen', 'edit_gruppen', 'edit_published_gruppen',
     'create_anlaesse', 'publish_anlaesse', 'read_anlaesse', 'edit_anlaesse', 'edit_published_anlaesse', 'delete_anlaesse', 'delete_published_anlaesse',
@@ -933,7 +935,7 @@ function gloggi_add_plugin_capabilities() {
 add_action( 'admin_init', 'gloggi_add_plugin_capabilities' );
 /* Aendere die noetige Capability um die Gloggi-Einstellungen zu speichern */
 function gloggi_change_gloggi_einstellungen_capability( $capability ) {
-	return 'manage_gloggi_options';
+  return 'manage_gloggi_options';
 }
 add_filter( 'option_page_capability_gloggi_einstellungen', 'gloggi_change_gloggi_einstellungen_capability' );
 
@@ -986,8 +988,8 @@ add_action( 'init', 'gloggi_remove_unused_page_fields' );
 /* Verstecke einige Eintraege im Admin-Menue */
 function gloggi_remove_admin_menu_pages() {
   remove_menu_page( 'index.php' );          //Dashboard
-  remove_menu_page( 'upload.php' );         //Media
-  remove_menu_page( 'profile.php' );          //Profil
+  //remove_menu_page( 'upload.php' );       //Media
+  remove_menu_page( 'profile.php' );        //Profil
 }
 add_action( 'admin_menu', 'gloggi_remove_admin_menu_pages' );
 
