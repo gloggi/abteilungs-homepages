@@ -205,13 +205,18 @@ ul {
   width: 450px; }
   @media screen and (max-width: 500px) {
     .agenda__entry {
-      width: 300px; } }
+      width: 100%;
+      padding: 0;
+      flex-direction: column; } }
 
 .agenda__entry-content {
   width: 70%;
   margin-left: 20px;
   color: #4A4A4A;
   margin-bottom: 20px; }
+  @media screen and (max-width: 500px) {
+    .agenda__entry-content {
+      width: 100%; } }
   .agenda__entry-content p {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-style: normal;
