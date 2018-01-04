@@ -1100,9 +1100,7 @@ function gloggi_duplicate_post_as_draft(){
 }
 add_action( 'admin_action_gloggi_duplicate_post_as_draft', 'gloggi_duplicate_post_as_draft' );
 
-/*
- * Duplizieren-Link auf Anlaessen
- */
+/* Duplizieren-Link auf Anlaessen */
 function gloggi_duplicate_post_link( $actions, $post ) {
   if ($post->post_type=='anlass' && current_user_can('edit_posts')) {
     $actions['duplicate'] = '<a href="' . wp_nonce_url('admin.php?action=gloggi_duplicate_post_as_draft&post=' . $post->ID, basename(__FILE__), 'duplicate_nonce' ) . '" title="Eine Kopie dieses Eintrags erstellen" rel="permalink">Duplizieren</a>';
@@ -1110,6 +1108,40 @@ function gloggi_duplicate_post_link( $actions, $post ) {
   return $actions;
 }
 add_filter( 'post_row_actions', 'gloggi_duplicate_post_link', 10, 2 );
+
+/* Speichere die alte Dauer eines bearbeiteten Anlasses zur spaeteren Verifikation */
+function gloggi_save_anlass_duration( $post_id, $post, $update = false ) {
+  global $saved_anlass_duration;
+  $saved_anlass_duration = strtotime( wpptd_get_post_meta_value( $post_id, 'endzeit' ) ) - strtotime( wpptd_get_post_meta_value( $post_id, 'startzeit' ) );
+  $saved_anlass_duration = ( $saved_anlass_duration < 0 ? 0 : $saved_anlass_duration );
+}
+add_filter( 'save_post_anlass', 'gloggi_save_anlass_duration', 9, 3 );
+
+/* Validiere das Enddatum auf Anlaessen, nachdem es von Post Types Definitely gespeichert wurde */
+function gloggi_validate_anlass_enddate( $meta_values_validated ) {
+  global $saved_anlass_duration;
+  $startzeit = strtotime( $meta_values_validated['startzeit'] );
+  $endzeit = strtotime( $meta_values_validated['endzeit'] );
+  if( $startzeit > $endzeit ) {
+    $new_endzeit = new DateTime( '@' . ( $startzeit + $saved_anlass_duration ) );
+    $meta_values_validated['endzeit'] = $new_endzeit->format( 'YmdHis' );
+    set_transient( 'gloggi_post_meta_error_anlass', __( "Die Startzeit darf nicht sp&auml;ter als die Endzeit sein. Die Endzeit wurde automatisch angepasst.", 'gloggi' ), 120 );
+  }
+  return $meta_values_validated;
+}
+add_filter( 'wpptd_validated_post_meta_values_anlass', 'gloggi_validate_anlass_enddate', 11, 3 );
+
+/* Zeige die Hinweismeldung, wenn das Enddatum eines Anlasses automatisch angepasst wurde */
+function gloggi_display_anlass_enddate_correction_notice( $post ) {
+  $errors = get_transient( 'gloggi_post_meta_error_anlass' );
+  if ( $errors ) {
+    echo '<div id="gloggi-post-meta-errors" class="notice notice-error is-dismissible"><p>';
+    echo $errors;
+    echo '</p></div>';
+    delete_transient( 'gloggi_post_meta_error_anlass' );
+  }
+}
+add_action( 'edit_form_top', 'gloggi_display_anlass_enddate_correction_notice', 10, 1 );
 
 
 /* Globales Einstellungs-Menue */
