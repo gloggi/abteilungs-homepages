@@ -56,7 +56,7 @@ function encode_all_to_htmlentities($str) {
 <?php
 
 // Lese alle Stufeninfos
-$stufen_query = new WP_Query( array( 'post_type' => 'stufe', 'orderby' => array( 'alter-von' => 'ASC', 'alter-bis' => 'ASC') ) );
+$stufen_query = new WP_Query( array( 'post_type' => 'stufe', 'orderby' => array( 'alter-von' => 'ASC', 'alter-bis' => 'ASC'), 'posts_per_page' => -1 ) );
 $stufen = array();
 while( $stufen_query->have_posts() ) : $stufen_query->the_post();
   $stufeninfos = wpptd_get_post_meta_values( $post->ID );
@@ -75,7 +75,7 @@ while( $stufen_query->have_posts() ) : $stufen_query->the_post();
 endwhile; wp_reset_postdata();
 
 // Lese alle Gruppeninfos
-$gruppen_query = new WP_Query( array( 'post_type' => 'gruppe' ) );
+$gruppen_query = new WP_Query( array( 'post_type' => 'gruppe', 'posts_per_page' => -1 ) );
 $gruppen = array();
 while( $gruppen_query->have_posts() ) : $gruppen_query->the_post();
   $gruppeninfos = wpptd_get_post_meta_values( $post->ID );
@@ -226,7 +226,7 @@ foreach( $stufen as $stufe ) : ?>
 <?php
 
 // Lese alle Kontaktinfos
-$kontakt_query = new WP_Query( array( 'post_type' => 'kontakt', 'orderby' => array( 'menu_order' => 'ASC', 'name' => 'ASC') ) );
+$kontakt_query = new WP_Query( array( 'post_type' => 'kontakt', 'orderby' => array( 'menu_order' => 'ASC', 'name' => 'ASC'), 'posts_per_page' => -1 ) );
 $kontakte = array();
 while( $kontakt_query->have_posts() ) : $kontakt_query->the_post();
   $kontaktinfos = wpptd_get_post_meta_values( $post->ID );

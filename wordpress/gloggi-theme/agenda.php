@@ -30,7 +30,7 @@ function encode_all_to_htmlentities($str) {
 
 // Sammle einige Infos zu Gruppen, Stufen und Abteilung in einem Array
 $einheiten = array();
-$gruppen = new WP_Query( array( 'post_type' => 'gruppe' ) );
+$gruppen = new WP_Query( array( 'post_type' => 'gruppe', 'posts_per_page' => -1 ) );
 while( $gruppen->have_posts() ) : $gruppen->the_post();
   $name = get_the_title();
   $parent = wp_get_post_parent_id( $post->ID );
@@ -45,7 +45,7 @@ while( $gruppen->have_posts() ) : $gruppen->the_post();
     'jahresplan' => wp_get_attachment_url( wpptd_get_post_meta_value( $post->ID, 'jahresplan' ) ),
   );
 endwhile; wp_reset_postdata();
-$stufen = new WP_Query( array( 'post_type' => 'stufe' ) );
+$stufen = new WP_Query( array( 'post_type' => 'stufe', 'posts_per_page' => -1 ) );
 while( $stufen->have_posts() ) : $stufen->the_post();
   $name = get_the_title();
   $einheiten[] = array(
@@ -91,7 +91,7 @@ $subchildren = gloggi_aggregate_subchildren($einheiten_by_parent, 0);
 <div class="content__block">
   <div class="content__text">
     <p class="wysiwyg"><?php echo $agenda_content; ?></p>
-<?php $anlaesse = new WP_Query( array( 'post_type' => 'anlass', 'meta_query' => array( array( 'key' => 'endzeit', 'value' => date( 'YmdHis' ), 'compare' => '>=', ), ), ) );
+<?php $anlaesse = new WP_Query( array( 'post_type' => 'anlass', 'meta_query' => array( array( 'key' => 'endzeit', 'value' => date( 'YmdHis' ), 'compare' => '>=', ), ), 'posts_per_page' => -1 ) );
 if( $anlaesse->have_posts() ) : ?>
   </div>
   <div class="agenda">
@@ -248,7 +248,7 @@ endforeach; ?>
 <?php echo $agenda_trennbanner2; ?>
 
 <?php
-$specialevents = new WP_Query( array( 'post_type' => 'specialevent') );
+$specialevents = new WP_Query( array( 'post_type' => 'specialevent', 'posts_per_page' => -1 ) );
 if( $specialevents->have_posts() ) : ?>
 <div class="content__block">
   <h2 class="heading-2"><?php echo $agenda_specialevents_title; ?></h2>
