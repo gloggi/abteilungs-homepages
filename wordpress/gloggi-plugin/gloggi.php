@@ -913,7 +913,7 @@ function gloggi_add_plugin_capabilities() {
     'create_kontakte', 'publish_kontakte', 'read_kontakte', 'read_private_kontakte', 'edit_kontakte', 'edit_private_kontakte', 'edit_published_kontakte', 'edit_others_kontakte', 'delete_kontakte', 'delete_private_kontakte', 'delete_published_kontakte', 'delete_others_kontakte',
     'create_specialevents', 'publish_specialevents', 'read_specialevents', 'read_private_specialevents', 'edit_specialevents', 'edit_private_specialevents', 'edit_published_specialevents', 'edit_others_specialevents', 'delete_specialevents', 'delete_private_specialevents', 'delete_published_specialevents', 'delete_others_specialevents',
     'create_pages', 'publish_pages', 'read_pages', 'read_private_pages', 'edit_pages', 'edit_private_pages', 'edit_published_pages', 'edit_others_pages', 'delete_pages', 'delete_private_pages', 'delete_published_pages', 'delete_others_pages',
-    'update_plugins', 'update_themes', 'update_core', 'activate_plugins', 'install_plugins',
+    'update_plugins', 'update_themes', 'update_core',
     'manage_gloggi_options',
   );
   $leiter_caps = array( 'read', 'level_1',
