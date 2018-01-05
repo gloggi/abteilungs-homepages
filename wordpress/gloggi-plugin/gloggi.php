@@ -1050,8 +1050,8 @@ if( is_admin() ) {
   add_action('pre_get_posts', 'custom_post_order');
 }
 
-/* Duplizieren von Anlässen in der Anlass-Liste */
-function gloggi_duplicate_post_as_draft(){
+/* Duplizieren von Anlaessen in der Anlass-Liste */
+function gloggi_duplicate_anlass_as_draft(){
   global $wpdb;
   if ( !( isset( $_GET['post']) || isset( $_POST['post'])  || ( isset($_REQUEST['action']) && 'gloggi_duplicate_post_as_draft' == $_REQUEST['action'] ) ) ) {
     wp_redirect( admin_url() );
@@ -1098,16 +1098,16 @@ function gloggi_duplicate_post_as_draft(){
     exit;
   }
 }
-add_action( 'admin_action_gloggi_duplicate_post_as_draft', 'gloggi_duplicate_post_as_draft' );
+add_action( 'admin_action_gloggi_duplicate_post_as_draft', 'gloggi_duplicate_anlass_as_draft' );
 
 /* Duplizieren-Link auf Anlaessen */
-function gloggi_duplicate_post_link( $actions, $post ) {
-  if ($post->post_type=='anlass' && current_user_can('edit_posts')) {
+function gloggi_duplicate_anlass_link( $actions, $post ) {
+  if ($post->post_type=='anlass' && current_user_can('edit_anlaesse')) {
     $actions['duplicate'] = '<a href="' . wp_nonce_url('admin.php?action=gloggi_duplicate_post_as_draft&post=' . $post->ID, basename(__FILE__), 'duplicate_nonce' ) . '" title="Eine Kopie dieses Eintrags erstellen" rel="permalink">Duplizieren</a>';
   }
   return $actions;
 }
-add_filter( 'post_row_actions', 'gloggi_duplicate_post_link', 10, 2 );
+add_filter( 'post_row_actions', 'gloggi_duplicate_anlass_link', 10, 2 );
 
 /* Speichere die alte Dauer eines bearbeiteten Anlasses zur spaeteren Verifikation */
 function gloggi_save_anlass_duration( $post_id, $post, $update = false ) {
