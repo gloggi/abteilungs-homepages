@@ -2,7 +2,7 @@ version: "2"
 
 services:
   wordpress:
-    image: "chriszarate/wordpress:4.8.2"
+    image: "chriszarate/wordpress:4.9.1"
     environment:
       WORDPRESS_DB_PASSWORD: "xBkLnzRvNWB6Zd56"
       WORDPRESS_SITE_TITLE: "WORDPRESS_SITE_TITLE"
