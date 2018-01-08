@@ -42,6 +42,7 @@ while( $gruppen->have_posts() ) : $gruppen->the_post();
     'type' => 'gruppe',
     'parent' => $parent,
     'logo' => wp_get_attachment_url( wpptd_get_post_meta_value( $post->ID, 'logo' ) ),
+    'farbe' => wpptd_get_post_meta_value( $post->ID, 'gruppenfarbe' ),
     'jahresplan' => wp_get_attachment_url( wpptd_get_post_meta_value( $post->ID, 'jahresplan' ) ),
   );
 endwhile; wp_reset_postdata();
@@ -55,6 +56,7 @@ while( $stufen->have_posts() ) : $stufen->the_post();
     'type' => 'stufe',
     'parent' => 0,
     'logo' => wp_get_attachment_url( wpptd_get_post_meta_value( $post->ID, 'stufenlogo' ) ),
+    'farbe' => wpptd_get_post_meta_value( $post->ID, 'stufenfarbe' ),
     'jahresplan' => wp_get_attachment_url( wpptd_get_post_meta_value( $post->ID, 'jahresplan' ) ),
   );
 endwhile; wp_reset_postdata();
@@ -125,10 +127,12 @@ if( $anlaesse->have_posts() ) : ?>
   }
   // Generiere aus $alle_anlassgruppen eine Liste von CSS classes für diesen Anlass, die für die Filterung mit den Buttons verwendet wird.
   $anlassgruppen_classes = implode( ' ', array_map( function($g) use ($einheiten_by_id) { return $einheiten_by_id[$g]['type'] . '-' . $einheiten_by_id[$g]['linkname']; }, $alle_anlassgruppen) );
-  // Falls genau eine Gruppe im Backend für diesen Anlass eingetragen ist, übernehme deren Gruppenlogo als Anlasslogo
+  // Falls genau eine Gruppe im Backend für diesen Anlass eingetragen ist, übernehme deren Gruppenlogo und Gruppenfarbe für den Anlass
   $anlasslogo = null;
+  $anlassfarbe = null;
   if( count( $anlassinfos['teilnehmende-gruppen'] ) == 1 ) {
     $anlasslogo = $einheiten_by_id[$anlassinfos['teilnehmende-gruppen'][0]]['logo'];
+    $anlassfarbe = $einheiten_by_id[$anlassinfos['teilnehmende-gruppen'][0]]['farbe'];
   }
   // Anlassverantwortlicher ist der AL, oder wenn im Backend eingetragen eine andere Mailadresse.
   $anlassverantwortlicher = $standard_anlassverantwortlicher;
@@ -148,7 +152,7 @@ if( $anlaesse->have_posts() ) : ?>
 ?>
     <div class="agenda__entry <?php echo $anlassgruppen_classes; ?>" data-starttime="<?php echo $anlassinfos['startzeit']; ?>">
       <a href="#agenda-entry-<?php echo $post->ID; ?>">
-        <div class="circle-small color-primary">
+        <div class="circle-small color-primary" style="<?php if( $anlassfarbe ) : echo 'background-color: ' . $anlassfarbe . ' !important;'; endif; ?>">
           <?php if( $anlasslogo ) : ?><img src="<?php echo $anlasslogo; ?>" alt=""><?php else: ?><p><?php echo date_format( $startzeitpunkt, 'j.n.y' ); ?></p><?php endif; ?>
         </div>
       </a>
