@@ -242,7 +242,6 @@ function gloggi_custom_post_type_gruppe( $wpptd ) {
           'rewrite' => false,
           /* ... Permalinks entfernt. */
           'table_columns' => array(
-            'author' => false,
             'comments' => false,
             // Aus irgend einem Grund werden die Eintraege nicht hierarchisch angezeigt wenn das Datum versteckt wird
             //'date' => false,
@@ -399,7 +398,7 @@ function gloggi_custom_post_type_anlass( $wpptd ) {
       'post_types' => array(
         'anlass' => array(
           'labels' => $labels,
-          'supports' => array( 'title', 'thumbnail', ),
+          'supports' => array( 'title', 'thumbnail', 'author', ),
           /* Permalinks entfernen */
           'public' => false,
           'publicly_queriable' => true,
@@ -410,7 +409,6 @@ function gloggi_custom_post_type_anlass( $wpptd ) {
           'rewrite' => false,
            /*... Permalinks entfernt. */
           'table_columns' => array(
-            'author' => false,
             'comments' => false,
             'date' => false,
             'meta-teilnehmende-gruppen' => array( 'sortable' => true ),
@@ -944,7 +942,7 @@ add_filter( 'option_page_capability_gloggi_einstellungen', 'gloggi_change_gloggi
 function gloggi_allow_all_authors( $query_args ) {
   if ( function_exists( get_current_screen ) ) {
     $screen = get_current_screen();
-      if( $screen->post_type == 'gruppe' && $screen->parent_base == 'edit' ) {
+      if( ( $screen->post_type == 'gruppe' || $screen->post_type == 'anlass' ) && $screen->parent_base == 'edit' ) {
         $query_args['who'] = '';
       }
   }
