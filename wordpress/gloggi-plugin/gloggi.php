@@ -1273,4 +1273,24 @@ function gloggi_set_blogname() {
 }
 add_action( 'init', 'gloggi_set_blogname' );
 
+/* Workaround bis der Bug Fix in https://core.trac.wordpress.org/ticket/42794 gemerged wird.
+ * Dieses JavaScript-Schnipsel holt den proposed fix nach, indem es am Ende der
+ * UploaderStatus.initialize() Funktion die UploaderStatus.ready() Funktion aufruft. */
+function gloggi_fix_media_uploader() {
+    ?>
+<script>
+    var oldUploaderStatus = wp.media.view.UploaderStatus;
+    wp.media.view.UploaderStatus = oldUploaderStatus.extend({
+       initialize: function() {
+           oldUploaderStatus.prototype.initialize.call(this);
+           this.ready();
+       }
+    });
+</script><?php
+}
+function gloggi_add_media_modification_js() {
+    add_action( 'admin_print_footer_scripts', 'gloggi_fix_media_uploader' );
+}
+add_action( 'wp_enqueue_media', 'gloggi_add_media_modification_js' );
+
 ?>
