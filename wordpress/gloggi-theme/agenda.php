@@ -136,7 +136,11 @@ if( $anlaesse->have_posts() ) : ?>
   }
   // Anlassverantwortlicher ist der AL, oder wenn im Backend eingetragen eine andere Mailadresse.
   $anlassverantwortlicher = $standard_anlassverantwortlicher;
-  if( $anlassinfos['anlassverantwortlicher'] ) $anlassverantwortlicher = $anlassinfos['anlassverantwortlicher'];
+  $anlassverantwortlicher_email = get_the_author_meta( 'user_email' );
+  $anlassverantwortlicher_name = get_the_author_meta( 'user_email' );
+  if( $anlassverantwortlicher_email ) $anlassverantwortlicher = $anlassverantwortlicher_email;
+  $anlassverantwortlicher_name = get_the_author_meta( 'display_name' );
+  if( !$anlassverantwortlicher_name ) $anlassverantwortlicher_name = $anlassverantwortlicher;
   // Ein Anlass kann zu einem Special Event zugeordnet sein
   $specialevent_titel = "";
   if( $anlassinfos['is-specialevent'] ) $specialevent_titel = get_the_title( $anlassinfos['specialevent'] );
@@ -186,7 +190,7 @@ if( $anlaesse->have_posts() ) : ?>
             <div class="agenda__map" data-address1="<?php echo $anlassinfos['startort']; ?>" data-address2="<?php echo $anlassinfos['endort']; ?>">
             </div>
             <div class="lightbox__section"><p class="wysiwyg"><?php echo $anlassinfos['beschreibung']; ?></p></div>
-            <div class="lightbox__section"><p class="wysiwyg">Hast du noch Fragen? Dann melde dich bei <a href="<?php echo encode_all_to_htmlentities( 'mailto:' . $anlassverantwortlicher );?>"><?php echo encode_all_to_htmlentities( $anlassverantwortlicher );?></a><?php if( $anlassinfos['is-specialevent'] ) : ?> oder lies allgemeine Informationen: <a href="#special-event-<?php echo sanitize_title( $specialevent_titel ); ?>"><?php echo $specialevent_titel; ?></a><?php endif; ?>.</p></div>
+            <div class="lightbox__section"><p class="wysiwyg">Hast du noch Fragen? Dann melde dich bei <a href="<?php echo encode_all_to_htmlentities( 'mailto:' . $anlassverantwortlicher );?>"><?php echo encode_all_to_htmlentities( $anlassverantwortlicher_name );?></a><?php if( $anlassinfos['is-specialevent'] ) : ?> oder lies allgemeine Informationen: <a href="#special-event-<?php echo sanitize_title( $specialevent_titel ); ?>"><?php echo $specialevent_titel; ?></a><?php endif; ?>.</p></div>
             <div class="lightbox__section">
               <div class="content__two-columns content__columns--1-1">
 <?php if( $anlassinfos['mitnehmen'] ) : ?>
