@@ -938,7 +938,7 @@ function gloggi_change_gloggi_einstellungen_capability( $capability ) {
 add_filter( 'option_page_capability_gloggi_einstellungen', 'gloggi_change_gloggi_einstellungen_capability' );
 
 
-/* Erlaube alle users als "Autor" (Besitzer) fuer eine Gruppe, nicht nur "authors" mit dem veralteten access level 1 oder hoeher. */
+/* Erlaube alle users als "Autor" (Besitzer) fuer eine Gruppe oder einen Anlass, nicht nur "authors" mit dem veralteten access level 1 oder hoeher. */
 function gloggi_allow_all_authors( $query_args ) {
   if ( function_exists( get_current_screen ) ) {
     $screen = get_current_screen();
@@ -949,6 +949,14 @@ function gloggi_allow_all_authors( $query_args ) {
   return $query_args;
 }
 add_filter( 'wp_dropdown_users_args', 'gloggi_allow_all_authors' );
+
+/* Author bei Gruppe und Anlass umbenennen */
+function gloggi_rename_author_meta_boxes( $post ) {
+  remove_meta_box( 'authordiv', get_post_type($post), 'core' );
+  add_meta_box( 'authordiv', __( 'Verantwortlich', 'gloggi' ), 'post_author_meta_box', get_post_type($post), 'advanced', 'high' );
+}
+add_action( 'add_meta_boxes_gruppe',  'gloggi_rename_author_meta_boxes', 999 );
+add_action( 'add_meta_boxes_anlass',  'gloggi_rename_author_meta_boxes', 999 );
 
 
 function endswith($string, $test) {
