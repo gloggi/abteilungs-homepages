@@ -439,10 +439,10 @@ function gloggi_custom_post_type_anlass( $wpptd ) {
                   'required' => true,
                 ),
                 'startort' => array(
-                  'title' => __( 'Startort', 'gloggi' ),
-                  'type' => 'map',
-                  'store' => 'coords',
-                  'default' => 'Museumstrasse 2, 8001 Z&uuml;rich, Schweiz',
+                  'title' => __( 'Startort*', 'gloggi' ),
+                  'type' => 'select',
+                  'options' => array( 'posts' => 'location' ),
+                  'required' => true,
                 ),
                 'endzeit' => array(
                   'title' => __( 'Endzeit*', 'gloggi' ),
@@ -451,9 +451,8 @@ function gloggi_custom_post_type_anlass( $wpptd ) {
                 ),
                 'endort' => array(
                   'title' => __( 'Endort', 'gloggi' ),
-                  'type' => 'map',
-                  'store' => 'coords',
-                  'default' => 'Museumstrasse 2, 8001 Z&uuml;rich, Schweiz',
+                  'type' => 'select',
+                  'options' => array( 'posts' => 'location' ),
                 ),
                 'mitnehmen' => array(
                   'title' => __( 'Mitnehmen', 'gloggi' ),
@@ -771,7 +770,8 @@ function gloggi_custom_post_type_location( $wpptd ) {
                   'title' => __( 'Ort', 'gloggi' ),
                   'type' => 'map',
                   'store' => 'coords',
-                  'required' => true,
+                  // Bug im plugin post-types-definitely: map felder können nicht required sein
+                  //'required' => true,
                 ),
               ),
             ),
