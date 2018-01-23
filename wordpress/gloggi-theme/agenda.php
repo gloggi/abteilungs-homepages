@@ -147,9 +147,16 @@ if( $anlaesse->have_posts() ) : ?>
   // Bereite diverse Zeit- und Ortfelder für die Anzeige vor
   $startzeitpunkt = date_create_from_format( 'YmdHis', $anlassinfos['startzeit'] );
   $endzeitpunkt = date_create_from_format( 'YmdHis', $anlassinfos['endzeit'] );
-  $startzeitundort = date_format( $startzeitpunkt, 'd.m.Y H:i' ) . ' <span class="geocode" data-coords="' . $anlassinfos['startort'] . '"></span>';
+  $startort = wpptd_get_post_meta_values( $anlassinfos['startort'] );
+  $startort['name'] = get_the_title( $anlassinfos['startort'] );
+  $startzeitundort = date_format( $startzeitpunkt, 'd.m.Y H:i' ) . ' ' . $startort['name'];
+  $endort = $startort;
   $endzeitundort = date_format( $endzeitpunkt, 'd.m.Y H:i' );
-  if( $anlassinfos['startort'] != $anlassinfos['endort'] ) $endzeitundort .= ' <span class="geocode" data-coords="' . $anlassinfos['endort'] . '"></span>';
+  if( $anlassinfos['endort'] && $anlassinfos['endort'] != $anlassinfos['startort'] ) {
+    $endort = wpptd_get_post_meta_values( $anlassinfos['endort'] );
+    $endort['name'] = get_the_title( $anlassinfos['endort'] );
+    $endzeitundort .= ' ' . get_the_title( $endort['name'] );
+  }
   // Bug im Plugin Post Types Definitely: Repeatable-Felder geben mit wpptd_get_post_meta_values die richtige Anzahl Elemente,
   // aber alle nur mit dem Standardinhalt zurück. Benütze stattdessen für dieses Feld wpptd_get_post_meta_value().
   $downloads = wpptd_get_post_meta_value( $post->ID, 'downloads' );
@@ -163,7 +170,7 @@ if( $anlaesse->have_posts() ) : ?>
       <div class="agenda__entry-content">
         <a href="#agenda-entry-<?php echo $post->ID; ?>">
           <h3><?php echo get_the_title(); ?></h3>
-          <p class="agenda__date"><?php echo implode(', ', array_filter(array( $anlassgruppen, date_format( $startzeitpunkt, 'j.n.y' ), '<span class="geocode" data-coords="'. $anlassinfos['startort'] . '"></span>' ) ) ); ?></p>
+          <p class="agenda__date"><?php echo implode(', ', array_filter(array( $anlassgruppen, date_format( $startzeitpunkt, 'j.n.y' ),  ) ) ); ?></p>
           <p><?php echo wp_trim_words( $anlassinfos['beschreibung'] , 40 ); ?></p>
         </a>
         <a href="#agenda-entry-<?php echo $post->ID; ?>">Mehr &gt;&gt;</a>
@@ -187,7 +194,7 @@ if( $anlaesse->have_posts() ) : ?>
             <img src="<?php echo wp_get_attachment_url(wpod_get_option( 'gloggi_einstellungen', 'abteilungslogo' )); ?>" height="50" alt="">
           </div>
           <div class="lightbox__body agenda__body">
-            <div class="agenda__map" data-address1="<?php echo $anlassinfos['startort']; ?>" data-address2="<?php echo $anlassinfos['endort']; ?>">
+            <div class="agenda__map" data-address1="<?php echo $startort['coords']; ?>" data-address2="<?php echo $endort['coords']; ?>">
             </div>
             <div class="lightbox__section"><p class="wysiwyg"><?php echo $anlassinfos['beschreibung']; ?></p></div>
             <div class="lightbox__section"><p class="wysiwyg">Hast du noch Fragen? Dann melde dich bei <a href="<?php echo encode_all_to_htmlentities( 'mailto:' . $anlassverantwortlicher );?>"><?php echo encode_all_to_htmlentities( $anlassverantwortlicher_name );?></a><?php if( $anlassinfos['is-specialevent'] ) : ?> oder lies allgemeine Informationen: <a href="#special-event-<?php echo sanitize_title( $specialevent_titel ); ?>"><?php echo $specialevent_titel; ?></a><?php endif; ?>.</p></div>
