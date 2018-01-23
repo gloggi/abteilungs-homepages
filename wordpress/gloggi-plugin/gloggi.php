@@ -690,6 +690,98 @@ function gloggi_custom_post_type_specialevent( $wpptd ) {
   ), 'gloggi' );
 }
 
+/* Location */
+function gloggi_custom_post_type_location( $wpptd ) {
+  $labels = array(
+    'name' => __( 'Locations', 'gloggi' ),
+    'singular_name' => __( 'Location', 'gloggi' ),
+    'menu_name' => __( 'Locations', 'gloggi' ),
+    'name_admin_bar' => __( 'Location', 'gloggi' ),
+    'archives' => __( 'Location-Archiv', 'gloggi' ),
+    'parent_item_colon' => __( '&Uuml;bergeordnetes Objekt:', 'gloggi' ),
+    'all_items' => __( 'Alle Locations', 'gloggi' ),
+    'add_new_item' => __( 'Neue Location hinzuf&uuml;gen', 'gloggi' ),
+    'add_new' => __( '+ Neu', 'gloggi' ),
+    'new_item' => __( 'Neue Location', 'gloggi' ),
+    'edit_item' => __( 'Location bearbeiten', 'gloggi' ),
+    'update_item' => __( 'Location aktualisieren', 'gloggi' ),
+    'view_item' => __( 'Location ansehen', 'gloggi' ),
+    'search_items' => __( 'Location suchen', 'gloggi' ),
+    'not_found' => __( 'Nicht gefunden', 'gloggi' ),
+    'not_found_in_trash' => __( 'Nicht im Papierkorb gefunden', 'gloggi' ),
+    'featured_image' => __( 'Location-Bild', 'gloggi' ),
+    'set_featured_image' => __( 'Location-Bild setzen', 'gloggi' ),
+    'remove_featured_image' => __( 'Location-Bild entfernen', 'gloggi' ),
+    'use_featured_image' => __( 'Als Location-Bild verwenden', 'gloggi' ),
+    'insert_into_item' => __( 'In Location einf&uuml;gen', 'gloggi' ),
+    'uploaded_to_this_item' => __( 'Zu Location hochgeladen', 'gloggi' ),
+    'items_list' => __( 'Location-Liste', 'gloggi' ),
+    'items_list_navigation' => __( 'Location-Liste Navigation', 'gloggi' ),
+    'filter_items_list' => __( 'Location-Liste filtern', 'gloggi' ),
+  );
+  $capabilities = array(
+  // Meta-capabilities (which are granted automatically to roles based on context and the primitive capabilities of the role)
+  'edit_post' => 'edit_location',
+  'read_post' => 'read_location',
+  'delete_post' => 'delete_location',
+  // Primitive capabilities (which can be granted directly to a role)
+  'create_posts' => 'create_locations',
+  'publish_posts' => 'publish_locations',
+  'read' => 'read_locations',
+  'read_private_posts' => 'read_private_locations',
+  'edit_posts' => 'edit_locations',
+  'edit_private_posts' => 'edit_private_locations',
+  'edit_published_posts' => 'edit_published_locations',
+  'edit_others_posts' => 'edit_others_locations',
+  'delete_posts' => 'delete_locations',
+  'delete_private_posts' => 'delete_private_locations',
+  'delete_published_posts' => 'delete_published_locations',
+  'delete_others_posts' => 'delete_others_locations',
+  );
+  $wpptd->add_components( array(
+    'gloggi_locations' => array(
+      'label' => __( 'Locations', 'gloggi' ),
+      'icon' => 'dashicons-admin-site',
+      'position' => 9,
+      'post_types' => array(
+        'location' => array(
+          'labels' => $labels,
+          'supports' => array( 'title', ),
+          /* Permalinks entfernen */
+          'public' => false,
+          'publicly_queriable' => true,
+          'show_ui' => true,
+          'exclude_from_search' => true,
+          'show_in_nav_menus' => false,
+          'has_archive' => false,
+          'rewrite' => false,
+          /* ... Permalinks entfernt. */
+          'table_columns' => array(
+            'author' => false,
+            'comments' => false,
+            'date' => false,
+          ),
+          'capabilities' => $capabilities,
+          'map_meta_cap' => true,
+          'metaboxes' => array(
+            'location' => array(
+              'title' => __( 'Location-Informationen', 'gloggi' ),
+              'fields' => array(
+                'coords' => array(
+                  'title' => __( 'Ort', 'gloggi' ),
+                  'type' => 'map',
+                  'store' => 'coords',
+                  'required' => true,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    ),
+  ), 'gloggi' );
+}
+
 
 /* Page */
 function gloggi_custom_page_type( $wpptd ) {
@@ -853,6 +945,7 @@ add_action( 'wpptd', 'gloggi_custom_post_type_gruppe' );
 add_action( 'wpptd', 'gloggi_custom_post_type_anlass' );
 add_action( 'wpptd', 'gloggi_custom_post_type_kontakt' );
 add_action( 'wpptd', 'gloggi_custom_post_type_specialevent' );
+add_action( 'wpptd', 'gloggi_custom_post_type_location' );
 add_action( 'wpptd', 'gloggi_custom_page_type' );
 
 
@@ -905,6 +998,7 @@ function gloggi_add_plugin_capabilities() {
     'read_private_anlaesse', 'edit_private_anlaesse', 'edit_others_anlaesse', 'delete_private_anlaesse', 'delete_others_anlaesse',
     'create_kontakte', 'publish_kontakte', 'read_kontakte', 'read_private_kontakte', 'edit_kontakte', 'edit_private_kontakte', 'edit_published_kontakte', 'edit_others_kontakte', 'delete_kontakte', 'delete_private_kontakte', 'delete_published_kontakte', 'delete_others_kontakte',
     'create_specialevents', 'publish_specialevents', 'read_specialevents', 'read_private_specialevents', 'edit_specialevents', 'edit_private_specialevents', 'edit_published_specialevents', 'edit_others_specialevents', 'delete_specialevents', 'delete_private_specialevents', 'delete_published_specialevents', 'delete_others_specialevents',
+    'read_private_locations', 'edit_private_locations', 'edit_others_locations', 'delete_private_locations', 'delete_published_locations', 'delete_others_locations',
     'create_pages', 'publish_pages', 'read_pages', 'read_private_pages', 'edit_pages', 'edit_private_pages', 'edit_published_pages', 'edit_others_pages', 'delete_pages', 'delete_private_pages', 'delete_published_pages', 'delete_others_pages',
     'update_plugins', 'update_themes', 'update_core',
     'manage_gloggi_options',
@@ -916,6 +1010,7 @@ function gloggi_add_plugin_capabilities() {
     'create_anlaesse', 'publish_anlaesse', 'read_anlaesse', 'edit_anlaesse', 'edit_published_anlaesse', 'delete_anlaesse', 'delete_published_anlaesse',
     // Keine Rechte auf Kontakten
     // Keine Rechte auf Special Events
+    'create_locations', 'publish_locations', 'read_locations', 'edit_locations', 'edit_published_locations', 'delete_locations',
     // Keine Rechte auf Pages
   );
 
@@ -933,11 +1028,11 @@ function gloggi_change_gloggi_einstellungen_capability( $capability ) {
 add_filter( 'option_page_capability_gloggi_einstellungen', 'gloggi_change_gloggi_einstellungen_capability' );
 
 
-/* Erlaube alle users als "Autor" (Besitzer) fuer eine Gruppe oder einen Anlass, nicht nur "authors" mit dem veralteten access level 1 oder hoeher. */
+/* Erlaube alle users als "Autor" (Besitzer) fuer eine Gruppe oder einen Anlass oder eine Location, nicht nur "authors" mit dem veralteten access level 1 oder hoeher. */
 function gloggi_allow_all_authors( $query_args ) {
   if ( function_exists( get_current_screen ) ) {
     $screen = get_current_screen();
-      if( ( $screen->post_type == 'gruppe' || $screen->post_type == 'anlass' ) && $screen->parent_base == 'edit' ) {
+      if( ( $screen->post_type == 'gruppe' || $screen->post_type == 'anlass' || $screen->post_type == 'location' ) && $screen->parent_base == 'edit' ) {
         $query_args['who'] = '';
       }
   }
