@@ -75,14 +75,6 @@ function gloggi_initialize_map(map) {
 function gloggi_gmaps_ready() {
   $ = jQuery;
   geocoder = new google.maps.Geocoder();
-  $('.geocode').each(function(idx, elem) {
-    var coords = $(elem).data("coords").split("|");
-    geocoder.geocode( { 'latLng': new google.maps.LatLng(parseFloat(coords[0]), parseFloat(coords[1])) }, function(results, status) {
-      if(status == google.maps.GeocoderStatus.OK) {
-        $(elem).replaceWith(results[1].formatted_address);
-      }
-    });
-  });
   var maps = $('.agenda__map');
   $('.lightbox:target .agenda__map').each(function(idx, map) { gloggi_initialize_map(map); });
   window.onhashchange = function() { $('.lightbox:target .agenda__map').each(function(idx, map) { gloggi_initialize_map(map); }); };
