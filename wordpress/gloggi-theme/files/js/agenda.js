@@ -7,7 +7,11 @@ function search_events(target) {
   }
   
   $('.agenda__entries-first > .agenda__entry').detach().prependTo('.agenda__entries');
-  $('.agenda__entries .agenda__entry').sort(function(a, b) { return $(a).data('starttime') > $(b).data('starttime'); }).appendTo($('.agenda__entries'));
+  $('.agenda__entries .agenda__entry').sort(function(a, b) {
+    astart = $(a).data('starttime');
+    bstart = $(b).data('starttime');
+    return astart == bstart ? 0 : (astart > bstart) ? 1 : -1;
+  }).appendTo($('.agenda__entries'));
   $('#noentries').addClass('hide');
   $('#selectgroup').addClass('hide');
   if(target) {
