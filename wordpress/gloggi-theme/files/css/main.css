@@ -203,7 +203,7 @@ ul {
   @media screen and (max-width: 500px) {
     .agenda__entry {
       width: 100%;
-      padding: 0;
+      padding: 0 10px;
       flex-direction: column; } }
 
 .agenda__entry-content {
@@ -232,7 +232,9 @@ ul {
     font-weight: 500;
     line-height: 38.4px;
     margin-bottom: 20px;
-    color: #4A4A4A; }
+    color: #4A4A4A;
+    text-overflow: ellipsis;
+    overflow: hidden; }
   .agenda__entry-content > a {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-style: normal;
@@ -266,7 +268,11 @@ ul {
     font-weight: 500;
     line-height: 45.0px;
     margin: 0px;
-    color: white !important; }
+    color: white !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    hyphens: auto; }
   .agenda__header > div p {
     color: white; }
     @media screen and (max-width: 500px) {
