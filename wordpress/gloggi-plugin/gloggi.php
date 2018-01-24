@@ -457,7 +457,7 @@ function gloggi_custom_post_type_anlass( $wpptd ) {
                 'mitnehmen' => array(
                   'title' => __( 'Mitnehmen', 'gloggi' ),
                   'type' => 'wysiwyg',
-                  'default' => '<ul><li>Pfadiuniform</li><li>Wetterfeste Kleidung</li></ul>',
+                  'default' => '<ul><li>Pfadihemd & Krawatte</li><li>Wetterfeste Kleidung</li><li>Wanderschuhe</li></ul>',
                 ),
                 'downloads' => array(
                   'title' => __( 'Downloads', 'gloggi' ),
