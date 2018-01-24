@@ -139,7 +139,7 @@ if( $anlaesse->have_posts() ) : ?>
   $anlassverantwortlicher_email = get_the_author_meta( 'user_email' );
   $anlassverantwortlicher_name = get_the_author_meta( 'user_email' );
   if( $anlassverantwortlicher_email ) $anlassverantwortlicher = $anlassverantwortlicher_email;
-  $anlassverantwortlicher_name = get_the_author_meta( 'display_name' );
+  $anlassverantwortlicher_name = get_the_author_meta( 'nickname' );
   if( !$anlassverantwortlicher_name ) $anlassverantwortlicher_name = $anlassverantwortlicher;
   // Ein Anlass kann zu einem Special Event zugeordnet sein
   $specialevent_titel = "";
