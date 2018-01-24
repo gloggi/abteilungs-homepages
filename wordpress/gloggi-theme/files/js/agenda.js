@@ -48,10 +48,10 @@ function gloggi_mark_address(map, bounds, geocoder, coords, title="", single=fal
   latLng = new google.maps.LatLng(parseFloat(coords[0]), parseFloat(coords[1]));
   bounds.extend(latLng);
   if(single) {
-	map.setCenter(latLng);
-	map.setZoom(15);
+    map.setCenter(latLng);
+    map.setZoom(15);
   } else {
-	map.fitBounds(bounds);
+    map.fitBounds(bounds);
   }
   return new google.maps.Marker({ map: map, position: latLng, label: title });
 }
@@ -90,8 +90,6 @@ jQuery(document).ready(function($){
       history.replaceState(get_query_params(document.location.search), document.title, hash);
     }
   });
-
-  $('.agenda').css('display', 'block');
   
   $('img.svg').each(function(){
     var $img = jQuery(this);

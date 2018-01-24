@@ -145,9 +145,6 @@ ul {
 .faq__entry {
   margin-top: 50px; }
 
-.agenda {
-  display: none; }
-
 .agenda__sections {
   width: 100%;
   display: flex;
