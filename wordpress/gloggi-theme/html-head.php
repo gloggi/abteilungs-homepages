@@ -10,7 +10,7 @@ $sekundaerfarbe = wpod_get_option( 'gloggi_einstellungen', 'sekundaerfarbe' );
   <title><?php bloginfo('name'); if (!is_front_page()) : echo ' | '; wp_title(''); endif; ?></title>
   <?php wp_head();?>
   <style>
-    .color-primary, .navbar, #navbar, .button, .lightbox__banner, .dropdown-menu, .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus, .navbar-right, .group__detail-banner {
+    .color-primary, .body, .navbar, #navbar, .button, .lightbox__banner, .dropdown-menu, .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus, .navbar-right, .group__detail-banner {
       background-color: <?php echo $primaerfarbe ?> !important;
     }
     .agenda__year-agenda li a p {
