@@ -1,11 +1,13 @@
 function search_events(target) {
   $ = jQuery;
+  // Buttons
   var buttons = $('.agenda__sections .button');
   buttons.removeClass('button').addClass('button--inactive');
   if(target) {
     $(target).removeClass('button--inactive').addClass('button');
   }
   
+  // Agenda entries
   $('.agenda__entries-first > .agenda__entry').detach().prependTo('.agenda__entries');
   $('.agenda__entries .agenda__entry').sort(function(a, b) {
     astart = $(a).data('starttime');
@@ -14,8 +16,8 @@ function search_events(target) {
   }).appendTo($('.agenda__entries'));
   $('#noentries').addClass('hide');
   $('#selectgroup').addClass('hide');
+  $('.agenda__entries .agenda__entry').addClass('hide');
   if(target) {
-    $('.agenda__entries .agenda__entry').addClass('hide');
     $('.' + $(target).data('showclass')).removeClass('hide');
     $first = $('.agenda__entries .agenda__entry').not('.hide');
     if($first.length) {
@@ -24,8 +26,13 @@ function search_events(target) {
       $('#noentries').removeClass('hide');
     }
   } else {
-    $('.agenda__entries .agenda__entry').addClass('hide');
     $('#selectgroup').removeClass('hide');
+  }
+
+  // Annual plan
+  $('.agenda__year-agenda .annualplan').addClass('hide');
+  if(target) {
+    $('.' + $(target).data('showclass')).removeClass('hide');
   }
 }
 
