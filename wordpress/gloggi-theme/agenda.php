@@ -28,6 +28,12 @@ function encode_all_to_htmlentities($str) {
   return implode("", $t);
 }
 
+function get_annual_plan_for_einheit( $einheit, $einheiten_by_id ) {
+  if( $einheit['jahresplan'] ) return array( $einheit['jahresplan'], $einheit['name'] );
+  if( $einheit['parent'] === null ) return array( false, null );
+  return get_annual_plan_for_einheit( $einheiten_by_id[$einheit['parent']], $einheiten_by_id );
+}
+
 // Sammle einige Infos zu Gruppen, Stufen und Abteilung in einem Array
 $einheiten = array();
 $gruppen = new WP_Query( array( 'post_type' => 'gruppe', 'posts_per_page' => -1 ) );
@@ -243,13 +249,14 @@ foreach( $einheiten as $einheit ) {
 }
 if( $show_jahresplan_section ) : ?>
 <div class="content__block">
-  <h2 class="heading-2"><?php echo ( $agenda_jahresplan_title ? $agenda_jahresplan_title : __( 'Jahrespl&auml;ne' ) ); ?></h2>
+  <h2 class="heading-2"><?php echo ( $agenda_jahresplan_title ? $agenda_jahresplan_title : __( 'Jahresplan' ) ); ?></h2>
   <div class="content__text"><p class="wysiwyg"><?php echo $agenda_jahresplan_content; ?></p></div>
   <ul class="agenda__year-agenda">
-<?php foreach($einheiten as $einheit) :
-  if( $einheit['jahresplan'] ) : ?>
-    <li>
-      <a href="<?php echo $einheit['jahresplan']; ?>">
+<?php foreach($einheiten_by_id as $einheit) :
+  list($jahresplan, $gruppenname) = get_annual_plan_for_einheit( $einheit, $einheiten_by_id );
+  if( $jahresplan ) : ?>
+    <li class="<?php echo $einheit['type'] . '-' . $einheit['linkname']; ?>">
+      <a href="<?php echo $jahresplan; ?>">
         <img class="agenda__anualplan svg" src="<?php echo get_bloginfo('template_directory'); ?>/files/img/doc.svg" alt="">
         <p><?php echo $einheit['name']; ?></p>
       </a>
