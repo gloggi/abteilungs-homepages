@@ -99,8 +99,6 @@ $subchildren = gloggi_aggregate_subchildren($einheiten_by_parent, 0);
 <div class="content__block">
   <div class="content__text">
     <p class="wysiwyg"><?php echo $agenda_content; ?></p>
-<?php $anlaesse = new WP_Query( array( 'post_type' => 'anlass', 'meta_query' => array( array( 'key' => 'endzeit', 'value' => date( 'YmdHis' ), 'compare' => '>=', ), ), 'posts_per_page' => -1 ) );
-if( $anlaesse->have_posts() ) : ?>
   </div>
   <div class="agenda">
     <div class="agenda__sections">
@@ -108,6 +106,8 @@ if( $anlaesse->have_posts() ) : ?>
       <a class="agenda__section button--inactive select" id="<?php echo sanitize_title( $einheit['name'] ); ?>" href="?<?php echo $einheit['type']; ?>=<?php echo sanitize_title( $einheit['name'] ); ?>" data-showclass="<?php echo $einheit['type']; ?>-<?php echo sanitize_title( $einheit['name'] ); ?>"><?php echo $einheit['name']; ?></a>
 <?php endforeach; ?>
     </div>
+<?php $anlaesse = new WP_Query( array( 'post_type' => 'anlass', 'meta_query' => array( array( 'key' => 'endzeit', 'value' => date( 'YmdHis' ), 'compare' => '>=', ), ), 'posts_per_page' => -1 ) );
+if( $anlaesse->have_posts() ) : ?>
   </div>
   <div class="agenda__entries-first" id="naechster-anlass">
   </div>
@@ -255,7 +255,7 @@ if( $show_jahresplan_section ) : ?>
 <?php foreach($einheiten_by_id as $einheit) :
   list($jahresplan, $gruppenname) = get_annual_plan_for_einheit( $einheit, $einheiten_by_id );
   if( $jahresplan ) : ?>
-    <li class="<?php echo $einheit['type'] . '-' . $einheit['linkname']; ?>">
+    <li class="annualplan <?php echo $einheit['type'] . '-' . $einheit['linkname']; ?>">
       <a href="<?php echo $jahresplan; ?>">
         <img class="agenda__anualplan svg" src="<?php echo get_bloginfo('template_directory'); ?>/files/img/doc.svg" alt="">
         <p><?php echo $einheit['name']; ?></p>
