@@ -169,6 +169,7 @@ foreach( $stufen as $stufe ) : ?>
                 <div>
                   <div class="group__info-box">
                     <p><b>Alter:</b> <?php echo $gruppe['alter-von']; ?> - <?php echo $gruppe['alter-bis']; ?> Jahre</p>
+                    <p><b>Geschlecht:</b> <?php echo ( $gruppe['geschlecht'] == 'm' ? "Knaben" : ( $gruppe['geschlecht'] == 'w' ? "Mädchen" : "Gemischte Gruppe" ) ); ?></p>
 <?php if( $gruppe['einzugsgebiet'] ) : ?>
                     <p><b>Region:</b> <?php echo $gruppe['einzugsgebiet']; ?></p>
 <?php endif; ?>

@@ -7,6 +7,7 @@ und dieses Projekt hält sich an [Semantic Versioning](http://semver.org/spec/v2
 ## [Unreleased]
 ### Added
 - Changelog als Markdown auf GitHub hochgeladen
+- Das Geschlecht der Gruppenmitglieder wird jetzt in der Gruppendetailansicht angezeigt.
 
 
 ## [1.2.1] - 2018-02-02
