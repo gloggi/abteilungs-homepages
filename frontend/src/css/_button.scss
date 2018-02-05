@@ -3,7 +3,8 @@
     color: $font-color-inverted;
     margin-top: 25px;
     padding: 20px;
-    border-radius: 07px;
+    border-radius: 7px;
+    border-width: 1px;
 
     @include screen(med) {
         font-size: 18px;
@@ -11,7 +12,6 @@
     }
 
     border-style: solid;
-    align-self: flex-end;
 
     &:hover{
         text-decoration: none;
@@ -45,7 +45,6 @@
 }
 
 .button--inactive {
-    border-width: 1px;
     background-color: $font-color-inverted;
 }
 

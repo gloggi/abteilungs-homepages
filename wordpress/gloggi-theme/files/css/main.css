@@ -146,6 +146,7 @@ ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  align-items: center;
   padding: 10px; }
   @media screen and (max-width: 500px) {
     .agenda__sections .button, .agenda__sections .button--inactive {
@@ -369,9 +370,9 @@ ul {
   color: white;
   margin-top: 25px;
   padding: 20px;
-  border-radius: 07px;
-  border-style: solid;
-  align-self: flex-end; }
+  border-radius: 7px;
+  border-width: 1px;
+  border-style: solid; }
   @media screen and (max-width: 700px) {
     .button, .button--inactive {
       font-size: 18px;
@@ -399,7 +400,6 @@ ul {
       margin-top: 0px; } }
 
 .button--inactive {
-  border-width: 1px;
   background-color: white; }
 
 .button--small {
