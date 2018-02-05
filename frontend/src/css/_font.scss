@@ -78,7 +78,6 @@ p, input, button, li, b, .content__text {
     @include screen(med) {
         font-size: 18px;
     }
-    font-weight: 200;
     line-height: 1.5;
     letter-spacing: 0.8px;
 }
@@ -117,10 +116,6 @@ a {
     ::selection {
         text-decoration: none;
     }
-}
-
-b {
-    font-weight: 400;
 }
 
 ul {

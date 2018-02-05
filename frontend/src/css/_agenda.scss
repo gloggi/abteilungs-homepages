@@ -52,11 +52,6 @@
     @include screen(small) {
         margin-top: 0px;
     }
-
-    a {
-        text-decoration: none;
-        color: $font-color;
-    }
     overflow-y: hidden;
 }
 

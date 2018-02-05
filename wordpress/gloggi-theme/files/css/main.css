@@ -80,7 +80,6 @@ p, input, button, li, b, .content__text {
   font-style: normal;
   font-variant: normal;
   font-size: 24px;
-  font-weight: 200;
   line-height: 1.5;
   letter-spacing: 0.8px; }
   @media screen and (max-width: 700px) {
@@ -114,9 +113,6 @@ a {
     text-decoration: none; }
   a ::selection {
     text-decoration: none; }
-
-b {
-  font-weight: 400; }
 
 ul {
   text-align: left;
@@ -190,9 +186,6 @@ ul {
   @media screen and (max-width: 500px) {
     .agenda__entries {
       margin-top: 0px; } }
-  .agenda__entries a {
-    text-decoration: none;
-    color: #4A4A4A; }
 
 .agenda__entry {
   flex-shrink: 0;
