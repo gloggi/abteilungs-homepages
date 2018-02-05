@@ -36,17 +36,12 @@
     &:focus{
         background-color: $secondary-color;
         box-shadow: none;
-        border:none;
         text-decoration: none;
     }
 
     @include screen(small){
         margin-top: 0px;
     };
-}
-
-.button{
-    border-style: none;
 }
 
 .button--inactive {

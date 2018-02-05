@@ -393,14 +393,10 @@ ul {
   .button:focus, .button--inactive:focus {
     background-color: #244392;
     box-shadow: none;
-    border: none;
     text-decoration: none; }
   @media screen and (max-width: 500px) {
     .button, .button--inactive {
       margin-top: 0px; } }
-
-.button {
-  border-style: none; }
 
 .button--inactive {
   border-width: 1px;
