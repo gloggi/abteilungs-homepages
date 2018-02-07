@@ -682,6 +682,7 @@ function gloggi_custom_post_type_specialevent( $wpptd ) {
               'fields' => array(
                 'pluralname' => array(
                   'title' => __( 'Name im Plural*', 'gloggi' ),
+                  'description' => __( 'Wird gebraucht f&uuml;r "... lies allgemeine Informationen &uuml;ber [So-Las]" und "N&auml;chste [So-Las]".', 'gloggi' ),
                   'type' => 'text',
                   'required' => true,
                 ),
