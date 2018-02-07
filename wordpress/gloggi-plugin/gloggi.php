@@ -44,6 +44,7 @@ function gloggi_custom_post_type_stufe( $wpptd ) {
     'menu_name' => __( 'Stufen', 'gloggi' ),
     'name_admin_bar' => __( 'Stufe', 'gloggi' ),
     'archives' => __( 'Stufen-Archiv', 'gloggi' ),
+    'attributes' => __( 'Stufen-Eigenschaften', 'gloggi' ),
     'parent_item_colon' => __( '&Uuml;bergeordnetes Objekt:', 'gloggi' ),
     'all_items' => __( 'Alle Stufen', 'gloggi' ),
     'add_new_item' => __( 'Neue Stufe hinzuf&uuml;gen', 'gloggi' ),
@@ -92,7 +93,7 @@ function gloggi_custom_post_type_stufe( $wpptd ) {
       'post_types' => array(
         'stufe' => array(
           'labels' => $labels,
-          'supports' => array( 'title', 'thumbnail', ),
+          'supports' => array( 'title', 'thumbnail', 'page-attributes' ),
           /* Permalinks entfernen */
           'public' => false,
           'publicly_queriable' => true,
@@ -113,16 +114,6 @@ function gloggi_custom_post_type_stufe( $wpptd ) {
           'capabilities' => $capabilities,
           'map_meta_cap' => true,
           'metaboxes' => array(
-            'reihenfolge' => array(
-              'title' => __( 'Sortierung' ),
-              'context' => 'side',
-              'fields' => array(
-                'menu_order' => array(
-                  'title' => __( 'Reihenfolge', 'gloggi' ),
-                  'type' => 'number',
-                ),
-              ),
-            ),
             'stufeninfos' => array(
               'title' => __( 'Stufeninformationen', 'gloggi' ),
               'fields' => array(
@@ -1257,6 +1248,23 @@ function gloggi_display_cpt_description( $post ) {
   if( $obj ) echo esc_html( $obj->description );
 }
 add_action( 'edit_form_top', 'gloggi_display_cpt_description', 10, 1 );
+
+/* Zeige die Beschreibung der menu_order Felder */
+function gloggi_display_cpt_menu_order_description( $post ) {
+  $post_type = get_post_type( $post );
+  if( $post_type == 'stufe' ) {
+    echo __( '<br>F&uuml;r die Anzeige auf "Was-wir-tun"-Seiten. &Uuml;berall sonst werden Stufen nach Alter sortiert.', 'gloggi' );
+  } else if( $post_type == 'gruppe' ) {
+    echo __( '<br>F&uuml;r die Anzeige auf "Wer-wir-sind"-Seiten und die Buttons auf der Agenda', 'gloggi' );
+  } else if( $post_type == 'kontakt' ) {
+    echo __( '<br>F&uuml;r die Anzeige auf "Wer-wir-sind"-Seiten', 'gloggi' );
+  } else if( $post_type == 'specialevent' ) {
+    echo __( '<br>F&uuml;r die Auflistung in der Agenda', 'gloggi' );
+  } else if( $post_type == 'page' ) {
+    echo __( '<br>Position im Hauptmen&uuml;', 'gloggi' );
+  }
+}
+add_action( 'page_attributes_misc_attributes', 'gloggi_display_cpt_menu_order_description', 10, 1 );
 
 
 /* Globales Einstellungs-Menue */

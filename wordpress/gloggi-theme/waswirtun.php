@@ -14,7 +14,7 @@ $abteilungslogo = wpod_get_option( 'gloggi_einstellungen', 'abteilungslogo' ); ?
 <?php endif; ?>
 
 <?php 
-$stufen = new WP_Query( array( 'post_type' => 'stufe', 'orderby' => 'menu_order', 'order' => 'ASC', 'posts_per_page' => -1 ) );
+$stufen = new WP_Query( array( 'post_type' => 'stufe', 'orderby' => array( 'menu_order' => 'ASC' ), 'posts_per_page' => -1 ) );
 while ( $stufen->have_posts() ) : $stufen->the_post();
   $stufenlogo = wpptd_get_post_meta_value( $post->ID, 'stufenlogo' );
   if( !$stufenlogo ) {

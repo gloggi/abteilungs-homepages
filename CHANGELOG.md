@@ -1,11 +1,11 @@
 # Changelog
 Alle bemerkenswerten Änderungen an diesem Projekt werden in dieser Datei festgehalten.
 
-Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
-und dieses Projekt hält sich an [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) und dieses Projekt hält sich an [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-
+### Changed
+- Sortierung von Stufen, Gruppen, Kontakten, Special Events und Pages vereinheitlicht und im Backend beschrieben.
 
 ## [1.2.2] - 2018-02-07
 ### Added
@@ -15,7 +15,7 @@ und dieses Projekt hält sich an [Semantic Versioning](http://semver.org/spec/v2
 - Auf Special Events wird jetzt eine Liste mit zukünftigen Anlässen dieser Art angezeigt.
 
 ### Changed
-- Kleinere visuelle Verbesserungen an Gruppen- und Anlassdetailansicht, darunter bei Gruppen ohne Beschreibung
+- Kleinere visuelle Verbesserungen an Gruppen- und Anlassdetailansicht, darunter bei Gruppen ohne Beschreibung.
 
 
 ## [1.2.1] - 2018-02-02
@@ -48,7 +48,7 @@ und dieses Projekt hält sich an [Semantic Versioning](http://semver.org/spec/v2
 - Jahresplan-Abschnitt wird nur noch angezeigt wenn sinnvoll.
 
 ### Removed
-- Feld für Anlassverantwortlichen-Mailadresse entfernt
+- Feld für Anlassverantwortlichen-Mailadresse entfernt.
 
 ## [1.1.0] - 2017-11-29
 ### Added
