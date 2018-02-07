@@ -149,7 +149,11 @@ if( $anlaesse->have_posts() ) : ?>
   if( !$anlassverantwortlicher_name ) $anlassverantwortlicher_name = $anlassverantwortlicher;
   // Ein Anlass kann zu einem Special Event zugeordnet sein
   $specialevent_titel = "";
-  if( $anlassinfos['is-specialevent'] ) $specialevent_titel = get_the_title( $anlassinfos['specialevent'] );
+  $specialevent_pluralname = "";
+  if( $anlassinfos['is-specialevent'] ) {
+    $specialevent_titel = get_the_title( $anlassinfos['specialevent'] );
+    $specialevent_pluralname = wpptd_get_post_meta_value( $anlassinfos['specialevent'], 'pluralname' );
+  }
   // Bereite diverse Zeit- und Ortfelder für die Anzeige vor
   $startzeitpunkt = date_create_from_format( 'YmdHis', $anlassinfos['startzeit'] );
   $endzeitpunkt = date_create_from_format( 'YmdHis', $anlassinfos['endzeit'] );
@@ -203,7 +207,7 @@ if( $anlaesse->have_posts() ) : ?>
             <div class="agenda__map" data-address1="<?php echo $startort['coords']; ?>" data-address2="<?php echo $endort['coords']; ?>">
             </div>
             <div class="lightbox__section"><p class="wysiwyg"><?php echo $anlassinfos['beschreibung']; ?></p></div>
-            <div class="lightbox__section"><p class="wysiwyg">Hast du noch Fragen? Dann melde dich bei <a href="<?php echo encode_all_to_htmlentities( 'mailto:' . $anlassverantwortlicher );?>"><?php echo encode_all_to_htmlentities( $anlassverantwortlicher_name );?></a><?php if( $anlassinfos['is-specialevent'] ) : ?> oder lies allgemeine Informationen: <a href="#special-event-<?php echo sanitize_title( $specialevent_titel ); ?>"><?php echo $specialevent_titel; ?></a><?php endif; ?>.</p></div>
+            <div class="lightbox__section"><p class="wysiwyg">Hast du noch Fragen? Dann melde dich bei <a href="<?php echo encode_all_to_htmlentities( 'mailto:' . $anlassverantwortlicher );?>"><?php echo encode_all_to_htmlentities( $anlassverantwortlicher_name );?></a><?php if( $anlassinfos['is-specialevent'] ) : ?> oder lies allgemeine Informationen über <a href="#special-event-<?php echo sanitize_title( $specialevent_titel ); ?>"><?php echo $specialevent_pluralname; ?></a><?php endif; ?>.</p></div>
             <div class="lightbox__section">
               <div class="content__two-columns content__columns--1-1">
 <?php if( $anlassinfos['mitnehmen'] ) : ?>
