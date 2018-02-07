@@ -228,29 +228,18 @@ foreach( $stufen as $stufe ) : ?>
 <?php echo $werwirsind_trennbanner2; ?>
 
 <?php
-
-// Lese alle Kontaktinfos
 $kontakt_query = new WP_Query( array( 'post_type' => 'kontakt', 'orderby' => array( 'menu_order' => 'ASC', 'name' => 'ASC'), 'posts_per_page' => -1 ) );
-$kontakte = array();
-while( $kontakt_query->have_posts() ) : $kontakt_query->the_post();
-  $kontaktinfos = wpptd_get_post_meta_values( $post->ID );
-  $kontakt = array(
-    'ID' => $post->ID,
-    'name' => get_the_title(),
-    'email' => $kontaktinfos['email'],
-  );
-  $kontakte[] = $kontakt;
-endwhile; wp_reset_postdata();
-
 if( $kontakt_query->have_posts() ) : ?>
 <div class="content__block">
     <h2 class="heading-2">Kontakt</h2>
     <div class="contact__container">
 <?php while( $kontakt_query->have_posts() ) : $kontakt_query->the_post();
-    $email = wpptd_get_post_meta_value( $post->ID, 'email' ); ?>
+    $email = wpptd_get_post_meta_value( $post->ID, 'email' );
+    $name = wpptd_get_post_meta_value( $post->ID, 'name' ); ?>
         <div class="contact">
             <div class="contact__text">
                 <h3><?php echo get_the_title(); ?></h3>
+                <?php if( $name ) : ?><p><?php echo $name; ?></p><?php endif; ?>
                 <p><a href="<?php echo encode_all_to_htmlentities( 'mailto:' . $email ); ?>"><?php echo encode_all_to_htmlentities( $email ); ?></a></p>
             </div>
 <?php   $bild_id = wpptd_get_post_meta_value( $post->ID, 'kontaktbild' );

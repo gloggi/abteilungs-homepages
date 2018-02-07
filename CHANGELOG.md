@@ -8,6 +8,7 @@ und dieses Projekt hält sich an [Semantic Versioning](http://semver.org/spec/v2
 ### Added
 - Changelog als Markdown auf GitHub hochgeladen
 - Das Geschlecht der Gruppenmitglieder wird jetzt in der Gruppendetailansicht angezeigt.
+- Bei Kontakten gibt es jetzt ein neues (optionales) Feld "Name", im Titel kann jetzt also nur noch die Funktion beschrieben werden
 
 ### Changed
 - Kleinere visuelle Verbesserungen an Gruppen- und Anlassdetailansicht, darunter bei Gruppen ohne Beschreibung
