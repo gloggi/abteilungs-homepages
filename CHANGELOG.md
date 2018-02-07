@@ -10,7 +10,7 @@ und dieses Projekt hält sich an [Semantic Versioning](http://semver.org/spec/v2
 - Das Geschlecht der Gruppenmitglieder wird jetzt in der Gruppendetailansicht angezeigt.
 
 ### Changed
-- Kleinere visuelle Verbesserungen an Gruppen- und Anlassdetailansicht
+- Kleinere visuelle Verbesserungen an Gruppen- und Anlassdetailansicht, darunter bei Gruppen ohne Beschreibung
 
 
 ## [1.2.1] - 2018-02-02
