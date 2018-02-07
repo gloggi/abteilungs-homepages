@@ -658,6 +658,7 @@ function gloggi_custom_post_type_specialevent( $wpptd ) {
       'post_types' => array(
         'specialevent' => array(
           'labels' => $labels,
+          'description' => __( 'Mit Special Events kann man neuen Eltern erkl&auml;ren, was z.B. ein So-La ist. Diese So-La-Beschreibung wird dann automatisch auf allen Anl&auml;ssen verlinkt, welche als So-La markiert werden.', 'gloggi' ),
           'supports' => array( 'title', 'page-attributes' ),
           /* Permalinks entfernen */
           'public' => false,
@@ -682,7 +683,7 @@ function gloggi_custom_post_type_specialevent( $wpptd ) {
               'fields' => array(
                 'pluralname' => array(
                   'title' => __( 'Name im Plural*', 'gloggi' ),
-                  'description' => __( 'Wird gebraucht f&uuml;r "... lies allgemeine Informationen &uuml;ber [So-Las]" und "N&auml;chste [So-Las]".', 'gloggi' ),
+                  'description' => __( 'Wird gebraucht f&uuml;r "lies allgemeine Informationen &uuml;ber [So-Las]" und "N&auml;chste [So-Las]".', 'gloggi' ),
                   'type' => 'text',
                   'required' => true,
                 ),
@@ -1249,6 +1250,13 @@ function gloggi_display_anlass_enddate_correction_notice( $post ) {
   }
 }
 add_action( 'edit_form_top', 'gloggi_display_anlass_enddate_correction_notice', 10, 1 );
+
+/* Zeige die Beschreibung von custom post types */
+function gloggi_display_cpt_description( $post ) {
+  $obj = get_post_type_object( get_post_type( $post ) );
+  if( $obj ) echo esc_html( $obj->description );
+}
+add_action( 'edit_form_top', 'gloggi_display_cpt_description', 10, 1 );
 
 
 /* Globales Einstellungs-Menue */
