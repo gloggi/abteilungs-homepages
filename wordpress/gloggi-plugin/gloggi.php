@@ -576,6 +576,11 @@ function gloggi_custom_post_type_kontakt( $wpptd ) {
             'kontaktinfos' => array(
               'title' => __( 'Kontakt-Informationen', 'gloggi' ),
               'fields' => array(
+                'name' => array(
+                  'title' => __( 'Name', 'gloggi' ),
+                  'type' => 'text',
+                  'required' => false,
+                ),
                 'email' => array(
                   'title' => __( 'E-Mail*', 'gloggi' ),
                   'type' => 'email',
