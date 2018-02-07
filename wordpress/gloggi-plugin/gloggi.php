@@ -680,6 +680,11 @@ function gloggi_custom_post_type_specialevent( $wpptd ) {
             'specialevent' => array(
               'title' => __( 'Special-Event-Informationen', 'gloggi' ),
               'fields' => array(
+                'pluralname' => array(
+                  'title' => __( 'Name im Plural*', 'gloggi' ),
+                  'type' => 'text',
+                  'required' => true,
+                ),
                 'description' => array(
                   'title' => __( 'Beschreibung*', 'gloggi' ),
                   'type' => 'wysiwyg',
