@@ -161,11 +161,11 @@ foreach( $stufen as $stufe ) : ?>
           </div>
           <div class="lightbox__body">
             <div class="lightbox__section">
-              <div class="content__columns content__columns--1-1">
+              <?php if( $gruppe['beschreibung'] ) : ?><div class="content__columns content__columns--1-1">
                 <div class="content__column">
                   <p class="wysiwyg"><?php echo $gruppe['beschreibung']; ?></p>
                   <a href="<?php echo $mitmachen_seite; ?>#mitmachen" class="button button--small">Mitmachen</a>
-                </div>
+                </div><?php endif; ?>
                 <div>
                   <div class="group__info-box">
                     <p><b>Alter:</b> <?php echo $gruppe['alter-von']; ?> - <?php echo $gruppe['alter-bis']; ?> Jahre</p>
@@ -208,7 +208,10 @@ foreach( $stufen as $stufe ) : ?>
                   </div>
 <?php endif; ?>
                 </div>
-              </div>
+              <?php if( $gruppe['beschreibung'] ) : ?></div><?php else : ?>
+                <div class="content__column">
+                  <a href="<?php echo $mitmachen_seite; ?>#mitmachen" class="button button--small">Mitmachen</a>
+                </div><?php endif; ?>
             </div>
           </div>
         </div>
