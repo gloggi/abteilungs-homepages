@@ -9,6 +9,7 @@ var gulp       = require('gulp'),
 	dateformat = require('dateformat'),
 	inject     = require('gulp-inject-string'),
 	filter     = require('gulp-filter'),
+	git        = require('gulp-git'),
 	config     = require('./gulpconfig.json');
 
 gulp.task('css', function() {
@@ -70,16 +71,24 @@ gulp.task('deploy', ['zip-plugin', 'zip-theme'], function() {
 });
 
 gulp.task('release', ['bump-version'], function() {
-	return gulp.start('deploy');
+	return do_release();
 });
 
 gulp.task('release-minor', ['bump-version-minor'], function() {
-	return gulp.start('deploy');
+	return do_release();
 });
 
 gulp.task('release-major', ['bump-version-major'], function() {
-	return gulp.start('deploy');
+	return do_release();
 });
+
+function do_release() {
+	gulp.start('deploy');
+	package = require('./package.json');
+	return gulp.src('./*')
+	.pipe(git.commit('Release v' + package.version, {args: '-a', disableAppendPaths: true}))
+	.pipe(git.tag('v' + package.version, 'Release v' + package.version, function (err) { if (err) throw err; }));
+}
 
 gulp.task('default', ['zip'], function() {
 	return util.noop();

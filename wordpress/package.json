@@ -23,6 +23,7 @@
     "gulp-zip": "^4.0.0",
     "merge-stream": "^1.0.1",
     "run-sequence": "^2.2.0",
+    "gulp-git": "^2.5.1",
     "vinyl-ftp": "^0.6.0"
   }
 }
