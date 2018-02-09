@@ -72,7 +72,6 @@
 
 
 .agenda__entry-content{
-    width: 70%;
     margin-left: 20px;
     color: $font-color;
     margin-bottom: 20px;
@@ -284,4 +283,9 @@
 
 .agenda__anualplan{
     max-width: 100px;
+}
+
+.agenda__specialevent-list-entry {
+    width: 100%;
+    padding-right: 0;
 }

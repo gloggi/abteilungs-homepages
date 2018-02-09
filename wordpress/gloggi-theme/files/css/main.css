@@ -201,7 +201,6 @@ ul {
       flex-direction: column; } }
 
 .agenda__entry-content {
-  width: 70%;
   margin-left: 20px;
   color: #4A4A4A;
   margin-bottom: 20px; }
@@ -364,6 +363,10 @@ ul {
 
 .agenda__anualplan {
   max-width: 100px; }
+
+.agenda__specialevent-list-entry {
+  width: 100%;
+  padding-right: 0; }
 
 .button, .button--inactive {
   font-size: 24px;
@@ -761,8 +764,7 @@ label {
   height: 90%;
   display: flex;
   flex-flow: column;
-  justify-content: flex-start;
-  pading: 10px; }
+  justify-content: flex-start; }
   @media screen and (max-width: 700px) {
     .lightbox__content {
       width: 100%;
@@ -775,10 +777,8 @@ label {
 
 .lightbox__body {
   height: 90%;
-  overflow-y: scroll; }
-
-.lightbox__section {
-  margin: 30px; }
+  overflow-y: scroll;
+  padding: 30px; }
 
 .lightbox__footer {
   display: flex;

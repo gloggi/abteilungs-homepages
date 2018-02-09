@@ -6,6 +6,7 @@ Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) u
 ## [Unreleased]
 ### Changed
 - Sortierung von Stufen, Gruppen, Kontakten, Special Events und Pages vereinheitlicht und im Backend beschrieben.
+- Liste der zukünftigen Special Events nutzt nun die volle Breite der Ansicht.
 
 ## [1.2.2] - 2018-02-07
 ### Added

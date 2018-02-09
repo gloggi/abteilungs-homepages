@@ -27,8 +27,6 @@
     display: block;
 }
 
-
-
 .lightbox__content-wrapper{
     width: 100vw;
     height: 100vh;
@@ -54,7 +52,6 @@
     p, a, li, b {
         font-size: 18px;
     }
-    pading: 10px;
 }
 
 .lightbox__banner{
@@ -66,10 +63,7 @@
 .lightbox__body{
     height: 90%;
     overflow-y: scroll;
-}
-
-.lightbox__section{
-    margin: 30px;
+    padding: 30px;
 }
 
 .lightbox__footer{

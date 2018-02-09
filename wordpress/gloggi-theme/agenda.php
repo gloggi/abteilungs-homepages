@@ -317,7 +317,7 @@ $specialevent_titel = get_the_title(); ?>
             <?php if( $specialevent_anlaesse[$specialevent_titel] && count($specialevent_anlaesse[$specialevent_titel] > 0) ) : ?>
             <div class="lightbox__section"><h3>N&auml;chste <?php echo wpptd_get_post_meta_value( $post->ID, 'pluralname' ); ?></h3></div>
             <?php foreach( $specialevent_anlaesse[$specialevent_titel] as $specialevent_anlass ) : ?>
-            <div class="lightbox__section agenda__entry <?php echo $specialevent_anlass['anlassgruppen_classes']; ?>" data-starttime="<?php echo $specialevent_anlass['startzeit']; ?>">
+            <div class="agenda__specialevent-list-entry lightbox__section agenda__entry <?php echo $specialevent_anlass['anlassgruppen_classes']; ?>" data-starttime="<?php echo $specialevent_anlass['startzeit']; ?>">
               <a href="#agenda-entry-<?php echo $specialevent_anlass['ID']; ?>">
                 <div class="circle-small color-primary" style="<?php if( $specialevent_anlass['anlassfarbe'] ) : echo 'background-color: ' . $specialevent_anlass['anlassfarbe'] . ' !important;'; endif; ?>">
                   <?php if( $specialevent_anlass['anlasslogo'] ) : ?><img src="<?php echo $specialevent_anlass['anlasslogo']; ?>" alt=""><?php else: ?><p><?php echo date_format( $specialevent_anlass['startzeitpunkt'], 'j.n.y' ); ?></p><?php endif; ?>
