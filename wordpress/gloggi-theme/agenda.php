@@ -262,7 +262,7 @@ foreach( $einheiten as $einheit ) {
 	}
 }
 if( $show_jahresplan_section ) : ?>
-<div class="content__block">
+<div id="annualplans" class="content__block">
   <h2 class="heading-2"><?php echo ( $agenda_jahresplan_title ? $agenda_jahresplan_title : __( 'Jahresplan' ) ); ?></h2>
   <div class="content__text"><p class="wysiwyg"><?php echo $agenda_jahresplan_content; ?></p></div>
   <ul class="agenda__year-agenda">

@@ -18,7 +18,7 @@ function search_events(target) {
   $('#selectgroup').addClass('hide');
   $('.agenda__entries .agenda__entry').addClass('hide');
   if(target) {
-    $('.' + $(target).data('showclass')).removeClass('hide');
+    $('.agenda__entries .' + $(target).data('showclass')).removeClass('hide');
     $first = $('.agenda__entries .agenda__entry').not('.hide');
     if($first.length) {
       $($first[0]).detach().appendTo('.agenda__entries-first');
@@ -30,9 +30,15 @@ function search_events(target) {
   }
 
   // Annual plan
+  var $annualplanssection = $('#annualplans');
+  $annualplanssection.addClass('hide');
   $('.agenda__year-agenda .annualplan').addClass('hide');
   if(target) {
-    $('.' + $(target).data('showclass')).removeClass('hide');
+    var $annualplanentries = $('.agenda__year-agenda .' + $(target).data('showclass'));
+    if($annualplanentries.length) {
+      $annualplanentries.removeClass('hide');
+      $annualplanssection.removeClass('hide');
+    }
   }
 }
 
