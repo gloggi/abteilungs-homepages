@@ -4,11 +4,15 @@ Alle bemerkenswerten Änderungen an diesem Projekt werden in dieser Datei festge
 Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) und dieses Projekt hält sich an [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+
+## [1.2.3] - 2018-02-09
 ### Changed
 - Sortierung von Stufen, Gruppen, Kontakten, Special Events und Pages vereinheitlicht und im Backend beschrieben.
 - Liste der zukünftigen Special Events nutzt nun die volle Breite der Ansicht.
 - Der ganze Jahresplan-Abschnitt wird nur noch angezeigt wenn auch ein Jahresplan angezeigt werden kann.
 - Der Text "Keine Events" aus den Agenda-Pageeinstellungen wird jetzt in jedem Fall statt einem fixen Text angezeigt.
+
 
 ## [1.2.2] - 2018-02-07
 ### Added
@@ -76,7 +80,8 @@ Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) u
 ### Added
 - Ursprüngliches Release.
 
-[Unreleased]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.2...HEAD
+[Unreleased]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.3...HEAD
+[1.2.3]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.2...v1.2.3
 [1.2.2]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/gloggi/abteilungs-homepages/compare/v1.1.0...v1.2.0
