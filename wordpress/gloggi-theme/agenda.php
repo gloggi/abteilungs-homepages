@@ -213,26 +213,28 @@ if( $anlaesse->have_posts() ) : ?>
             </div>
             <img src="<?php echo wp_get_attachment_url(wpod_get_option( 'gloggi_einstellungen', 'abteilungslogo' )); ?>" height="50" alt="">
           </div>
-          <div class="lightbox__body agenda__body">
+          <div class="lightbox__body">
             <div class="agenda__map" data-address1="<?php echo $startort['coords']; ?>" data-address2="<?php echo $endort['coords']; ?>">
             </div>
-            <div class="lightbox__section"><p class="wysiwyg"><?php echo $anlassinfos['beschreibung']; ?></p></div>
-            <div class="lightbox__section"><p class="wysiwyg">Hast du noch Fragen? Dann melde dich bei <a href="<?php echo encode_all_to_htmlentities( 'mailto:' . $anlassverantwortlicher );?>"><?php echo encode_all_to_htmlentities( $anlassverantwortlicher_name );?></a><?php if( $anlassinfos['is-specialevent'] ) : ?> oder lies allgemeine Informationen über <a href="#special-event-<?php echo sanitize_title( $specialevent_titel ); ?>"><?php echo $specialevent_pluralname; ?></a><?php endif; ?>.</p></div>
-            <div class="lightbox__section">
-              <div class="content__two-columns content__columns--1-1">
+            <div class="agenda__body">
+              <div class="lightbox__section"><p class="wysiwyg"><?php echo $anlassinfos['beschreibung']; ?></p></div>
+              <div class="lightbox__section"><p class="wysiwyg">Hast du noch Fragen? Dann melde dich bei <a href="<?php echo encode_all_to_htmlentities( 'mailto:' . $anlassverantwortlicher );?>"><?php echo encode_all_to_htmlentities( $anlassverantwortlicher_name );?></a><?php if( $anlassinfos['is-specialevent'] ) : ?> oder lies allgemeine Informationen über <a href="#special-event-<?php echo sanitize_title( $specialevent_titel ); ?>"><?php echo $specialevent_pluralname; ?></a><?php endif; ?>.</p></div>
+              <div class="lightbox__section">
+                <div class="content__two-columns content__columns--1-1">
 <?php if( $anlassinfos['mitnehmen'] ) : ?>
-                <div><h4>Mitnehmen</h4><p class="wysiwyg"><?php echo $anlassinfos['mitnehmen']; ?></p></div>
+                  <div><h4>Mitnehmen</h4><p class="wysiwyg"><?php echo $anlassinfos['mitnehmen']; ?></p></div>
 <?php endif; ?>
 <?php if( $downloads && count( $downloads ) ) : ?>
-                <div>
-                  <h4>Downloads</h4>
-                  <ul>
+                  <div>
+                    <h4>Downloads</h4>
+                    <ul>
 <?php foreach( $downloads as $download ) : ?>
-                    <li><a href="<?php echo wp_get_attachment_url( $download['download'] ); ?>"><?php echo $download['name']; ?></a></li>
+                      <li><a href="<?php echo wp_get_attachment_url( $download['download'] ); ?>"><?php echo $download['name']; ?></a></li>
 <?php endforeach; ?>
-                  </ul>
-                </div>
+                    </ul>
+                  </div>
 <?php endif; ?>
+                </div>
               </div>
             </div>
           </div>

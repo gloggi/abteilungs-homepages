@@ -159,7 +159,7 @@ foreach( $stufen as $stufe ) : ?>
               <img src="<?php echo wp_get_attachment_url( $gruppe['logo'] ); ?>"></img>
             </div>
           </div>
-          <div class="lightbox__body">
+          <div class="lightbox__body groupdetail__body">
             <div class="lightbox__section">
               <?php if( $gruppe['beschreibung'] ) : ?><div class="content__columns content__columns--1-1">
                 <div class="content__column">
