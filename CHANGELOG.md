@@ -4,8 +4,12 @@ Alle bemerkenswerten Änderungen an diesem Projekt werden in dieser Datei festge
 Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) und dieses Projekt hält sich an [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+
+## [1.2.4] - 2018-02-19
 ### Changed
 - Die Karte auf der Anlassdetailansicht nutzt jetzt wieder die volle Breite.
+
 
 ## [1.2.3] - 2018-02-09
 ### Changed
@@ -81,7 +85,8 @@ Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) u
 ### Added
 - Ursprüngliches Release.
 
-[Unreleased]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.3...HEAD
+[Unreleased]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.4...HEAD
+[1.2.3]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.3...v1.2.4
 [1.2.3]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.2...v1.2.3
 [1.2.2]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.0...v1.2.1
