@@ -86,7 +86,7 @@ Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) u
 - Ursprüngliches Release.
 
 [Unreleased]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.4...HEAD
-[1.2.3]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.3...v1.2.4
+[1.2.4]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.3...v1.2.4
 [1.2.3]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.2...v1.2.3
 [1.2.2]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.0...v1.2.1
