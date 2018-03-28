@@ -58,4 +58,29 @@ function cc_mime_types( $mimes ){
 add_filter( 'upload_mimes', 'cc_mime_types' );
 
 
+// NON-Wordpress-related from here on
+
+function display_indexed_event_set($event_set, $index, $title, $agenda_link_prefix='') {
+  if( $event_set[$index] && count($event_set[$index]) > 0 ) : ?>
+  <div class="lightbox__section"><h3><?php echo $title; ?></h3></div>
+  <?php foreach( $event_set[$index] as $event ) : ?>
+  <div class="eventslist-list-entry lightbox__section agenda__entry <?php echo $event['anlassgruppen_classes']; ?>" data-starttime="<?php echo $event['startzeit']; ?>">
+    <a href="<?php echo $agenda_link_prefix; ?>#agenda-entry-<?php echo $event['ID']; ?>">
+      <div class="circle-small color-primary" style="<?php if( $event['anlassfarbe'] ) : echo 'background-color: ' . $event['anlassfarbe'] . ' !important;'; endif; ?>">
+        <?php if( $event['anlasslogo'] ) : ?><img src="<?php echo $event['anlasslogo']; ?>" alt=""><?php else: ?><p><?php echo date_format( $event['startzeitpunkt'], 'j.n.y' ); ?></p><?php endif; ?>
+      </div>
+    </a>
+    <div class="agenda__entry-content">
+      <a href="<?php echo $agenda_link_prefix; ?>#agenda-entry-<?php echo $event['ID']; ?>">
+        <h3><?php echo $event['title']; ?></h3>
+        <p class="agenda__date"><?php echo implode(', ', array_filter(array( $event['anlassgruppen'], date_format( $event['startzeitpunkt'], 'j.n.y' ),  ) ) ); ?></p>
+        <p><?php echo wp_trim_words( $event['beschreibung'] , 40 ); ?></p>
+      </a>
+      <a href="<?php echo $agenda_link_prefix; ?>#agenda-entry-<?php echo $event['ID']; ?>">Mehr &gt;&gt;</a>
+    </div>
+  </div>
+  <?php endforeach;
+  endif;
+}
+
 ?>

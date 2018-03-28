@@ -316,25 +316,7 @@ $specialevent_titel = get_the_title(); ?>
           <div class="lightbox__body agenda__body">
             <div class="lightbox__section"><p class="wysiwyg"><?php echo wpptd_get_post_meta_value( $post->ID, 'description' ); ?></p></div>
             <div class="lightbox__section"><p class="wysiwyg">Hast du noch Fragen? Dann melde dich bei <a href="<?php echo encode_all_to_htmlentities( 'mailto:' . $standard_anlassverantwortlicher );?>"><?php echo encode_all_to_htmlentities( $standard_anlassverantwortlicher );?></a>.</p></div>
-            <?php if( $specialevent_anlaesse[$specialevent_titel] && count($specialevent_anlaesse[$specialevent_titel] > 0) ) : ?>
-            <div class="lightbox__section"><h3>N&auml;chste <?php echo wpptd_get_post_meta_value( $post->ID, 'pluralname' ); ?></h3></div>
-            <?php foreach( $specialevent_anlaesse[$specialevent_titel] as $specialevent_anlass ) : ?>
-            <div class="agenda__specialevent-list-entry lightbox__section agenda__entry <?php echo $specialevent_anlass['anlassgruppen_classes']; ?>" data-starttime="<?php echo $specialevent_anlass['startzeit']; ?>">
-              <a href="#agenda-entry-<?php echo $specialevent_anlass['ID']; ?>">
-                <div class="circle-small color-primary" style="<?php if( $specialevent_anlass['anlassfarbe'] ) : echo 'background-color: ' . $specialevent_anlass['anlassfarbe'] . ' !important;'; endif; ?>">
-                  <?php if( $specialevent_anlass['anlasslogo'] ) : ?><img src="<?php echo $specialevent_anlass['anlasslogo']; ?>" alt=""><?php else: ?><p><?php echo date_format( $specialevent_anlass['startzeitpunkt'], 'j.n.y' ); ?></p><?php endif; ?>
-                </div>
-              </a>
-              <div class="agenda__entry-content">
-                <a href="#agenda-entry-<?php echo $specialevent_anlass['ID']; ?>">
-                  <h3><?php echo $specialevent_anlass['title']; ?></h3>
-                  <p class="agenda__date"><?php echo implode(', ', array_filter(array( $specialevent_anlass['anlassgruppen'], date_format( $specialevent_anlass['startzeitpunkt'], 'j.n.y' ),  ) ) ); ?></p>
-                  <p><?php echo wp_trim_words( $specialevent_anlass['beschreibung'] , 40 ); ?></p>
-                </a>
-                <a href="#agenda-entry-<?php echo $specialevent_anlass['ID']; ?>">Mehr &gt;&gt;</a>
-              </div>
-            </div>
-            <?php endforeach; endif; ?>
+            <?php display_indexed_event_set($specialevent_anlaesse, $specialevent_titel, "N&auml;chste " . wpptd_get_post_meta_value( $post->ID, 'pluralname' )); ?>
           </div>
         </div>
       </div>

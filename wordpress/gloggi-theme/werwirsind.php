@@ -184,7 +184,7 @@ foreach( $stufen as $stufe ) : ?>
                     </ul>
 <?php endif; ?>
 <?php if( $gruppe['vorgaengergruppen'] ) : ?>
-                    <p><b>Vorgängergruppe:</b></p><ul>
+                    <p><b>Vorg&auml;ngergruppe:</b></p><ul>
 <?php foreach( $gruppe['vorgaengergruppen'] as $vorgaenger ) : ?>
                       <li><a href="#<?php echo $gruppen[$vorgaenger]['linkname']; ?>"><?php echo $gruppen[$vorgaenger]['name']; ?></a></li>
 <?php endforeach; ?>
@@ -197,7 +197,7 @@ foreach( $stufen as $stufe ) : ?>
 <?php endforeach; ?>
                     </ul>
 <?php endif; ?>
-                    <p><a class="group__next_event" href="<?php echo $agenda_seite; ?>?gruppe=<?php echo sanitize_title( $gruppe['name'] ); ?>#naechster-anlass">Nächster Anlass</a></p>
+                    <p><a class="group__next_event" href="<?php echo $agenda_seite; ?>?gruppe=<?php echo sanitize_title( $gruppe['name'] ); ?>#naechster-anlass">N&auml;chster Anlass</a></p>
                     <p><b>Kontakt:</b> <a href="<?php echo encode_all_to_htmlentities('mailto:' . $gruppe['kontakt-mail']); ?>"><?php echo $gruppe['kontakt-name']; ?></a></p>
                   </div>
 <?php if( $gruppe['highlight-bilder'] ) : ?>
@@ -212,6 +212,7 @@ foreach( $stufen as $stufe ) : ?>
                 <div class="content__column">
                   <a href="<?php echo $mitmachen_seite; ?>#mitmachen" class="button button--small">Mitmachen</a>
                 </div><?php endif; ?>
+<?php display_indexed_event_set($gruppen_anlaesse, $gruppe['ID'], "N&auml;chste Anl&auml;sse", $agenda_seite . "?gruppe=" . sanitize_title( $gruppe['name'] )); ?>
             </div>
           </div>
         </div>
