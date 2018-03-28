@@ -4,7 +4,8 @@ Alle bemerkenswerten Änderungen an diesem Projekt werden in dieser Datei festge
 Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) und dieses Projekt hält sich an [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-
+### Changed
+- In der Anlassdetailansicht wird jetzt wieder der Endort angezeigt
 
 ## [1.2.4] - 2018-02-19
 ### Changed

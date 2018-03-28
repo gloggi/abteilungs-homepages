@@ -159,7 +159,7 @@ if( $anlaesse->have_posts() ) : ?>
   if( $anlassinfos['endort'] && $anlassinfos['endort'] != $anlassinfos['startort'] ) {
     $endort = wpptd_get_post_meta_values( $anlassinfos['endort'] );
     $endort['name'] = get_the_title( $anlassinfos['endort'] );
-    $endzeitundort .= ' ' . get_the_title( $endort['name'] );
+    $endzeitundort .= ' ' . $endort['name'];
   }
   // Ein Anlass kann zu einem Special Event zugeordnet sein
   $specialevent_titel = "";
