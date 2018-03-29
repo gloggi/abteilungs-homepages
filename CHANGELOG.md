@@ -4,9 +4,16 @@ Alle bemerkenswerten Änderungen an diesem Projekt werden in dieser Datei festge
 Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) und dieses Projekt hält sich an [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+
+## [1.2.5] - 2018-03-29
 ### Added
 - In der Anlassdetailansicht wird jetzt wieder der Endort angezeigt
 - Auf der Gruppendetailansicht wird neu eine Liste der nächsten Anlässe der Gruppe angezeigt
+
+### Removed
+- Auf der Gruppendetailansicht wird der Link zu den nächsten Anlässen in der Agenda nicht mehr angezeigt, da dieser jetzt nicht mehr nötig ist.
+
 
 ## [1.2.4] - 2018-02-19
 ### Changed
@@ -88,6 +95,7 @@ Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) u
 - Ursprüngliches Release.
 
 [Unreleased]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.4...HEAD
+[1.2.5]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.4...v1.2.5
 [1.2.4]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.3...v1.2.4
 [1.2.3]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.2...v1.2.3
 [1.2.2]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.1...v1.2.2
