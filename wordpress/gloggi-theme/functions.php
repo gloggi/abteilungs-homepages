@@ -60,7 +60,20 @@ add_filter( 'upload_mimes', 'cc_mime_types' );
 
 // NON-Wordpress-related from here on
 
-function display_indexed_event_set($event_set, $index, $title, $agenda_link_prefix='') {
+function gloggi_aggregate_subchildren($subchildren, $root, $visited=array()) {
+  $visited[] = $root;
+  if( is_array( $subchildren ) && array_key_exists( $root, $subchildren ) ) {
+    $children = $subchildren[$root];
+    foreach( $children as $child ) {
+      if( in_array( $child, $visited ) ) continue;
+      $subchildren = gloggi_aggregate_subchildren($subchildren, $child, $visited);
+      if( array_key_exists( $child, $subchildren ) ) $subchildren[$root] = array_merge( $subchildren[$root], $subchildren[$child] );
+    }
+  }
+  return $subchildren;
+}
+
+function gloggi_display_indexed_event_set($event_set, $index, $title, $agenda_link_prefix='') {
   if( $event_set[$index] && count($event_set[$index]) > 0 ) : ?>
   <div class="lightbox__section"><h3><?php echo $title; ?></h3></div>
   <?php foreach( $event_set[$index] as $event ) : ?>

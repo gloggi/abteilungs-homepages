@@ -78,18 +78,6 @@ $einheiten_by_id = array_reduce( $einheiten, function($r, $e) { $r[$e['id']] = $
 $einheiten_by_parent = array_reduce( $einheiten, function($r, $e) { if( $e['parent'] !== null ) { $r[$e['parent']][] = $e['id']; } return $r; } );
 // $subchildren ist dasselbe wie $einheiten_by_parent, aber die value-Listen sind ergänzt durch indirekt untergeordneten Einheiten (also auch Enkel-Gruppen, Urenkel-Gruppen etc.).
 // Nur diejenigen Einheiten die auch tatsächlich untergeordnete Einheiten haben sind in den keys enthalten.
-function gloggi_aggregate_subchildren($subchildren, $root, $visited=array()) {
-  $visited[] = $root;
-  if( is_array( $subchildren ) && array_key_exists( $root, $subchildren ) ) {
-    $children = $subchildren[$root];
-    foreach( $children as $child ) {
-      if( in_array( $child, $visited ) ) continue;
-      $subchildren = gloggi_aggregate_subchildren($subchildren, $child, $visited);
-      if( array_key_exists( $child, $subchildren ) ) $subchildren[$root] = array_merge( $subchildren[$root], $subchildren[$child] );
-    }
-  }
-  return $subchildren;
-}
 $subchildren = gloggi_aggregate_subchildren($einheiten_by_parent, 0);
 
 ?>
@@ -316,7 +304,7 @@ $specialevent_titel = get_the_title(); ?>
           <div class="lightbox__body agenda__body">
             <div class="lightbox__section"><p class="wysiwyg"><?php echo wpptd_get_post_meta_value( $post->ID, 'description' ); ?></p></div>
             <div class="lightbox__section"><p class="wysiwyg">Hast du noch Fragen? Dann melde dich bei <a href="<?php echo encode_all_to_htmlentities( 'mailto:' . $standard_anlassverantwortlicher );?>"><?php echo encode_all_to_htmlentities( $standard_anlassverantwortlicher );?></a>.</p></div>
-            <?php display_indexed_event_set($specialevent_anlaesse, $specialevent_titel, "N&auml;chste " . wpptd_get_post_meta_value( $post->ID, 'pluralname' )); ?>
+            <?php gloggi_display_indexed_event_set($specialevent_anlaesse, $specialevent_titel, "N&auml;chste " . wpptd_get_post_meta_value( $post->ID, 'pluralname' )); ?>
           </div>
         </div>
       </div>

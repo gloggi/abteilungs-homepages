@@ -121,6 +121,82 @@ foreach( $gruppen as $gruppe ) :
   endif;
 endforeach;
 
+// Generiere Listen mit zukünftigen Anlässen aller Gruppen
+$gruppen_anlaesse = array();
+$einheiten = array();
+$gruppen_query = new WP_Query( array( 'post_type' => 'gruppe', 'orderby' => array( 'menu_order' => 'ASC' ), 'posts_per_page' => -1 ) );
+while( $gruppen_query->have_posts() ) : $gruppen_query->the_post();
+  $name = get_the_title();
+  $parent = wp_get_post_parent_id( $post->ID );
+  if( !$parent || $parent == $post->ID ) $parent = wpptd_get_post_meta_value( $post->ID, 'stufe' );
+  $einheiten[] = array(
+    'id' => $post->ID,
+    'name' => $name,
+    'linkname' => sanitize_title( $name ),
+    'type' => 'gruppe',
+    'parent' => $parent,
+    'logo' => wp_get_attachment_url( wpptd_get_post_meta_value( $post->ID, 'logo' ) ),
+    'farbe' => wpptd_get_post_meta_value( $post->ID, 'gruppenfarbe' ),
+    'jahresplan' => wp_get_attachment_url( wpptd_get_post_meta_value( $post->ID, 'jahresplan' ) ),
+  );
+endwhile; wp_reset_postdata();
+$stufen_query = new WP_Query( array( 'post_type' => 'stufe', 'orderby' => array( 'alter-von' => 'ASC', 'alter-bis' => 'ASC' ), 'posts_per_page' => -1 ) );
+while( $stufen_query->have_posts() ) : $stufen_query->the_post();
+  $name = get_the_title();
+  $einheiten[] = array(
+    'id' => $post->ID,
+    'name' => $name,
+    'linkname' => sanitize_title( $name ),
+    'type' => 'stufe',
+    'parent' => 0,
+    'logo' => wp_get_attachment_url( wpptd_get_post_meta_value( $post->ID, 'stufenlogo' ) ),
+    'farbe' => wpptd_get_post_meta_value( $post->ID, 'stufenfarbe' ),
+    'jahresplan' => wp_get_attachment_url( wpptd_get_post_meta_value( $post->ID, 'jahresplan' ) ),
+  );
+endwhile; wp_reset_postdata();
+$abteilungsname = wpod_get_option( 'gloggi_einstellungen', 'abteilung' );
+$einheiten[] = array( 'id' => 0, 'name' => $abteilungsname, 'linkname' => sanitize_title( $abteilungsname ), 'type' => 'abteilung', 'parent' => null, 'logo' => wpod_get_option( 'gloggi_einstellungen', 'abteilungslogo' ), 'jahresplan' => wp_get_attachment_url( wpod_get_option( 'gloggi_einstellungen', 'jahresplan' ) ) );
+set_query_var( 'agenda_gruppen', array_map( function($e) { return sanitize_title( $e['name'] ); }, $einheiten ) );
+$einheiten_by_id = array_reduce( $einheiten, function($r, $e) { $r[$e['id']] = $e; return $r; } );
+$einheiten_by_parent = array_reduce( $einheiten, function($r, $e) { if( $e['parent'] !== null ) { $r[$e['parent']][] = $e['id']; } return $r; } );
+$subchildren = gloggi_aggregate_subchildren($einheiten_by_parent, 0);
+$anlass_query = new WP_Query( array( 'post_type' => 'anlass', 'meta_query' => array( array( 'key' => 'endzeit', 'value' => date( 'YmdHis' ), 'compare' => '>=', ), ), 'posts_per_page' => -1, 'meta_key' => 'startzeit', 'orderby' => 'meta_value_num', 'order' => 'ASC' ) );
+while( $anlass_query->have_posts() ) {
+  $anlass_query->the_post();
+  $anlass = wpptd_get_post_meta_values( $post->ID );
+  // Falls genau eine Gruppe im Backend für diesen Anlass eingetragen ist, übernehme deren Gruppenlogo und Gruppenfarbe für den Anlass
+  $anlasslogo = null;
+  $anlassfarbe = null;
+  if( count( $anlass['teilnehmende-gruppen'] ) == 1 ) {
+    $anlasslogo = $einheiten_by_id[$anlass['teilnehmende-gruppen'][0]]['logo'];
+    $anlassfarbe = $einheiten_by_id[$anlass['teilnehmende-gruppen'][0]]['farbe'];
+  }
+  // Generiere eine Liste von Gruppen, die gemäss Eintrag im Backend am Anlass teilnehmen (für die Anzeige)
+  $anlassgruppen = implode( ', ', array_map( function($g) use ($einheiten_by_id) { return $einheiten_by_id[$g]['name']; }, $anlass['teilnehmende-gruppen'] ) );
+  // Generiere eine Liste von sämtlichen Gruppen und ihren (direkten und indirekten) Untergruppen, die gemäss Eintrag im Backend und gemäss Hierarchie am Anlass sein sollten (für die Filterung mit den Buttons)
+  $anlassgruppen_array = array_unique( array_reduce($anlass['teilnehmende-gruppen'], function($r, $e) use($subchildren){ return (array_key_exists($e, $subchildren) ? array_merge($r, $subchildren[$e]) : $r ); }, $anlass['teilnehmende-gruppen'] ) );
+  $change = true;
+  while( $change ) {
+    $change = false;
+    foreach( $subchildren as $parent => $sc ) {
+      if( !in_array($parent, $anlassgruppen_array) && count( array_intersect( $anlassgruppen_array, $sc ) ) == count( $sc ) ) {
+        $anlassgruppen_array[] = $parent;
+        $change = true;
+      }
+    }
+  }
+  $anlass['anlassgruppen_classes'] = "";
+  $anlass['ID'] = $post->ID;
+  $anlass['anlassfarbe'] = $anlassfarbe;
+  $anlass['anlasslogo'] = $anlasslogo;
+  $anlass['startzeitpunkt'] = date_create_from_format( 'YmdHis', $anlass['startzeit'] );
+  $anlass['title'] = get_the_title();
+  $anlass['anlassgruppen'] = $anlassgruppen;
+  foreach( $anlassgruppen_array as $anlassgruppe ) {
+    $gruppen_anlaesse[$anlassgruppe][] = $anlass;
+  }
+} wp_reset_postdata();
+
 // Generiere HTML
 foreach( $stufen as $stufe ) : ?>
 <div class="groups__section" style="background-color: <?php echo $stufe['farbe']; ?>;">
@@ -212,7 +288,7 @@ foreach( $stufen as $stufe ) : ?>
                 <div class="content__column">
                   <a href="<?php echo $mitmachen_seite; ?>#mitmachen" class="button button--small">Mitmachen</a>
                 </div><?php endif; ?>
-<?php display_indexed_event_set($gruppen_anlaesse, $gruppe['ID'], "N&auml;chste Anl&auml;sse", $agenda_seite . "?gruppe=" . sanitize_title( $gruppe['name'] )); ?>
+<?php gloggi_display_indexed_event_set($gruppen_anlaesse, $gruppe['ID'], "N&auml;chste Anl&auml;sse", $agenda_seite . "?gruppe=" . sanitize_title( $gruppe['name'] )); ?>
             </div>
           </div>
         </div>
