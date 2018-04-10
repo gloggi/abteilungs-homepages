@@ -74,7 +74,7 @@ if(isset($_POST['submit'])) {
           }
           break;
         case 'gender':
-          if ($value != 'm' && $value != 'w') {
+          if ($value != 'm' && $value != 'w' && $value != 'x') {
             $hasError = true;
             $formfields[$key]['class'] .= ' field-error ';
             $fields[$key] = '';
@@ -132,8 +132,9 @@ if(isset($_POST['submit'])) {
 <?php elseif( $field['type'] == 'gender' ) : ?>
         <select name="field<?php echo $index; ?>" id="field<?php echo $index; ?>" <?php if( $field['required'] ) : ?>required="required" <?php endif; ?>class="<?php echo $field['class']; ?>">
           <option value="">Bitte w&auml;hlen</option>
-          <option value="m"<?php if( $prefill[$index] == 'm' ) echo ' selected="selected"'; ?>>m&auml;nnlich</option>
-          <option value="w"<?php if( $prefill[$index] == 'w' ) echo ' selected="selected"'; ?>>weiblich</option>
+          <option value="m"<?php if( $prefill[$index] == 'm' ) echo ' selected="selected"'; ?>>m</option>
+          <option value="w"<?php if( $prefill[$index] == 'w' ) echo ' selected="selected"'; ?>>w</option>
+          <option value="x"<?php if( $prefill[$index] == 'x' ) echo ' selected="selected"'; ?>>x</option>
         </select>
 <?php else : ?>
         <input type="<?php echo $field['type']; ?>" name="field<?php echo $index; ?>" id="field<?php echo $index; ?>" value="<?php echo $prefill[$index]; ?>" <?php if( $field['required'] ) : ?>required="required" <?php endif; ?>class="<?php echo $field['class']; ?>"/>
