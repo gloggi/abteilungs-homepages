@@ -5,12 +5,13 @@ Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) u
 
 ## [Unreleased]
 ### Changed
-- Gender-korrektes Wording in Kontaktformular (m, w, x statt nur männlich und weiblich)
+- Gender-korrektes Wording in Kontaktformular (m, w, x statt nur männlich und weiblich).
+- Wenn keine Special Events definiert sind, werden alle Anlässe wie normale Anlässe behandelt, sogar wenn sie als Special Event markiert sind.
 
 ## [1.2.5] - 2018-03-29
 ### Added
-- In der Anlassdetailansicht wird jetzt wieder der Endort angezeigt
-- Auf der Gruppendetailansicht wird neu eine Liste der nächsten Anlässe der Gruppe angezeigt
+- In der Anlassdetailansicht wird jetzt wieder der Endort angezeigt.
+- Auf der Gruppendetailansicht wird neu eine Liste der nächsten Anlässe der Gruppe angezeigt.
 
 ### Removed
 - Auf der Gruppendetailansicht wird der Link zu den nächsten Anlässen in der Agenda nicht mehr angezeigt, da dieser jetzt nicht mehr nötig ist.
