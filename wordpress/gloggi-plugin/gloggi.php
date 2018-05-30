@@ -1230,6 +1230,18 @@ function gloggi_validate_anlass_enddate( $meta_values_validated ) {
 }
 add_filter( 'wpptd_validated_post_meta_values_anlass', 'gloggi_validate_anlass_enddate', 11, 3 );
 
+/* Validiere, dass Events nur Special Event sein koennen, wenn auch eine Art von Special Event ausgewaehlt wurde und umgekehrt */
+function gloggi_validate_anlass_specialevent( $meta_values_validated ) {
+  if( !$meta_values_validated['specialevent'] ) {
+    $meta_values_validated['is-specialevent'] = false;
+  }
+  if( !$meta_values_validated['is-specialevent'] ) {
+    $meta_values_validated['specialevent'] = '';
+  }
+  return $meta_values_validated;
+}
+add_filter( 'wpptd_validated_post_meta_values_anlass', 'gloggi_validate_anlass_specialevent', 11, 3 );
+
 /* Zeige die Hinweismeldung, wenn das Enddatum eines Anlasses automatisch angepasst wurde */
 function gloggi_display_anlass_enddate_correction_notice( $post ) {
   $errors = get_transient( 'gloggi_post_meta_error_anlass' );
