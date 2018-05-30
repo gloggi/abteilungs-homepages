@@ -19,6 +19,12 @@ $agenda_specialevents_title = wpptd_get_post_meta_value( $post->ID, 'agenda-spec
 
 $standard_anlassverantwortlicher = wpod_get_option( 'gloggi_einstellungen', 'anlassverantwortungs-email' );
 
+$any_specialevents_exist = false;
+$specialevents = new WP_Query( array( 'post_type' => 'specialevent', ) );
+if( $specialevents->have_posts() ) {
+  $any_specialevents_exist = true;
+}
+
 
 // Funktion um Mailadressen zu verschleiern
 function encode_all_to_htmlentities($str) {
@@ -206,7 +212,7 @@ if( $anlaesse->have_posts() ) : ?>
             </div>
             <div class="agenda__body">
               <div class="lightbox__section"><p class="wysiwyg"><?php echo $anlassinfos['beschreibung']; ?></p></div>
-              <div class="lightbox__section"><p class="wysiwyg">Hast du noch Fragen? Dann melde dich bei <a href="<?php echo encode_all_to_htmlentities( 'mailto:' . $anlassverantwortlicher );?>"><?php echo encode_all_to_htmlentities( $anlassverantwortlicher_name );?></a><?php if( $anlassinfos['is-specialevent'] ) : ?> oder lies allgemeine Informationen über <a href="#special-event-<?php echo sanitize_title( $specialevent_titel ); ?>"><?php echo $specialevent_pluralname; ?></a><?php endif; ?>.</p></div>
+              <div class="lightbox__section"><p class="wysiwyg">Hast du noch Fragen? Dann melde dich bei <a href="<?php echo encode_all_to_htmlentities( 'mailto:' . $anlassverantwortlicher );?>"><?php echo encode_all_to_htmlentities( $anlassverantwortlicher_name );?></a><?php if( $any_specialevents_exist && $anlassinfos['is-specialevent'] ) : ?> oder lies allgemeine Informationen über <a href="#special-event-<?php echo sanitize_title( $specialevent_titel ); ?>"><?php echo $specialevent_pluralname; ?></a><?php endif; ?>.</p></div>
               <div class="lightbox__section">
                 <div class="content__two-columns content__columns--1-1">
 <?php if( $anlassinfos['mitnehmen'] ) : ?>
