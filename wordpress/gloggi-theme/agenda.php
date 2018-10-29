@@ -244,6 +244,8 @@ if( $anlaesse->have_posts() ) : ?>
 <?php endif; ?>
 </div>
 
+<div id="testmap"></div>
+
 <?php echo $agenda_trennbanner; ?>
 
 <?php
