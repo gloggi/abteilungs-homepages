@@ -91,6 +91,10 @@ function gloggi_set_view_for_two_locations(map, loc1, loc2) {
   map.getView().setResolution(resolution);
 }
 
+function gloggi_parse_coordinates(value) {
+  return value.replace(/\s+/g, '').split("/").map(function(value) { return parseInt(value); })
+}
+
 function gloggi_initialize_map (mapElement) {
   var map = new ga.Map({
     target: mapElement,
@@ -105,13 +109,13 @@ function gloggi_initialize_map (mapElement) {
   var startCoords = mapElement.dataset.address1;
   var endCoords = mapElement.dataset.address2;
   if (startCoords === endCoords) {
-    startCoords = startCoords.replace(/\s+/g, '').split("/").map(function(value) { return parseInt(value); });
+    startCoords = gloggi_parse_coordinates(startCoords);
     map.getView().setCenter(startCoords);
     map.getView().setResolution(10);
     gloggi_mark_address(map, startCoords);
   } else {
-    startCoords = startCoords.replace(/\s+/g, '').split("/").map(function(value) { return parseInt(value); });
-    endCoords = endCoords.replace(/\s+/g, '').split("/").map(function(value) { return parseInt(value); });
+    startCoords = gloggi_parse_coordinates(startCoords);
+    endCoords = gloggi_parse_coordinates(endCoords);
     gloggi_set_view_for_two_locations(map, startCoords, endCoords);
     gloggi_mark_address(map, startCoords);
     gloggi_mark_address(map, endCoords);
