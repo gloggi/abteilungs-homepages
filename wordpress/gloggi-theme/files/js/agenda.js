@@ -85,7 +85,7 @@ function gloggi_set_view_for_two_locations(map, loc1, loc2) {
   var distanceX = loc1[0] - center[0];
   var distanceY = loc1[1] - center[1];
   var radius = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
-  var resolution = Math.min(Math.max(2 * radius / 250., 5), 4000);
+  var resolution = Math.min(Math.max(2 * radius * 1.2 / 250., 5), 4000);
 
   map.getView().setCenter(center);
   map.getView().setResolution(resolution);
