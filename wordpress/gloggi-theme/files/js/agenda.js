@@ -70,7 +70,11 @@ function gloggi_mark_address(map, coords, text="") {
         anchor: [0.5, 1],
         anchorXUnits: 'fraction',
         anchorYUnits: 'fraction',
-        src: '../wp-content/themes/gloggi-theme/files/img/location.png'
+        src: "data:image/svg+xml,%3Csvg width='26' height='50' version='1.1' viewBox='0 0 26 50' xmlns='http://www.w3.org/2000/svg'%3E\n" +
+          "%3Cpath class='svg' d='m8 1-1e-7 20h-7s12 19 12 28c0-9 12-28 12-28h-7v-20z' stroke='%23fff' fill='" +
+          $('#navbar').css('background-color') +
+          "' stroke-width='2'/%3E\n" +
+          "%3C/svg%3E"
       })
     })
   })
