@@ -58,52 +58,11 @@ function get_query_params(qs) {
   return params;
 }
 
-// function gloggi_mark_address(map, bounds, geocoder, coords, title="", single=false) {
-//   coords = coords.split("|");
-//   latLng = new google.maps.LatLng(parseFloat(coords[0]), parseFloat(coords[1]));
-//   bounds.extend(latLng);
-//   if(single) {
-//     map.setCenter(latLng);
-//     map.setZoom(15);
-//   } else {
-//     map.fitBounds(bounds);
-//   }
-//   return new google.maps.Marker({ map: map, position: latLng, label: title });
-// }
-//
-// function gloggi_initialize_map(map) {
-//   var mapOptions = {
-//     mapTypeId: 'roadmap'
-//   };
-//   var gmap = new google.maps.Map(map, mapOptions);
-//   var bounds = new google.maps.LatLngBounds();
-//   var startCoords = map.getAttribute("data-address1");
-//   var endCoords = map.getAttribute("data-address2");
-//   if(startCoords == endCoords) {
-//     gloggi_mark_address(gmap, bounds, geocoder, startCoords, "A", true );
-//   } else {
-//     gloggi_mark_address(gmap, bounds, geocoder, startCoords, "A");
-//     gloggi_mark_address(gmap, bounds, geocoder, endCoords, "B");
-//   }
-// }
-
-function gloggi_initialize_map (mapElement) {
-  let map = new ga.Map({
-    target: mapElement,
-    view: new ol.View({
-      resolution: 10,
-      center: [2688689, 1248430]
-    })
-  })
-  let position = [2688689, 1248430]
-  map.getView().setCenter(position)
-  let mapLayer = ga.layer.create('ch.swisstopo.pixelkarte-farbe')
-  map.addLayer(mapLayer)
-
-  let markerLayer = new ol.layer.Vector({
+function gloggi_mark_address(map, coords, text="") {
+  var markerLayer = new ol.layer.Vector({
     source: new ol.source.Vector({
       features: [new ol.Feature({
-        geometry: new ol.geom.Point(position)
+        geometry: new ol.geom.Point(coords)
       })]
     }),
     style: new ol.style.Style({
@@ -116,6 +75,47 @@ function gloggi_initialize_map (mapElement) {
     })
   })
   map.addLayer(markerLayer)
+}
+
+function gloggi_set_view_for_two_locations(map, loc1, loc2) {
+  var center = [
+    (loc1[0] + loc2[0]) / 2.,
+    (loc1[1] + loc2[1]) / 2.,
+  ]
+  var distanceX = loc1[0] - center[0];
+  var distanceY = loc1[1] - center[1];
+  var radius = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+  var resolution = Math.min(Math.max(2 * radius / 250., 5), 4000);
+
+  map.getView().setCenter(center);
+  map.getView().setResolution(resolution);
+}
+
+function gloggi_initialize_map (mapElement) {
+  var map = new ga.Map({
+    target: mapElement,
+    view: new ol.View({
+      center: [2683237, 1248144],
+      resolution: 10,
+    })
+  })
+  var mapLayer = ga.layer.create('ch.swisstopo.pixelkarte-farbe')
+  map.addLayer(mapLayer)
+
+  var startCoords = mapElement.dataset.address1;
+  var endCoords = mapElement.dataset.address2;
+  if (startCoords === endCoords) {
+    startCoords = startCoords.replace(/\s+/g, '').split("/").map(function(value) { return parseInt(value); });
+    map.getView().setCenter(startCoords);
+    map.getView().setResolution(10);
+    gloggi_mark_address(map, startCoords);
+  } else {
+    startCoords = startCoords.replace(/\s+/g, '').split("/").map(function(value) { return parseInt(value); });
+    endCoords = endCoords.replace(/\s+/g, '').split("/").map(function(value) { return parseInt(value); });
+    gloggi_set_view_for_two_locations(map, startCoords, endCoords);
+    gloggi_mark_address(map, startCoords);
+    gloggi_mark_address(map, endCoords);
+  }
 }
 
 function gloggi_swisstopo_ready() {
@@ -174,8 +174,5 @@ jQuery(document).ready(function($){
   var buttons = $('.agenda__sections .button, .agenda__sections .button--inactive');
   buttons.click(on_click_button);
 
-  // var script = document.createElement('script');
-  // script.src = "//maps.googleapis.com/maps/api/js?callback=gloggi_gmaps_ready&key=" + GmapsAPIKey;
-  // document.body.appendChild(script);
   gloggi_swisstopo_ready();
 });

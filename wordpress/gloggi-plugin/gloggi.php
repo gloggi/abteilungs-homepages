@@ -25,7 +25,7 @@ function gloggi_dependencies_satisfied() {
        !is_plugin_active( 'options-definitely/options-definitely.php' ) ) ) {
     add_action( 'admin_notices', 'dependency_missing_notice' );
 
-    deactivate_plugins( plugin_basename( __FILE__ ) ); 
+    deactivate_plugins( plugin_basename( __FILE__ ) );
 
     if ( isset( $_GET['activate'] ) ) {
       unset( $_GET['activate'] );
@@ -248,7 +248,7 @@ function gloggi_custom_post_type_gruppe( $wpptd ) {
                 'stufe' => array(
                   'title' => __( 'Stufe*', 'gloggi' ),
                   'type' => 'select',
-                  'options' => array( 'posts' => 'stufe' ), 
+                  'options' => array( 'posts' => 'stufe' ),
                   'required' => true,
                 ),
                 'geschlecht' => array(
@@ -770,11 +770,11 @@ function gloggi_custom_post_type_location( $wpptd ) {
               'title' => __( 'Location-Informationen', 'gloggi' ),
               'fields' => array(
                 'coords' => array(
-                  'title' => __( 'Ort', 'gloggi' ),
-                  'type' => 'map',
-                  'store' => 'coords',
-                  // Bug im plugin post-types-definitely: map felder können nicht required sein
-                  //'required' => true,
+                  'title' => __( 'Koordinaten', 'gloggi' ),
+                  'type' => 'text',
+                  'placeholder' => '2 683 237 / 1 248 144',
+                  'required' => true,
+                  'description' => __( 'Hilfsmittel: <a href="https://tools.retorte.ch/map/" target="_blank">Koordinator</a>', 'gloggi' )
                 ),
               ),
             ),
