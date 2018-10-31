@@ -4,6 +4,9 @@ Alle bemerkenswerten Änderungen an diesem Projekt werden in dieser Datei festge
 Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) und dieses Projekt hält sich an [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+
+## [1.2.6] - 2018-11-01
 ### Changed
 - Gender-korrektes Wording in Kontaktformular (m, w, x statt nur männlich und weiblich).
 - Wenn keine Special Events definiert sind, werden alle Anlässe wie normale Anlässe behandelt, sogar wenn sie als Special Event markiert sind.
@@ -97,7 +100,8 @@ Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) u
 ### Added
 - Ursprüngliches Release.
 
-[Unreleased]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.4...HEAD
+[Unreleased]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.6...HEAD
+[1.2.6]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.5...v1.2.6
 [1.2.5]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.4...v1.2.5
 [1.2.4]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.3...v1.2.4
 [1.2.3]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.2...v1.2.3
