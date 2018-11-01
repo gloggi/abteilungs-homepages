@@ -1,6 +1,6 @@
 {
   "name": "gloggi-abteilungs-homepages",
-  "version": "1.2.5",
+  "version": "1.3.0",
   "description": "WordPress plugin and theme for easy to setup websites for scouting Abteilungen",
   "repository": {
     "type": "git",
@@ -12,18 +12,20 @@
   },
   "homepage": "https://github.com/gloggi/abteilungs-homepages",
   "devDependencies": {
-    "dateformat": "^3.0.2",
+    "dateformat": "^3.0.3",
     "gulp": "^3.9.1",
-    "gulp-filter": "^5.0.1",
-    "gulp-inject-string": "^1.1.0",
+    "gulp-bump": "^3.1.1",
+    "gulp-filter": "^5.1.0",
+    "gulp-git": "^2.8.0",
+    "gulp-inject-string": "^1.1.1",
     "gulp-inject-version": "^1.0.1",
-    "gulp-sass": "^3.1.0",
+    "gulp-sass": "^3.2.1",
     "gulp-scss": "^1.4.0",
     "gulp-util": "^3.0.8",
-    "gulp-zip": "^4.0.0",
+    "gulp-zip": "^4.2.0",
     "merge-stream": "^1.0.1",
-    "run-sequence": "^2.2.0",
-    "gulp-git": "^2.5.1",
-    "vinyl-ftp": "^0.6.0"
+    "natives": "^1.1.6",
+    "run-sequence": "^2.2.1",
+    "vinyl-ftp": "^0.6.1"
   }
 }
