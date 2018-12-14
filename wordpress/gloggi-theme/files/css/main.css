@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,600,300italic");
 .color-green {
   background-color: #539704; }
 
@@ -23,13 +24,8 @@
 .instagram-icon {
   background-color: #8B572A; }
 
-@font-face {
-  font-family: "Rokkitt";
-  src: url("//db.onlinewebfonts.com/t/5f2a58d2dc4bdb958bb6140bf96c3d8e.eot");
-  src: url("//db.onlinewebfonts.com/t/5f2a58d2dc4bdb958bb6140bf96c3d8e.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/5f2a58d2dc4bdb958bb6140bf96c3d8e.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/5f2a58d2dc4bdb958bb6140bf96c3d8e.woff") format("woff"), url("//db.onlinewebfonts.com/t/5f2a58d2dc4bdb958bb6140bf96c3d8e.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/5f2a58d2dc4bdb958bb6140bf96c3d8e.svg#Rokkitt") format("svg"); }
-
 h1, h2, h3, h4 {
-  font-family: Rokkitt, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+  font-family: "Source Sans Pro", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-style: normal;
   font-variant: normal;
   line-height: 1.2; }
@@ -76,7 +72,7 @@ h4 {
 p, input, button, li, b, .content__text {
   padding: 0px;
   margin: 0px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Source Sans Pro", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-style: normal;
   font-variant: normal;
   font-size: 24px;
@@ -91,12 +87,12 @@ p, input, button, li, b, .content__text {
   color: white; }
 
 p {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Source Sans Pro", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   margin-bottom: 10px;
   color: #4A4A4A; }
 
 a {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Source Sans Pro", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-style: normal;
   font-variant: normal;
   font-size: 24px;
