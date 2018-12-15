@@ -226,8 +226,7 @@ ul {
     line-height: 38.4px;
     margin-bottom: 20px;
     color: #4A4A4A;
-    text-overflow: ellipsis;
-    overflow: hidden; }
+    text-overflow: ellipsis; }
   .agenda__entry-content > a {
     font-family: "Source Sans Pro", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     font-style: normal;
