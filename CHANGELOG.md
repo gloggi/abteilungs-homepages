@@ -4,6 +4,8 @@ Alle bemerkenswerten Änderungen an diesem Projekt werden in dieser Datei festge
 Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) und dieses Projekt hält sich an [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- Alle Schriftarten auf Source Sans Pro geändert, um dem neuen Gloggi-Branding-Konzept zu folgen.
 
 
 ## [1.3.0] - 2018-11-01

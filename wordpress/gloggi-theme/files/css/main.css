@@ -24,6 +24,9 @@
 .instagram-icon {
   background-color: #8B572A; }
 
+body {
+  font-family: "Source Sans Pro", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
+
 h1, h2, h3, h4 {
   font-family: "Source Sans Pro", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-style: normal;
@@ -69,9 +72,7 @@ h4 {
   margin-bottom: 10px;
   text-align: left; }
 
-p, input, button, li, b, .content__text {
-  padding: 0px;
-  margin: 0px;
+div.content__block, button {
   font-family: "Source Sans Pro", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-style: normal;
   font-variant: normal;
@@ -79,8 +80,11 @@ p, input, button, li, b, .content__text {
   line-height: 1.5;
   letter-spacing: 0.8px; }
   @media screen and (max-width: 700px) {
-    p, input, button, li, b, .content__text {
+    div.content__block, button {
       font-size: 18px; } }
+  div.content__block p, div.content__block li, div.content__block b, div.content__block .content__text, div.content__block strong, div.content__block em, div.content__block del, button p, button li, button b, button .content__text, button strong, button em, button del {
+    padding: 0px;
+    margin: 0px; }
 
 ::selection {
   background: #244392;
@@ -204,7 +208,7 @@ ul {
     .agenda__entry-content {
       width: 100%; } }
   .agenda__entry-content p {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Source Sans Pro", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     font-style: normal;
     font-variant: normal;
     font-size: 18px;
@@ -214,7 +218,7 @@ ul {
     letter-spacing: 0.8px;
     color: #4A4A4A; }
   .agenda__entry-content h3 {
-    font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+    font-family: "Source Sans Pro", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     font-size: 42px;
     font-style: normal;
     font-variant: normal;
@@ -225,7 +229,7 @@ ul {
     text-overflow: ellipsis;
     overflow: hidden; }
   .agenda__entry-content > a {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Source Sans Pro", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     font-style: normal;
     font-variant: normal;
     font-size: 18px;
@@ -250,7 +254,7 @@ ul {
   padding: 15px;
   text-align: left; }
   .agenda__header > div h3 {
-    font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+    font-family: "Source Sans Pro", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     font-size: 42px;
     font-style: normal;
     font-variant: normal;
@@ -315,7 +319,7 @@ ul {
       flex-direction: column;
       align-items: center; }
       .agenda__year-agenda li a p {
-        font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+        font-family: "Source Sans Pro", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
         font-size: 30px;
         font-style: normal;
         padding-top: 10px; }
@@ -785,7 +789,7 @@ label {
     font-size: 24px; }
 
 .navbar {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Source Sans Pro", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 24px;
   font-style: normal;
   font-variant: normal;
@@ -804,7 +808,7 @@ label {
   box-shadow: 0 6px 6px rgba(0, 0, 0, 0.175);
   border: none; }
   .dropdown-menu li > a {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Source Sans Pro", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     font-size: 20px;
     font-style: normal;
     font-variant: normal;
