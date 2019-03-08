@@ -131,9 +131,7 @@ function gloggi_custom_post_type_stufe( $wpptd ) {
                   'type' => 'number',
                   'step' => 1,
                   'min' => 4,
-                  'max' => 18,
-                  'default' => 11,
-                  'required' => true,
+                  'default' => 11
                 ),
                 'stufenfarbe' => array(
                   'title' => __( 'Stufenfarbe*', 'gloggi' ),
