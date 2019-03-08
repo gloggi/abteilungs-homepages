@@ -585,6 +585,9 @@ img.alignleft {
       padding: 10px;
       flex-wrap: wrap; } }
 
+.footer__column .wysiwyg {
+  white-space: pre; }
+
 @media screen and (max-width: 500px) {
   .footer__column {
     width: 100%; } }

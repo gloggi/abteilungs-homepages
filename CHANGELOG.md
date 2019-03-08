@@ -7,6 +7,7 @@ Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) u
 ### Changed
 - Alle Schriftarten auf Source Sans Pro geändert, um dem neuen Gloggi-Branding-Konzept zu folgen.
 - Stufen können jetzt ein beliebig hohes oberes (oder kein) Alterslimit angeben
+- Kontakt im Footer formatiert wieder richtig, ohne voreilige automatische Zeilenumbrüche
 
 
 ## [1.3.0] - 2018-11-01
