@@ -2,3 +2,5 @@ logo.svg
 tutorial.php
 *.DS_Store
 *.swp
+.idea
+wordpress/wp-app
