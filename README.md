@@ -12,7 +12,7 @@
 
     ```docker-compose up```
 
-4. Once the containers have started, access the site at ```localhost``` (can be changed in .env.local). You can log in at localhost/wp-admin with user 'admin' and password 'gloggi'. If you change something in the plugin or theme directories, refresh the page in your browser to see the changes take action immediately.
+4. Once the containers have started, access the site at ```localhost``` (can be changed by copying .env.example to .env and modifying it). You can log in at localhost/wp-admin with user 'admin' and password 'gloggi'. If you change something in the plugin or theme directories, refresh the page in your browser to see the changes take action immediately.
 
 
 # Installing on a hoster

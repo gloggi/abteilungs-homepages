@@ -1,4 +1,5 @@
 var gulp       = require('gulp'),
+    env        = require('dotenv').config(),
     sass       = require('gulp-sass'),
     zip        = require('gulp-zip'),
     bump       = require('gulp-bump'),
@@ -9,12 +10,7 @@ var gulp       = require('gulp'),
     dateformat = require('dateformat'),
     inject     = require('gulp-inject-string'),
     filter     = require('gulp-filter'),
-    git        = require('gulp-git'),
-    config     = require('./gulpconfig.json');
-
-gulp.task('test', function() {
-    console.log(process.env)
-})
+    git        = require('gulp-git');
 
 gulp.task('css', function() {
     return gulp.src('../frontend/src/css/*.scss')
@@ -69,7 +65,7 @@ gulp.task('deploy', gulp.series('zip', function() {
         .pipe(inject.replace('%%GULP_INJECT_DATETIME%%', dateformat(new Date(), "yyyy-mm-dd hh:MM:ss"))),
         gulp.src(['gloggi-plugin.zip', 'gloggi-theme.zip'])
     )
-    .pipe(ftp.create({'host': config.ftphost, 'user': config.ftpuser, 'password': config.ftppass}).dest(config.ftppath));
+    .pipe(ftp.create({'host': process.env.FTP_HOST, 'user': process.env.FTP_USER, 'password': process.env.FTP_PASS}).dest(process.env.FTP_PATH));
 }));
 
 gulp.task('release', gulp.series('bump-version', function() {
@@ -85,11 +81,11 @@ gulp.task('release-major', gulp.series('bump-version-major', function() {
 }));
 
 function do_release() {
-    package = require('./package.json');
+    package_json = require('./package.json');
     gulp.src('./*')
-    .pipe(git.commit('Release v' + package.version, {args: '-a', disableAppendPaths: true}))
+    .pipe(git.commit('Release v' + package_json.version, {args: '-a', disableAppendPaths: true}))
     .on('end', function () {
-        git.tag('v' + package.version, 'Release v' + package.version, function (err) { });
+        git.tag('v' + package_json.version, 'Release v' + package_json.version, function (err) { });
     });
     gulp.start('deploy');
 }

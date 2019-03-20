@@ -9,8 +9,8 @@ services:
       WORDPRESS_SITE_USER: "admin"
       WORDPRESS_SITE_PASSWORD: "gloggi"
     env_file:
-        - ./.env
-        - ./.env.local
+      - ./.env.example
+      - ./.env
     depends_on:
       - "mysql"
     volumes:
