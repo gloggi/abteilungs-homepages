@@ -1136,15 +1136,21 @@ function gloggi_remove_users_column($column_headers) {
 }
 add_action('manage_users_columns','gloggi_remove_users_column');
 
-/* Sortiere pages nach der menu_order-Spalte */
-function custom_post_order($query){
-  if( ('stufe' == $query->get('post_type')) or ('kontakt' == $query->get('post_type')) or ('page' == $query->get('post_type'))){
-    $query->set('orderby', 'menu_order');
-    $query->set('order', 'ASC');
+/* Sortiere verschiedene Admin-Tabellen */
+function gloggi_custom_post_order() {
+  if( !isset( $_GET['orderby'] ) && !isset( $_GET['order'] ) ) {
+    if ('anlass' == $_GET['post_type']){
+      $_GET['orderby'] = 'meta-startzeit';
+      $_GET['order'] = 'desc';
+    }
+    if( 'stufe' == $_GET['post_type'] or 'kontakt' == $_GET['post_type'] or 'page' == $_GET['post_type'] ) {
+      $_GET['orderby'] = 'menu_order';
+      $_GET['order'] = 'asc';
+    }
   }
 }
 if( is_admin() ) {
-  add_action('pre_get_posts', 'custom_post_order');
+  add_action('load-edit.php', 'gloggi_custom_post_order', 9, 0);
 }
 
 /* Duplizieren von Anlaessen in der Anlass-Liste */
