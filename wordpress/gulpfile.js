@@ -12,6 +12,10 @@ var gulp       = require('gulp'),
     git        = require('gulp-git'),
     config     = require('./gulpconfig.json');
 
+gulp.task('test', function() {
+    console.log(process.env)
+})
+
 gulp.task('css', function() {
     return gulp.src('../frontend/src/css/*.scss')
     .pipe(sass())
@@ -28,7 +32,7 @@ gulp.task('zip-plugin', function() {
     .pipe(gulp.dest('.'));
 });
 
-gulp.task('zip-theme', ['css'], function() {
+gulp.task('zip-theme', gulp.series('css', function() {
     var f = filter(['**/*.php', '**/*.css'], {restore: true});
     return gulp.src('gloggi-theme/**', {'base':'.'})
     .pipe(f)
@@ -36,11 +40,9 @@ gulp.task('zip-theme', ['css'], function() {
     .pipe(f.restore)
     .pipe(zip('gloggi-theme.zip'))
     .pipe(gulp.dest('.'));
-});
+}));
 
-gulp.task('zip', ['zip-plugin', 'zip-theme'], function() {
-    return util.noop();
-});
+gulp.task('zip', gulp.parallel('zip-plugin', 'zip-theme'));
 
 gulp.task('bump-version', function() {
     return gulp.src('./package.json')
@@ -60,7 +62,7 @@ gulp.task('bump-version-major', function() {
     .pipe(gulp.dest('.'));
 });
 
-gulp.task('deploy', ['zip-plugin', 'zip-theme'], function() {
+gulp.task('deploy', gulp.series('zip', function() {
     return merge(
         gulp.src(['./gloggi-plugin.json', './gloggi-theme.json'])
         .pipe(version({'prepend':''}))
@@ -68,19 +70,19 @@ gulp.task('deploy', ['zip-plugin', 'zip-theme'], function() {
         gulp.src(['gloggi-plugin.zip', 'gloggi-theme.zip'])
     )
     .pipe(ftp.create({'host': config.ftphost, 'user': config.ftpuser, 'password': config.ftppass}).dest(config.ftppath));
-});
+}));
 
-gulp.task('release', ['bump-version'], function() {
+gulp.task('release', gulp.series('bump-version', function() {
     return do_release();
-});
+}));
 
-gulp.task('release-minor', ['bump-version-minor'], function() {
+gulp.task('release-minor', gulp.series('bump-version-minor', function() {
     return do_release();
-});
+}));
 
-gulp.task('release-major', ['bump-version-major'], function() {
+gulp.task('release-major', gulp.series('bump-version-major', function() {
     return do_release();
-});
+}));
 
 function do_release() {
     package = require('./package.json');
@@ -92,6 +94,4 @@ function do_release() {
     gulp.start('deploy');
 }
 
-gulp.task('default', ['zip'], function() {
-    return util.noop();
-});
+gulp.task('default', gulp.parallel('zip-plugin', 'zip-theme'));
