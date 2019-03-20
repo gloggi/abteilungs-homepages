@@ -20,7 +20,6 @@
     "gulp-inject-string": "^1.1.2",
     "gulp-inject-version": "^1.0.1",
     "gulp-sass": "^4.0.2",
-    "gulp-scss": "^1.4.0",
     "gulp-util": "^3.0.8",
     "gulp-zip": "^4.2.0",
     "merge-stream": "^1.0.1",
