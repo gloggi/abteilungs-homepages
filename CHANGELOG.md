@@ -10,6 +10,7 @@ Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) u
 - Kontakt im Footer formatiert wieder richtig, ohne voreilige automatische Zeilenumbrüche
 - Anlässe werden nun standardmässig absteigend nach Startdatum sortiert. So sind alte Anlässe nicht mehr im Weg.
 - Security updates von verwendeter Drittsoftware.
+- Mehrzeilige Textfelder werden jetzt wieder in der Primärfarbe umrandet.
 
 
 ## [1.3.0] - 2018-11-01

@@ -128,7 +128,7 @@ if(isset($_POST['submit'])) {
 <?php $index = 0; foreach( $formfields as $field ) : ?>
       <li><label for="field<?php echo $index; ?>"><?php echo $field['name'] . ( $field['required'] ? '*' : '' ); ?></label>
 <?php if( $field['type'] == 'textarea' ) :?>
-        <textarea rows="3" name="field<?php echo $index; ?>" id="field<?php echo $index; ?>" <?php if( $field['required'] ) : ?>required="required" <?php endif; ?>class="form-control<?php echo $field['class']; ?>"><?php echo $prefill[$index]; ?></textarea></li>
+        <textarea rows="3" name="field<?php echo $index; ?>" id="field<?php echo $index; ?>" <?php if( $field['required'] ) : ?>required="required" <?php endif; ?>class="<?php echo $field['class']; ?>"><?php echo $prefill[$index]; ?></textarea></li>
 <?php elseif( $field['type'] == 'gender' ) : ?>
         <select name="field<?php echo $index; ?>" id="field<?php echo $index; ?>" <?php if( $field['required'] ) : ?>required="required" <?php endif; ?>class="<?php echo $field['class']; ?>">
           <option value="">Bitte w&auml;hlen</option>
