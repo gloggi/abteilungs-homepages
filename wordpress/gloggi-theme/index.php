@@ -82,6 +82,15 @@ if(isset($_POST['submit'])) {
             $fields[$key] = trim($value);
           }
           break;
+        case 'date':
+          if (!date_create_from_format('d.m.Y', $value)) {
+            $hasError = true;
+            $formfields[$key]['class'] .= ' field-error ';
+            $fields[$key] = '';
+          } else {
+            $fields[$key] = trim($value);
+          }
+          break;
       }
       $prefill[$index] = $fields[$key];
     }
@@ -89,7 +98,7 @@ if(isset($_POST['submit'])) {
   }
   if(!$hasError) {
     $emailTo = wpod_get_option('gloggi_einstellungen', 'mitmachen-email');
-    $subject = 'Neue Nachricht auf ' . get_the_permalink();
+    $subject = 'Nachricht auf ' . get_the_permalink();
     $body = '';
     $email = '';
     foreach( $fields as $key => $field ) {
@@ -136,6 +145,8 @@ if(isset($_POST['submit'])) {
           <option value="w"<?php if( $prefill[$index] == 'w' ) echo ' selected="selected"'; ?>>w</option>
           <option value="x"<?php if( $prefill[$index] == 'x' ) echo ' selected="selected"'; ?>>x</option>
         </select>
+<?php elseif( $field['type'] == 'date' ) : ?>
+        <input name="field<?php echo $index; ?>" id="field<?php echo $index; ?>" value="<?php echo $prefill[$index]; ?>" <?php if( $field['required'] ) : ?>required="required" <?php endif; ?>class="datepicker <?php echo $field['class']; ?>" />
 <?php else : ?>
         <input type="<?php echo $field['type']; ?>" name="field<?php echo $index; ?>" id="field<?php echo $index; ?>" value="<?php echo $prefill[$index]; ?>" <?php if( $field['required'] ) : ?>required="required" <?php endif; ?>class="<?php echo $field['class']; ?>"/>
 <?php endif; ?>

@@ -4,6 +4,9 @@ Alle bemerkenswerten Änderungen an diesem Projekt werden in dieser Datei festge
 Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) und dieses Projekt hält sich an [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Im Formular kann man jetzt Datumsfelder einfügen.
+
 ### Changed
 - Alle Schriftarten auf Source Sans Pro geändert, um dem neuen Gloggi-Branding-Konzept zu folgen.
 - Stufen können jetzt ein beliebig hohes oberes (oder kein) Alterslimit angeben

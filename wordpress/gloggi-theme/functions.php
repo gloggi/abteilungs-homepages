@@ -30,6 +30,12 @@ function gloggi_scripts() {
     // Gib die Gruppenliste und den Google Maps API key an das Agenda-Skript
     wp_localize_script( 'agenda', 'Groups', get_query_var( 'agenda_gruppen' ) );
   }
+  if( is_page_template( 'index.php' ) ) {
+    wp_enqueue_script( 'bootstrap-datepicker', get_template_directory_uri().'/files/js/bootstrap-datepicker.min.js');
+    wp_enqueue_script( 'bootstrap-datepicker-de', get_template_directory_uri().'/files/js/bootstrap-datepicker.de.min.js');
+    wp_enqueue_style( 'bootstrap-datepicker', get_template_directory_uri().'/files/css/bootstrap-datepicker3.min.css');
+    wp_enqueue_script( 'gloggi_index', get_template_directory_uri() . '/files/js/index.js', array( 'jquery' ) );
+  }
 }
 add_action( 'wp_enqueue_scripts', 'gloggi_scripts' );
 

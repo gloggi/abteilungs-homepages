@@ -840,6 +840,7 @@ function gloggi_custom_page_type( $wpptd ) {
                           'email' => __( 'e-Mail-Adresse', 'gloggi' ),
                           'tel' => __( 'Telefonnummer', 'gloggi' ),
                           'gender' => __( 'Geschlecht', 'gloggi' ),
+                          'date' => __( 'Datum', 'gloggi' ),
                         ),
                       ),
                       'required' => array(
