@@ -21,6 +21,7 @@ Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) u
 - Mehrzeilige Textfelder werden jetzt wieder in der Primärfarbe umrandet.
 - Im Footer werden alle Spalten nur noch angezeigt wenn sie Inhalte haben.
 - [Breaking] Die Social Media Links auf dem Formular-Template können jetzt pro Seite separat angepasst werden, anstatt global für die ganze Webseite.
+- Jeder Anlass kann nun mehreren Special Events zugeordnet werden, sodass man auch spezielle Orte oder Traditionen als Special Events erfassen kann.
 
 
 ## [1.3.0] - 2018-11-01

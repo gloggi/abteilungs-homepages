@@ -102,4 +102,15 @@ function gloggi_display_indexed_event_set($event_set, $index, $title, $agenda_li
   endif;
 }
 
+function gloggi_make_list($items, $conjunction) {
+  $count = count($items);
+  if ($count === 0) {
+    return '';
+  }
+  if ($count === 1) {
+    return $items[0];
+  }
+  return implode(', ', array_slice($items, 0, -1)) . ' ' . $conjunction . ' ' . end($items);
+}
+
 ?>

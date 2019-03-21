@@ -19,12 +19,6 @@ $agenda_specialevents_title = wpptd_get_post_meta_value( $post->ID, 'agenda-spec
 
 $standard_anlassverantwortlicher = wpod_get_option( 'gloggi_einstellungen', 'anlassverantwortungs-email' );
 
-$any_specialevents_exist = false;
-$specialevents = new WP_Query( array( 'post_type' => 'specialevent', ) );
-if( $specialevents->have_posts() ) {
-  $any_specialevents_exist = true;
-}
-
 
 // Funktion um Mailadressen zu verschleiern
 function encode_all_to_htmlentities($str) {
@@ -158,9 +152,10 @@ if( $anlaesse->have_posts() ) : ?>
   // Ein Anlass kann zu einem Special Event zugeordnet sein
   $specialevent_titel = "";
   $specialevent_pluralname = "";
-  if( $anlassinfos['is-specialevent'] ) {
-    $specialevent_titel = get_the_title( $anlassinfos['specialevent'] );
-    $specialevent_pluralname = wpptd_get_post_meta_value( $anlassinfos['specialevent'], 'pluralname' );
+  $specialevent_list = array();
+  foreach( $anlassinfos['specialevent'] as $specialevent ) {
+    $specialevent_titel = get_the_title( $specialevent );
+    $specialevent_pluralname = wpptd_get_post_meta_value( $specialevent, 'pluralname' );
     $specialevent_anlass = $anlassinfos;
     $specialevent_anlass['anlassgruppen_classes'] = $anlassgruppen_classes;
     $specialevent_anlass['ID'] = $post->ID;
@@ -170,7 +165,9 @@ if( $anlaesse->have_posts() ) : ?>
     $specialevent_anlass['title'] = get_the_title();
     $specialevent_anlass['anlassgruppen'] = $anlassgruppen;
     $specialevent_anlaesse[$specialevent_titel][] = $specialevent_anlass;
+    $specialevent_list[] = '<a href="#special-event-' . sanitize_title( $specialevent_titel ) . '">' . $specialevent_pluralname . '</a>';
   }
+  $anlassinfos['specialevent-text'] = gloggi_make_list($specialevent_list, 'oder');
   // Bug im Plugin Post Types Definitely: Repeatable-Felder geben mit wpptd_get_post_meta_values die richtige Anzahl Elemente,
   // aber alle nur mit dem Standardinhalt zurück. Benütze stattdessen für dieses Feld wpptd_get_post_meta_value().
   $downloads = wpptd_get_post_meta_value( $post->ID, 'downloads' );
@@ -212,7 +209,7 @@ if( $anlaesse->have_posts() ) : ?>
             </div>
             <div class="agenda__body">
               <div class="lightbox__section"><p class="wysiwyg"><?php echo $anlassinfos['beschreibung']; ?></p></div>
-              <div class="lightbox__section"><p class="wysiwyg">Hast du noch Fragen? Dann melde dich bei <a href="<?php echo encode_all_to_htmlentities( 'mailto:' . $anlassverantwortlicher );?>"><?php echo encode_all_to_htmlentities( $anlassverantwortlicher_name );?></a><?php if( $any_specialevents_exist && $anlassinfos['is-specialevent'] ) : ?> oder lies allgemeine Informationen über <a href="#special-event-<?php echo sanitize_title( $specialevent_titel ); ?>"><?php echo $specialevent_pluralname; ?></a><?php endif; ?>.</p></div>
+              <div class="lightbox__section"><p class="wysiwyg">Hast du noch Fragen? Dann melde dich bei <a href="<?php echo encode_all_to_htmlentities( 'mailto:' . $anlassverantwortlicher );?>"><?php echo encode_all_to_htmlentities( $anlassverantwortlicher_name );?></a><?php if( $anlassinfos['specialevent-text'] ) : ?> oder lies allgemeine Informationen über <?php echo $anlassinfos['specialevent-text']; ?><?php endif; ?>.</p></div>
               <div class="lightbox__section">
                 <div class="content__two-columns content__columns--1-1">
 <?php if( $anlassinfos['mitnehmen'] ) : ?>
@@ -312,7 +309,7 @@ $specialevent_titel = get_the_title(); ?>
           <div class="lightbox__body agenda__body">
             <div class="lightbox__section"><p class="wysiwyg"><?php echo wpptd_get_post_meta_value( $post->ID, 'description' ); ?></p></div>
             <div class="lightbox__section"><p class="wysiwyg">Hast du noch Fragen? Dann melde dich bei <a href="<?php echo encode_all_to_htmlentities( 'mailto:' . $standard_anlassverantwortlicher );?>"><?php echo encode_all_to_htmlentities( $standard_anlassverantwortlicher );?></a>.</p></div>
-            <?php gloggi_display_indexed_event_set($specialevent_anlaesse, $specialevent_titel, "N&auml;chste " . wpptd_get_post_meta_value( $post->ID, 'pluralname' )); ?>
+            <?php gloggi_display_indexed_event_set($specialevent_anlaesse, $specialevent_titel, "N&auml;chste Anl&auml;sse"); ?>
           </div>
         </div>
       </div>
