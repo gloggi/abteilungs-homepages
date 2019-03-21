@@ -240,7 +240,7 @@ foreach( $stufen as $stufe ) : ?>
               <?php if( $gruppe['beschreibung'] ) : ?><div class="content__columns content__columns--1-1">
                 <div class="content__column">
                   <p class="wysiwyg"><?php echo $gruppe['beschreibung']; ?></p>
-                  <a href="<?php echo $mitmachen_seite; ?>#mitmachen" class="button button--small">Mitmachen</a>
+                  <a href="<?php echo $mitmachen_seite; ?>#kontakt" class="button button--small">Mitmachen</a>
                 </div><?php endif; ?>
                 <div>
                   <div class="group__info-box">
@@ -285,7 +285,7 @@ foreach( $stufen as $stufe ) : ?>
                 </div>
               <?php if( $gruppe['beschreibung'] ) : ?></div><?php else : ?>
                 <div class="content__column">
-                  <a href="<?php echo $mitmachen_seite; ?>#mitmachen" class="button button--small">Mitmachen</a>
+                  <a href="<?php echo $mitmachen_seite; ?>#kontakt" class="button button--small">Mitmachen</a>
                 </div><?php endif; ?>
 <?php gloggi_display_indexed_event_set($gruppen_anlaesse, $gruppe['ID'], "N&auml;chste Anl&auml;sse", $agenda_seite . "?gruppe=" . sanitize_title( $gruppe['name'] )); ?>
             </div>

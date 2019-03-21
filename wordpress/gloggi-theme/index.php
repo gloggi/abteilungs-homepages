@@ -99,7 +99,8 @@ if(isset($_POST['submit'])) {
     $index++;
   }
   if(!$hasError) {
-    $emailTo = wpod_get_option('gloggi_einstellungen', 'mitmachen-email');
+    $emailTo = wpptd_get_post_meta_value( $post->ID, 'index-contact-form-receiver' );
+    if( !$emailTo ) $emailTo = wpod_get_option('gloggi_einstellungen', 'mitmachen-email');
     $subject = 'Nachricht auf ' . get_the_permalink();
     $body = '';
     $email = '';
@@ -131,14 +132,14 @@ endif; ?>
   </div>
 </div>
 <?php if( $formfields && count( $formfields ) > 0 ) : ?>
-<div class="content__block" id="mitmachen">
+<div class="content__block" id="kontakt">
   <h2 style="margin-top: 0px;"><?php echo $formTitle; ?></h2>
 <?php if( $hasError ) : ?>
   <h3>Bitte Fehler in den markierten Feldern korrigieren.</h3>
 <?php elseif( $emailSent ) : ?>
   <h3>Vielen Dank, die Nachricht wurde verschickt.</h3>
 <?php endif; ?>
-  <form action="<?php echo get_the_permalink(); ?>#mitmachen" method="POST">
+  <form action="<?php echo get_the_permalink(); ?>#kontakt" method="POST">
     <ul>
 <?php $index = 0; foreach( $formfields as $field ) : ?>
       <li><label for="field<?php echo $index; ?>"><?php echo $field['name'] . ( $field['required'] ? '*' : '' ); ?></label>

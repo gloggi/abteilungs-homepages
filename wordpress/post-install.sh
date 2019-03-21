@@ -42,6 +42,7 @@ then
     # Create new pages
     mitmachen=$($wp post create --post_type=page --post_title="Mitmachen" --post_status=publish --menu_order=0 --porcelain)
     $wp post meta update $mitmachen _wp_page_template index.php
+    $wp post meta update $mitmachen index-contact-form-receiver admin@gloggi.ch
     waswirtun=$($wp post create --post_type=page --post_title="Was wir tun" --post_status=publish --menu_order=1 --porcelain)
     $wp post meta update $waswirtun _wp_page_template waswirtun.php
     werwirsind=$($wp post create --post_type=page --post_title="Wer wir sind" --post_status=publish --menu_order=2 --porcelain)

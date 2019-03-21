@@ -8,7 +8,7 @@ Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) u
 - Im Formular kann man jetzt Datumsfelder einfügen.
 - Beim Startseite-Template kann man jetzt auswählen, ob das Banner gross oder normal sein soll.
 - Im Footer kann der Titel der Gruppenliste angepasst werden.
-- Der Titel des Kontaktformulars kann ebenfalls angepasst werden.
+- Der Titel und Empfänger des Kontaktformulars kann pro Seite angepasst werden.
 
 ### Changed
 - Alle Schriftarten auf Source Sans Pro geändert, um dem neuen Gloggi-Branding-Konzept zu folgen.
@@ -24,7 +24,7 @@ Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) u
 ### Changed
 - Gender-korrektes Wording in Kontaktformular (m, w, x statt nur männlich und weiblich).
 - Wenn keine Special Events definiert sind, werden alle Anlässe wie normale Anlässe behandelt, sogar wenn sie als Special Event markiert sind.
-- Anlass-Karten wurden aus Lizenzgründen von Google Maps auf swisstopo umgestellt.
+- [Breaking] Anlass-Karten wurden aus Lizenzgründen von Google Maps auf swisstopo umgestellt.
 
 ## [1.2.5] - 2018-03-29
 ### Added

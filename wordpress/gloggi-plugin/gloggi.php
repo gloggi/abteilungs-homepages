@@ -830,7 +830,12 @@ function gloggi_custom_page_type( $wpptd ) {
                 'index-contact-form-title' => array(
                   'title' => __( 'Formular-Titel', 'gloggi' ),
                   'type' => 'text',
-                  'default' => 'Mitmachen'
+                  'default' => 'Mitmachen',
+                ),
+                'index-contact-form-receiver' => array(
+                  'title' => __( 'Formular-Mails gehen an...', 'gloggi' ),
+                  'description' => __( 'Wenn leer geht es an die Mailadresse aus den Einstellungen.', 'gloggi' ),
+                  'type' => 'email',
                 ),
                 'index-contact-form-fields' => array(
                   'title' => __( 'Formularfelder', 'gloggi' ),
@@ -1344,13 +1349,13 @@ function gloggi_register_options( $wpod ) {
                       'default' => '#4a4a4a',
                       'required' => true
                     ),
-                    'mitmachen-email' => array(
-                      'title' => __( 'Mitmachen-Formular e-Mails gehen an...*', 'gloggi' ),
+                    'anlassverantwortungs-email' => array(
+                      'title' => __( 'Kontakt f&uuml;r Anl&auml;sse ohne Kontaktangabe*', 'gloggi' ),
                       'type' => 'email',
                       'required' => true,
                     ),
-                    'anlassverantwortungs-email' => array(
-                      'title' => __( 'Kontakt f&uuml;r Anl&auml;sse ohne Kontaktangabe*', 'gloggi' ),
+                    'mitmachen-email' => array(
+                      'title' => __( 'Kontakt f&uuml;r Formulare ohne Kontaktangabe*', 'gloggi' ),
                       'type' => 'email',
                       'required' => true,
                     ),
