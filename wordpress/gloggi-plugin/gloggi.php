@@ -871,6 +871,27 @@ function gloggi_custom_page_type( $wpptd ) {
                   'title' => __( 'Trennbanner', 'gloggi' ),
                   'type' => 'media',
                 ),
+                'index-social-links' => array(
+                  'title' => __( 'Social Media Links', 'gloggi' ),
+                  'type' => 'repeatable',
+                  'repeatable' => array(
+                    'fields' => array(
+                      'name' => array(
+                        'title' => __( 'URL', 'gloggi' ),
+                        'type' => 'url',
+                      ),
+                      'type' => array(
+                        'title' => __( 'Typ', 'gloggi' ),
+                        'type' => 'select',
+                        'options' => array(
+                          'instagram' => __( 'Instagram', 'gloggi' ),
+                          'facebook' => __( 'Facebook', 'gloggi' ),
+                          'twitter' => __( 'Twitter', 'gloggi' ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
                 'index-content2' => array(
                   'title' => __( 'Inhalt 2', 'gloggi' ),
                   'type' => 'wysiwyg',
@@ -1380,18 +1401,6 @@ function gloggi_register_options( $wpod ) {
                       'title' => __( 'Kontakt f&uuml;r Formulare ohne Kontaktangabe*', 'gloggi' ),
                       'type' => 'email',
                       'required' => true,
-                    ),
-                    'instagram' => array(
-                      'title' => __( 'Instagram-Link', 'gloggi' ),
-                      'type' => 'url',
-                    ),
-                    'facebook' => array(
-                      'title' => __( 'Facebook-Link', 'gloggi' ),
-                      'type' => 'url',
-                    ),
-                    'twitter' => array(
-                      'title' => __( 'Twitter-Link', 'gloggi' ),
-                      'type' => 'url',
                     ),
                     'footer-groups-list-title' => array(
                       'title' => __( 'Titel der Gruppen-Liste im Footer', 'gloggi' ),

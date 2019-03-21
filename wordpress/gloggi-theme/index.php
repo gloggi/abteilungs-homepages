@@ -168,42 +168,24 @@ endif; ?>
 <?php echo $index_trennbanner; ?>
 
 <?php
-$instagram = wpod_get_option( 'gloggi_einstellungen', 'instagram' );
-$facebook = wpod_get_option( 'gloggi_einstellungen', 'facebook' );
-$twitter = wpod_get_option( 'gloggi_einstellungen', 'twitter' );
-$anysocialmedia = $instagram || $facebook || $twitter;
-if ($anysocialmedia) :
-?>
+$socialLinks = wpptd_get_post_meta_value( $post->ID, 'index-social-links' );
+if( count($socialLinks) ) : ?>
 <div class="content__block content__two-columns content__columns--1-2">
   <div class="content__column circle-stack">
-    <?php if ($instagram) : ?>
-    <a href="<?php echo $instagram; ?>">
-      <div class="circle-small instagram-icon">
-        <img src="<?php echo get_bloginfo('template_directory'); ?>/files/img/instagram-icon.svg">
-      </div>
-    </a>
-    <?php endif; ?>
-    <?php if ($facebook) : ?>
-    <a href="<?php echo $facebook; ?>">
-      <div class="circle-small facebook-icon">
-        <img src="<?php echo get_bloginfo('template_directory'); ?>/files/img/facebook-icon.svg">
-      </div>
-    </a>
-    <?php endif; ?>
-    <?php if ($twitter) : ?>
-    <a href="<?php echo $twitter; ?>">
-      <div class="circle-small twitter-icon">
-        <img src="<?php echo get_bloginfo('template_directory'); ?>/files/img/twitter-icon.svg">
-      </div>
-    </a>
-    <?php endif; ?>
+    <?php foreach ($socialLinks as $socialLink) : ?>
+      <a href="<?php echo $socialLink['url']; ?>" target="_blank">
+        <div class="circle-small <?php echo $socialLink['type']; ?>-icon">
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/files/img/<?php echo $socialLink['type']; ?>-icon.svg">
+        </div>
+      </a>
+    <?php endforeach; ?>
   </div>
   <div class="content__column">
 <?php else: ?>
   <div class="content__block">
 <?php endif; ?>
     <p class="wysiwyg"><?php echo $index_content2; ?></p>
-<?php if ($anysocialmedia) : ?>
+<?php if( count($socialLinks) ) : ?>
   </div>
 <?php endif; ?>
 </div>

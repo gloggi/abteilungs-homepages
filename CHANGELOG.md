@@ -20,6 +20,7 @@ Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) u
 - Security updates von verwendeter Drittsoftware.
 - Mehrzeilige Textfelder werden jetzt wieder in der Primärfarbe umrandet.
 - Im Footer werden alle Spalten nur noch angezeigt wenn sie Inhalte haben.
+- [Breaking] Die Social Media Links auf dem Formular-Template können jetzt pro Seite separat angepasst werden, anstatt global für die ganze Webseite.
 
 
 ## [1.3.0] - 2018-11-01
@@ -27,6 +28,7 @@ Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) u
 - Gender-korrektes Wording in Kontaktformular (m, w, x statt nur männlich und weiblich).
 - Wenn keine Special Events definiert sind, werden alle Anlässe wie normale Anlässe behandelt, sogar wenn sie als Special Event markiert sind.
 - [Breaking] Anlass-Karten wurden aus Lizenzgründen von Google Maps auf swisstopo umgestellt.
+
 
 ## [1.2.5] - 2018-03-29
 ### Added
