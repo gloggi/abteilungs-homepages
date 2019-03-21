@@ -3,6 +3,7 @@
 Template Name: Startseite
 */
 global $post;
+$index_largebanner = wpptd_get_post_meta_value( $post->ID, 'index-largebanner' );
 $index_trennbanner = wpptd_get_post_meta_value( $post->ID, 'index-separator-banner' );
 if( $index_trennbanner ) {
     $index_trennbanner = '<div class="content__big_image_container">' . wp_get_attachment_image( $index_trennbanner, array(), false, array( 'class' => 'content__big_image parallax__layer' ) ) . '</div>';
@@ -114,7 +115,11 @@ if(isset($_POST['submit'])) {
   }
 }
 ?>
-<?php get_template_part('header-large'); ?>
+<?php if ($index_largebanner) :
+  get_template_part('header-large');
+else :
+  get_template_part('header');
+endif; ?>
 
 <div class="content__block">
   <div class="circle-large color-primary not-small">

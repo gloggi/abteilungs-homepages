@@ -6,6 +6,7 @@ Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) u
 ## [Unreleased]
 ### Added
 - Im Formular kann man jetzt Datumsfelder einfügen.
+- Beim Startseite-Template kann man jetzt auswählen, ob das Banner gross oder normal sein soll.
 
 ### Changed
 - Alle Schriftarten auf Source Sans Pro geändert, um dem neuen Gloggi-Branding-Konzept zu folgen.

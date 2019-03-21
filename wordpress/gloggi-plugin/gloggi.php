@@ -817,6 +817,12 @@ function gloggi_custom_page_type( $wpptd ) {
             'index' => array(
               'title' => __( 'Seiteninformationen', 'gloggi' ),
               'fields' => array(
+                'index-largebanner' => array(
+                  'title' => __( 'Banner-Bild', 'gloggi' ),
+                  'type' => 'checkbox',
+                  'label' => __( 'Gross', 'gloggi' ),
+                  'default' => true,
+                ),
                 'index-content1' => array(
                   'title' => __( 'Inhalt 1', 'gloggi' ),
                   'type' => 'wysiwyg',
