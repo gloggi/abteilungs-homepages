@@ -827,8 +827,13 @@ function gloggi_custom_page_type( $wpptd ) {
                   'title' => __( 'Inhalt 1', 'gloggi' ),
                   'type' => 'wysiwyg',
                 ),
+                'index-contact-form-title' => array(
+                  'title' => __( 'Formular-Titel', 'gloggi' ),
+                  'type' => 'text',
+                  'default' => 'Mitmachen'
+                ),
                 'index-contact-form-fields' => array(
-                  'title' => __( 'Mitmachen-Formularfelder', 'gloggi' ),
+                  'title' => __( 'Formularfelder', 'gloggi' ),
                   'type' => 'repeatable',
                   'repeatable' => array(
                     'fields' => array(

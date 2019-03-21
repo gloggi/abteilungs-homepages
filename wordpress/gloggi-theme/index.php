@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Startseite
+Template Name: Formularseite
 */
 global $post;
 $index_largebanner = wpptd_get_post_meta_value( $post->ID, 'index-largebanner' );
@@ -16,6 +16,7 @@ $index_content1 = wpptd_get_post_meta_value( $post->ID, 'index-content1' );
 $index_content2 = wpptd_get_post_meta_value( $post->ID, 'index-content2' );
 $index_content3 = wpptd_get_post_meta_value( $post->ID, 'index-content3' );
 
+$formTitle = wpptd_get_post_meta_value( $post->ID, 'index-contact-form-title' );
 $formfields = wpptd_get_post_meta_value( $post->ID, 'index-contact-form-fields' );
 $emailSent = false;
 $hasError = false;
@@ -131,7 +132,7 @@ endif; ?>
 </div>
 <?php if( $formfields && count( $formfields ) > 0 ) : ?>
 <div class="content__block" id="mitmachen">
-  <h2 style="margin-top: 0px;">Mitmachen</h2>
+  <h2 style="margin-top: 0px;"><?php echo $formTitle; ?></h2>
 <?php if( $hasError ) : ?>
   <h3>Bitte Fehler in den markierten Feldern korrigieren.</h3>
 <?php elseif( $emailSent ) : ?>
