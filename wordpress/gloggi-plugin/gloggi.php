@@ -926,6 +926,14 @@ function gloggi_custom_page_type( $wpptd ) {
                   'title' => __( 'Inhalt', 'gloggi' ),
                   'type' => 'wysiwyg',
                 ),
+                'waswirtun-separator-banner' => array(
+                  'title' => __( 'Trennbanner zwischen Stufen und Inhalt 2', 'gloggi' ),
+                  'type' => 'media',
+                ),
+                'waswirtun-content2' => array(
+                  'title' => __( 'Inhalt 2', 'gloggi' ),
+                  'type' => 'wysiwyg',
+                ),
               ),
             ),
             'werwirsind' => array(

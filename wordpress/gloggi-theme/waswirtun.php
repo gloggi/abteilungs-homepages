@@ -4,6 +4,11 @@ Template Name: Was wir tun
 */
 global $post;
 $waswirtun_content = wpptd_get_post_meta_value( $post->ID, 'waswirtun-content' );
+$waswirtun_trennbanner = wpptd_get_post_meta_value( $post->ID, 'waswirtun-separator-banner');
+if( $waswirtun_trennbanner ) {
+  $waswirtun_trennbanner = '<div class="content__big_image_container">' . wp_get_attachment_image($waswirtun_trennbanner, array(), false, array('class' => 'content__big_image parallax__layer')) . '</div>';
+} else $waswirtun_trennbanner = '';
+$waswirtun_content2 = wpptd_get_post_meta_value( $post->ID, 'waswirtun-content2' );
 $abteilungslogo = wpod_get_option( 'gloggi_einstellungen', 'abteilungslogo' ); ?>
 <?php get_template_part('header'); ?>
 
@@ -13,7 +18,7 @@ $abteilungslogo = wpod_get_option( 'gloggi_einstellungen', 'abteilungslogo' ); ?
 </div>
 <?php endif; ?>
 
-<?php 
+<?php
 $stufen = new WP_Query( array( 'post_type' => 'stufe', 'orderby' => array( 'menu_order' => 'ASC' ), 'posts_per_page' => -1 ) );
 while ( $stufen->have_posts() ) : $stufen->the_post();
   $stufenlogo = wpptd_get_post_meta_value( $post->ID, 'stufenlogo' );
@@ -37,5 +42,13 @@ while ( $stufen->have_posts() ) : $stufen->the_post();
   <div style="clear: both;"></div>
 </div>
 <?php endwhile; wp_reset_postdata(); ?>
+
+<?php echo $waswirtun_trennbanner; ?>
+
+<?php if( $waswirtun_content2 ) : ?>
+  <div class="content__block">
+    <p class="wysiwyg"><?php echo $waswirtun_content2; ?></p>
+  </div>
+<?php endif; ?>
 
 <?php get_template_part( 'footer' ); ?>
