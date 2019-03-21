@@ -1361,6 +1361,11 @@ function gloggi_register_options( $wpod ) {
                       'title' => __( 'Twitter-Link', 'gloggi' ),
                       'type' => 'url',
                     ),
+                    'footer-groups-list-title' => array(
+                      'title' => __( 'Titel der Gruppen-Liste im Footer', 'gloggi' ),
+                      'type' => 'text',
+                      'default' => 'Gruppen'
+                    ),
                     'footer-links' => array(
                       'title' => __( 'Links im Footer', 'gloggi' ),
                       'type' => 'repeatable',

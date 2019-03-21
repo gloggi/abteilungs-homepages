@@ -7,6 +7,7 @@ Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) u
 ### Added
 - Im Formular kann man jetzt Datumsfelder einfügen.
 - Beim Startseite-Template kann man jetzt auswählen, ob das Banner gross oder normal sein soll.
+- Im Footer kann der Titel der Gruppenliste angepasst werden.
 
 ### Changed
 - Alle Schriftarten auf Source Sans Pro geändert, um dem neuen Gloggi-Branding-Konzept zu folgen.
@@ -15,6 +16,7 @@ Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) u
 - Anlässe werden nun standardmässig absteigend nach Startdatum sortiert. So sind alte Anlässe nicht mehr im Weg.
 - Security updates von verwendeter Drittsoftware.
 - Mehrzeilige Textfelder werden jetzt wieder in der Primärfarbe umrandet.
+- Im Footer werden alle Spalten nur noch angezeigt wenn sie Inhalte haben.
 
 
 ## [1.3.0] - 2018-11-01

@@ -3,8 +3,9 @@
 
 <div class="footer">
     <div class="footer__content">
+<?php if( (new WP_Query( array( 'post_type' => 'gruppe', 'posts_per_page' => 1 ) ))->have_posts() ) : ?>
         <div class="footer__column">
-            <h3 class="heading--footer"> Gruppen </h3>
+            <h3 class="heading--footer"><?php echo wpod_get_option('gloggi_einstellungen', 'footer-groups-list-title'); ?></h3>
             <ul><?php
 // Suche irgendeine Seite die das "werwirsind.php"-Template verwendet, und somit Gruppendetail-Ansichten enthält.
 $werwirsind_seite = '/wer-wir-sind';
@@ -37,6 +38,7 @@ wp_list_pages(array( 'post_type' => 'gruppe', 'title_li' => null, 'walker' => ne
 
 ?></ul>
         </div>
+<?php endif; ?>
 <?php $footer_links = wpod_get_option( 'gloggi_einstellungen', 'footer-links' );
 if( $footer_links ) : ?>
         <div class="footer__column">
@@ -48,7 +50,10 @@ if( $footer_links ) : ?>
             </ul>
         </div>
 <?php endif; ?>
-        <div class="footer__column"><h3 class="heading--footer"> Kontakt </h3><p class="wysiwyg"><?php echo wpod_get_option( 'gloggi_einstellungen', 'footer-contact' ); ?></p></div>
+<?php $contact = wpod_get_option( 'gloggi_einstellungen', 'footer-contact' );
+if( $contact ) : ?>
+        <div class="footer__column"><h3 class="heading--footer"> Kontakt </h3><p class="wysiwyg"><?php echo $contact; ?></p></div>
+<?php endif; ?>
     </div>
 </div>
 
