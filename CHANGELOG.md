@@ -10,6 +10,7 @@ Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) u
 - Im Footer kann der Titel der Gruppenliste angepasst werden.
 - Der Titel und Empfänger des Kontaktformulars kann pro Seite angepasst werden.
 - Neue Felder für Inhalt unter der Stufenliste und unter den Kontakten.
+- Die Anzeige der Gruppen auf Wer-wir-sind kann ausgeblendet werden.
 
 ### Changed
 - Alle Schriftarten auf Source Sans Pro geändert, um dem neuen Gloggi-Branding-Konzept zu folgen.

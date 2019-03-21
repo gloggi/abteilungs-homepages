@@ -52,6 +52,7 @@ function encode_all_to_htmlentities($str) {
 
 <?php echo $werwirsind_trennbanner1; ?>
 
+<?php if( wpptd_get_post_meta_value( $post->ID, 'werwirsind-showgroups' ) ) : ?>
 <div class="content__block">
 <?php if( $werwirsind_group_title ) : ?>
     <h2 class="heading-2"><?php echo $werwirsind_group_title; ?></h2>
@@ -305,6 +306,8 @@ foreach( $stufen as $stufe ) : ?>
 
 </div>
 </div>
+
+<?php endif; ?>
 
 <?php echo $werwirsind_trennbanner2; ?>
 

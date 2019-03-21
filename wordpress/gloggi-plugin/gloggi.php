@@ -947,6 +947,12 @@ function gloggi_custom_page_type( $wpptd ) {
                   'title' => __( 'Trennbanner zwischen Inhalt und Gruppen', 'gloggi' ),
                   'type' => 'media',
                 ),
+                'werwirsind-showgroups' => array(
+                  'title' => __( 'Gruppen darstellen', 'gloggi' ),
+                  'type' => 'checkbox',
+                  'label' => __( 'Ja', 'gloggi' ),
+                  'default' => true,
+                ),
                 'werwirsind-group-title' => array(
                   'title' => __( 'Titel Gruppenabschnitt', 'gloggi' ),
                   'type' => 'text',
