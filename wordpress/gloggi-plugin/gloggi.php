@@ -1398,13 +1398,6 @@ function gloggi_register_options( $wpod ) {
 add_action( 'wpod', 'gloggi_register_options' );
 
 
-/* Setze den Google Maps API key */
-function gloggi_set_google_maps_api_key() {
-  return 'AIzaSyADsv_Hk2XaEMIT9gBEkJFbOUnMxTsKWOs';
-}
-add_filter( 'wpdlib_google_maps_api_key', 'gloggi_set_google_maps_api_key' );
-
-
 /* Setze Webseiten-Titel */
 function gloggi_set_blogname() {
   if ( function_exists( 'wpod_get_option' ) ) {

@@ -29,7 +29,6 @@ function gloggi_scripts() {
     wp_enqueue_script( 'agenda', get_template_directory_uri() . '/files/js/agenda.js', array( 'jquery' ) );
     // Gib die Gruppenliste und den Google Maps API key an das Agenda-Skript
     wp_localize_script( 'agenda', 'Groups', get_query_var( 'agenda_gruppen' ) );
-    wp_localize_script( 'agenda', 'GmapsAPIKey', gloggi_set_google_maps_api_key() );
   }
 }
 add_action( 'wp_enqueue_scripts', 'gloggi_scripts' );
