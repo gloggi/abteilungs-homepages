@@ -13,6 +13,11 @@ $werwirsind_trennbanner2 = wpptd_get_post_meta_value( $post->ID, 'werwirsind-sep
 if( $werwirsind_trennbanner2 ) {
     $werwirsind_trennbanner2 = '<div class="content__big_image_container">' . wp_get_attachment_image( $werwirsind_trennbanner2, array(), false, array( 'class' => 'content__big_image parallax__layer' ) ) . '</div>';
 } else $werwirsind_trennbanner2 = '';
+$werwirsind_trennbanner3 = wpptd_get_post_meta_value( $post->ID, 'werwirsind-separator-banner3');
+if( $werwirsind_trennbanner3 ) {
+  $werwirsind_trennbanner3 = '<div class="content__big_image_container">' . wp_get_attachment_image( $werwirsind_trennbanner3, array(), false, array( 'class' => 'content__big_image parallax__layer' ) ) . '</div>';
+} else $werwirsind_trennbanner3 = '';
+$werwirsind_content2 = wpptd_get_post_meta_value( $post->ID, 'werwirsind-content2' );
 // Suche irgendeine Seite die das "index.php"-Template verwendet, und somit ein "Mitmachen"-Formular enthält.
 $mitmachen_seite = '/';
 $index_pages = get_pages( array( 'meta_key' => '_wp_page_template', 'meta_value' => 'index.php', ) );
@@ -326,6 +331,14 @@ if( $kontakt_query->have_posts() ) : ?>
 <?php endwhile; ?>
     </div>
 </div>
+<?php endif; ?>
+
+<?php echo $werwirsind_trennbanner3; ?>
+
+<?php if( $werwirsind_content2 ) : ?>
+  <div class="content__block">
+    <p class="wysiwyg"><?php echo $werwirsind_content2; ?></p>
+  </div>
 <?php endif; ?>
 
 <?php get_template_part( 'footer' ); ?>

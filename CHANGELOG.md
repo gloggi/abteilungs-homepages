@@ -9,7 +9,7 @@ Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) u
 - Beim Startseite-Template kann man jetzt auswählen, ob das Banner gross oder normal sein soll.
 - Im Footer kann der Titel der Gruppenliste angepasst werden.
 - Der Titel und Empfänger des Kontaktformulars kann pro Seite angepasst werden.
-- Neues Feld für Inhalt unter der Stufenliste.
+- Neue Felder für Inhalt unter der Stufenliste und unter den Kontakten.
 
 ### Changed
 - Alle Schriftarten auf Source Sans Pro geändert, um dem neuen Gloggi-Branding-Konzept zu folgen.

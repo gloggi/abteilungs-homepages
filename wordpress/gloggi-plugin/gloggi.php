@@ -952,8 +952,16 @@ function gloggi_custom_page_type( $wpptd ) {
                   'type' => 'text',
                 ),
                 'werwirsind-separator-banner2' => array(
-                  'title' => __( 'Trennbanner zwischen Gruppen und Kontakt', 'gloggi' ),
+                  'title' => __( 'Trennbanner zwischen Gruppen und Kontakten', 'gloggi' ),
                   'type' => 'media',
+                ),
+                'werwirsind-separator-banner3' => array(
+                  'title' => __( 'Trennbanner zwischen Kontakten und Inhalt 2', 'gloggi' ),
+                  'type' => 'media',
+                ),
+                'werwirsind-content2' => array(
+                  'title' => __( 'Inhalt 2', 'gloggi' ),
+                  'type' => 'wysiwyg',
                 ),
               ),
             ),
