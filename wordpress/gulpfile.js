@@ -68,26 +68,19 @@ gulp.task('deploy', gulp.series('zip', function() {
     .pipe(ftp.create({'host': process.env.FTP_HOST, 'user': process.env.FTP_USER, 'password': process.env.FTP_PASS}).dest(process.env.FTP_PATH));
 }));
 
-gulp.task('release', gulp.series('bump-version', function() {
-    return do_release();
-}));
+gulp.task('release', gulp.series('bump-version', doRelease, 'deploy'));
 
-gulp.task('release-minor', gulp.series('bump-version-minor', function() {
-    return do_release();
-}));
+gulp.task('release-minor', gulp.series('bump-version-minor', doRelease, 'deploy'));
 
-gulp.task('release-major', gulp.series('bump-version-major', function() {
-    return do_release();
-}));
+gulp.task('release-major', gulp.series('bump-version-major', doRelease, 'deploy'));
 
-function do_release() {
-    package_json = require('./package.json');
-    gulp.src('./*')
-    .pipe(git.commit('Release v' + package_json.version, {args: '-a', disableAppendPaths: true}))
+function doRelease() {
+    var packageJson = require('./package.json');
+    return gulp.src('./*')
+    .pipe(git.commit('Release v' + packageJson.version, {args: '-a', disableAppendPaths: true}))
     .on('end', function () {
-        git.tag('v' + package_json.version, 'Release v' + package_json.version, function (err) { });
+        git.tag('v' + packageJson.version, 'Release v' + packageJson.version, function (err) { });
     });
-    gulp.start('deploy');
 }
 
 gulp.task('default', gulp.parallel('zip-plugin', 'zip-theme'));
