@@ -22,11 +22,11 @@ then
 
     # Remove unneccessary example content
     $wp site empty --yes
-    
+
     # Install required plugins
     $wp plugin install "options-definitely" --activate
     $wp plugin install "post-types-definitely" --activate
-    
+
     # Download gloggi plugin in production, or use the provided one in Docker
     if [ ! -d "wp-content/plugins/gloggi-plugin" ] && [ ! -d "plugins/gloggi-plugin" ]; then
       $wp plugin install "http://wp-updates.gloggi.ch/gloggi-plugin.zip"

@@ -1,5 +1,6 @@
 <?php
 global $post;
+$favicon = wpod_get_option( 'gloggi_einstellungen', 'favicon' );
 $primaerfarbe = wpod_get_option( 'gloggi_einstellungen', 'primaerfarbe' );
 $sekundaerfarbe = wpod_get_option( 'gloggi_einstellungen', 'sekundaerfarbe' );
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
@@ -7,6 +8,10 @@ $sekundaerfarbe = wpod_get_option( 'gloggi_einstellungen', 'sekundaerfarbe' );
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+  <?php if( $favicon ) : ?>
+    <link rel="shortcut icon" href="<?php echo $favicon; ?>">
+    <link rel="icon" href="<?php echo $favicon; ?>" />
+  <?php endif; ?>
   <title><?php bloginfo('name'); if (!is_front_page()) : echo ' | '; wp_title(''); endif; ?></title>
   <?php wp_head();?>
   <style>
@@ -37,7 +42,7 @@ $sekundaerfarbe = wpod_get_option( 'gloggi_einstellungen', 'sekundaerfarbe' );
     .svg path {
       fill: <?php echo $primaerfarbe; ?> !important;
     }
-    
+
     .color-secondary, ::selection, a:hover, a ::selection, .text--question, .agenda__body b, .navbar-default .navbar-nav > li > a:hover {
       color: <?php echo $sekundaerfarbe; ?> !important;
     }

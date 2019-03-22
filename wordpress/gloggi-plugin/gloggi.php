@@ -1363,6 +1363,13 @@ function gloggi_register_options( $wpod ) {
                       'type' => 'media',
                       'store' => 'id',
                     ),
+                    'favicon' => array(
+                      'title' => __( 'Webseiten-Icon', 'gloggi' ),
+                      'type' => 'media',
+                      'store' => 'url',
+                      'mime_types' => 'image/png',
+                      'description' => __( 'Das kleine Icon auf dem Tab im Browser. Sollte ein 32x32 Pixel grosses PNG-Bild sein.', 'gloggi' ),
+                    ),
                     'primaerfarbe' => array(
                       'title' => __( 'Prim&auml;rfarbe*', 'gloggi' ),
                       'type' => 'color',
