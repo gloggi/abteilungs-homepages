@@ -154,6 +154,7 @@ if( $anlaesse->have_posts() ) : ?>
   $specialevent_pluralname = "";
   $specialevent_list = array();
   foreach( $anlassinfos['specialevent'] as $specialevent ) {
+    if( !$specialevent ) continue;
     $specialevent_titel = get_the_title( $specialevent );
     $specialevent_pluralname = wpptd_get_post_meta_value( $specialevent, 'pluralname' );
     $specialevent_anlass = $anlassinfos;

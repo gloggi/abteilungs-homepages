@@ -7,6 +7,10 @@ Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) u
 ### Added
 - Der Titel der Kontaktliste auf Wer-wir-sind kann angepasst werden.
 
+### Changed
+- Bug gefixt, bei dem alte Anlässe mit einem leeren Special Event angezeigt wurden.
+
+
 ## [2.0.1] - 2019-03-22
 ### Changed
 - Kontakt-Bilder werden jetzt automatisch kreisrund "zugeschnitten", keine Ovale mehr.
