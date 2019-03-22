@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,600,300italic");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600,300italic,600italic");
 .color-green {
   background-color: #539704; }
 
@@ -35,7 +35,7 @@ h1, h2, h3, h4 {
 
 h1 {
   font-size: 90px;
-  font-weight: 500;
+  font-weight: 600;
   color: white;
   text-shadow: 0px 0px 10px black;
   text-align: center;
@@ -47,7 +47,7 @@ h1 {
 
 h2 {
   font-size: 48px;
-  font-weight: 200;
+  font-weight: 300;
   margin-top: 75px;
   margin-bottom: 20px; }
   @media screen and (max-width: 500px) {
@@ -56,7 +56,7 @@ h2 {
 
 h3 {
   font-size: 36px;
-  font-weight: 500;
+  font-weight: 300;
   letter-spacing: 0.8px;
   margin-top: 75px;
   margin-bottom: 10px; }
@@ -67,7 +67,7 @@ h3 {
 
 h4 {
   font-size: 26px;
-  font-weight: 500;
+  font-weight: 600;
   margin-top: 20px;
   margin-bottom: 10px;
   text-align: left; }
@@ -100,7 +100,7 @@ a {
   font-style: normal;
   font-variant: normal;
   font-size: 24px;
-  font-weight: 200;
+  font-weight: 300;
   line-height: 32px;
   text-align: justify;
   letter-spacing: 0.8px;
@@ -126,7 +126,7 @@ ul {
   color: white; }
 
 .warning-title {
-  font-weight: 500; }
+  font-weight: 600; }
 
 .text--question {
   color: #244392; }
@@ -212,7 +212,7 @@ ul {
     font-style: normal;
     font-variant: normal;
     font-size: 18px;
-    font-weight: 200;
+    font-weight: 300;
     line-height: 24px;
     text-align: justify;
     letter-spacing: 0.8px;
@@ -222,7 +222,7 @@ ul {
     font-size: 42px;
     font-style: normal;
     font-variant: normal;
-    font-weight: 500;
+    font-weight: 300;
     line-height: 38.4px;
     margin-bottom: 20px;
     color: #4A4A4A;
@@ -232,7 +232,7 @@ ul {
     font-style: normal;
     font-variant: normal;
     font-size: 18px;
-    font-weight: 200;
+    font-weight: 300;
     line-height: 24px;
     text-align: justify;
     letter-spacing: 0.8px; }
@@ -257,7 +257,7 @@ ul {
     font-size: 42px;
     font-style: normal;
     font-variant: normal;
-    font-weight: 500;
+    font-weight: 300;
     line-height: 45.0px;
     margin: 0px;
     color: white !important;
@@ -620,7 +620,7 @@ label {
 
 .form-control {
   border-radius: 1px;
-  font-weight: 401;
+  font-weight: 300;
   font-size: 20px;
   height: 50px; }
   .form-control:focus {
@@ -799,7 +799,7 @@ label {
   font-size: 24px;
   font-style: normal;
   font-variant: normal;
-  font-weight: 250;
+  font-weight: 300;
   line-height: 26.4px;
   height: 75px;
   margin: 0px;
@@ -818,7 +818,7 @@ label {
     font-size: 20px;
     font-style: normal;
     font-variant: normal;
-    font-weight: 200;
+    font-weight: 300;
     line-height: 26.4px;
     color: white; }
 
