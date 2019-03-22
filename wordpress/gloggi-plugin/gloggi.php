@@ -822,6 +822,12 @@ function gloggi_custom_page_type( $wpptd ) {
                   'title' => __( 'Inhalt 1', 'gloggi' ),
                   'type' => 'wysiwyg',
                 ),
+                'index-content1-fleur-de-lis' => array(
+                  'title' => __( 'Pfadililie und Kleeblatt anzeigen', 'gloggi' ),
+                  'type' => 'checkbox',
+                  'label' => __( 'Ja', 'gloggi' ),
+                  'default' => true,
+                ),
                 'index-contact-form-title' => array(
                   'title' => __( 'Formular-Titel', 'gloggi' ),
                   'type' => 'text',

@@ -124,9 +124,11 @@ else :
 endif; ?>
 
 <div class="content__block">
+<?php if( wpptd_get_post_meta_value( $post->ID, 'index-content1-fleur-de-lis' ) ) : ?>
   <div class="circle-large color-primary not-small">
     <img src="<?php echo get_bloginfo('template_directory'); ?>/files/img/scout-logos.svg">
   </div>
+<?php endif; ?>
   <div>
     <p class="wysiwyg"><?php echo $index_content1; ?></p>
   </div>
