@@ -4,6 +4,9 @@ Alle bemerkenswerten Änderungen an diesem Projekt werden in dieser Datei festge
 Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) und dieses Projekt hält sich an [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+
+## [2.0.0] - 2019-03-22
 ### Added
 - Im Formular kann man jetzt Datumsfelder einfügen.
 - Beim Startseite-Template kann man jetzt auswählen, ob das Banner gross oder normal sein soll.
@@ -121,7 +124,8 @@ Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) u
 ### Added
 - Ursprüngliches Release.
 
-[Unreleased]: https://github.com/gloggi/abteilungs-homepages/compare/v1.3.0...HEAD
+[Unreleased]: https://github.com/gloggi/abteilungs-homepages/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/gloggi/abteilungs-homepages/compare/v1.3.0...v2.0.0
 [1.3.0]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.5...v1.3.0
 [1.2.5]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.4...v1.2.5
 [1.2.4]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.3...v1.2.4
