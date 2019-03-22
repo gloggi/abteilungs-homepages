@@ -6,18 +6,6 @@ Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) u
 ## [Unreleased]
 
 
-## [2.0.2] - 2019-03-22
-### Added
-- Der Titel der Kontaktliste auf Wer-wir-sind kann angepasst werden.
-
-### Changed
-- Bug gefixt, bei dem alte Anlässe mit einem leeren Special Event angezeigt wurden.
-
-
-## [2.0.1] - 2019-03-22
-### Changed
-- Kontakt-Bilder werden jetzt automatisch kreisrund "zugeschnitten", keine Ovale mehr.
-
 ## [2.0.0] - 2019-03-22
 ### Added
 - Im Formular kann man jetzt Datumsfelder einfügen.
@@ -38,7 +26,9 @@ Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) u
 - Mehrzeilige Textfelder werden jetzt wieder in der Primärfarbe umrandet.
 - Im Footer werden alle Spalten nur noch angezeigt wenn sie Inhalte haben.
 - [Breaking] Die Social Media Links auf dem Formular-Template können jetzt pro Seite separat angepasst werden, anstatt global für die ganze Webseite.
-- Jeder Anlass kann nun mehreren Special Events zugeordnet werden, sodass man auch spezielle Orte oder Traditionen als Special Events erfassen kann.
+- Jeder Anlass kann nun mehreren Special Events zugeordnet werden, sodass man auch spezielle Orte oder Traditionen als Special Events erfassen kann. Dies ist rückwärtskompatibel.
+- Kontakt-Bilder werden jetzt automatisch kreisrund "zugeschnitten", keine Ovale mehr.
+- Der Titel der Kontaktliste auf Wer-wir-sind kann angepasst werden.
 
 
 ## [1.3.0] - 2018-11-01
@@ -136,9 +126,7 @@ Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) u
 ### Added
 - Ursprüngliches Release.
 
-[Unreleased]: https://github.com/gloggi/abteilungs-homepages/compare/v2.0.2...HEAD
-[2.0.2]: https://github.com/gloggi/abteilungs-homepages/compare/v2.0.1...v2.0.2
-[2.0.1]: https://github.com/gloggi/abteilungs-homepages/compare/v2.0.0...v2.0.1
+[Unreleased]: https://github.com/gloggi/abteilungs-homepages/compare/v2.0.0...HEAD
 [2.0.0]: https://github.com/gloggi/abteilungs-homepages/compare/v1.3.0...v2.0.0
 [1.3.0]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.5...v1.3.0
 [1.2.5]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.4...v1.2.5
