@@ -13,6 +13,7 @@ $werwirsind_trennbanner2 = wpptd_get_post_meta_value( $post->ID, 'werwirsind-sep
 if( $werwirsind_trennbanner2 ) {
     $werwirsind_trennbanner2 = '<div class="content__big_image_container">' . wp_get_attachment_image( $werwirsind_trennbanner2, array(), false, array( 'class' => 'content__big_image parallax__layer' ) ) . '</div>';
 } else $werwirsind_trennbanner2 = '';
+$werwirsind_contacts_title = wpptd_get_post_meta_value( $post->ID, 'werwirsind-contacts-title');
 $werwirsind_trennbanner3 = wpptd_get_post_meta_value( $post->ID, 'werwirsind-separator-banner3');
 if( $werwirsind_trennbanner3 ) {
   $werwirsind_trennbanner3 = '<div class="content__big_image_container">' . wp_get_attachment_image( $werwirsind_trennbanner3, array(), false, array( 'class' => 'content__big_image parallax__layer' ) ) . '</div>';
@@ -315,7 +316,9 @@ foreach( $stufen as $stufe ) : ?>
 $kontakt_query = new WP_Query( array( 'post_type' => 'kontakt', 'orderby' => array( 'menu_order' => 'ASC', 'name' => 'ASC'), 'posts_per_page' => -1 ) );
 if( $kontakt_query->have_posts() ) : ?>
 <div class="content__block">
-    <h2 class="heading-2">Kontakt</h2>
+  <?php if( $werwirsind_contacts_title ) : ?>
+    <h2 class="heading-2"><?php echo $werwirsind_contacts_title; ?></h2>
+  <?php endif; ?>
     <div class="contact__container">
 <?php while( $kontakt_query->have_posts() ) : $kontakt_query->the_post();
     $email = wpptd_get_post_meta_value( $post->ID, 'email' );

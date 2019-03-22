@@ -4,6 +4,8 @@ Alle bemerkenswerten Änderungen an diesem Projekt werden in dieser Datei festge
 Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) und dieses Projekt hält sich an [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Der Titel der Kontaktliste auf Wer-wir-sind kann angepasst werden.
 
 ## [2.0.1] - 2019-03-22
 ### Changed

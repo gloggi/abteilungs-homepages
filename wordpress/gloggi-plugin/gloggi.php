@@ -983,6 +983,11 @@ function gloggi_custom_page_type( $wpptd ) {
                   'title' => __( 'Trennbanner zwischen Gruppen und Kontakten', 'gloggi' ),
                   'type' => 'media',
                 ),
+                'werwirsind-contacts-title' => array(
+                  'title' => __( 'Titel Kontaktabschnitt', 'gloggi' ),
+                  'type' => 'text',
+                  'default' => 'Kontakt',
+                ),
                 'werwirsind-separator-banner3' => array(
                   'title' => __( 'Trennbanner zwischen Kontakten und Inhalt 2', 'gloggi' ),
                   'type' => 'media',
