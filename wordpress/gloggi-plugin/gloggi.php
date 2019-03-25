@@ -877,7 +877,7 @@ function gloggi_custom_page_type( $wpptd ) {
                   'type' => 'repeatable',
                   'repeatable' => array(
                     'fields' => array(
-                      'name' => array(
+                      'url' => array(
                         'title' => __( 'URL', 'gloggi' ),
                         'type' => 'url',
                       ),
