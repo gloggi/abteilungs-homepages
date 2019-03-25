@@ -991,7 +991,7 @@ function gloggi_custom_page_type( $wpptd ) {
                   'type' => 'select',
                   'options' => array( 'posts' => 'page' ),
                   'required' => true,
-                  'description' => __( 'Die Seite die das Mitmachen-Formular anzeigt, standardmässig "Mitmachen"', 'gloggi' ),
+                  'description' => __( 'Die Seite die die Agendaeintr&auml;ge anzeigt, standardmässig "Agenda"', 'gloggi' ),
                 ),
                 'werwirsind-separator-banner2' => array(
                   'title' => __( 'Trennbanner zwischen Gruppen und Kontakten', 'gloggi' ),
