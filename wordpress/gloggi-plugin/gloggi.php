@@ -979,6 +979,20 @@ function gloggi_custom_page_type( $wpptd ) {
                   'title' => __( 'Titel Gruppenabschnitt', 'gloggi' ),
                   'type' => 'text',
                 ),
+                'werwirsind-group-form-page' => array(
+                  'title' => __( 'Mitmachen-Buttons verlinken auf...*', 'gloggi'  ),
+                  'type' => 'select',
+                  'options' => array( 'posts' => 'page' ),
+                  'required' => true,
+                  'description' => __( 'Die Seite die das Mitmachen-Formular anzeigt, standardmässig "Mitmachen"', 'gloggi' ),
+                ),
+                'werwirsind-group-agenda-page' => array(
+                  'title' => __( 'Agenda-Einträge verlinken auf...*', 'gloggi'  ),
+                  'type' => 'select',
+                  'options' => array( 'posts' => 'page' ),
+                  'required' => true,
+                  'description' => __( 'Die Seite die das Mitmachen-Formular anzeigt, standardmässig "Mitmachen"', 'gloggi' ),
+                ),
                 'werwirsind-separator-banner2' => array(
                   'title' => __( 'Trennbanner zwischen Gruppen und Kontakten', 'gloggi' ),
                   'type' => 'media',
@@ -1407,6 +1421,13 @@ function gloggi_register_options( $wpod ) {
                       'title' => __( 'Titel der Gruppen-Liste im Footer', 'gloggi' ),
                       'type' => 'text',
                       'default' => 'Gruppen'
+                    ),
+                    'footer-groups-page' => array(
+                      'title' => __( 'Gruppen-Links verlinken auf...*', 'gloggi'  ),
+                      'description' => __( 'Die Seite die die Gruppen anzeigt, standardmässig "Wer wir sind"', 'gloggi' ),
+                      'type' => 'select',
+                      'options' => array( 'posts' => 'page' ),
+                      'required' => true,
                     ),
                     'footer-links' => array(
                       'title' => __( 'Links im Footer', 'gloggi' ),

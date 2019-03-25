@@ -19,18 +19,8 @@ if( $werwirsind_trennbanner3 ) {
   $werwirsind_trennbanner3 = '<div class="content__big_image_container">' . wp_get_attachment_image( $werwirsind_trennbanner3, array(), false, array( 'class' => 'content__big_image parallax__layer' ) ) . '</div>';
 } else $werwirsind_trennbanner3 = '';
 $werwirsind_content2 = wpptd_get_post_meta_value( $post->ID, 'werwirsind-content2' );
-// Suche irgendeine Seite die das "index.php"-Template verwendet, und somit ein "Mitmachen"-Formular enthält.
-$mitmachen_seite = '/';
-$index_pages = get_pages( array( 'meta_key' => '_wp_page_template', 'meta_value' => 'index.php', ) );
-if( count($index_pages) ) {
-  $mitmachen_seite = get_the_permalink( $index_pages[0]->ID );
-}
-// Suche irgendeine Seite die das "agenda.php"-Template verwendet, und somit Anlässe anzeigt.
-$agenda_seite = '/';
-$agenda_pages = get_pages( array( 'meta_key' => '_wp_page_template', 'meta_value' => 'agenda.php', ) );
-if( count($agenda_pages) ) {
-  $agenda_seite = get_the_permalink( $agenda_pages[0]->ID );
-}
+$mitmachen_seite = get_the_permalink(wpptd_get_post_meta_value( $post->ID, 'werwirsind-group-form-page' ));
+$agenda_seite = get_the_permalink(wpptd_get_post_meta_value( $post->ID, 'werwirsind-group-agenda-page' ));
 $abteilungslogo = wpod_get_option( 'gloggi_einstellungen', 'abteilungslogo' );
 
 

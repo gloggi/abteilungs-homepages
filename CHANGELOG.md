@@ -4,8 +4,13 @@ Alle bemerkenswerten Änderungen an diesem Projekt werden in dieser Datei festge
 Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) und dieses Projekt hält sich an [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Neu kann in den Seiteneinstellungen gewählt werden, auf welche Page die Gruppen-Links im Footer verlinken.
+- Ebenso kann im Wer-wir-sind-Template gewählt werden, auf welche Pages die Mitmachen-Buttons und die Agenda-Events verlinken.
+
 ### Fixed
 - Social Links verlinken jetzt wieder korrekt.
+
 
 ## [2.0.0] - 2019-03-22
 ### Added

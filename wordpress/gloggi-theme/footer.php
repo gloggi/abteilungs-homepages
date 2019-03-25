@@ -7,12 +7,7 @@
         <div class="footer__column">
             <h3 class="heading--footer"><?php echo wpod_get_option('gloggi_einstellungen', 'footer-groups-list-title'); ?></h3>
             <ul><?php
-// Suche irgendeine Seite die das "werwirsind.php"-Template verwendet, und somit Gruppendetail-Ansichten enthält.
-$werwirsind_seite = '/wer-wir-sind';
-$werwirsind_pages = get_pages( array( 'meta_key' => '_wp_page_template', 'meta_value' => 'werwirsind.php', ) );
-if( count($werwirsind_pages) ) {
-  $werwirsind_seite = get_the_permalink( $werwirsind_pages[0]->ID );
-}
+$werwirsind_seite = get_the_permalink(wpod_get_option( 'gloggi_einstellungen', 'footer-groups-page' ));
 class Walker_Footer_Groups extends Walker {
     var $db_fields = array( 'parent' => 'post_parent', 'id' => 'ID' );
     var $werwirsind_seite;
