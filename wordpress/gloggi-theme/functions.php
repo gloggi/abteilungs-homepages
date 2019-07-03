@@ -3,7 +3,7 @@
 // Automatic updates for our theme
 require 'plugin-update-checker/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-	'http://wp-updates.gloggi.ch/gloggi-theme.json',
+	'https://wp-updates.gloggi.ch/gloggi-theme.json',
 	__FILE__,
 	'gloggi-theme'
 );
@@ -25,7 +25,7 @@ function gloggi_scripts() {
   wp_enqueue_style( 'main', get_template_directory_uri() . '/files/css/main.css' );
   wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/files/js/bootstrap.min.js', array( 'jquery' ) );
   if( is_page_template( 'agenda.php' ) ) {
-    wp_enqueue_script( 'swisstopo-api', 'http://api3.geo.admin.ch/loader.js?version=4.4.2' );
+    wp_enqueue_script( 'swisstopo-api', 'https://api3.geo.admin.ch/loader.js?version=4.4.2' );
     wp_enqueue_script( 'agenda', get_template_directory_uri() . '/files/js/agenda.js', array( 'jquery' ) );
     // Gib die Gruppenliste und den Google Maps API key an das Agenda-Skript
     wp_localize_script( 'agenda', 'Groups', get_query_var( 'agenda_gruppen' ) );

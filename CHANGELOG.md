@@ -7,6 +7,11 @@ Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) u
 
 
 ## [2.0.1] - 2019-03-25
+### Fixed
+- Die map.geo.admin-Karten können jetzt auch geladen werden, wenn die Seite mit https:// aufgerufen wird.
+
+
+## [2.0.1] - 2019-03-25
 ### Added
 - Neu kann in den Seiteneinstellungen gewählt werden, auf welche Page die Gruppen-Links im Footer verlinken.
 - Ebenso kann im Wer-wir-sind-Template gewählt werden, auf welche Pages die Mitmachen-Buttons und die Agenda-Events verlinken.
@@ -135,7 +140,8 @@ Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) u
 ### Added
 - Ursprüngliches Release.
 
-[Unreleased]: https://github.com/gloggi/abteilungs-homepages/compare/v2.0.1...HEAD
+[Unreleased]: https://github.com/gloggi/abteilungs-homepages/compare/v2.0.2...HEAD
+[2.0.1]: https://github.com/gloggi/abteilungs-homepages/compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/gloggi/abteilungs-homepages/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/gloggi/abteilungs-homepages/compare/v1.3.0...v2.0.0
 [1.3.0]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.5...v1.3.0
