@@ -6,7 +6,7 @@ Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) u
 ## [Unreleased]
 
 
-## [2.0.1] - 2019-03-25
+## [2.0.2] - 2019-03-25
 ### Fixed
 - Die map.geo.admin-Karten können jetzt auch geladen werden, wenn die Seite mit https:// aufgerufen wird.
 
@@ -141,7 +141,7 @@ Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) u
 - Ursprüngliches Release.
 
 [Unreleased]: https://github.com/gloggi/abteilungs-homepages/compare/v2.0.2...HEAD
-[2.0.1]: https://github.com/gloggi/abteilungs-homepages/compare/v2.0.1...v2.0.2
+[2.0.2]: https://github.com/gloggi/abteilungs-homepages/compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/gloggi/abteilungs-homepages/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/gloggi/abteilungs-homepages/compare/v1.3.0...v2.0.0
 [1.3.0]: https://github.com/gloggi/abteilungs-homepages/compare/v1.2.5...v1.3.0
