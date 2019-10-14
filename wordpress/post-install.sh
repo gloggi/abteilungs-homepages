@@ -23,9 +23,15 @@ then
     # Remove unneccessary example content
     $wp site empty --yes
 
-    # Install required plugins
-    $wp plugin install "options-definitely" --activate
-    $wp plugin install "post-types-definitely" --activate
+    # Since the required plugins have been discontinued without warning, use the copies provided on our server
+    if [ ! -d "wp-content/plugins/post-types-definitely" ] && [ ! -d "plugins/post-types-definitely" ]; then
+        $wp plugin install "http://wp-updates.gloggi.ch/post-types-definitely.zip"
+    fi
+    $wp plugin activate post-types-definitely
+    if [ ! -d "wp-content/plugins/options-definitely" ] && [ ! -d "plugins/options-definitely" ]; then
+        $wp plugin install "http://wp-updates.gloggi.ch/options-definitely.zip"
+    fi
+    $wp plugin activate options-definitely
 
     # Download gloggi plugin in production, or use the provided one in Docker
     if [ ! -d "wp-content/plugins/gloggi-plugin" ] && [ ! -d "plugins/gloggi-plugin" ]; then
