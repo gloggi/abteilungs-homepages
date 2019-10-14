@@ -1130,11 +1130,8 @@ add_action( 'add_meta_boxes_gruppe',  'gloggi_rename_author_meta_boxes', 999 );
 add_action( 'add_meta_boxes_anlass',  'gloggi_rename_author_meta_boxes', 999 );
 
 
-function endswith($string, $test) {
-  $strlen = strlen($string);
-  $testlen = strlen($test);
-  if ($testlen > $strlen) return false;
-  return substr_compare($string, $test, $strlen - $testlen, $testlen) === 0;
+function create_postbox_css_selector($template) {
+  return sprintf( "#%s.postbox", pathinfo($template, PATHINFO_FILENAME) );
 }
 function gloggi_hide_irrelevant_metaboxes() {
   $screen = get_current_screen();
@@ -1146,9 +1143,10 @@ function gloggi_hide_irrelevant_metaboxes() {
     $templates = array_filter( array_values(get_page_templates()), function($t) use ($current) { return $current != $t . '.php' && $current != $t && '' != $t; } );
     if( !empty($templates) ) {
       // Get a list of CSS selectors belonging to these page templates
-      $css_selectors = array_map( function($t){ return sprintf( "#%s.postbox", pathinfo($t, PATHINFO_FILENAME) ); }, $templates );
+      $css_selectors = implode(', ', array_map( 'create_postbox_css_selector', $templates ));
+      $css_selector_current = create_postbox_css_selector($current);
       // Hide the metaboxes belonging to the page templates
-      echo sprintf( "<style>%s { display: none; }</style>", implode( ', ', $css_selectors ));
+      echo "<style>$css_selectors { display: none; } $css_selector_current { display: block; }</style>";
     }
   }
 }
