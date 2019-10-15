@@ -858,6 +858,7 @@ function gloggi_custom_page_type( $wpptd ) {
                           'tel' => __( 'Telefonnummer', 'gloggi' ),
                           'gender' => __( 'Geschlecht', 'gloggi' ),
                           'date' => __( 'Datum', 'gloggi' ),
+                          'clothing-size' => __( 'Kleidergrösse (XS - XL)', 'gloggi' ),
                         ),
                       ),
                       'required' => array(

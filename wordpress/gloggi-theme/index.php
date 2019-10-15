@@ -84,6 +84,15 @@ if(isset($_POST['submit'])) {
             $fields[$key] = trim($value);
           }
           break;
+        case 'clothing-size':
+          if (!in_array($value, ['XS', 'S', 'M', 'L', 'XL'])) {
+            $hasError = true;
+            $formfields[$key]['class'] .= ' field-error ';
+            $fields[$key] = '';
+          } else {
+            $fields[$key] = trim($value);
+          }
+          break;
         case 'date':
           if (!date_create_from_format('d.m.Y', $value)) {
             $hasError = true;
@@ -153,6 +162,15 @@ endif; ?>
           <option value="m"<?php if( $prefill[$index] == 'm' ) echo ' selected="selected"'; ?>>m</option>
           <option value="w"<?php if( $prefill[$index] == 'w' ) echo ' selected="selected"'; ?>>w</option>
           <option value="x"<?php if( $prefill[$index] == 'x' ) echo ' selected="selected"'; ?>>x</option>
+        </select>
+<?php elseif( $field['type'] == 'clothing-size' ) : ?>
+        <select name="field<?php echo $index; ?>" id="field<?php echo $index; ?>" <?php if( $field['required'] ) : ?>required="required" <?php endif; ?>class="<?php echo $field['class']; ?>">
+          <option value="">Bitte w&auml;hlen</option>
+          <option value="XS"<?php if( $prefill[$index] == 'XS' ) echo ' selected="selected"'; ?>>XS</option>
+          <option value="S"<?php if( $prefill[$index] == 'S' ) echo ' selected="selected"'; ?>>S</option>
+          <option value="M"<?php if( $prefill[$index] == 'M' ) echo ' selected="selected"'; ?>>M</option>
+          <option value="L"<?php if( $prefill[$index] == 'L' ) echo ' selected="selected"'; ?>>L</option>
+          <option value="XL"<?php if( $prefill[$index] == 'XL' ) echo ' selected="selected"'; ?>>XL</option>
         </select>
 <?php elseif( $field['type'] == 'date' ) : ?>
         <input name="field<?php echo $index; ?>" id="field<?php echo $index; ?>" value="<?php echo $prefill[$index]; ?>" <?php if( $field['required'] ) : ?>required="required" <?php endif; ?>class="datepicker <?php echo $field['class']; ?>" />

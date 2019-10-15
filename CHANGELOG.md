@@ -7,6 +7,9 @@ Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) u
 ### Fixed
 - Bug gefixt, bei dem die Input-Felder von Pages manchmal nicht angezeigt wurden.
 
+### Added
+- Im Formular kann man jetzt Felder für Kleidergrössen einfügen.
+
 
 ## [2.0.2] - 2019-03-25
 ### Fixed
