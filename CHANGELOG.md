@@ -4,6 +4,9 @@ Alle bemerkenswerten Änderungen an diesem Projekt werden in dieser Datei festge
 Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) und dieses Projekt hält sich an [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+
+## [2.1.0] - 2019-10-15
 ### Fixed
 - Bug gefixt, bei dem die Input-Felder von Pages manchmal nicht angezeigt wurden.
 
@@ -145,7 +148,8 @@ Das Format basiert auf [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) u
 ### Added
 - Ursprüngliches Release.
 
-[Unreleased]: https://github.com/gloggi/abteilungs-homepages/compare/v2.0.2...HEAD
+[Unreleased]: https://github.com/gloggi/abteilungs-homepages/compare/v2.0.3...HEAD
+[2.0.3]: https://github.com/gloggi/abteilungs-homepages/compare/v2.0.2...v2.0.3
 [2.0.2]: https://github.com/gloggi/abteilungs-homepages/compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/gloggi/abteilungs-homepages/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/gloggi/abteilungs-homepages/compare/v1.3.0...v2.0.0
