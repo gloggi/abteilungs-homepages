@@ -25,6 +25,6 @@ class Download extends Model
      */
     public function event()
     {
-        return $this->belongsTo('App\Models\Event');
+        return $this->belongsTo(Event::class);
     }
 }

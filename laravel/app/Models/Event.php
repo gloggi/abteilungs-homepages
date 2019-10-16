@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -24,6 +25,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Event extends Model
 {
+    use CrudTrait;
+
     /**
      * @var array
      */
@@ -34,7 +37,7 @@ class Event extends Model
      */
     public function endLocation()
     {
-        return $this->belongsTo('App\Models\Location', 'end_location_id');
+        return $this->belongsTo(Location::class, 'end_location_id');
     }
 
     /**
@@ -42,7 +45,7 @@ class Event extends Model
      */
     public function startLocation()
     {
-        return $this->belongsTo('App\Models\Location', 'start_location_id');
+        return $this->belongsTo(Location::class, 'start_location_id');
     }
 
     /**
@@ -50,7 +53,7 @@ class Event extends Model
      */
     public function downloads()
     {
-        return $this->hasMany('App\Models\Download');
+        return $this->hasMany(Download::class);
     }
 
     /**
@@ -58,7 +61,7 @@ class Event extends Model
      */
     public function groups()
     {
-        return $this->belongsToMany('App\Models\Group', 'event_groups');
+        return $this->belongsToMany(Group::class, 'event_groups');
     }
 
     /**
@@ -66,7 +69,7 @@ class Event extends Model
      */
     public function owners()
     {
-        return $this->belongsToMany('App\Models\User', 'event_owners');
+        return $this->belongsToMany(User::class, 'event_owners');
     }
 
     /**
@@ -74,6 +77,6 @@ class Event extends Model
      */
     public function specialEventTypes()
     {
-        return $this->belongsToMany('App\Models\SpecialEventType', 'event_special_event_types');
+        return $this->belongsToMany(SpecialEventType::class, 'event_special_event_types');
     }
 }

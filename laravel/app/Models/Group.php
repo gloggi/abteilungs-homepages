@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -36,6 +37,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Group extends Model
 {
+    use CrudTrait;
+
     /**
      * @var array
      */
@@ -46,7 +49,7 @@ class Group extends Model
      */
     public function contact()
     {
-        return $this->belongsTo('App\Models\User', 'contact_id');
+        return $this->belongsTo(User::class, 'contact_id');
     }
 
     /**
@@ -54,7 +57,7 @@ class Group extends Model
      */
     public function parent()
     {
-        return $this->belongsTo('App\Models\Group', 'parent_id');
+        return $this->belongsTo(Group::class, 'parent_id');
     }
 
     /**
@@ -62,7 +65,7 @@ class Group extends Model
      */
     public function section()
     {
-        return $this->belongsTo('App\Models\Section');
+        return $this->belongsTo(Section::class);
     }
 
     /**
@@ -70,7 +73,7 @@ class Group extends Model
      */
     public function events()
     {
-        return $this->belongsToMany('App\Models\Event', 'event_groups');
+        return $this->belongsToMany(Event::class, 'event_groups');
     }
 
     /**
@@ -78,7 +81,7 @@ class Group extends Model
      */
     public function predecessorGroups()
     {
-        return $this->belongsToMany('App\Models\Group', 'group_transitions', 'to_group_id', 'from_group_id');
+        return $this->belongsToMany(Group::class, 'group_transitions', 'to_group_id', 'from_group_id');
     }
 
     /**
@@ -86,7 +89,7 @@ class Group extends Model
      */
     public function successorGroups()
     {
-        return $this->belongsToMany('App\Models\Group', 'group_transitions', 'from_group_id', 'to_group_id');
+        return $this->belongsToMany(Group::class, 'group_transitions', 'from_group_id', 'to_group_id');
     }
 
     /**
@@ -94,7 +97,7 @@ class Group extends Model
      */
     public function highlightImages()
     {
-        return $this->hasMany('App\Models\HighlightImage');
+        return $this->hasMany(HighlightImage::class);
     }
 
     /**
@@ -102,6 +105,6 @@ class Group extends Model
      */
     public function leaders()
     {
-        return $this->belongsToMany('App\Models\User', 'leaders');
+        return $this->belongsToMany(User::class, 'leaders');
     }
 }

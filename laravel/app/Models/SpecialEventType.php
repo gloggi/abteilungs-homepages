@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -16,6 +17,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class SpecialEventType extends Model
 {
+    use CrudTrait;
+
     /**
      * @var array
      */
@@ -26,6 +29,6 @@ class SpecialEventType extends Model
      */
     public function events()
     {
-        return $this->belongsToMany('App\Models\Event', 'event_special_event_types');
+        return $this->belongsToMany(Event::class, 'event_special_event_types');
     }
 }
