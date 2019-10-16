@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+  app:
+    build: .
+    container_name: 'abteilungs-homepage-app'
+    ports:
+      - '80:80'
+    links:
+      - db
+    volumes:
+      - .:/var/www
+      - ./public/.htaccess.docker:/var/www/public/.htaccess
+
+  db:
+    image: mariadb:10.3
+    container_name: 'abteilungs-homepage-db'
+    environment:
+      - MYSQL_DATABASE=abteilungs-homepage
+      - MYSQL_ROOT_PASSWORD=will-be-randomized-and-output-on-the-console
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+      - MYSQL_USER=abteilungs-homepage
+      - MYSQL_PASSWORD=abteilungs-homepage
+
+  node:
+    image: node:11.11.0
+    container_name: 'abteilungs-homepage-npm'
+    working_dir: '/app'
+    volumes:
+      - .:/app
+    command: bash -c "npm install && npm run watch"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: 'abteilungs-homepage-phpmyadmin'
+    ports:
+      - '8081:80'
+    links:
+      - db
