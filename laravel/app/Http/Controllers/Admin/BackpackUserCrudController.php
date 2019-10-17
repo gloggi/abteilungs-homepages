@@ -25,7 +25,7 @@ class BackpackUserCrudController extends CrudController
     {
         $this->crud->setModel(BackpackUser::class);
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/user');
-        $this->crud->setEntityNameStrings('backpackuser', 'backpack_users');
+        $this->crud->setEntityNameStrings('user', 'users');
     }
 
     protected function setupListOperation()
