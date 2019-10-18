@@ -14,8 +14,6 @@
     "user": "Benutzer",
     "users": "Benutzer",
 
-    "edit": "Ändern",
-
     "age-min": "Mindestalter",
     "age-max": "Höchstalter",
     "annual-plan": "Jahresplan",
@@ -32,14 +30,12 @@
     "image": "Bild",
     "logo": "Logo",
     "name": "Name",
+    "password": "Passwort",
     "parent": "Gehört zu",
     "person-name": "Name Kontaktperson",
     "plural-name": "Name in Plural",
     "sort-order": "Position",
     "start-location": "Startort",
     "start-time": "Startzeit",
-    "to-bring": "Mitnehmen",
-
-    "add-entity": ":entity erstellen"
-
+    "to-bring": "Mitnehmen"
 }

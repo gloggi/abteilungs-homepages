@@ -25,7 +25,7 @@ class StaffContactCrudController extends CrudController
     {
         $this->crud->setModel(StaffContact::class);
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/staff-contact');
-        $this->crud->setEntityNameStrings('staffcontact', 'staff_contacts');
+        $this->crud->setEntityNameStrings('staff_contact', 'staff_contacts');
     }
 
     protected function setupListOperation()

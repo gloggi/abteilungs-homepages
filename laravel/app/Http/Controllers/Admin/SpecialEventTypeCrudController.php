@@ -25,7 +25,7 @@ class SpecialEventTypeCrudController extends CrudController
     {
         $this->crud->setModel(SpecialEventType::class);
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/special-event-type');
-        $this->crud->setEntityNameStrings('specialeventtype', 'special_event_types');
+        $this->crud->setEntityNameStrings('special_event_type', 'special_event_types');
     }
 
     protected function setupListOperation()

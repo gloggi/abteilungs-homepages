@@ -14,10 +14,10 @@
 @section('header')
 	<section class="container-fluid">
 	  <h2>
-	    {!! trans($crud->getHeading() ?? 'backpack::crud.edit', ['entity' => trans($crud->entity_name)]) !!}
+	    {!! trans($crud->getHeading() ?? 'crud.edit-entity', ['entity' => trans($crud->entity_name)]) !!}
 
         @if ($crud->hasAccess('list'))
-          <small><a href="{{ url($crud->route) }}" class="hidden-print font-sm"><i class="fa fa-angle-double-left"></i> {{ trans('backpack::crud.back_to_all') }} <span>{{ $crud->entity_name_plural }}</span></a></small>
+          <small><a href="{{ url($crud->route) }}" class="hidden-print font-sm"><i class="fa fa-angle-double-left"></i> {{ trans('crud.back_to_all', [ 'entities' => trans($crud->entity_name_plural) ] ) }}</a></small>
         @endif
 	  </h2>
 	</section>
