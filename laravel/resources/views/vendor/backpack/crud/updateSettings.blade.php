@@ -14,10 +14,10 @@
 @section('header')
 	<section class="container-fluid">
 	  <h2>
-	    {!! trans($crud->getHeading() ?? 'crud.edit-entity', ['entity' => trans($crud->entity_name)]) !!}
+		  {!! trans($crud->getHeading() ?? 'crud.edit-entity', ['entity' => trans('settings')]) !!}
 
         @if ($crud->hasAccess('list'))
-          <small><a href="{{ url($crud->route) }}" class="hidden-print font-sm"><i class="fa fa-angle-double-left"></i> {{ trans('crud.back-to-all', [ 'entities' => trans($crud->entity_name_plural) ] ) }}</a></small>
+          <small><a href="{{ url($crud->route) }}" class="hidden-print font-sm"><i class="fa fa-angle-double-left"></i> {{ trans('crud.back-to-all') }} <span>{{ $crud->entity_name_plural }}</span></a></small>
         @endif
 	  </h2>
 	</section>
@@ -31,8 +31,8 @@
 		@include('crud::inc.grouped_errors')
 
 		  <form method="post"
-		  		action="{{ url($crud->route.'/'.$entry->getKey()) }}"
-				@if ($crud->hasUploadFields('update', $entry->getKey()))
+		  		action="{{ url($crud->route) }}"
+				@if ($crud->hasUploadFields())
 				enctype="multipart/form-data"
 				@endif
 		  		>
@@ -61,7 +61,7 @@
 		      	@include('crud::form_content', ['fields' => $crud->fields(), 'action' => 'edit'])
 		      @endif
 
-            @include('crud::inc.form_save_buttons')
+            @include('crud::inc.settings_save_button')
 		  </form>
 	</div>
 </div>

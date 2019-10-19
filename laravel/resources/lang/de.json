@@ -1,4 +1,6 @@
 {
+    "setting": "Einstellung",
+    "settings": "Einstellungen",
     "section": "Stufe",
     "sections": "Stufen",
     "group": "Gruppe",
@@ -37,5 +39,7 @@
     "sort-order": "Position",
     "start-location": "Startort",
     "start-time": "Startzeit",
-    "to-bring": "Mitnehmen"
+    "to-bring": "Mitnehmen",
+
+    "page-name": "Seitentitel"
 }

@@ -17,7 +17,7 @@
 		  {!! trans($crud->getHeading() ?? 'crud.add-entity', ['entity' => trans($crud->entity_name)]) !!}
 
         @if ($crud->hasAccess('list'))
-          <small><a href="{{ url($crud->route) }}" class="hidden-print font-sm"><i class="fa fa-angle-double-left"></i> {{ trans('crud.back_to_all', [ 'entities' => trans($crud->entity_name_plural) ] ) }}</a></small>
+          <small><a href="{{ url($crud->route) }}" class="hidden-print font-sm"><i class="fa fa-angle-double-left"></i> {{ trans('crud.back-to-all', [ 'entities' => trans($crud->entity_name_plural) ] ) }}</a></small>
         @endif
 	  </h2>
 	</section>
