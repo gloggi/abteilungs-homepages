@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app->bind('crud', function ($app) {
+        $this->app->extend('crud', function () {
             return new \App\CrudPanel;
         });
     }
