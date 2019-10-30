@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Admin\Operations\UpdateSettingsOperation;
+use App\Http\Requests\UpdateSettingsRequest;
 use App\Models\Setting;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
@@ -16,6 +17,7 @@ class SettingsCrudController extends CrudController {
     }
 
     protected function setupUpdateSettingsOperation() {
+        $this->crud->setValidation(UpdateSettingsRequest::class);
         $this->setupFromSettingsConfig();
     }
 

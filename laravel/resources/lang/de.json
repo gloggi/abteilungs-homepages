@@ -41,5 +41,8 @@
     "start-time": "Startzeit",
     "to-bring": "Mitnehmen",
 
-    "page-name": "Seitentitel"
+    "page-name": "Seitentitel",
+    "page-name-default": "Abteilungs-Homepage",
+    "page-name-hint": "Erscheint im Namen von Browser-Tabs, Bookmarks, ...",
+    "favicon-hint": "Das kleine Icon auf dem Tab im Browser. Sollte ein 32x32 Pixel grosses PNG-Bild sein."
 }

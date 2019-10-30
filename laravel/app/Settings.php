@@ -51,9 +51,19 @@ class Settings {
      */
     protected function getDefaultSettings() {
         return collect(config('settings.fields'))->map(function ($setting) {
-            return tap($setting, function (&$s) {
-                $s['value'] = $s['default'];
-            });
+            if (!isset($setting['default'])) $setting['default'] = '';
+            if (is_string($setting['default'])) {
+                $setting['default'] = trans($setting['default']);
+            }
+            $setting['value'] = $setting['default'];
+
+            if (isset($setting['hint'])) {
+                $setting['hint'] = trans($setting['hint']);
+            }
+
+            $setting['disk'] = 'public';
+
+            return $setting;
         });
     }
 

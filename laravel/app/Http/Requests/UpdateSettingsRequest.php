@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SettingsRequest extends FormRequest
+class UpdateSettingsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,9 +25,9 @@ class SettingsRequest extends FormRequest
     public function rules()
     {
         $fields = collect(config('settings.fields'));
-        return $fields->map(function ($key, $field) {
+        return $fields->map(function ($field, $key) {
             if (!isset($field['validation'])) return [];
-            return [$key => $field->validation];
+            return $field['validation'];
         })->all();
     }
 }

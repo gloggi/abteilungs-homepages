@@ -128,6 +128,28 @@ return [
             'timelineContentClass' => 'col-md-12',
         ],
 
+        /*
+         * UpdateSettings Operation
+         */
+        'updateSettings' => [
+            // How would you like the validation errors to be shown?
+          'groupedErrors' => true,
+          'inlineErrors'  => true,
+        ]
+
+    ],
+
+    'summernote-options' => [
+      'toolbar' => [
+        ['style', ['style']],
+        ['font', ['bold', 'underline', 'clear']],
+        ['color', ['color']],
+        ['para', ['ul', 'ol']],
+        ['table', ['table']],
+        ['insert', ['link', 'picture', 'video']],
+        ['view', ['codeview']],
+      ],
+      'dialogsInBody' => true,
     ],
 
     /*

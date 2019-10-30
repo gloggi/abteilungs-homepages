@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Operations;
 
 use App\CrudPanel;
+use App\Http\Requests\UpdateSettingsRequest;
 use App\Settings;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
@@ -84,7 +85,9 @@ trait UpdateSettingsOperation
         $request = $this->crud->validateRequest();
 
         // update the settings in the db
-        $savedSettings = app('settings')->update($this->crud->getStrippedSaveRequest());
+        /** @var Settings $savedSettings */
+        $savedSettings = app('settings');
+        $savedSettings->update($this->crud->getStrippedSaveRequest());
         $this->data['entry'] = $this->crud->entry = $savedSettings;
 
         // show a success message
