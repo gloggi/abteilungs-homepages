@@ -13,8 +13,12 @@
     "special_event_types": "Special Events",
     "location": "Location",
     "locations": "Locations",
+    "page": "Page",
+    "pages": "Pages",
     "user": "Benutzer",
     "users": "Benutzer",
+
+    "back-to-home": "Gehe zurück zur <a href=\"/\">Homepage</a>",
 
     "age-min": "Mindestalter",
     "age-max": "Höchstalter",
