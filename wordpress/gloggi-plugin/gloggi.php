@@ -869,6 +869,11 @@ function gloggi_custom_page_type( $wpptd ) {
                     ),
                   ),
                 ),
+                  're-captcha' => array(
+                      'title' => __( 'reCAPTCHA', 'gloggi' ),
+                      'type' => 'checkbox',
+                      'label' => 'reCAPTCHA aktivieren'
+                  ),
                 'index-separator-banner' => array(
                   'title' => __( 'Trennbanner', 'gloggi' ),
                   'type' => 'media',
@@ -1461,6 +1466,19 @@ function gloggi_register_options( $wpod ) {
                     ),
                   ),
                 ),
+                  're-captcha' => array(
+                      'title' => 'reCaptcha v2',
+                      'fields' => array(
+                          're-captcha-site-key' => array(
+                              'title' => __( 'Seitenschlüssel', 'gloggi' ),
+                              'type' => 'text',
+                          ),
+                          're-captcha-secret-key' => array(
+                              'title' => __( 'Geheimschlüssel ', 'gloggi' ),
+                              'type' => 'text',
+                          ),
+                      ),
+                  ),
               ),
             ),
           ),
