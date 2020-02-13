@@ -869,11 +869,12 @@ function gloggi_custom_page_type( $wpptd ) {
                     ),
                   ),
                 ),
-                  're-captcha' => array(
-                      'title' => __( 'reCAPTCHA', 'gloggi' ),
-                      'type' => 'checkbox',
-                      'label' => 'reCAPTCHA aktivieren'
-                  ),
+                're-captcha' => array(
+                  'title' => __( 'reCAPTCHA', 'gloggi' ),
+                  'type' => 'checkbox',
+                  'label' => __( 'reCAPTCHA aktivieren', 'gloggi' ),
+                  'description' => __( 'Verhindert Spam indem der Absender beweisen muss, dass er ein Mensch ist.', 'gloggi' ),
+                ),
                 'index-separator-banner' => array(
                   'title' => __( 'Trennbanner', 'gloggi' ),
                   'type' => 'media',
@@ -1466,19 +1467,19 @@ function gloggi_register_options( $wpod ) {
                     ),
                   ),
                 ),
-                  're-captcha' => array(
-                      'title' => 'reCaptcha v2',
-                      'fields' => array(
-                          're-captcha-site-key' => array(
-                              'title' => __( 'Seitenschlüssel', 'gloggi' ),
-                              'type' => 'text',
-                          ),
-                          're-captcha-secret-key' => array(
-                              'title' => __( 'Geheimschlüssel ', 'gloggi' ),
-                              'type' => 'text',
-                          ),
-                      ),
+                're-captcha' => array(
+                  'title' => __( 'reCaptcha v2', 'gloggi' ),
+                  'fields' => array(
+                    're-captcha-site-key' => array(
+                      'title' => __( 'Seitenschlüssel', 'gloggi' ),
+                      'type' => 'text',
+                    ),
+                    're-captcha-secret-key' => array(
+                      'title' => __( 'Geheimschlüssel ', 'gloggi' ),
+                      'type' => 'text',
+                    ),
                   ),
+                ),
               ),
             ),
           ),
@@ -1508,14 +1509,14 @@ function gloggi_fix_media_uploader() {
     var oldUploaderStatus = wp.media.view.UploaderStatus;
     wp.media.view.UploaderStatus = oldUploaderStatus.extend({
        initialize: function() {
-           oldUploaderStatus.prototype.initialize.call(this);
-           this.ready();
+         oldUploaderStatus.prototype.initialize.call(this);
+         this.ready();
        }
     });
 </script><?php
 }
 function gloggi_add_media_modification_js() {
-    add_action( 'admin_print_footer_scripts', 'gloggi_fix_media_uploader' );
+  add_action( 'admin_print_footer_scripts', 'gloggi_fix_media_uploader' );
 }
 add_action( 'wp_enqueue_media', 'gloggi_add_media_modification_js' );
 
