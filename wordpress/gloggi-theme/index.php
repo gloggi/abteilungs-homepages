@@ -26,7 +26,7 @@ $emailSent = false;
 $hasError = false;
 $prefill = array();
 
-array_walk( $formfields, function (&$item) { $item['class'] = 'form-control'; }  );
+array_walk( $formfields, function(&$item) { $item['class'] = 'form-control'; } );
 
 if(isset($_POST['submit'])) {
   $index = 0;
@@ -144,7 +144,7 @@ if(isset($_POST['submit'])) {
         $email = $field;
       }
     }
-    $headers = array( 'From: Homepage '. wpod_get_option('gloggi_einstellungen', 'abteilung') .' <'.$emailTo.'>', 'Reply-To: ' . $email );
+    $headers = array( 'From: Homepage '. wpod_get_option( 'gloggi_einstellungen', 'abteilung' ) .' <'.$emailTo.'>', 'Reply-To: ' . $email );
     wp_mail($emailTo, $subject, $body, $headers);
     $emailSent = true;
     $prefill = array();
@@ -239,7 +239,6 @@ if( count($socialLinks) ) : ?>
 <?php if (count($socialLinks)) : ?>
   </div>
 <?php endif; ?>
-  </div>
 </div>
 
 <?php echo $index_trennbanner2; ?>
