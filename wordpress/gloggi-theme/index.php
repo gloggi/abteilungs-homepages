@@ -3,18 +3,18 @@
 Template Name: Formularseite
 */
 global $post;
-$index_largebanner = wpptd_get_post_meta_value($post->ID, 'index-largebanner');
-$index_trennbanner = wpptd_get_post_meta_value($post->ID, 'index-separator-banner');
-if ($index_trennbanner) {
-    $index_trennbanner = '<div class="content__big_image_container">' . wp_get_attachment_image($index_trennbanner, array(), false, array('class' => 'content__big_image parallax__layer')) . '</div>';
+$index_largebanner = wpptd_get_post_meta_value( $post->ID, 'index-largebanner' );
+$index_trennbanner = wpptd_get_post_meta_value( $post->ID, 'index-separator-banner' );
+if( $index_trennbanner ) {
+    $index_trennbanner = '<div class="content__big_image_container">' . wp_get_attachment_image( $index_trennbanner, array(), false, array( 'class' => 'content__big_image parallax__layer' ) ) . '</div>';
 } else $index_trennbanner = '';
-$index_trennbanner2 = wpptd_get_post_meta_value($post->ID, 'index-separator-banner2');
-if ($index_trennbanner2) {
-    $index_trennbanner2 = '<div class="content__big_image_container">' . wp_get_attachment_image($index_trennbanner2, array(), false, array('class' => 'content__big_image parallax__layer')) . '</div>';
+$index_trennbanner2 = wpptd_get_post_meta_value( $post->ID, 'index-separator-banner2' );
+if( $index_trennbanner2 ) {
+    $index_trennbanner2 = '<div class="content__big_image_container">' . wp_get_attachment_image( $index_trennbanner2, array(), false, array( 'class' => 'content__big_image parallax__layer' ) ) . '</div>';
 } else $index_trennbanner2 = '';
-$index_content1 = wpptd_get_post_meta_value($post->ID, 'index-content1');
-$index_content2 = wpptd_get_post_meta_value($post->ID, 'index-content2');
-$index_content3 = wpptd_get_post_meta_value($post->ID, 'index-content3');
+$index_content1 = wpptd_get_post_meta_value( $post->ID, 'index-content1' );
+$index_content2 = wpptd_get_post_meta_value( $post->ID, 'index-content2' );
+$index_content3 = wpptd_get_post_meta_value( $post->ID, 'index-content3' );
 
 $formTitle = wpptd_get_post_meta_value( $post->ID, 'index-contact-form-title' );
 $formfields = wpptd_get_post_meta_value( $post->ID, 'index-contact-form-fields' );
@@ -26,9 +26,7 @@ $emailSent = false;
 $hasError = false;
 $prefill = array();
 
-array_walk($formfields, function (&$item) {
-    $item['class'] = 'form-control';
-});
+array_walk( $formfields, function (&$item) { $item['class'] = 'form-control'; }  );
 
 if(isset($_POST['submit'])) {
   $index = 0;
@@ -50,7 +48,7 @@ if(isset($_POST['submit'])) {
     $verify = file_get_contents($url, false, $context);
     $captcha_success=json_decode($verify);
 
-    if ($captcha_success->success==false) {
+    if( $captcha_success->success==false ) {
       $hasError=true;
     }
   }
@@ -134,19 +132,19 @@ if(isset($_POST['submit'])) {
     }
     $index++;
   }
-  if (!$hasError) {
-    $emailTo = wpptd_get_post_meta_value($post->ID, 'index-contact-form-receiver');
-    if (!$emailTo) $emailTo = wpod_get_option('gloggi_einstellungen', 'mitmachen-email');
+  if(!$hasError) {
+    $emailTo = wpptd_get_post_meta_value( $post->ID, 'index-contact-form-receiver' );
+    if( !$emailTo ) $emailTo = wpod_get_option('gloggi_einstellungen', 'mitmachen-email');
     $subject = 'Nachricht auf ' . get_the_permalink();
     $body = '';
     $email = '';
-    foreach ($fields as $key => $field) {
+    foreach( $fields as $key => $field ) {
       $body .= $formfields[$key]['name'] . ":\n" . $field . "\n\n";
-      if ($formfields[$key]['type'] == 'email' && $field != '') {
+      if( $formfields[$key]['type'] == 'email' && $field != '' ) {
         $email = $field;
       }
     }
-    $headers = array('From: Homepage ' . wpod_get_option('gloggi_einstellungen', 'abteilung') . ' <' . $emailTo . '>', 'Reply-To: ' . $email);
+    $headers = array( 'From: Homepage '. wpod_get_option('gloggi_einstellungen', 'abteilung') .' <'.$emailTo.'>', 'Reply-To: ' . $email );
     wp_mail($emailTo, $subject, $body, $headers);
     $emailSent = true;
     $prefill = array();
@@ -221,8 +219,8 @@ endif; ?>
 <?php echo $index_trennbanner; ?>
 
 <?php
-$socialLinks = wpptd_get_post_meta_value($post->ID, 'index-social-links');
-if (count($socialLinks)) : ?>
+$socialLinks = wpptd_get_post_meta_value( $post->ID, 'index-social-links' );
+if( count($socialLinks) ) : ?>
 <div class="content__block content__two-columns content__columns--1-2">
   <div class="content__column circle-stack">
     <?php foreach ($socialLinks as $socialLink) : ?>
@@ -234,22 +232,22 @@ if (count($socialLinks)) : ?>
     <?php endforeach; ?>
   </div>
   <div class="content__column">
-    <?php else: ?>
-    <div class="content__block">
-      <?php endif; ?>
-      <p class="wysiwyg"><?php echo $index_content2; ?></p>
-      <?php if (count($socialLinks)) : ?>
-    </div>
-  <?php endif; ?>
+<?php else: ?>
+  <div class="content__block">
+<?php endif; ?>
+    <p class="wysiwyg"><?php echo $index_content2; ?></p>
+<?php if (count($socialLinks)) : ?>
+  </div>
+<?php endif; ?>
   </div>
 </div>
 
 <?php echo $index_trennbanner2; ?>
 
-<?php if ($index_content3) : ?>
-    <div class="content__block">
-        <p class="wysiwyg"><?php echo $index_content3; ?></p>
-    </div>
+<?php if( $index_content3 ) : ?>
+<div class="content__block">
+    <p class="wysiwyg"><?php echo $index_content3; ?></p>
+</div>
 <?php endif; ?>
 
-<?php get_template_part('footer'); ?>
+<?php get_template_part( 'footer' ); ?>
