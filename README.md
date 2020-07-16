@@ -1,3 +1,5 @@
+> This repository is not maintained anymore. We have created a new implementation based on [Directus](https://directus.io/) and [Vue.js](https://vuejs.org/) here: https://github.com/gloggi/abteilungs-homepage
+
 # Running locally
 
 1. Clone the git repository
