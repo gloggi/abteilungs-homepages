@@ -809,6 +809,9 @@ label {
   width: 100%; }
   .navbar > ul {
     list-style-type: none; }
+  
+.navbar-brand img { 
+  height: inherit; }
 
 .dropdown-menu {
   box-shadow: 0 6px 6px rgba(0, 0, 0, 0.175);
