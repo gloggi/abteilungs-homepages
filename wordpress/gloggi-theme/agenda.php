@@ -207,6 +207,7 @@ if( $anlaesse->have_posts() ) : ?>
           </div>
           <div class="lightbox__body">
             <div class="agenda__map" data-address1="<?php echo $startort['coords']; ?>" data-address2="<?php echo $endort['coords']; ?>">
+              <span style="position: absolute; font-size: 0.6em">Um die Karte mit dem Treffpunkt anzuzeigen, musst du in den Cookie-Einstellungen deine Zustimmung geben.</span>
             </div>
             <div class="agenda__body">
               <div class="lightbox__section"><p class="wysiwyg"><?php echo $anlassinfos['beschreibung']; ?></p></div>
